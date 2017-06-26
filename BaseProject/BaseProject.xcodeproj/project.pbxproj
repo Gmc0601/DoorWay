@@ -361,6 +361,7 @@
 		42C84EA31EF2DB060008189D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				42F795DD1F00DB8300A11A69 /* LoginAndRegist */,
 				42F795A71F00C84600A11A69 /* NewsInfo */,
 				42F7959D1F00C84600A11A69 /* Investmentprojects */,
 				42F795A21F00C84600A11A69 /* MyCenter */,
@@ -647,6 +648,13 @@
 				42F795D71F00CC3E00A11A69 /* UIScrollView+TBRefresh.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		42F795DD1F00DB8300A11A69 /* LoginAndRegist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginAndRegist;
 			sourceTree = "<group>";
 		};
 		7F5FE81AF3930B1D8AB68F96 /* Frameworks */ = {
