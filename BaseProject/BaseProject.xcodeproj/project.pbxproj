@@ -65,6 +65,8 @@
 		42F795DA1F00CC3E00A11A69 /* TBRefreshFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795D31F00CC3E00A11A69 /* TBRefreshFootView.m */; };
 		42F795DB1F00CC3E00A11A69 /* TBRefreshHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795D51F00CC3E00A11A69 /* TBRefreshHeadView.m */; };
 		42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795D71F00CC3E00A11A69 /* UIScrollView+TBRefresh.m */; };
+		42F795E81F00E40700A11A69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795E61F00E40700A11A69 /* LoginViewController.m */; };
+		42F795E91F00E40700A11A69 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F795E71F00E40700A11A69 /* LoginViewController.xib */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +206,9 @@
 		42F795D51F00CC3E00A11A69 /* TBRefreshHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRefreshHeadView.m; sourceTree = "<group>"; };
 		42F795D61F00CC3E00A11A69 /* UIScrollView+TBRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TBRefresh.h"; sourceTree = "<group>"; };
 		42F795D71F00CC3E00A11A69 /* UIScrollView+TBRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TBRefresh.m"; sourceTree = "<group>"; };
+		42F795E51F00E40700A11A69 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		42F795E61F00E40700A11A69 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		42F795E71F00E40700A11A69 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		F79BCDCE7109E930EA932FB6 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -361,7 +366,7 @@
 		42C84EA31EF2DB060008189D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				42F795DD1F00DB8300A11A69 /* LoginAndRegist */,
+				42F795E41F00E3F900A11A69 /* LoginAndRegist */,
 				42F795A71F00C84600A11A69 /* NewsInfo */,
 				42F7959D1F00C84600A11A69 /* Investmentprojects */,
 				42F795A21F00C84600A11A69 /* MyCenter */,
@@ -650,9 +655,12 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
-		42F795DD1F00DB8300A11A69 /* LoginAndRegist */ = {
+		42F795E41F00E3F900A11A69 /* LoginAndRegist */ = {
 			isa = PBXGroup;
 			children = (
+				42F795E51F00E40700A11A69 /* LoginViewController.h */,
+				42F795E61F00E40700A11A69 /* LoginViewController.m */,
+				42F795E71F00E40700A11A69 /* LoginViewController.xib */,
 			);
 			path = LoginAndRegist;
 			sourceTree = "<group>";
@@ -786,6 +794,7 @@
 			files = (
 				42F795D81F00CC3E00A11A69 /* arrowdown@2x.png in Resources */,
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
+				42F795E91F00E40700A11A69 /* LoginViewController.xib in Resources */,
 				42A444431EF133E000F90791 /* LaunchScreen.storyboard in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
@@ -889,6 +898,7 @@
 				42C84EAF1EF2DB060008189D /* ViewController.m in Sources */,
 				42C84EB91EF2DCD90008189D /* MainApi.m in Sources */,
 				42F795C91F00C95200A11A69 /* MyCenterViewController.m in Sources */,
+				42F795E81F00E40700A11A69 /* LoginViewController.m in Sources */,
 				42C84F051EF2E97D0008189D /* NSString+Predicate.m in Sources */,
 				42C84F0E1EF2E97D0008189D /* UIView+Animation.m in Sources */,
 				42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */,
