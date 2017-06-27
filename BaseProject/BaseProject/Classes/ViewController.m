@@ -56,6 +56,7 @@
     
     
     NSString *str = @"你猜";
+    NSLog(@"我只是来试一试 到底行不行");
     NSLog(@"%@", str);
     
     //
