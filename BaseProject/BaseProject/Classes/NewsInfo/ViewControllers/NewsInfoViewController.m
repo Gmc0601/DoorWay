@@ -7,7 +7,8 @@
 //
 
 #import "NewsInfoViewController.h"
-
+#import "LoginViewController.h"
+#import "ViewController.h"
 @interface NewsInfoViewController ()
 
 @end
@@ -17,7 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setCustomerTitle: @"新闻资讯"];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:FRAME(100, 100, 100, 100)];
+    btn.backgroundColor = [UIColor yellowColor];
+    [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
     // Do any additional setup after loading the view.
+}
+- (void)click:(id)sender {
+    [self presentViewController:[ViewController new] animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

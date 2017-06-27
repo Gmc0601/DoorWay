@@ -23,7 +23,7 @@
 
 #if HHTest
 
-#define    BaseApi       @"http://112.74.166.250:81/index.php"
+#define    BaseApi       @"http://139.224.70.219:88/index.php"
 
 #else
 
@@ -35,7 +35,8 @@
 
 #define LoginURL @"_login_001"
 
-#define BrandList @"_brandlist_001"
+
+#define RegisteCode @"_sms_002"
 
 
 /*

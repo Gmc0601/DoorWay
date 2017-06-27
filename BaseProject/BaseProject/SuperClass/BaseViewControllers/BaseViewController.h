@@ -11,6 +11,6 @@
 
 - (void)backAction;
 
--(void)setCustomerTitle:(NSString *)title;
+- (void)setCustomerTitle:(NSString *)title;
 
 @end

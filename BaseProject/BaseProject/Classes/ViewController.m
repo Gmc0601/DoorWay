@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "KeychainUUID.h"
 @interface ViewController ()
 
 @end
@@ -16,42 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSDictionary *logindic = @{
-                          @"username": @"17682318061",
-                          @"loginPass": @"123456",
+    KeychainUUID *keychain = [[KeychainUUID alloc] init];
+    id data = [keychain readUDID];
+    NSString *udidStr = data;
+    NSDictionary *dic = @{
+                          @"username":@"17326093194",
+                          @"loginPass":@"000000",
+                          @"device_number" : udidStr,
                           };
-    [HttpRequest postPath:LoginURL params:logindic resultBlock:^(id responseObject, NSError *error) {
-        
-        if([error isEqual:[NSNull null]] || error == nil){
-            NSLog(@"success");
-        }
-        
-        NSLog(@"login>>>>>>%@", responseObject);
-        NSDictionary *datadic = responseObject;
-        if ([datadic[@"error"] intValue] == 0) {
-            NSDictionary *infoDic = datadic[@"info"];
-            NSString *usertoken = infoDic[@"userToken"];
-            [ConfigModel saveBoolObject:YES forKey:IsLogin];
-            [ConfigModel saveString:usertoken forKey:UserToken];
-        }else {
-            NSString *info = datadic[@"info"];
-            [ConfigModel mbProgressHUD:info andView:nil];
-        }
-        NSLog(@"error>>>>%@", error);
-    }];
-    
-    [HttpRequest postPath:BrandList params:nil resultBlock:^(id responseObject, NSError *error) {
-        NSLog(@"List>>>>>>%@", responseObject);
-        NSDictionary *datadic = responseObject;
 
-        if ([datadic[@"error"] intValue] == 0) {
-           
+    [HttpRequest postPath:LoginURL params:dic resultBlock:^(id responseObject, NSError *error) {
+        NSLog(@"Login>>>>>%@", responseObject);
+        NSDictionary *dic = responseObject;
+        NSLog(@"%@", dic);
+        int errorint = [dic[@"error"] intValue];
+        if (errorint == 0 ) {
+            NSDictionary *info = dic[@"info"];
+            NSString *userToken = info[@"userToken"];
+            [ConfigModel saveString:userToken forKey:UserToken];
+            [ConfigModel saveBoolObject:YES forKey:IsLogin];
+            [ConfigModel mbProgressHUD:@"登录成功" andView:nil];
         }else {
-            NSString *info = datadic[@"info"];
-            [ConfigModel mbProgressHUD:info andView:nil];
+            NSString *errorStr = dic[@"info"];
+            NSLog(@"%@", errorStr);
+            [ConfigModel mbProgressHUD:errorStr andView:nil];
+            
         }
-        NSLog(@"error>>>>%@", error);
     }];
     
     
