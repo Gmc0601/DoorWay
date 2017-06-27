@@ -68,6 +68,12 @@
 		42F795E81F00E40700A11A69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795E61F00E40700A11A69 /* LoginViewController.m */; };
 		42F795E91F00E40700A11A69 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F795E71F00E40700A11A69 /* LoginViewController.xib */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
+		CA4BC2C41F01045200A110ED /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4BC2C21F01045200A110ED /* RegistViewController.m */; };
+		CA4BC2C51F01045200A110ED /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA4BC2C31F01045200A110ED /* RegistViewController.xib */; };
+		CA4BC2C91F010EA400A110ED /* RegistCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4BC2C71F010EA400A110ED /* RegistCodeViewController.m */; };
+		CA4BC2CA1F010EA400A110ED /* RegistCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA4BC2C81F010EA400A110ED /* RegistCodeViewController.xib */; };
+		CA4BC2CE1F02271C00A110ED /* registNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4BC2CC1F02271C00A110ED /* registNameViewController.m */; };
+		CA4BC2CF1F02271C00A110ED /* registNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA4BC2CD1F02271C00A110ED /* registNameViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +217,15 @@
 		42F795E71F00E40700A11A69 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
+		CA4BC2C11F01045200A110ED /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		CA4BC2C21F01045200A110ED /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		CA4BC2C31F01045200A110ED /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
+		CA4BC2C61F010EA400A110ED /* RegistCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistCodeViewController.h; sourceTree = "<group>"; };
+		CA4BC2C71F010EA400A110ED /* RegistCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistCodeViewController.m; sourceTree = "<group>"; };
+		CA4BC2C81F010EA400A110ED /* RegistCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCodeViewController.xib; sourceTree = "<group>"; };
+		CA4BC2CB1F02271C00A110ED /* registNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registNameViewController.h; sourceTree = "<group>"; };
+		CA4BC2CC1F02271C00A110ED /* registNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registNameViewController.m; sourceTree = "<group>"; };
+		CA4BC2CD1F02271C00A110ED /* registNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registNameViewController.xib; sourceTree = "<group>"; };
 		F79BCDCE7109E930EA932FB6 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -661,6 +676,15 @@
 				42F795E51F00E40700A11A69 /* LoginViewController.h */,
 				42F795E61F00E40700A11A69 /* LoginViewController.m */,
 				42F795E71F00E40700A11A69 /* LoginViewController.xib */,
+				CA4BC2C11F01045200A110ED /* RegistViewController.h */,
+				CA4BC2C21F01045200A110ED /* RegistViewController.m */,
+				CA4BC2C31F01045200A110ED /* RegistViewController.xib */,
+				CA4BC2C61F010EA400A110ED /* RegistCodeViewController.h */,
+				CA4BC2C71F010EA400A110ED /* RegistCodeViewController.m */,
+				CA4BC2C81F010EA400A110ED /* RegistCodeViewController.xib */,
+				CA4BC2CB1F02271C00A110ED /* registNameViewController.h */,
+				CA4BC2CC1F02271C00A110ED /* registNameViewController.m */,
+				CA4BC2CD1F02271C00A110ED /* registNameViewController.xib */,
 			);
 			path = LoginAndRegist;
 			sourceTree = "<group>";
@@ -796,8 +820,11 @@
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
 				42F795E91F00E40700A11A69 /* LoginViewController.xib in Resources */,
 				42A444431EF133E000F90791 /* LaunchScreen.storyboard in Resources */,
+				CA4BC2C51F01045200A110ED /* RegistViewController.xib in Resources */,
+				CA4BC2CA1F010EA400A110ED /* RegistCodeViewController.xib in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
+				CA4BC2CF1F02271C00A110ED /* registNameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +897,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4BC2CE1F02271C00A110ED /* registNameViewController.m in Sources */,
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,
 				42C84F0C1EF2E97D0008189D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -899,11 +927,13 @@
 				42C84EB91EF2DCD90008189D /* MainApi.m in Sources */,
 				42F795C91F00C95200A11A69 /* MyCenterViewController.m in Sources */,
 				42F795E81F00E40700A11A69 /* LoginViewController.m in Sources */,
+				CA4BC2C41F01045200A110ED /* RegistViewController.m in Sources */,
 				42C84F051EF2E97D0008189D /* NSString+Predicate.m in Sources */,
 				42C84F0E1EF2E97D0008189D /* UIView+Animation.m in Sources */,
 				42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */,
 				42C84ECB1EF2DD1A0008189D /* NSString+MD5.m in Sources */,
 				42C84F1C1EF2EB650008189D /* NSObject+SBJSON.m in Sources */,
+				CA4BC2C91F010EA400A110ED /* RegistCodeViewController.m in Sources */,
 				42C84F0D1EF2E97D0008189D /* UITableViewCell+CellAnimation.m in Sources */,
 				42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */,
 				42F795DA1F00CC3E00A11A69 /* TBRefreshFootView.m in Sources */,
