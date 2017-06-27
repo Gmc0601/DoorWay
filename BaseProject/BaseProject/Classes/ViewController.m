@@ -55,6 +55,11 @@
     }];
     
     
+    NSString *str = @"你猜";
+    NSLog(@"%@", str);
+    
+    //
+    
 }
 
 
