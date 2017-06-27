@@ -555,6 +555,10 @@
 				42AE992E1F02669D003C8FB4 /* Models */,
 				42AE992F1F02669D003C8FB4 /* Views */,
 				42F795A41F00C84600A11A69 /* ViewControllers */,
+<<<<<<< HEAD
+=======
+				42F795A61F00C84600A11A69 /* Views */,
+>>>>>>> origin/master
 			);
 			path = MyCenter;
 			sourceTree = "<group>";
@@ -568,6 +572,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		42F795A61F00C84600A11A69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+>>>>>>> origin/master
 		42F795A71F00C84600A11A69 /* NewsInfo */ = {
 			isa = PBXGroup;
 			children = (
