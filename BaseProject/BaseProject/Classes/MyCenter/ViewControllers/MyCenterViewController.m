@@ -14,10 +14,28 @@
 
 @implementation MyCenterViewController
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+/*
+ - (void)viewWillDisappear:(BOOL)animated
+ {
+ [super viewWillDisappear:animated];
+ self.navigationController.navigationBarHidden=YES;
+ }
+ */
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
+    self.view.backgroundColor = UIColorFromHex(0xf6f6f6);
     
     [self setIMagetable];
 }
@@ -27,9 +45,10 @@
  */
 -(UITableView *)setIMagetable{
     if (!_setIMagetable) {
-        self.setIMagetable=[[UITableView alloc]initWithFrame:CGRectMake(0,0,kScreenW,kScreenH) style:UITableViewStyleGrouped];
+        self.setIMagetable=[[UITableView alloc]initWithFrame:CGRectMake(0,-40,kScreenW,kScreenH) style:UITableViewStyleGrouped];
         self.setIMagetable.showsVerticalScrollIndicator=NO;
         self.setIMagetable.separatorInset=UIEdgeInsetsMake(0,0,0,0);
+        self.setIMagetable.tableFooterView=[[UIView alloc]initWithFrame:CGRectZero];
         self.setIMagetable.delegate=self;
         self.setIMagetable.dataSource=self;
         [self.view addSubview:self.setIMagetable];
@@ -44,20 +63,21 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 60;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section==0) {
-        return 100;
-    }else{
+        return 200;
+    }else if (section==1){
         return 0.01;
     }
+    return YES;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *setView=[[UIView alloc]init];
-    setView.backgroundColor=UIColorFromHex(0xf6f6f6);
+    setView.backgroundColor=UIColorFromHex(0x4169E1);
     return setView;
 }
 
