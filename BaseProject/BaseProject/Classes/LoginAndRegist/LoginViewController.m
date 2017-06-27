@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "RegistViewController.h"
 
 @interface LoginViewController ()
 
@@ -23,6 +24,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+- (IBAction)registBtn:(UIButton *)sender {
+    RegistViewController *registVC = [[RegistViewController alloc] init];
+    [self.navigationController pushViewController:registVC animated:YES];
+    
+}
+
+
+
+- (IBAction)findBackPWBtn:(UIButton *)sender {
+}
+
+
 
 /*
 #pragma mark - Navigation
