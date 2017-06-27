@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseTableView.h"
-@interface InvestmentProjectViewController : BaseTableView
+@interface InvestmentProjectViewController : BaseTableView<UITableViewDelegate,UITableViewDataSource>
 
 @end
