@@ -37,6 +37,8 @@
     
     self.view.backgroundColor = UIColorFromHex(0xf6f6f6);
     
+    self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_hzbd",@"icon_zqbzzed"];
+    
     [self setIMagetable];
 }
 
@@ -96,6 +98,7 @@
     if (cell==nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.backgroundColor=[UIColor whiteColor];
         
     }
