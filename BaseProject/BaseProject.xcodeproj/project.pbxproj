@@ -15,6 +15,10 @@
 		42A444591EF133E100F90791 /* BaseProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A444581EF133E100F90791 /* BaseProjectUITests.m */; };
 		42AE99321F0268ED003C8FB4 /* Nothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE99311F0268ED003C8FB4 /* Nothing.m */; };
 		42AE99351F02692B003C8FB4 /* NothingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE99341F02692B003C8FB4 /* NothingView.m */; };
+		42AE993C1F026B61003C8FB4 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE993B1F026B61003C8FB4 /* NewsModel.m */; };
+		42AE993F1F026B72003C8FB4 /* NewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE993E1F026B72003C8FB4 /* NewView.m */; };
+		42AE99421F026B8E003C8FB4 /* InvestmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE99411F026B8E003C8FB4 /* InvestmentModel.m */; };
+		42AE99451F026BAC003C8FB4 /* InvestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE99441F026BAC003C8FB4 /* InvestView.m */; };
 		42C84EAF1EF2DB060008189D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84EA51EF2DB060008189D /* ViewController.m */; };
 		42C84EB01EF2DB060008189D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84EAC1EF2DB060008189D /* AppDelegate.m */; };
 		42C84EB11EF2DB060008189D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84EAD1EF2DB060008189D /* main.m */; };
@@ -113,6 +117,14 @@
 		42AE99311F0268ED003C8FB4 /* Nothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nothing.m; sourceTree = "<group>"; };
 		42AE99331F02692B003C8FB4 /* NothingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NothingView.h; sourceTree = "<group>"; };
 		42AE99341F02692B003C8FB4 /* NothingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NothingView.m; sourceTree = "<group>"; };
+		42AE993A1F026B61003C8FB4 /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
+		42AE993B1F026B61003C8FB4 /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		42AE993D1F026B72003C8FB4 /* NewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewView.h; sourceTree = "<group>"; };
+		42AE993E1F026B72003C8FB4 /* NewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewView.m; sourceTree = "<group>"; };
+		42AE99401F026B8E003C8FB4 /* InvestmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentModel.h; sourceTree = "<group>"; };
+		42AE99411F026B8E003C8FB4 /* InvestmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentModel.m; sourceTree = "<group>"; };
+		42AE99431F026BAC003C8FB4 /* InvestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestView.h; sourceTree = "<group>"; };
+		42AE99441F026BAC003C8FB4 /* InvestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestView.m; sourceTree = "<group>"; };
 		42C84EA41EF2DB060008189D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		42C84EA51EF2DB060008189D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		42C84EAB1EF2DB060008189D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -350,6 +362,42 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		42AE99361F026B37003C8FB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42AE993A1F026B61003C8FB4 /* NewsModel.h */,
+				42AE993B1F026B61003C8FB4 /* NewsModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		42AE99371F026B37003C8FB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42AE993D1F026B72003C8FB4 /* NewView.h */,
+				42AE993E1F026B72003C8FB4 /* NewView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42AE99381F026B44003C8FB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42AE99401F026B8E003C8FB4 /* InvestmentModel.h */,
+				42AE99411F026B8E003C8FB4 /* InvestmentModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		42AE99391F026B44003C8FB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42AE99431F026BAC003C8FB4 /* InvestView.h */,
+				42AE99441F026BAC003C8FB4 /* InvestView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		42C84EA21EF2DB060008189D /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,19 +569,11 @@
 		42F7959D1F00C84600A11A69 /* Investmentprojects */ = {
 			isa = PBXGroup;
 			children = (
-				42F7959E1F00C84600A11A69 /* Models */,
+				42AE99381F026B44003C8FB4 /* Models */,
+				42AE99391F026B44003C8FB4 /* Views */,
 				42F7959F1F00C84600A11A69 /* ViewControllers */,
-				42F795A01F00C84600A11A69 /* ViewModels */,
-				42F795A11F00C84600A11A69 /* Views */,
 			);
 			path = Investmentprojects;
-			sourceTree = "<group>";
-		};
-		42F7959E1F00C84600A11A69 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		42F7959F1F00C84600A11A69 /* ViewControllers */ = {
@@ -543,20 +583,6 @@
 				42F795C51F00C93C00A11A69 /* InvestmentProjectViewController.m */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		42F795A01F00C84600A11A69 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		42F795A11F00C84600A11A69 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		42F795A21F00C84600A11A69 /* MyCenter */ = {
@@ -581,19 +607,11 @@
 		42F795A71F00C84600A11A69 /* NewsInfo */ = {
 			isa = PBXGroup;
 			children = (
-				42F795A81F00C84600A11A69 /* Models */,
+				42AE99361F026B37003C8FB4 /* Models */,
+				42AE99371F026B37003C8FB4 /* Views */,
 				42F795A91F00C84600A11A69 /* ViewControllers */,
-				42F795AA1F00C84600A11A69 /* ViewModels */,
-				42F795AB1F00C84600A11A69 /* Views */,
 			);
 			path = NewsInfo;
-			sourceTree = "<group>";
-		};
-		42F795A81F00C84600A11A69 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		42F795A91F00C84600A11A69 /* ViewControllers */ = {
@@ -603,20 +621,6 @@
 				42F795C21F00C91600A11A69 /* NewsInfoViewController.m */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		42F795AA1F00C84600A11A69 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		42F795AB1F00C84600A11A69 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		42F795AC1F00C8B200A11A69 /* BaseViewControllers */ = {
@@ -905,6 +909,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42F7960F1F02578B00A11A69 /* registNameViewController.m in Sources */,
+				42AE99451F026BAC003C8FB4 /* InvestView.m in Sources */,
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,
 				42C84F0C1EF2E97D0008189D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -923,11 +928,13 @@
 				42C84F081EF2E97D0008189D /* UIColor+BGHexColor.m in Sources */,
 				42C84F041EF2E97D0008189D /* NSString+MD5.m in Sources */,
 				42C84F131EF2EA140008189D /* UITextView+placeholder.m in Sources */,
+				42AE993C1F026B61003C8FB4 /* NewsModel.m in Sources */,
 				42C84F091EF2E97D0008189D /* UIControl+ResponseTime.m in Sources */,
 				42F795DB1F00CC3E00A11A69 /* TBRefreshHeadView.m in Sources */,
 				42C84F021EF2E97D0008189D /* NSString+Category.m in Sources */,
 				42F796111F02578B00A11A69 /* RegistViewController.m in Sources */,
 				42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */,
+				42AE993F1F026B72003C8FB4 /* NewView.m in Sources */,
 				42AE99351F02692B003C8FB4 /* NothingView.m in Sources */,
 				42C84EFE1EF2E97D0008189D /* NSDictionary+Category.m in Sources */,
 				42F795C01F00C8B200A11A69 /* UINavigationBar+Awesome.m in Sources */,
@@ -944,6 +951,7 @@
 				42C84F1C1EF2EB650008189D /* NSObject+SBJSON.m in Sources */,
 				42F7960D1F02578B00A11A69 /* RegistCodeViewController.m in Sources */,
 				42C84F0D1EF2E97D0008189D /* UITableViewCell+CellAnimation.m in Sources */,
+				42AE99421F026B8E003C8FB4 /* InvestmentModel.m in Sources */,
 				42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */,
 				42F795DA1F00CC3E00A11A69 /* TBRefreshFootView.m in Sources */,
 				42C84F001EF2E97D0008189D /* NSMutableAttributedString+Category.m in Sources */,
