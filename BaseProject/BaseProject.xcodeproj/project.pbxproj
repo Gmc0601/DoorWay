@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A69590C1F025523005C1F7A /* setIMagecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A69590B1F025523005C1F7A /* setIMagecell.m */; };
 		42A4443B1EF133E000F90791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A444391EF133E000F90791 /* Main.storyboard */; };
 		42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42A4443C1EF133E000F90791 /* BaseProject.xcdatamodeld */; };
 		42A444401EF133E000F90791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42A4443F1EF133E000F90791 /* Assets.xcassets */; };
@@ -94,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A69590A1F025523005C1F7A /* setIMagecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setIMagecell.h; path = ../../../../../../../Desktop/setIMagecell.h; sourceTree = "<group>"; };
+		0A69590B1F025523005C1F7A /* setIMagecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = setIMagecell.m; path = ../../../../../../../Desktop/setIMagecell.m; sourceTree = "<group>"; };
 		42A4442D1EF133E000F90791 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A4443A1EF133E000F90791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42A4443D1EF133E000F90791 /* BaseProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseProject.xcdatamodel; sourceTree = "<group>"; };
@@ -560,6 +563,8 @@
 		42F795A51F00C84600A11A69 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0A69590A1F025523005C1F7A /* setIMagecell.h */,
+				0A69590B1F025523005C1F7A /* setIMagecell.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -897,6 +902,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A69590C1F025523005C1F7A /* setIMagecell.m in Sources */,
 				CA4BC2CE1F02271C00A110ED /* registNameViewController.m in Sources */,
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,
