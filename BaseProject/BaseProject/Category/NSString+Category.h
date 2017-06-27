@@ -21,6 +21,9 @@
 //计算文字高度
 - (CGFloat   ) heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width;
 
+//计算文字宽度
+-(CGFloat)widthWithFontSize:(CGFloat)fontSize height:(CGFloat)height;
+
 /**抹除运费小数末尾的0*/
 - (NSString *) removeUnwantedZero;
 
