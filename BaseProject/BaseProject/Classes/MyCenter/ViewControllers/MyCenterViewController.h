@@ -10,4 +10,6 @@
 #import "BaseViewController.h"
 @interface MyCenterViewController : BaseViewController
 
+@property(nonatomic,strong)UITableView *setIMagetable;
+
 @end
