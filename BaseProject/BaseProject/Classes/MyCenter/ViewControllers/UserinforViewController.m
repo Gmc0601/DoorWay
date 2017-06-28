@@ -18,12 +18,15 @@
     
     [super viewDidLoad];
     
-    self.title=@"我的邀请码";
+    self.title=@"个人资料";
+    
     self.view.backgroundColor = UIColorFromHex(0xf0f0f0);
+    
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     [self returnBack];
-
+    
+    [self  setIMageMain];
 }
 
 #pragma -mark 返回按钮
@@ -40,9 +43,50 @@
     return _returnBack;
 }
 
-
 -(void)returnBackView{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+/*
+ *个人资料
+ */
+-(void)setIMageMain{
+    
+    self.setIMageArray=@[@"头像",@"昵称",@"手机号",@"激活账号",@"激活账号"];
+    
+    for (int i=0; i<self.setIMageArray.count; i++){
+        
+        UIView *bgView = [[UIView alloc]init];
+        bgView.frame = CGRectMake(0,150/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,100/2*SCALE);
+        bgView.backgroundColor = [UIColor whiteColor];
+        bgView.tag = i;
+        bgView.userInteractionEnabled = YES;
+        [self.view addSubview:bgView];
+        
+        //上边线
+        UIView *bgUpXianView = [[UIView alloc]init];
+        bgUpXianView.frame = CGRectMake(0, 0, kScreenW, 1.0/2*SCALE);
+        bgUpXianView.backgroundColor = UIColorFromHex(0xd7d7d7);
+        [bgView addSubview:bgUpXianView];
+        
+        //下边线
+        UIView *bgDownXianView = [[UIView alloc]init];
+        bgDownXianView.frame = CGRectMake(0,100/2*SCALE-1.0/2*SCALE, kScreenW, 1.0/2*SCALE);
+        bgDownXianView.backgroundColor = UIColorFromHex(0xd7d7d7);
+        [bgView addSubview:bgDownXianView];
+        
+        //数组值放进去
+        UILabel *titleLable = [[UILabel alloc]init];
+        titleLable.frame = CGRectMake(40/2*SCALE,0,100/2*SCALE*5,100/2*SCALE);
+        titleLable.text = self.setIMageArray[i];
+        titleLable.textColor = UIColorFromHex(0x333333);
+        titleLable.font = HelveticaNeueFont(16*SCALE);
+        titleLable.textAlignment = NSTextAlignmentLeft;
+        [bgView addSubview:titleLable];
+
+    }
+    
 }
 
 

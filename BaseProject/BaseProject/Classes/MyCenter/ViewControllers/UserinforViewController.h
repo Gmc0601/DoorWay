@@ -12,5 +12,7 @@
 
 //返回按钮
 @property(nonatomic,strong)UIButton *returnBack;
+//存储文本数组
+@property(nonatomic,strong)NSArray *setIMageArray;
 
 @end
