@@ -10,4 +10,6 @@
 
 @interface setIMagecell : UITableViewCell
 
+@property(nonatomic,strong)UIImageView *setIMage;
+
 @end

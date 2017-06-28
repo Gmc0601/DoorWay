@@ -5,7 +5,7 @@
 //  Created by cc on 2017/6/26.
 //  Copyright © 2017年 cc. All rights reserved.
 //
-
+#import "setIMagecell.h"
 #import "MyCenterViewController.h"
 
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -70,7 +70,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section==0) {
-        return 200;
+        return 198;
     }else if (section==1){
         return 0.01;
     }
@@ -92,14 +92,18 @@
     return YES;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(setIMagecell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"UITableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    setIMagecell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[setIMagecell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.backgroundColor=[UIColor whiteColor];
+        
+        if (indexPath.section==0) {
+            cell.setIMage.image=[UIImage imageNamed:self.imageArray[indexPath.row]];
+        }
         
     }
     return cell;
