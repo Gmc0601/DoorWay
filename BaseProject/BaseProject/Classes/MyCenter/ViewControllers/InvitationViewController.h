@@ -6,6 +6,7 @@
 //  Copyright © 2017年 cc. All rights reserved.
 //
 
+#import "Masonry.h"
 #import "BaseViewController.h"
 
 @interface InvitationViewController : UIViewController
