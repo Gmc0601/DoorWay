@@ -33,9 +33,10 @@
     CGFloat offset = self.navigationController.navigationBar.frame.size.height + 20;
     self.tblInvestments = [[UITableView alloc] initWithFrame:CGRectMake(0, offset, self.view.bounds.size.width, self.view.bounds.size.height - offset) style:UITableViewStylePlain];
     [self.tblInvestments registerClass:[InvestmentItemTableViewCell class] forCellReuseIdentifier:@"cell"];
-    self.tblInvestments.rowHeight = 424;
+    self.tblInvestments.rowHeight = 222;
     self.tblInvestments.dataSource = self;
     self.tblInvestments.backgroundColor = [UIColor clearColor];
+    self.tblInvestments.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:self.tblInvestments];
 }
