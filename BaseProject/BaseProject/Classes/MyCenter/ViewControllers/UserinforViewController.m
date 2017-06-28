@@ -58,7 +58,11 @@
     for (int i=0; i<self.setIMageArray.count; i++){
         
         UIView *bgView = [[UIView alloc]init];
-        bgView.frame = CGRectMake(0,150/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,100/2*SCALE);
+        if (i==0) {
+             bgView.frame = CGRectMake(0,180/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,180/2*SCALE);
+        }else{
+           bgView.frame = CGRectMake(0,260/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,100/2*SCALE);
+        }
         bgView.backgroundColor = [UIColor whiteColor];
         bgView.tag = i;
         bgView.userInteractionEnabled = YES;
@@ -72,13 +76,21 @@
         
         //下边线
         UIView *bgDownXianView = [[UIView alloc]init];
-        bgDownXianView.frame = CGRectMake(0,100/2*SCALE-1.0/2*SCALE, kScreenW, 1.0/2*SCALE);
+        if (i==0) {
+           bgDownXianView.frame = CGRectMake(0,180/2*SCALE-1.0/2*SCALE, kScreenW, 1.0/2*SCALE);
+        }else{
+            bgDownXianView.frame = CGRectMake(0,100/2*SCALE-1.0/2*SCALE, kScreenW, 1.0/2*SCALE);
+        }
         bgDownXianView.backgroundColor = UIColorFromHex(0xd7d7d7);
         [bgView addSubview:bgDownXianView];
         
         //数组值放进去
         UILabel *titleLable = [[UILabel alloc]init];
-        titleLable.frame = CGRectMake(40/2*SCALE,0,100/2*SCALE*5,100/2*SCALE);
+        if (i==0) {
+             titleLable.frame = CGRectMake(40/2*SCALE,0,100/2*SCALE*5,180/2*SCALE);
+        }else{
+             titleLable.frame = CGRectMake(40/2*SCALE,0,100/2*SCALE*5,100/2*SCALE);
+        }
         titleLable.text = self.setIMageArray[i];
         titleLable.textColor = UIColorFromHex(0x333333);
         titleLable.font = HelveticaNeueFont(16*SCALE);
