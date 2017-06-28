@@ -9,6 +9,7 @@
 #import "RegistViewController.h"
 #import "RegistCodeViewController.h"
 @interface RegistViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *regist1TF;
 
 @end
 
@@ -16,7 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    titleLabel.text = @"注册";
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    self.navigationItem.titleView = titleLabel;
+    
+    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist1BackBtn)];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)clickRegist1BackBtn{
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,9 +45,38 @@
 
 
 - (IBAction)nestStepBtn:(UIButton *)sender {
+    NSMutableDictionary *regist1Mudic = [NSMutableDictionary dictionary];
+    [regist1Mudic setObject:self.regist1TF.text forKey:@"invitationcode"];
+    
+    [HttpRequest postPath:@"_invitationcode_001" params:regist1Mudic resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSLog(@"login>>>>>>%@", responseObject);
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] == 0) {
+            RegistCodeViewController  *registCodeVC = [[RegistCodeViewController alloc] init];
+            [self.navigationController pushViewController: registCodeVC animated:YES];
+        }else {
+            NSString *info = datadic[@"info"];
+            [ConfigModel mbProgressHUD:info andView:nil];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
+
+    
     RegistCodeViewController  *registCodeVC = [[RegistCodeViewController alloc] init];
     [self.navigationController pushViewController: registCodeVC animated:YES];
+    
+    
+    
+
 }
+
+
+
 
 /*
 #pragma mark - Navigation

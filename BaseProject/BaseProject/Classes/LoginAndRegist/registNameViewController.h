@@ -10,4 +10,8 @@
 
 @interface registNameViewController : UIViewController
 
+@property (nonatomic, strong)NSString *codeStr;
+@property (nonatomic, strong)NSString *mobileStr;
+
+
 @end

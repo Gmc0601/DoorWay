@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="accountTF" destination="jr0-Nc-cks" id="0uQ-MK-xD5"/>
+                <outlet property="passwordTF" destination="4gc-b7-k29" id="nxa-oL-rZq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,14 +41,14 @@
                         <action selector="registBtn:" destination="-1" eventType="touchUpInside" id="Bga-mZ-xEs"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Fy-nF-FVj">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_zx_img" translatesAutoresizingMaskIntoConstraints="NO" id="0Fy-nF-FVj">
                     <rect key="frame" x="151" y="122" width="72" height="72"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="72" id="kgd-e0-CVB"/>
                         <constraint firstAttribute="width" constant="72" id="zAe-Oe-iLx"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入您的手机号/邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-Nc-cks">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="17682318061" placeholder="输入您的手机号/邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-Nc-cks">
                     <rect key="frame" x="0.0" y="275" width="375" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="hLu-R9-OsI"/>
@@ -63,7 +65,7 @@
                         <constraint firstAttribute="width" constant="333" id="ide-ik-ah3"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-b7-k29">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-b7-k29">
                     <rect key="frame" x="0.0" y="322" width="375" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="KnA-un-4eG"/>
@@ -89,6 +91,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="loginBtn:" destination="-1" eventType="touchUpInside" id="ahC-1H-1VG"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oi-H3-qgZ">
                     <rect key="frame" x="87" y="443" width="200" height="13"/>
@@ -154,6 +159,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bg_zx_img" width="80" height="60"/>
         <image name="icon_dl_gb" width="18" height="18"/>
     </resources>
 </document>
