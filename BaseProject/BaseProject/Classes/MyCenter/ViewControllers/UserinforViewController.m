@@ -108,6 +108,21 @@
             IMage.numberOfTapsRequired = 1; // 单击
             [imageView addGestureRecognizer:IMage];
         }
+        
+
+        
+        
+        if (i==0||i==1||i==3){
+            UIImageView   *IMageAllow=[[UIImageView alloc]init];
+            IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
+            IMageAllow.userInteractionEnabled=YES;
+            if (i==0) {
+                 IMageAllow.frame= CGRectMake(kScreenW-20,130*SCALE+(80*i),13/2,26/2);
+            }else{
+                 IMageAllow.frame= CGRectMake(kScreenW-20,150*SCALE+(60*i),13/2,26/2);
+            }
+            [self.view addSubview:IMageAllow];
+        }
 
     }
 }
