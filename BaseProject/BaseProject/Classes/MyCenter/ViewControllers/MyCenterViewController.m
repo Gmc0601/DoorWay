@@ -5,6 +5,8 @@
 //  Created by cc on 2017/6/26.
 //  Copyright © 2017年 cc. All rights reserved.
 //
+
+#import "Masonry.h"
 #import "setIMagecell.h"
 #import "MyCenterViewController.h"
 
@@ -82,8 +84,28 @@
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *setView=[[UIView alloc]init];
     setView.backgroundColor=UIColorFromHex(0x4169E1);
+
+    UIButton *loginBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [loginBtn setImage:[UIImage imageNamed:@"btn_dl"] forState:UIControlStateNormal];
+    [loginBtn addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+    [setView addSubview:loginBtn];
+    [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(100*SCALE);
+        make.centerX.mas_equalTo(setView.mas_centerX);
+        make.width.mas_equalTo(206/2);
+        make.height.mas_equalTo(65/2);
+    }];
     return setView;
 }
+
+
+/*
+ *登录方法
+ */
+-(void)login:(UIButton*)sender{
+    
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section==0) {
