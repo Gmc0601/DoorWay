@@ -156,43 +156,26 @@
             }];
         }
         
+        if (i==3) {
+            UIImageView   *IMageAllowTwo=[[UIImageView alloc]init];
+            IMageAllowTwo.image=[UIImage imageNamed:@"icon_gd"];
+            IMageAllowTwo.userInteractionEnabled=YES;
+            IMageAllowTwo.frame= CGRectMake(kScreenW-20,330*SCALE,13/2,26/2);
+            [self.view addSubview:IMageAllowTwo];
+            IMageRose=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagetwo:)];
+            IMageRose.numberOfTapsRequired = 1; // 单击
+            [IMageAllowTwo addGestureRecognizer:IMageRose];
+        }
         
         
-        
-        
-        
-        
-        
-//        if (i==0||i==1||i==3){
-//            UIImageView   *IMageAllow=[[UIImageView alloc]init];
-//            IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
-//            IMageAllow.userInteractionEnabled=YES;
-//            if (i==0) {
-//                 IMageAllow.frame= CGRectMake(kScreenW-20,130*SCALE+(80*i),13/2,26/2);
-//            }else{
-//                 IMageAllow.frame= CGRectMake(kScreenW-20,150*SCALE+(60*i),13/2,26/2);
-//            }
-//            [self.view addSubview:IMageAllow];
-//        }
-//        
-//        if (i==1) {
-//            UILabel *setLable=[[UILabel alloc]init];
-//            setLable.backgroundColor=[UIColor clearColor];
-//            setLable.text=@"狗篮子项目啊";
-////            setLable.frame= CGRectMake(kScreenW-20,160*SCALE,100*SCALE,30*SCALE);
-//            setLable.textColor = UIColorFromHex(0x333333);
-//            setLable.font = HelveticaNeueFont(16*SCALE);
-//            setLable.textAlignment = NSTextAlignmentRight;
-//            [self.view addSubview:setLable];
-//            [setLable mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.right.mas_equalTo(-20*SCALE);
-//                make.top.mas_equalTo(200*SCALE);
-//                make.height.mas_equalTo(30*SCALE);
-//                make.width.mas_equalTo(100*SCALE);
-//            }];
-//        }
-
     }
+}
+
+
+//激活账号
+
+-(void)imagetwo:(UITapGestureRecognizer*)recognizer{
+    
 }
 
 //昵称

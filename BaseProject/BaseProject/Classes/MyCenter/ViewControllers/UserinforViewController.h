@@ -12,6 +12,8 @@
     UIImageView  *imageView;
     UITapGestureRecognizer *IMage; //头像
     UITapGestureRecognizer *IMageOne;//个人资料
+    UITapGestureRecognizer *IMageRose; //激活账号
+
 }
 
 //返回按钮
