@@ -84,20 +84,40 @@
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *setView=[[UIView alloc]init];
     setView.backgroundColor=UIColorFromHex(0x4169E1);
-
+    
+    UIButton *consultationBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [consultationBtn setImage:[UIImage imageNamed:@"btn_xx"] forState:UIControlStateNormal];
+    [consultationBtn addTarget:self action:@selector(consultation:) forControlEvents:UIControlEventTouchUpInside];
+    [setView addSubview:consultationBtn];
+    [consultationBtn mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.mas_equalTo(50*SCALE);
+        make.right.mas_equalTo(-16*SCALE);
+        make.width.mas_equalTo(36/2);
+        make.height.mas_equalTo(35/2);
+    }];
+    
     UIButton *loginBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setImage:[UIImage imageNamed:@"btn_dl"] forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
     [setView addSubview:loginBtn];
-    [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [loginBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(100*SCALE);
         make.centerX.mas_equalTo(setView.mas_centerX);
         make.width.mas_equalTo(206/2);
         make.height.mas_equalTo(65/2);
     }];
+    
     return setView;
 }
 
+
+
+/*
+ *咨询方法
+ */
+-(void)consultation:(UIButton*)sender{
+    
+}
 
 /*
  *登录方法
