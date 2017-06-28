@@ -20,8 +20,8 @@
     id data = [keychain readUDID];
     NSString *udidStr = data;
     NSDictionary *dic = @{
-                          @"username":@"17326093194",
-                          @"loginPass":@"000000",
+                          @"username":@"17682318061",
+                          @"loginPass":@"123456",
                           @"device_number" : udidStr,
                           };
 

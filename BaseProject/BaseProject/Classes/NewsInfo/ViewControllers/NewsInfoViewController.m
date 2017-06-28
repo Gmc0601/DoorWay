@@ -19,6 +19,13 @@
     [super viewDidLoad];
     [self setCustomerTitle: @"新闻资讯"];
     
+#if UserToeknAndLogin
+    [ConfigModel saveBoolObject:YES forKey:IsLogin];
+    [ConfigModel saveString:@"31604b552d2a64de9d4b36af26e61634" forKey:UserToken];
+#else
+#endif
+    
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:FRAME(100, 100, 100, 100)];
     btn.backgroundColor = [UIColor yellowColor];
     [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];

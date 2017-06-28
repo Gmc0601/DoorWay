@@ -13,6 +13,8 @@
  */
 #define TokenKey @"1e56c95504a9a846e4c7043704a20f25"
 
+#define UserToeknAndLogin  1
+
 #define UDID     0
 
 /*****************************测试开关*******************************/
