@@ -8,6 +8,10 @@
 
 #import "BaseViewController.h"
 
-@interface InvitationViewController : BaseViewController
+@interface InvitationViewController : UIViewController
+
+//返回按钮
+@property(nonatomic,strong)UIButton *returnBack;
+
 
 @end
