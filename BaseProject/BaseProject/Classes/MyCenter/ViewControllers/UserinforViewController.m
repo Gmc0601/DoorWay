@@ -167,7 +167,21 @@
             [IMageAllowTwo addGestureRecognizer:IMageRose];
         }
         
-        
+        if (i==4) {
+            UILabel *setLablePhone=[[UILabel alloc]init];
+            setLablePhone.backgroundColor=[UIColor clearColor];
+            setLablePhone.text=@"未激活";
+            setLablePhone.textColor = UIColorFromHex(0x333333);
+            setLablePhone.font = HelveticaNeueFont(16*SCALE);
+            setLablePhone.textAlignment = NSTextAlignmentRight;
+            [self.view addSubview:setLablePhone];
+            [setLablePhone mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.mas_equalTo(-20*SCALE);
+                make.top.mas_equalTo(380*SCALE);
+                make.height.mas_equalTo(30*SCALE);
+                make.width.mas_equalTo(100*SCALE);
+            }];
+        }
     }
 }
 
