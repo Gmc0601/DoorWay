@@ -9,7 +9,9 @@
 #import "Masonry.h"
 #import "BaseViewController.h"
 
-@interface InvitationViewController : UIViewController
+@interface InvitationViewController : UIViewController{
+    UIView *setMainView;
+}
 
 //返回按钮
 @property(nonatomic,strong)UIButton *returnBack;
