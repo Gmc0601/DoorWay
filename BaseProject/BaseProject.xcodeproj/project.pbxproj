@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218A1F034F89007FC9DE /* setIMagecell.m */; };
+		0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218D1F0373BD007FC9DE /* NewsTableViewCell.m */; };
+		0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */; };
+		0A7421941F0376B5007FC9DE /* ForgetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7421921F0376B5007FC9DE /* ForgetPWViewController.m */; };
+		0A7421951F0376B5007FC9DE /* ForgetPWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7421931F0376B5007FC9DE /* ForgetPWViewController.xib */; };
+		0A7421981F0376F2007FC9DE /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7421971F0376F2007FC9DE /* ProtocolViewController.m */; };
 		42A4443B1EF133E000F90791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A444391EF133E000F90791 /* Main.storyboard */; };
 		42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42A4443C1EF133E000F90791 /* BaseProject.xcdatamodeld */; };
 		42A444401EF133E000F90791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42A4443F1EF133E000F90791 /* Assets.xcassets */; };
@@ -105,6 +110,14 @@
 /* Begin PBXFileReference section */
 		0A7421891F034F89007FC9DE /* setIMagecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIMagecell.h; sourceTree = "<group>"; };
 		0A74218A1F034F89007FC9DE /* setIMagecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIMagecell.m; sourceTree = "<group>"; };
+		0A74218C1F0373BD007FC9DE /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		0A74218D1F0373BD007FC9DE /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		0A7421911F0376B5007FC9DE /* ForgetPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWViewController.h; sourceTree = "<group>"; };
+		0A7421921F0376B5007FC9DE /* ForgetPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPWViewController.m; sourceTree = "<group>"; };
+		0A7421931F0376B5007FC9DE /* ForgetPWViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPWViewController.xib; sourceTree = "<group>"; };
+		0A7421961F0376F2007FC9DE /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
+		0A7421971F0376F2007FC9DE /* ProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
 		42A4442D1EF133E000F90791 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A4443A1EF133E000F90791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42A4443D1EF133E000F90791 /* BaseProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseProject.xcdatamodel; sourceTree = "<group>"; };
@@ -382,6 +395,9 @@
 		42AE99371F026B37003C8FB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A74218C1F0373BD007FC9DE /* NewsTableViewCell.h */,
+				0A74218D1F0373BD007FC9DE /* NewsTableViewCell.m */,
+				0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */,
 				42AE993D1F026B72003C8FB4 /* NewView.h */,
 				42AE993E1F026B72003C8FB4 /* NewView.m */,
 			);
@@ -694,6 +710,11 @@
 		42F795E41F00E3F900A11A69 /* LoginAndRegist */ = {
 			isa = PBXGroup;
 			children = (
+				0A7421911F0376B5007FC9DE /* ForgetPWViewController.h */,
+				0A7421921F0376B5007FC9DE /* ForgetPWViewController.m */,
+				0A7421931F0376B5007FC9DE /* ForgetPWViewController.xib */,
+				0A7421961F0376F2007FC9DE /* ProtocolViewController.h */,
+				0A7421971F0376F2007FC9DE /* ProtocolViewController.m */,
 				42F795FF1F02578B00A11A69 /* LoginViewController.h */,
 				42F796001F02578B00A11A69 /* LoginViewController.m */,
 				42F796011F02578B00A11A69 /* LoginViewController.xib */,
@@ -797,7 +818,7 @@
 				TargetAttributes = {
 					42A4442C1EF133E000F90791 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = PA574T6LR3;
+						DevelopmentTeam = EZ5TJH55D7;
 						ProvisioningStyle = Automatic;
 					};
 					42A444481EF133E000F90791 = {
@@ -841,10 +862,12 @@
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
 				42F7960E1F02578B00A11A69 /* RegistCodeViewController.xib in Resources */,
 				42F796101F02578B00A11A69 /* registNameViewController.xib in Resources */,
+				0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */,
 				42F7960C1F02578B00A11A69 /* LoginViewController.xib in Resources */,
 				42A444431EF133E000F90791 /* LaunchScreen.storyboard in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
 				42F796121F02578B00A11A69 /* RegistViewController.xib in Resources */,
+				0A7421951F0376B5007FC9DE /* ForgetPWViewController.xib in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,6 +952,7 @@
 				42C84EC81EF2DD1A0008189D /* DIc.m in Sources */,
 				42C84F071EF2E97D0008189D /* UIButton+Category.m in Sources */,
 				42C84EFF1EF2E97D0008189D /* NSMutableArray+Category.m in Sources */,
+				0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */,
 				42F795BD1F00C8B200A11A69 /* TBNavigationController.m in Sources */,
 				42C84F0F1EF2E97D0008189D /* UIView+BGFrame.m in Sources */,
 				42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */,
@@ -945,6 +969,7 @@
 				0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */,
 				42F796111F02578B00A11A69 /* RegistViewController.m in Sources */,
 				42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */,
+				0A7421941F0376B5007FC9DE /* ForgetPWViewController.m in Sources */,
 				42AE993F1F026B72003C8FB4 /* NewView.m in Sources */,
 				42AE99351F02692B003C8FB4 /* NothingView.m in Sources */,
 				42C84EFE1EF2E97D0008189D /* NSDictionary+Category.m in Sources */,
@@ -960,6 +985,7 @@
 				42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */,
 				42C84ECB1EF2DD1A0008189D /* NSString+MD5.m in Sources */,
 				42C84F1C1EF2EB650008189D /* NSObject+SBJSON.m in Sources */,
+				0A7421981F0376F2007FC9DE /* ProtocolViewController.m in Sources */,
 				42F7960D1F02578B00A11A69 /* RegistCodeViewController.m in Sources */,
 				42C84F0D1EF2E97D0008189D /* UITableViewCell+CellAnimation.m in Sources */,
 				42AE99421F026B8E003C8FB4 /* InvestmentModel.m in Sources */,
@@ -1133,7 +1159,7 @@
 			baseConfigurationReference = F79BCDCE7109E930EA932FB6 /* Pods-BaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PA574T6LR3;
+				DEVELOPMENT_TEAM = EZ5TJH55D7;
 				GCC_PREFIX_HEADER = BaseProject/Main/Header.pch;
 				INFOPLIST_FILE = BaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1148,7 +1174,7 @@
 			baseConfigurationReference = A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PA574T6LR3;
+				DEVELOPMENT_TEAM = EZ5TJH55D7;
 				GCC_PREFIX_HEADER = BaseProject/Main/Header.pch;
 				INFOPLIST_FILE = BaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
