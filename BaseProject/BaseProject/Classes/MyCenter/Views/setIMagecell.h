@@ -10,6 +10,7 @@
 
 @interface setIMagecell : UITableViewCell
 
-@property(nonatomic,strong)UIImageView *setIMage;
+@property(nonatomic,strong)UIImageView *setIMage;//图片
+@property(nonatomic,strong)UILabel *setIMageLable;//文字
 
 @end
