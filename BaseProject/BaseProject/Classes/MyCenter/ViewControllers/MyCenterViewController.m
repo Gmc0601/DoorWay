@@ -37,7 +37,9 @@
     
     self.view.backgroundColor = UIColorFromHex(0xf6f6f6);
     
-    self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_hzbd",@"icon_zqbzzed"];
+    self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_hzbd",@"icon_zqbzzed",@"icon_jltl",@"icon_hzbd",@"icon_fqxm",@"icon_yqm",@"icon_kfzx"];
+    
+    self.setBaseArray=@[@"安全中心",@"资金管理",@"我的互助保障金额",@"社区保障总额度",@"交流讨论",@"互互助报单",@"发起项目",@"我的邀请码",@"客服咨询"];
     
     [self setIMagetable];
 }
@@ -65,12 +67,12 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 48*SCALE;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section==0) {
-        return 198;
+        return 198*SCALE;
     }else if (section==1){
         return 0.01;
     }
@@ -103,8 +105,11 @@
         
         if (indexPath.section==0) {
             cell.setIMage.image=[UIImage imageNamed:self.imageArray[indexPath.row]];
+            cell.setIMageLable.text=self.setBaseArray[indexPath.row];
+        }else if (indexPath.section==1){
+            cell.setIMage.image=[UIImage imageNamed:self.imageArray[indexPath.row+4]];
+            cell.setIMageLable.text=self.setBaseArray[indexPath.row+4];
         }
-        
     }
     return cell;
 }

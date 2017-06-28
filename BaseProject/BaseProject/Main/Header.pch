@@ -16,6 +16,8 @@
 
 #define UIColorFromHex(s)  [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s &0xFF00) >>8))/255.0 blue:((s &0xFF))/255.0 alpha:1.0]
 
+#define SCALE ((kScreenH > 480 )? ((kScreenH-64)/(667-64)):(kScreenW/375))
+
 #define ios8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 /*
  通用

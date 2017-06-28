@@ -26,8 +26,8 @@
         self.setIMage=[[UIImageView alloc]init];
         [self.contentView addSubview:self.setIMage];
         [self.setIMage mas_makeConstraints:^(MASConstraintMaker *make){
-            make.top.mas_equalTo(20);
-            make.left.mas_equalTo(15);
+            make.top.mas_equalTo(15*SCALE);
+            make.left.mas_equalTo(15*SCALE);
             make.height.mas_equalTo(32/2);
             make.width.mas_equalTo(32/2);
         }];
@@ -39,13 +39,13 @@
     if (!_setIMageLable) {
         self.setIMageLable=[[UILabel alloc]init];
         self.setIMageLable.backgroundColor=[UIColor clearColor];
-        self.setIMageLable.font=[UIFont fontWithName:@"" size:11];
-        self.setIMageLable.textColor=UIColorFromHex(0x999999);
+        self.setIMageLable.font=HelveticaNeueFont(15*SCALE);
+        self.setIMageLable.textColor=UIColorFromHex(0x333333);
         [self.contentView addSubview:self.setIMageLable];
         [self.setIMageLable mas_makeConstraints:^(MASConstraintMaker *make){
-            make.top.mas_equalTo(20);
-            make.left.mas_equalTo(self.setIMage.mas_right).offset(5);
-            make.height.mas_equalTo(30);
+            make.top.mas_equalTo(7*SCALE);
+            make.left.mas_equalTo(self.setIMage.mas_right).offset(10*SCALE);
+            make.height.mas_equalTo(30*SCALE);
             make.width.mas_equalTo(self.setIMageLable.mas_width);
         }];
     }

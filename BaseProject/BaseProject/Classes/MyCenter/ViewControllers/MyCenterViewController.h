@@ -13,5 +13,6 @@
 @property(nonatomic,strong)UITableView *setIMagetable;
 
 @property(nonatomic,strong)NSArray *imageArray;
+@property(nonatomic,strong)NSArray *setBaseArray;
 
 @end
