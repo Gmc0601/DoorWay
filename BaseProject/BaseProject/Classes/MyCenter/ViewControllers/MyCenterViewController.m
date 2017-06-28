@@ -9,6 +9,7 @@
 #import "Masonry.h"
 #import "setIMagecell.h"
 #import "MyCenterViewController.h"
+#import "InvitationViewController.h"
 
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -155,6 +156,25 @@
         }
     }
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        
+    }else if (indexPath.section==1){
+        if (indexPath.row==0) {
+            
+        }else if (indexPath.row==1){
+            
+        }else if (indexPath.row==2){
+            
+        }else if (indexPath.row==3){
+            InvitationViewController *Invitation=[[InvitationViewController alloc]init];
+            [self.navigationController pushViewController:Invitation animated:YES];
+        }else if (indexPath.row==4){
+            
+        }
+    }
 }
 
 

@@ -13,6 +13,7 @@
 		0A7421941F0376B5007FC9DE /* ForgetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7421921F0376B5007FC9DE /* ForgetPWViewController.m */; };
 		0A7421951F0376B5007FC9DE /* ForgetPWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7421931F0376B5007FC9DE /* ForgetPWViewController.xib */; };
 		0A7421981F0376F2007FC9DE /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7421971F0376F2007FC9DE /* ProtocolViewController.m */; };
+		0A74219B1F0380B2007FC9DE /* InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74219A1F0380B2007FC9DE /* InvitationViewController.m */; };
 		42A4443B1EF133E000F90791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A444391EF133E000F90791 /* Main.storyboard */; };
 		42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42A4443C1EF133E000F90791 /* BaseProject.xcdatamodeld */; };
 		42A444401EF133E000F90791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42A4443F1EF133E000F90791 /* Assets.xcassets */; };
@@ -118,6 +119,8 @@
 		0A7421931F0376B5007FC9DE /* ForgetPWViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPWViewController.xib; sourceTree = "<group>"; };
 		0A7421961F0376F2007FC9DE /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
 		0A7421971F0376F2007FC9DE /* ProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
+		0A7421991F0380B2007FC9DE /* InvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewController.h; sourceTree = "<group>"; };
+		0A74219A1F0380B2007FC9DE /* InvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewController.m; sourceTree = "<group>"; };
 		42A4442D1EF133E000F90791 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A4443A1EF133E000F90791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42A4443D1EF133E000F90791 /* BaseProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseProject.xcdatamodel; sourceTree = "<group>"; };
@@ -626,6 +629,8 @@
 			children = (
 				42F795C71F00C95200A11A69 /* MyCenterViewController.h */,
 				42F795C81F00C95200A11A69 /* MyCenterViewController.m */,
+				0A7421991F0380B2007FC9DE /* InvitationViewController.h */,
+				0A74219A1F0380B2007FC9DE /* InvitationViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -966,6 +971,7 @@
 				42C84F091EF2E97D0008189D /* UIControl+ResponseTime.m in Sources */,
 				42F795DB1F00CC3E00A11A69 /* TBRefreshHeadView.m in Sources */,
 				42C84F021EF2E97D0008189D /* NSString+Category.m in Sources */,
+				0A74219B1F0380B2007FC9DE /* InvitationViewController.m in Sources */,
 				0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */,
 				42F796111F02578B00A11A69 /* RegistViewController.m in Sources */,
 				42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */,
