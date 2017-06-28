@@ -7,7 +7,7 @@
 //
 
 #import "NewsInfoViewController.h"
-#import "LoginViewController.h"
+
 
 #import "NewsTableViewCell.h"
 @interface NewsInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -104,9 +104,9 @@
 
 
 - (void)clickNewsBtn{
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    
-    [self.navigationController pushViewController:loginVC animated:YES];
+//    LoginViewController *loginVC = [[LoginViewController alloc] init];
+//    
+//    [self.navigationController pushViewController:loginVC animated:YES];
 }
 /*
  #pragma mark - Navigation
