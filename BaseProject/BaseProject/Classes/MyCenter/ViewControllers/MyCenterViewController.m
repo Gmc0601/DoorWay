@@ -10,6 +10,7 @@
 #import "setIMagecell.h"
 #import "MyCenterViewController.h"
 #import "InvitationViewController.h"
+#import "UserinforViewController.h"
 
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -125,7 +126,8 @@
  *登录方法
  */
 -(void)login:(UIButton*)sender{
-    
+    UserinforViewController *userInfo=[[UserinforViewController alloc]init];
+     [self.navigationController pushViewController:userInfo animated:YES];
 }
 
 
