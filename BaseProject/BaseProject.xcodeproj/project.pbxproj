@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218A1F034F89007FC9DE /* setIMagecell.m */; };
 		42A4443B1EF133E000F90791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A444391EF133E000F90791 /* Main.storyboard */; };
 		42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42A4443C1EF133E000F90791 /* BaseProject.xcdatamodeld */; };
 		42A444401EF133E000F90791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42A4443F1EF133E000F90791 /* Assets.xcassets */; };
@@ -102,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A7421891F034F89007FC9DE /* setIMagecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIMagecell.h; sourceTree = "<group>"; };
+		0A74218A1F034F89007FC9DE /* setIMagecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIMagecell.m; sourceTree = "<group>"; };
 		42A4442D1EF133E000F90791 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A4443A1EF133E000F90791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42A4443D1EF133E000F90791 /* BaseProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseProject.xcdatamodel; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 			children = (
 				42AE99331F02692B003C8FB4 /* NothingView.h */,
 				42AE99341F02692B003C8FB4 /* NothingView.m */,
+				0A7421891F034F89007FC9DE /* setIMagecell.h */,
+				0A74218A1F034F89007FC9DE /* setIMagecell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -937,6 +942,7 @@
 				42C84F091EF2E97D0008189D /* UIControl+ResponseTime.m in Sources */,
 				42F795DB1F00CC3E00A11A69 /* TBRefreshHeadView.m in Sources */,
 				42C84F021EF2E97D0008189D /* NSString+Category.m in Sources */,
+				0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */,
 				42F796111F02578B00A11A69 /* RegistViewController.m in Sources */,
 				42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */,
 				42AE993F1F026B72003C8FB4 /* NewView.m in Sources */,
