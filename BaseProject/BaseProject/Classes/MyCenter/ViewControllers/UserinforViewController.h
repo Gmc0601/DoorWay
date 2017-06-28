@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserinforViewController : UIViewController
+@interface UserinforViewController : UIViewController{
+    UIImageView  *imageView;
+    UITapGestureRecognizer *IMage;
+}
 
 //返回按钮
 @property(nonatomic,strong)UIButton *returnBack;
