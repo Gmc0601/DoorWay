@@ -37,7 +37,7 @@
     
     self.view.backgroundColor = UIColorFromHex(0xf6f6f6);
     
-    self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_hzbd",@"icon_zqbzzed",@"icon_jltl",@"icon_hzbd",@"icon_fqxm",@"icon_yqm",@"icon_kfzx"];
+    self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_wdhzbzed",@"icon_zqbzzed",@"icon_jltl",@"icon_hzbd",@"icon_fqxm",@"icon_yqm",@"icon_kfzx"];
     
     self.setBaseArray=@[@"安全中心",@"资金管理",@"我的互助保障金额",@"社区保障总额度",@"交流讨论",@"互互助报单",@"发起项目",@"我的邀请码",@"客服咨询"];
     
