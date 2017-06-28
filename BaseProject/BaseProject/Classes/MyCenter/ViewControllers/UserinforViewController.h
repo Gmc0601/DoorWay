@@ -10,4 +10,7 @@
 
 @interface UserinforViewController : UIViewController
 
+//返回按钮
+@property(nonatomic,strong)UIButton *returnBack;
+
 @end
