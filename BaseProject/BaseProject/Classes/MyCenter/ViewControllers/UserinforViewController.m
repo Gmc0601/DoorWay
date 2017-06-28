@@ -5,7 +5,7 @@
 //  Created by li on 2017/6/28.
 //  Copyright © 2017年 cc. All rights reserved.
 //
-
+#import "Masonry.h"
 #import "UserinforViewController.h"
 
 @interface UserinforViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
@@ -104,29 +104,104 @@
             imageView.frame= CGRectMake(kScreenW-120,100,144/2,144/2);
             [self.view addSubview:imageView];
             
+            UIImageView   *IMageAllow=[[UIImageView alloc]init];
+            IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
+            IMageAllow.userInteractionEnabled=YES;
+            IMageAllow.frame= CGRectMake(kScreenW-20,130*SCALE+(80*i),13/2,26/2);
+            [self.view addSubview:IMageAllow];
+            
             IMage=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageSender:)];
             IMage.numberOfTapsRequired = 1; // 单击
             [imageView addGestureRecognizer:IMage];
         }
         
-
-        
-        
-        if (i==0||i==1||i==3){
-            UIImageView   *IMageAllow=[[UIImageView alloc]init];
-            IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
-            IMageAllow.userInteractionEnabled=YES;
-            if (i==0) {
-                 IMageAllow.frame= CGRectMake(kScreenW-20,130*SCALE+(80*i),13/2,26/2);
-            }else{
-                 IMageAllow.frame= CGRectMake(kScreenW-20,150*SCALE+(60*i),13/2,26/2);
-            }
-            [self.view addSubview:IMageAllow];
+        if (i==1){
+            UIImageView   *IMageAllowOne=[[UIImageView alloc]init];
+            IMageAllowOne.image=[UIImage imageNamed:@"icon_gd"];
+            IMageAllowOne.userInteractionEnabled=YES;
+            IMageAllowOne.frame= CGRectMake(kScreenW-20,150*SCALE+(60*i),13/2,26/2);;
+            [self.view addSubview:IMageAllowOne];
+            
+            UILabel *setLable=[[UILabel alloc]init];
+            setLable.backgroundColor=[UIColor clearColor];
+            setLable.text=@"狗篮子项目啊";
+            setLable.textColor = UIColorFromHex(0x333333);
+            setLable.font = HelveticaNeueFont(16*SCALE);
+            setLable.textAlignment = NSTextAlignmentRight;
+            [self.view addSubview:setLable];
+            [setLable mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.mas_equalTo(IMageAllowOne.mas_left).offset(-10*SCALE);
+                make.top.mas_equalTo(200*SCALE);
+                make.height.mas_equalTo(30*SCALE);
+                make.width.mas_equalTo(100*SCALE);
+            }];
+            IMageOne=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageOne:)];
+            IMageOne.numberOfTapsRequired = 1; // 单击
+            [setLable addGestureRecognizer:IMageOne];
         }
+        
+        if (i==2){
+            UILabel *setLableNumber=[[UILabel alloc]init];
+            setLableNumber.backgroundColor=[UIColor clearColor];
+            setLableNumber.text=@"1851822539";
+            setLableNumber.textColor = UIColorFromHex(0x333333);
+            setLableNumber.font = HelveticaNeueFont(16*SCALE);
+            setLableNumber.textAlignment = NSTextAlignmentRight;
+            [self.view addSubview:setLableNumber];
+            [setLableNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.mas_equalTo(-20*SCALE);
+                make.top.mas_equalTo(260*SCALE);
+                make.height.mas_equalTo(30*SCALE);
+                make.width.mas_equalTo(100*SCALE);
+            }];
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+//        if (i==0||i==1||i==3){
+//            UIImageView   *IMageAllow=[[UIImageView alloc]init];
+//            IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
+//            IMageAllow.userInteractionEnabled=YES;
+//            if (i==0) {
+//                 IMageAllow.frame= CGRectMake(kScreenW-20,130*SCALE+(80*i),13/2,26/2);
+//            }else{
+//                 IMageAllow.frame= CGRectMake(kScreenW-20,150*SCALE+(60*i),13/2,26/2);
+//            }
+//            [self.view addSubview:IMageAllow];
+//        }
+//        
+//        if (i==1) {
+//            UILabel *setLable=[[UILabel alloc]init];
+//            setLable.backgroundColor=[UIColor clearColor];
+//            setLable.text=@"狗篮子项目啊";
+////            setLable.frame= CGRectMake(kScreenW-20,160*SCALE,100*SCALE,30*SCALE);
+//            setLable.textColor = UIColorFromHex(0x333333);
+//            setLable.font = HelveticaNeueFont(16*SCALE);
+//            setLable.textAlignment = NSTextAlignmentRight;
+//            [self.view addSubview:setLable];
+//            [setLable mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.right.mas_equalTo(-20*SCALE);
+//                make.top.mas_equalTo(200*SCALE);
+//                make.height.mas_equalTo(30*SCALE);
+//                make.width.mas_equalTo(100*SCALE);
+//            }];
+//        }
 
     }
 }
 
+//昵称
+-(void)imageOne:(UITapGestureRecognizer*)recognizer{
+    
+}
+
+
+//头像
 -(void)imageSender:(UITapGestureRecognizer*)recognizer{
     
     //调用系统相册的类

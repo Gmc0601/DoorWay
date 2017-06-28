@@ -10,7 +10,8 @@
 
 @interface UserinforViewController : UIViewController{
     UIImageView  *imageView;
-    UITapGestureRecognizer *IMage;
+    UITapGestureRecognizer *IMage; //头像
+    UITapGestureRecognizer *IMageOne;//个人资料
 }
 
 //返回按钮
