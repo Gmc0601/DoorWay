@@ -11,6 +11,17 @@
 		0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218D1F0373BD007FC9DE /* NewsTableViewCell.m */; };
 		0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */; };
 		0A74219B1F0380B2007FC9DE /* InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74219A1F0380B2007FC9DE /* InvitationViewController.m */; };
+		42347BF61F03996400D56D8D /* ForgetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42347BE61F03996400D56D8D /* ForgetPWViewController.m */; };
+		42347BF71F03996400D56D8D /* ForgetPWViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42347BE71F03996400D56D8D /* ForgetPWViewController.xib */; };
+		42347BF81F03996400D56D8D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42347BE91F03996400D56D8D /* LoginViewController.m */; };
+		42347BF91F03996400D56D8D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42347BEA1F03996400D56D8D /* LoginViewController.xib */; };
+		42347BFA1F03996400D56D8D /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42347BEC1F03996400D56D8D /* ProtocolViewController.m */; };
+		42347BFB1F03996400D56D8D /* RegistCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42347BEE1F03996400D56D8D /* RegistCodeViewController.m */; };
+		42347BFC1F03996400D56D8D /* RegistCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42347BEF1F03996400D56D8D /* RegistCodeViewController.xib */; };
+		42347BFD1F03996400D56D8D /* registNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42347BF11F03996400D56D8D /* registNameViewController.m */; };
+		42347BFE1F03996400D56D8D /* registNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42347BF21F03996400D56D8D /* registNameViewController.xib */; };
+		42347BFF1F03996400D56D8D /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42347BF41F03996400D56D8D /* RegistViewController.m */; };
+		42347C001F03996400D56D8D /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42347BF51F03996400D56D8D /* RegistViewController.xib */; };
 		42A4443B1EF133E000F90791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A444391EF133E000F90791 /* Main.storyboard */; };
 		42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42A4443C1EF133E000F90791 /* BaseProject.xcdatamodeld */; };
 		42A444401EF133E000F90791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42A4443F1EF133E000F90791 /* Assets.xcassets */; };
@@ -105,6 +116,23 @@
 		0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		0A7421991F0380B2007FC9DE /* InvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewController.h; sourceTree = "<group>"; };
 		0A74219A1F0380B2007FC9DE /* InvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewController.m; sourceTree = "<group>"; };
+		42347BE51F03996400D56D8D /* ForgetPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWViewController.h; sourceTree = "<group>"; };
+		42347BE61F03996400D56D8D /* ForgetPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPWViewController.m; sourceTree = "<group>"; };
+		42347BE71F03996400D56D8D /* ForgetPWViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPWViewController.xib; sourceTree = "<group>"; };
+		42347BE81F03996400D56D8D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		42347BE91F03996400D56D8D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		42347BEA1F03996400D56D8D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		42347BEB1F03996400D56D8D /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
+		42347BEC1F03996400D56D8D /* ProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
+		42347BED1F03996400D56D8D /* RegistCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistCodeViewController.h; sourceTree = "<group>"; };
+		42347BEE1F03996400D56D8D /* RegistCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistCodeViewController.m; sourceTree = "<group>"; };
+		42347BEF1F03996400D56D8D /* RegistCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCodeViewController.xib; sourceTree = "<group>"; };
+		42347BF01F03996400D56D8D /* registNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registNameViewController.h; sourceTree = "<group>"; };
+		42347BF11F03996400D56D8D /* registNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registNameViewController.m; sourceTree = "<group>"; };
+		42347BF21F03996400D56D8D /* registNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registNameViewController.xib; sourceTree = "<group>"; };
+		42347BF31F03996400D56D8D /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		42347BF41F03996400D56D8D /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		42347BF51F03996400D56D8D /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
 		42A4442D1EF133E000F90791 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A4443A1EF133E000F90791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42A4443D1EF133E000F90791 /* BaseProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseProject.xcdatamodel; sourceTree = "<group>"; };
@@ -687,6 +715,23 @@
 		42F795E41F00E3F900A11A69 /* LoginAndRegist */ = {
 			isa = PBXGroup;
 			children = (
+				42347BE51F03996400D56D8D /* ForgetPWViewController.h */,
+				42347BE61F03996400D56D8D /* ForgetPWViewController.m */,
+				42347BE71F03996400D56D8D /* ForgetPWViewController.xib */,
+				42347BE81F03996400D56D8D /* LoginViewController.h */,
+				42347BE91F03996400D56D8D /* LoginViewController.m */,
+				42347BEA1F03996400D56D8D /* LoginViewController.xib */,
+				42347BEB1F03996400D56D8D /* ProtocolViewController.h */,
+				42347BEC1F03996400D56D8D /* ProtocolViewController.m */,
+				42347BED1F03996400D56D8D /* RegistCodeViewController.h */,
+				42347BEE1F03996400D56D8D /* RegistCodeViewController.m */,
+				42347BEF1F03996400D56D8D /* RegistCodeViewController.xib */,
+				42347BF01F03996400D56D8D /* registNameViewController.h */,
+				42347BF11F03996400D56D8D /* registNameViewController.m */,
+				42347BF21F03996400D56D8D /* registNameViewController.xib */,
+				42347BF31F03996400D56D8D /* RegistViewController.h */,
+				42347BF41F03996400D56D8D /* RegistViewController.m */,
+				42347BF51F03996400D56D8D /* RegistViewController.xib */,
 			);
 			path = LoginAndRegist;
 			sourceTree = "<group>";
@@ -818,12 +863,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42347BF91F03996400D56D8D /* LoginViewController.xib in Resources */,
 				42F795D81F00CC3E00A11A69 /* arrowdown@2x.png in Resources */,
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
 				0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */,
 				42A444431EF133E000F90791 /* LaunchScreen.storyboard in Resources */,
+				42347BF71F03996400D56D8D /* ForgetPWViewController.xib in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
+				42347BFC1F03996400D56D8D /* RegistCodeViewController.xib in Resources */,
+				42347C001F03996400D56D8D /* RegistViewController.xib in Resources */,
+				42347BFE1F03996400D56D8D /* registNameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,7 +950,9 @@
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,
 				42C84F0C1EF2E97D0008189D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				42347BF61F03996400D56D8D /* ForgetPWViewController.m in Sources */,
 				42C84F061EF2E97D0008189D /* NSTimer+Category.m in Sources */,
+				42347BFF1F03996400D56D8D /* RegistViewController.m in Sources */,
 				42C84F031EF2E97D0008189D /* NSString+DisplayTime.m in Sources */,
 				42C84ECA1EF2DD1A0008189D /* NSDictionary+Smart.m in Sources */,
 				42C84EC81EF2DD1A0008189D /* DIc.m in Sources */,
@@ -935,23 +987,27 @@
 				42C84F051EF2E97D0008189D /* NSString+Predicate.m in Sources */,
 				42C84F0E1EF2E97D0008189D /* UIView+Animation.m in Sources */,
 				42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */,
+				42347BF81F03996400D56D8D /* LoginViewController.m in Sources */,
 				42C84ECB1EF2DD1A0008189D /* NSString+MD5.m in Sources */,
 				42C84F1C1EF2EB650008189D /* NSObject+SBJSON.m in Sources */,
 				42C84F0D1EF2E97D0008189D /* UITableViewCell+CellAnimation.m in Sources */,
 				42AE99421F026B8E003C8FB4 /* InvestmentModel.m in Sources */,
 				42A4443E1EF133E000F90791 /* BaseProject.xcdatamodeld in Sources */,
 				42F795DA1F00CC3E00A11A69 /* TBRefreshFootView.m in Sources */,
+				42347BFD1F03996400D56D8D /* registNameViewController.m in Sources */,
 				42C84F001EF2E97D0008189D /* NSMutableAttributedString+Category.m in Sources */,
 				42C84F0B1EF2E97D0008189D /* UIMenuItem+Category.m in Sources */,
 				42C84EB61EF2DCBC0008189D /* ConfigModel.m in Sources */,
 				42C84EB11EF2DB060008189D /* main.m in Sources */,
 				42C84EC91EF2DD1A0008189D /* DicToString.m in Sources */,
 				42AE99321F0268ED003C8FB4 /* Nothing.m in Sources */,
+				42347BFA1F03996400D56D8D /* ProtocolViewController.m in Sources */,
 				42C84EFD1EF2E97D0008189D /* NSData+CommonCryptor.m in Sources */,
 				42C84F0A1EF2E97D0008189D /* UIImage+Category.m in Sources */,
 				6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */,
 				42F795C31F00C91600A11A69 /* NewsInfoViewController.m in Sources */,
 				42F795C61F00C93C00A11A69 /* InvestmentProjectViewController.m in Sources */,
+				42347BFB1F03996400D56D8D /* RegistCodeViewController.m in Sources */,
 				42C84EB01EF2DB060008189D /* AppDelegate.m in Sources */,
 				42C84F1E1EF2EB650008189D /* SBJSON.m in Sources */,
 				42C84EFA1EF2E97D0008189D /* NSArray+Category.m in Sources */,
