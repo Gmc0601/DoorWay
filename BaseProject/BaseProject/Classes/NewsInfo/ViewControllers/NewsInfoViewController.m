@@ -7,20 +7,26 @@
 //
 
 #import "NewsInfoViewController.h"
-
-
+#import "LoginViewController.h"
+#import "NewsWebViewController.h"
 #import "NewsTableViewCell.h"
+
+#import "TBRefresh.h"
 @interface NewsInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myMTableView;
     
 }
+
+@property (nonatomic, strong)NSArray *NewSArr;
+
 @end
 
 @implementation NewsInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setCustomerTitle: @"新闻资讯"];
     
 #if UserToeknAndLogin
@@ -37,14 +43,54 @@
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBtn)];
     // Do any additional setup after loading the view.
     
-    
     myMTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-44)];
     myMTableView.dataSource = self;
     myMTableView.delegate = self;
     //    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:myMTableView];
     
+    
+      __weak NewsInfoViewController *weakself=self;
+    [myMTableView addRefreshHeaderWithBlock:^{
+        
+        [weakself LoadDatas];
+        
+    }];
+    
+    [myMTableView addRefreshFootWithBlock:^{
+        
+        [weakself LoadMoreDatas];
+    }];
+
+
 }
+
+-(void)LoadDatas
+{
+    
+    [myMTableView.footer ResetNomoreData];
+    
+    // 模拟延时设置
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [myMTableView.header endHeadRefresh];
+        
+    });
+    
+    
+    
+}
+
+-(void)LoadMoreDatas
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [myMTableView.footer NoMoreData];
+        
+    });
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -62,6 +108,10 @@
         NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
+            _NewSArr = [NSArray array];
+             _NewSArr = datadic[@"info"];
+            NSLog(@"444%lu", (unsigned long)_NewSArr.count);
+            [myMTableView reloadData];
             
         }else {
             NSString *info = datadic[@"info"];
@@ -78,7 +128,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 16;
+    NSLog(@"444%lu", (unsigned long)_NewSArr.count);
+    return _NewSArr.count ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -90,6 +141,12 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsTableViewCell" owner:self options:nil] lastObject];
     }
     
+    NSDictionary *cellDic = _NewSArr[indexPath.row];
+    cell.titleLabel.text = cellDic[@"title"];
+    cell.contentLabel.text = cellDic[@"content"];
+    [cell.ImgView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:cellDic[@"img"]]]]];
+    cell.readCount.text = [NSString stringWithFormat:@"%@阅读    %@赞", cellDic[@"read_num"],cellDic[@"praise_num"]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     //             cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
@@ -98,15 +155,17 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //       [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NewsWebViewController *newsWeb = [[NewsWebViewController alloc] init];
     
+    [self.navigationController pushViewController:newsWeb animated:YES];
+          
 }
 
 
 - (void)clickNewsBtn{
-//    LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    
-//    [self.navigationController pushViewController:loginVC animated:YES];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 /*
  #pragma mark - Navigation

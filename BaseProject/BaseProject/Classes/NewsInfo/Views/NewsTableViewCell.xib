@@ -19,8 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pf" translatesAutoresizingMaskIntoConstraints="NO" id="fLn-aQ-6Xe">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLn-aQ-6Xe">
                         <rect key="frame" x="219" y="14.5" width="80" height="60"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="gcb-C1-Haq"/>
                             <constraint firstAttribute="height" constant="60" id="kMw-Gy-xey"/>
@@ -68,9 +69,12 @@
                     <constraint firstItem="4fb-XO-85O" firstAttribute="top" secondItem="Wpm-o9-ggb" secondAttribute="bottom" constant="12" id="zBf-Mj-Ae7"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="ImgView" destination="fLn-aQ-6Xe" id="bpt-Pa-ng8"/>
+                <outlet property="contentLabel" destination="Wpm-o9-ggb" id="fPJ-ha-Wsg"/>
+                <outlet property="readCount" destination="4fb-XO-85O" id="Wne-VY-AEe"/>
+                <outlet property="titleLabel" destination="4O3-FG-UQ4" id="7cf-lh-lka"/>
+            </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="icon_pf" width="14" height="13"/>
-    </resources>
 </document>
