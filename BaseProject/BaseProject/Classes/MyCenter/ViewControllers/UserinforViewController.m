@@ -23,31 +23,11 @@
     
     self.view.backgroundColor = UIColorFromHex(0xf0f0f0);
     
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    [self returnBack];
+    self.navigationController.navigationBar.translucent = NO;
     
     [self saveButton];
     
     [self  setIMageMain];
-}
-
-#pragma -mark 返回按钮
-
--(UIButton *)returnBack{
-    if (!_returnBack) {
-        _returnBack = [UIButton buttonWithType:UIButtonTypeCustom];
-        _returnBack.frame = CGRectMake(10/2,(88-60)/2/2*SCALE,44/2*SCALE,44/2*SCALE);
-        [_returnBack setImage:[UIImage imageNamed:@"btn_fh_b"] forState:UIControlStateNormal];
-        [_returnBack addTarget:self action:@selector(returnBackView) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:_returnBack];
-        self.navigationItem.leftBarButtonItem = leftItem;
-    }
-    return _returnBack;
-}
-
--(void)returnBackView{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(UIButton *)saveButton{
@@ -76,11 +56,11 @@
         
         UIView *bgView = [[UIView alloc]init];
         if (i==0){
-             bgView.frame = CGRectMake(0,130/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,180/2*SCALE);
+             bgView.frame = CGRectMake(0,0*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,180/2*SCALE);
         }else{
-           bgView.frame = CGRectMake(0,210/2*SCALE+(90/2*SCALE+10/2*SCALE)*i,kScreenW,100/2*SCALE);
+           bgView.frame = CGRectMake(0,80/2*SCALE+(90/2*SCALE+10/2*SCALE)*i,kScreenW,100/2*SCALE);
         }
-        bgView.backgroundColor =UIColorFromHex(0xf0f0f0);
+        bgView.backgroundColor =[UIColor whiteColor];
         bgView.tag = i;
         bgView.userInteractionEnabled = YES;
         [self.view addSubview:bgView];
@@ -112,13 +92,13 @@
             imageView=[[UIImageView alloc]init];
             imageView.image=[UIImage imageNamed:@"默认头像"];
             imageView.userInteractionEnabled=YES;
-            imageView.frame= CGRectMake(kScreenW-(120*SCALE),85*SCALE,(96/2)*SCALE,(96/2)*SCALE);
+            imageView.frame= CGRectMake(kScreenW-(100*SCALE),42.5/2*SCALE,(96/2)*SCALE,(96/2)*SCALE);
             [self.view addSubview:imageView];
             
             UIImageView   *IMageAllow=[[UIImageView alloc]init];
             IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllow.userInteractionEnabled=YES;
-            IMageAllow.frame= CGRectMake(kScreenW-20,105*SCALE+(80*i),13/2,26/2);
+            IMageAllow.frame= CGRectMake(kScreenW-(20*SCALE),80/2*SCALE,13/2,26/2);
             [self.view addSubview:IMageAllow];
             
             IMage=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageSender:)];
@@ -130,7 +110,7 @@
             UIImageView   *IMageAllowOne=[[UIImageView alloc]init];
             IMageAllowOne.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllowOne.userInteractionEnabled=YES;
-            IMageAllowOne.frame= CGRectMake(kScreenW-20,115*SCALE+(60*i),13/2,26/2);;
+            IMageAllowOne.frame= CGRectMake(kScreenW-20,(115+60)*SCALE,13/2,26/2);;
             [self.view addSubview:IMageAllowOne];
             
             UILabel *setLable=[[UILabel alloc]init];
@@ -188,7 +168,7 @@
             [self.view addSubview:setLablePhone];
             [setLablePhone mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(-20*SCALE);
-                make.top.mas_equalTo(300*SCALE);
+                make.top.mas_equalTo(313*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
