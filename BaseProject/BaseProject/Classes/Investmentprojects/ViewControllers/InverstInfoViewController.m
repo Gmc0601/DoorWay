@@ -7,6 +7,7 @@
 //
 
 #import "InverstInfoViewController.h"
+#import "InvestmentInfoView.h"
 
 @interface InverstInfoViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    InvestmentInfoView *infoView = [[InvestmentInfoView alloc] initWithFrame:self.view.bounds];
+    self.view = infoView;
 }
 
 - (void)didReceiveMemoryWarning {

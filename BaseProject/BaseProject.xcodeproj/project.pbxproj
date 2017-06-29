@@ -89,6 +89,7 @@
 		42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795D71F00CC3E00A11A69 /* UIScrollView+TBRefresh.m */; };
 		42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795FD1F024FF100A11A69 /* KeychainUUID.m */; };
 		6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */; };
+		6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
@@ -283,6 +284,8 @@
 		65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2E68E01F04D071008F7D5C /* InverstInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InverstInfoViewController.h; sourceTree = "<group>"; };
 		6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InverstInfoViewController.m; sourceTree = "<group>"; };
+		6B2E68E31F04D2E8008F7D5C /* InvestmentInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentInfoView.h; sourceTree = "<group>"; };
+		6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentInfoView.m; sourceTree = "<group>"; };
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				42AE99441F026BAC003C8FB4 /* InvestView.m */,
 				6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */,
 				6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */,
+				6B2E68E31F04D2E8008F7D5C /* InvestmentInfoView.h */,
+				6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1042,6 +1047,7 @@
 				42AE99451F026BAC003C8FB4 /* InvestView.m in Sources */,
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				C5175F9F1F04ACE1003C45C2 /* PublicClass.m in Sources */,
+				6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,
 				42C84F0C1EF2E97D0008189D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				42347BF61F03996400D56D8D /* ForgetPWViewController.m in Sources */,

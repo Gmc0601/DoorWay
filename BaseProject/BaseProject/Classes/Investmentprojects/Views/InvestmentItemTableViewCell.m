@@ -34,7 +34,7 @@
     if (self) {
         self.selectionStyle =  UITableViewCellSelectionStyleNone;
 
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor colorWithHexString:@"#f0f0f0"];
         [self addInvestmentImageView];
     }
     
