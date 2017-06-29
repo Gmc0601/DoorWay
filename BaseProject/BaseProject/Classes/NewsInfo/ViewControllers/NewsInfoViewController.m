@@ -163,9 +163,9 @@
 
 
 - (void)clickNewsBtn{
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    
-    [self.navigationController pushViewController:loginVC animated:YES];
+//    LoginViewController *loginVC = [[LoginViewController alloc] init];
+//    
+//    [self.navigationController pushViewController:loginVC animated:YES];
 }
 /*
  #pragma mark - Navigation
