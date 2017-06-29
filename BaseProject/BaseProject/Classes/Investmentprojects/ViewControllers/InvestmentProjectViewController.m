@@ -8,6 +8,7 @@
 
 #import "InvestmentProjectViewController.h"
 #import "InvestmentItemTableViewCell.h"
+#import "InverstInfoViewController.h"
 
 @interface InvestmentProjectViewController ()
 @property(retain,atomic) UITableView *tblInvestments;
@@ -35,6 +36,7 @@
     [self.tblInvestments registerClass:[InvestmentItemTableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tblInvestments.rowHeight = 222;
     self.tblInvestments.dataSource = self;
+    self.tblInvestments.delegate = self;
     self.tblInvestments.backgroundColor = [UIColor clearColor];
     self.tblInvestments.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -54,5 +56,12 @@
     
 
     return cell;
+}
+
+#pragma mark - UITableViewDelegate methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIViewController *infoViewController = [[InverstInfoViewController alloc] init];
+    [self.navigationController pushViewController:infoViewController animated:YES];
+
 }
 @end

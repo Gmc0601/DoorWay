@@ -88,6 +88,7 @@
 		42F795DB1F00CC3E00A11A69 /* TBRefreshHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795D51F00CC3E00A11A69 /* TBRefreshHeadView.m */; };
 		42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795D71F00CC3E00A11A69 /* UIScrollView+TBRefresh.m */; };
 		42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795FD1F024FF100A11A69 /* KeychainUUID.m */; };
+		6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
@@ -280,6 +281,8 @@
 		42F795FC1F024FF100A11A69 /* KeychainUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainUUID.h; sourceTree = "<group>"; };
 		42F795FD1F024FF100A11A69 /* KeychainUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainUUID.m; sourceTree = "<group>"; };
 		65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B2E68E01F04D071008F7D5C /* InverstInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InverstInfoViewController.h; sourceTree = "<group>"; };
+		6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InverstInfoViewController.m; sourceTree = "<group>"; };
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -642,6 +645,8 @@
 			children = (
 				42F795C41F00C93C00A11A69 /* InvestmentProjectViewController.h */,
 				42F795C51F00C93C00A11A69 /* InvestmentProjectViewController.m */,
+				6B2E68E01F04D071008F7D5C /* InverstInfoViewController.h */,
+				6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1103,6 +1108,7 @@
 				42F795C31F00C91600A11A69 /* NewsInfoViewController.m in Sources */,
 				42F795C61F00C93C00A11A69 /* InvestmentProjectViewController.m in Sources */,
 				C5175FAD1F04B4F1003C45C2 /* DeclarationModel.m in Sources */,
+				6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */,
 				42347BFB1F03996400D56D8D /* RegistCodeViewController.m in Sources */,
 				42C84EB01EF2DB060008189D /* AppDelegate.m in Sources */,
 				42C84F1E1EF2EB650008189D /* SBJSON.m in Sources */,
