@@ -119,6 +119,7 @@
             setLable.text=@"狗篮子项目啊";
             setLable.textColor = UIColorFromHex(0x333333);
             setLable.font = HelveticaNeueFont(16*SCALE);
+            setLable.userInteractionEnabled=YES;
             setLable.textAlignment = NSTextAlignmentRight;
             [self.view addSubview:setLable];
             [setLable mas_makeConstraints:^(MASConstraintMaker *make) {
