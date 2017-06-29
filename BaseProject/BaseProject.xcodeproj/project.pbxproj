@@ -35,7 +35,6 @@
 		42AE993C1F026B61003C8FB4 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE993B1F026B61003C8FB4 /* NewsModel.m */; };
 		42AE993F1F026B72003C8FB4 /* NewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE993E1F026B72003C8FB4 /* NewView.m */; };
 		42AE99421F026B8E003C8FB4 /* InvestmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE99411F026B8E003C8FB4 /* InvestmentModel.m */; };
-		42AE99451F026BAC003C8FB4 /* InvestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AE99441F026BAC003C8FB4 /* InvestView.m */; };
 		42C84EAF1EF2DB060008189D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84EA51EF2DB060008189D /* ViewController.m */; };
 		42C84EB01EF2DB060008189D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84EAC1EF2DB060008189D /* AppDelegate.m */; };
 		42C84EB11EF2DB060008189D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84EAD1EF2DB060008189D /* main.m */; };
@@ -174,8 +173,6 @@
 		42AE993E1F026B72003C8FB4 /* NewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewView.m; sourceTree = "<group>"; };
 		42AE99401F026B8E003C8FB4 /* InvestmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentModel.h; sourceTree = "<group>"; };
 		42AE99411F026B8E003C8FB4 /* InvestmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentModel.m; sourceTree = "<group>"; };
-		42AE99431F026BAC003C8FB4 /* InvestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestView.h; sourceTree = "<group>"; };
-		42AE99441F026BAC003C8FB4 /* InvestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestView.m; sourceTree = "<group>"; };
 		42C84EA41EF2DB060008189D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		42C84EA51EF2DB060008189D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		42C84EAB1EF2DB060008189D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -469,8 +466,6 @@
 		42AE99391F026B44003C8FB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42AE99431F026BAC003C8FB4 /* InvestView.h */,
-				42AE99441F026BAC003C8FB4 /* InvestView.m */,
 				6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */,
 				6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */,
 				6B2E68E31F04D2E8008F7D5C /* InvestmentInfoView.h */,
@@ -1057,7 +1052,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42AE99451F026BAC003C8FB4 /* InvestView.m in Sources */,
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				C5175F9F1F04ACE1003C45C2 /* PublicClass.m in Sources */,
 				6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */,
