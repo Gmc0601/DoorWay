@@ -110,7 +110,7 @@
             UIImageView   *IMageAllowOne=[[UIImageView alloc]init];
             IMageAllowOne.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllowOne.userInteractionEnabled=YES;
-            IMageAllowOne.frame= CGRectMake(kScreenW-20,(115+60)*SCALE,13/2,26/2);;
+            IMageAllowOne.frame= CGRectMake(kScreenW-20,110*SCALE,13/2,26/2);;
             [self.view addSubview:IMageAllowOne];
             
             UILabel *setLable=[[UILabel alloc]init];
@@ -122,7 +122,7 @@
             [self.view addSubview:setLable];
             [setLable mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(IMageAllowOne.mas_left).offset(-10*SCALE);
-                make.top.mas_equalTo(166*SCALE);
+                make.top.mas_equalTo(100*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
@@ -141,7 +141,7 @@
             [self.view addSubview:setLableNumber];
             [setLableNumber mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(-20*SCALE);
-                make.top.mas_equalTo(213*SCALE);
+                make.top.mas_equalTo(150*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
@@ -151,7 +151,7 @@
             UIImageView   *IMageAllowTwo=[[UIImageView alloc]init];
             IMageAllowTwo.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllowTwo.userInteractionEnabled=YES;
-            IMageAllowTwo.frame= CGRectMake(kScreenW-20,275*SCALE,13/2,26/2);
+            IMageAllowTwo.frame= CGRectMake(kScreenW-20,215*SCALE,13/2,26/2);
             [self.view addSubview:IMageAllowTwo];
             IMageRose=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagetwo:)];
             IMageRose.numberOfTapsRequired = 1; // 单击
@@ -168,7 +168,7 @@
             [self.view addSubview:setLablePhone];
             [setLablePhone mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(-20*SCALE);
-                make.top.mas_equalTo(313*SCALE);
+                make.top.mas_equalTo(250*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
