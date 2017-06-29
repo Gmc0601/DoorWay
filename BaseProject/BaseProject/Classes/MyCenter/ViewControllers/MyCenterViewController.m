@@ -12,6 +12,8 @@
 #import "InvitationViewController.h"
 #import "UserinforViewController.h"
 #import "DeclarationViewController.h"
+#import "LoginViewController.h"
+
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -126,8 +128,13 @@
  *登录方法
  */
 -(void)login:(UIButton*)sender{
-    UserinforViewController *userInfo=[[UserinforViewController alloc]init];
-     [self.navigationController pushViewController:userInfo animated:YES];
+    
+    LoginViewController *login=[[LoginViewController alloc]init];
+    [self.navigationController pushViewController:login animated:YES];
+    
+    
+   // UserinforViewController *userInfo=[[UserinforViewController alloc]init];
+   //  [self.navigationController pushViewController:userInfo animated:YES];
 }
 
 
