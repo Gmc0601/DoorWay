@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserinforViewController : UIViewController{
+#import "BaseViewController.h"
+
+@interface UserinforViewController : BaseViewController{
     UIImageView  *imageView;
     UITapGestureRecognizer *IMage; //头像
     UITapGestureRecognizer *IMageOne;//个人资料

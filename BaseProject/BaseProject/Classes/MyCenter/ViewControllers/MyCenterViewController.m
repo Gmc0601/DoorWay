@@ -131,12 +131,12 @@
  */
 -(void)login:(UIButton*)sender{
     
-    LoginViewController *login=[[LoginViewController alloc]init];
-    [self.navigationController pushViewController:login animated:YES];
+//    LoginViewController *login=[[LoginViewController alloc]init];
+//    [self.navigationController pushViewController:login animated:YES];
     
     
-   // UserinforViewController *userInfo=[[UserinforViewController alloc]init];
-   //  [self.navigationController pushViewController:userInfo animated:YES];
+    UserinforViewController *userInfo=[[UserinforViewController alloc]init];
+     [self.navigationController pushViewController:userInfo animated:YES];
 }
 
 

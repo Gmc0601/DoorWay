@@ -19,7 +19,7 @@
     
     [super viewDidLoad];
     
-    self.title=@"个人资料";
+    [self setCustomerTitle:@"个人资料"];
     
     self.view.backgroundColor = UIColorFromHex(0xf0f0f0);
     
@@ -80,16 +80,16 @@
         }else{
            bgView.frame = CGRectMake(0,240/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,100/2*SCALE);
         }
-        bgView.backgroundColor = [UIColor whiteColor];
+        bgView.backgroundColor = [UIColor clearColor];
         bgView.tag = i;
         bgView.userInteractionEnabled = YES;
         [self.view addSubview:bgView];
         
-        //上边线
-        UIView *bgUpXianView = [[UIView alloc]init];
-        bgUpXianView.frame = CGRectMake(0, 0, kScreenW, 1.0/2*SCALE);
-        bgUpXianView.backgroundColor = UIColorFromHex(0xd7d7d7);
-        [bgView addSubview:bgUpXianView];
+//        //上边线
+//        UIView *bgUpXianView = [[UIView alloc]init];
+//        bgUpXianView.frame = CGRectMake(0, 0, kScreenW, 1.0/2*SCALE);
+//        bgUpXianView.backgroundColor = UIColorFromHex(0xd7d7d7);
+//        [bgView addSubview:bgUpXianView];
         
         //下边线
         UIView *bgDownXianView = [[UIView alloc]init];
@@ -116,9 +116,9 @@
         
         if (i==0){
             imageView=[[UIImageView alloc]init];
-            imageView.image=[UIImage imageNamed:@"bg_yhtxwsc"];
+            imageView.image=[UIImage imageNamed:@"默认头像"];
             imageView.userInteractionEnabled=YES;
-            imageView.frame= CGRectMake(kScreenW-120,90,144/2,144/2);
+            imageView.frame= CGRectMake(kScreenW-120,90,96/2,96/2);
             [self.view addSubview:imageView];
             
             UIImageView   *IMageAllow=[[UIImageView alloc]init];
