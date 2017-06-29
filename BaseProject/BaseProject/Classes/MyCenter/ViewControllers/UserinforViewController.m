@@ -75,21 +75,15 @@
     for (int i=0; i<self.setIMageArray.count; i++){
         
         UIView *bgView = [[UIView alloc]init];
-        if (i==0) {
-             bgView.frame = CGRectMake(0,160/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,180/2*SCALE);
+        if (i==0){
+             bgView.frame = CGRectMake(0,130/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,180/2*SCALE);
         }else{
-           bgView.frame = CGRectMake(0,240/2*SCALE+(90/2*SCALE+30/2*SCALE)*i,kScreenW,100/2*SCALE);
+           bgView.frame = CGRectMake(0,210/2*SCALE+(90/2*SCALE+10/2*SCALE)*i,kScreenW,100/2*SCALE);
         }
-        bgView.backgroundColor = [UIColor clearColor];
+        bgView.backgroundColor =UIColorFromHex(0xf0f0f0);
         bgView.tag = i;
         bgView.userInteractionEnabled = YES;
         [self.view addSubview:bgView];
-        
-//        //上边线
-//        UIView *bgUpXianView = [[UIView alloc]init];
-//        bgUpXianView.frame = CGRectMake(0, 0, kScreenW, 1.0/2*SCALE);
-//        bgUpXianView.backgroundColor = UIColorFromHex(0xd7d7d7);
-//        [bgView addSubview:bgUpXianView];
         
         //下边线
         UIView *bgDownXianView = [[UIView alloc]init];
@@ -104,9 +98,9 @@
         //数组值放进去
         UILabel *titleLable = [[UILabel alloc]init];
         if (i==0) {
-             titleLable.frame = CGRectMake(40/2*SCALE,0,100/2*SCALE*5,180/2*SCALE);
+             titleLable.frame = CGRectMake(40/2*SCALE,0,50/2*SCALE*5,170/2*SCALE);
         }else{
-             titleLable.frame = CGRectMake(40/2*SCALE,0,100/2*SCALE*5,100/2*SCALE);
+             titleLable.frame = CGRectMake(40/2*SCALE,0,60/2*SCALE*5,100/2*SCALE);
         }
         titleLable.text = self.setIMageArray[i];
         titleLable.textColor = UIColorFromHex(0x333333);
@@ -118,13 +112,13 @@
             imageView=[[UIImageView alloc]init];
             imageView.image=[UIImage imageNamed:@"默认头像"];
             imageView.userInteractionEnabled=YES;
-            imageView.frame= CGRectMake(kScreenW-120,90,96/2,96/2);
+            imageView.frame= CGRectMake(kScreenW-(120*SCALE),85*SCALE,(96/2)*SCALE,(96/2)*SCALE);
             [self.view addSubview:imageView];
             
             UIImageView   *IMageAllow=[[UIImageView alloc]init];
             IMageAllow.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllow.userInteractionEnabled=YES;
-            IMageAllow.frame= CGRectMake(kScreenW-20,120*SCALE+(80*i),13/2,26/2);
+            IMageAllow.frame= CGRectMake(kScreenW-20,105*SCALE+(80*i),13/2,26/2);
             [self.view addSubview:IMageAllow];
             
             IMage=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageSender:)];
@@ -136,7 +130,7 @@
             UIImageView   *IMageAllowOne=[[UIImageView alloc]init];
             IMageAllowOne.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllowOne.userInteractionEnabled=YES;
-            IMageAllowOne.frame= CGRectMake(kScreenW-20,140*SCALE+(60*i),13/2,26/2);;
+            IMageAllowOne.frame= CGRectMake(kScreenW-20,115*SCALE+(60*i),13/2,26/2);;
             [self.view addSubview:IMageAllowOne];
             
             UILabel *setLable=[[UILabel alloc]init];
@@ -148,7 +142,7 @@
             [self.view addSubview:setLable];
             [setLable mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(IMageAllowOne.mas_left).offset(-10*SCALE);
-                make.top.mas_equalTo(190*SCALE);
+                make.top.mas_equalTo(166*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
@@ -167,7 +161,7 @@
             [self.view addSubview:setLableNumber];
             [setLableNumber mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(-20*SCALE);
-                make.top.mas_equalTo(250*SCALE);
+                make.top.mas_equalTo(213*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
@@ -177,7 +171,7 @@
             UIImageView   *IMageAllowTwo=[[UIImageView alloc]init];
             IMageAllowTwo.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllowTwo.userInteractionEnabled=YES;
-            IMageAllowTwo.frame= CGRectMake(kScreenW-20,320*SCALE,13/2,26/2);
+            IMageAllowTwo.frame= CGRectMake(kScreenW-20,275*SCALE,13/2,26/2);
             [self.view addSubview:IMageAllowTwo];
             IMageRose=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagetwo:)];
             IMageRose.numberOfTapsRequired = 1; // 单击
@@ -194,7 +188,7 @@
             [self.view addSubview:setLablePhone];
             [setLablePhone mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.mas_equalTo(-20*SCALE);
-                make.top.mas_equalTo(370*SCALE);
+                make.top.mas_equalTo(300*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
             }];
