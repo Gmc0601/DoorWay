@@ -8,6 +8,7 @@
 #import "Masonry.h"
 #import "UserinforViewController.h"
 #import "SecurityViewController.h"
+#import "NicknameViewController.h"
 
 @interface UserinforViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -187,6 +188,9 @@
 //昵称
 -(void)imageOne:(UITapGestureRecognizer*)recognizer{
     
+    NicknameViewController *Nickname=[[NicknameViewController alloc]init];
+    [self.navigationController pushViewController:Nickname animated:YES];
+
 }
 
 

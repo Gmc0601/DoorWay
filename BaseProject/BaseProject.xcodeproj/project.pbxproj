@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A4F24D31F04EC3B00C2C50D /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F24D21F04EC3B00C2C50D /* SecurityViewController.m */; };
+		0A4F24D61F0507BC00C2C50D /* NicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F24D51F0507BC00C2C50D /* NicknameViewController.m */; };
 		0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218A1F034F89007FC9DE /* setIMagecell.m */; };
 		0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218D1F0373BD007FC9DE /* NewsTableViewCell.m */; };
 		0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */; };
@@ -125,6 +126,8 @@
 /* Begin PBXFileReference section */
 		0A4F24D11F04EC3B00C2C50D /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
 		0A4F24D21F04EC3B00C2C50D /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
+		0A4F24D41F0507BC00C2C50D /* NicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicknameViewController.h; sourceTree = "<group>"; };
+		0A4F24D51F0507BC00C2C50D /* NicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameViewController.m; sourceTree = "<group>"; };
 		0A7421891F034F89007FC9DE /* setIMagecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIMagecell.h; sourceTree = "<group>"; };
 		0A74218A1F034F89007FC9DE /* setIMagecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIMagecell.m; sourceTree = "<group>"; };
 		0A74218C1F0373BD007FC9DE /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 			children = (
 				0A4F24D11F04EC3B00C2C50D /* SecurityViewController.h */,
 				0A4F24D21F04EC3B00C2C50D /* SecurityViewController.m */,
+				0A4F24D41F0507BC00C2C50D /* NicknameViewController.h */,
+				0A4F24D51F0507BC00C2C50D /* NicknameViewController.m */,
 			);
 			path = SecurityController;
 			sourceTree = "<group>";
@@ -1068,6 +1073,7 @@
 				42C84F071EF2E97D0008189D /* UIButton+Category.m in Sources */,
 				C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */,
 				C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */,
+				0A4F24D61F0507BC00C2C50D /* NicknameViewController.m in Sources */,
 				42C84EFF1EF2E97D0008189D /* NSMutableArray+Category.m in Sources */,
 				0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */,
 				42F795BD1F00C8B200A11A69 /* TBNavigationController.m in Sources */,
