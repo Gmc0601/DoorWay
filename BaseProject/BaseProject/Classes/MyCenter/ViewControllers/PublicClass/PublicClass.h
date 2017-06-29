@@ -10,4 +10,11 @@
 
 @interface PublicClass : NSObject
 + (void)setRightTitleOnTargetNav:(id)controller action:(SEL)action Title:(NSString *)title;
++ (UIButton *)setLeftButtonItemOnTargetNav:(id)controller action:(SEL)action image:(UIImage *)image;
+/**
+ 根据颜色返回图片
+ */
++ (UIImage *)createImageWithColor:(UIColor *)color size:(CGSize)size ;
+//中间文字
++ (UILabel *)seTitleViewOnTargetNav:(id)controller UIFont:(UIFont *)font title:(NSString *)title textColor:(UIColor *)color;
 @end

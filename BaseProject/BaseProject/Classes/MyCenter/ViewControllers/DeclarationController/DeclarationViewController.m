@@ -50,7 +50,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.translucent = NO;
-    [self setCustomerTitle:@"互助报单"];
+    [self setNavTitle:@"互助报单"];
     [PublicClass setRightTitleOnTargetNav:self action:@selector(uploadDeclaration) Title:@"提交报单"];
     [self setLineViewFrame];
 }

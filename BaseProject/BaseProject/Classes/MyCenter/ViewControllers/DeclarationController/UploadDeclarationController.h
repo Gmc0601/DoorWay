@@ -6,9 +6,9 @@
 //  Copyright © 2017年 cc. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "CenterRootViewController.h"
 
-@interface UploadDeclarationController : BaseViewController
+@interface UploadDeclarationController : CenterRootViewController
 @property (weak, nonatomic) IBOutlet UILabel *warningLab;
 @property (weak, nonatomic) IBOutlet UITableView *uploadTab;
 

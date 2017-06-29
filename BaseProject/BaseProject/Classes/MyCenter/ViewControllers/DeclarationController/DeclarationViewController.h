@@ -6,9 +6,9 @@
 //  Copyright © 2017年 cc. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "CenterRootViewController.h"
 
-@interface DeclarationViewController : BaseViewController
+@interface DeclarationViewController : CenterRootViewController
 @property (weak, nonatomic) IBOutlet UITableView *DeclarationTab;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet UIView *typeView;

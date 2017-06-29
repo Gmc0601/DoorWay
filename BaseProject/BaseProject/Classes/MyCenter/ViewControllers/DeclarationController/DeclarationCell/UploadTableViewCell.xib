@@ -49,5 +49,43 @@
             </connections>
             <point key="canvasLocation" x="42.5" y="67"/>
         </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CFs-IV-d3y" customClass="UploadTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CFs-IV-d3y" id="2i0-DL-vyt">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vh-kf-eIL">
+                        <rect key="frame" x="10" y="0.0" width="38" height="43.5"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="国泰" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2s-b6-oRp">
+                        <rect key="frame" x="239" y="-1" width="103" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="103" id="zud-UZ-RPX"/>
+                        </constraints>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="q2s-b6-oRp" secondAttribute="trailing" constant="33" id="TPJ-lG-kmL"/>
+                    <constraint firstAttribute="bottom" secondItem="6vh-kf-eIL" secondAttribute="bottom" id="VLh-fQ-SgP"/>
+                    <constraint firstItem="6vh-kf-eIL" firstAttribute="top" secondItem="2i0-DL-vyt" secondAttribute="top" id="VYQ-C0-X0T"/>
+                    <constraint firstItem="q2s-b6-oRp" firstAttribute="top" secondItem="2i0-DL-vyt" secondAttribute="top" constant="-1" id="ptP-RA-EZr"/>
+                    <constraint firstItem="6vh-kf-eIL" firstAttribute="leading" secondItem="2i0-DL-vyt" secondAttribute="leading" constant="10" id="y1a-U8-jf5"/>
+                    <constraint firstAttribute="bottom" secondItem="q2s-b6-oRp" secondAttribute="bottom" id="zjN-H5-ePk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailText" destination="q2s-b6-oRp" id="cMk-2T-ELK"/>
+                <outlet property="titleLab" destination="6vh-kf-eIL" id="rOl-JU-ITD"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="157"/>
+        </tableViewCell>
     </objects>
 </document>

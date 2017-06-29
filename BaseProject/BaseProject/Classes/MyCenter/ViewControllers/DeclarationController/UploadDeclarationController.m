@@ -9,11 +9,37 @@
 #import "UploadDeclarationController.h"
 #import "UploadTableViewCell.h"
 #import "DeclarationModel.h"
-@interface UploadDeclarationController ()
+#import "JHPickView.h"
+@interface UploadDeclarationController ()<JHPickerDelegate,UITextFieldDelegate>
+@property (nonatomic,strong) JHPickView   *datePicker;
+@property (nonatomic,strong) JHPickView   *projectPicker;
 
 @end
 
 @implementation UploadDeclarationController
+
+- (JHPickView *)projectPicker{
+    if (!_projectPicker) {
+        _projectPicker = [[JHPickView alloc]initWithFrame:self.view.bounds];
+        _projectPicker.delegate = self ;
+        _projectPicker.projectMarr =  [NSMutableArray  arrayWithObjects:@"证券1",@"证券1",@"证券1",@"证券1", nil] ;
+
+        _projectPicker.arrayType = ProjectArray;
+        
+//        _projectPicker.arrayType = ProjectArray;
+        UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+        [keyWindow addSubview:_projectPicker];    }
+    return _projectPicker;
+}
+- (JHPickView *)datePicker{
+    if (!_datePicker) {
+        _datePicker = [[JHPickView alloc]initWithFrame:self.view.bounds];
+        _datePicker.delegate = self ;
+        _datePicker.arrayType = DeteArray;
+        UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+        [keyWindow addSubview:_datePicker];    }
+    return _datePicker;
+}
 - (IBAction)uploadDeclarationInfo:(id)sender {
 }
 - (void)setDeclarationModel{
@@ -29,6 +55,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setNavTitle:@"提交报单"];
+
     self.warningLab.text = [NSString stringWithFormat:@"1.请正确填写报单项目信息，若填写错误信息，将无法享受平台的亏损保障；\n2.提交报单后，会有平台人员进行审核，审核通过报单生成"];
     [self setDeclarationModel];
 }
@@ -40,21 +68,50 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UploadTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath]; //根据indexPath准确地取出一行，而不是从cell重用队列中取出
-    if (cell == nil) {
-        cell = (UploadTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"UploadTableViewCell" owner:nil options:nil] firstObject];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor=[UIColor whiteColor];
-    }
     if (indexPath.row % 2 == 0) {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UploadTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath]; //根据indexPath准确地取出一行，而不是从cell重用队列中取出
+        if (cell == nil) {
+            cell = (UploadTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"UploadTableViewCell" owner:nil options:nil] firstObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor=[UIColor whiteColor];
+            cell.detailText.delegate = self;
+
+        }
+        cell.detailText.tag = indexPath.row + 100;
+
+        DeclarationModel * model = [self.declarationMarr objectAtIndex:indexPath.row];
+        cell.titleLab.text = model.str_title;
+        
+        return cell;
     }else{
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        UploadTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath]; //根据indexPath准确地取出一行，而不是从cell重用队列中取出
+        if (cell == nil) {
+            cell = (UploadTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"UploadTableViewCell" owner:nil options:nil] lastObject];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor=[UIColor whiteColor];
+            cell.detailText.delegate = self;
+        }
+        cell.detailText.tag = indexPath.row + 100;
+        DeclarationModel * model = [self.declarationMarr objectAtIndex:indexPath.row];
+        cell.titleLab.text = model.str_title;
+        
+        return cell;
     }
-    DeclarationModel * model = [self.declarationMarr objectAtIndex:indexPath.row];
-    cell.titleLab.text = model.str_title;
-    
-    return cell;
+  
+}
+
+#pragma mark-UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField.tag == 100) {
+//        [self.datePicker showAnimation];
+     
+        [self.projectPicker showAnimation];
+        return NO;
+    }else if (textField.tag == 102){
+        [self.datePicker showAnimation];
+        return NO;
+    }
+    return YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
