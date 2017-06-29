@@ -29,6 +29,7 @@
     titleLabel.font = [UIFont systemFontOfSize:18];
     self.navigationItem.titleView = titleLabel;
     
+    
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickProtocolBackBtn)];
     // Do any additional setup after loading the view.
     
