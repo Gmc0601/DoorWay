@@ -60,7 +60,7 @@
         }else{
            bgView.frame = CGRectMake(0,80/2*SCALE+(90/2*SCALE+10/2*SCALE)*i,kScreenW,100/2*SCALE);
         }
-        bgView.backgroundColor =[UIColor whiteColor];
+        bgView.backgroundColor =UIColorFromHex(0xf0f0f0);
         bgView.tag = i;
         bgView.userInteractionEnabled = YES;
         [self.view addSubview:bgView];
@@ -151,7 +151,7 @@
             UIImageView   *IMageAllowTwo=[[UIImageView alloc]init];
             IMageAllowTwo.image=[UIImage imageNamed:@"icon_gd"];
             IMageAllowTwo.userInteractionEnabled=YES;
-            IMageAllowTwo.frame= CGRectMake(kScreenW-20,215*SCALE,13/2,26/2);
+            IMageAllowTwo.frame= CGRectMake(kScreenW-20,210*SCALE,13/2,26/2);
             [self.view addSubview:IMageAllowTwo];
             IMageRose=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagetwo:)];
             IMageRose.numberOfTapsRequired = 1; // 单击

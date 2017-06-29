@@ -26,7 +26,7 @@
     
     self.navigationController.navigationBar.translucent = NO;
     
-    [self setCustomerTitle:@"安全中心"];
+    [self setCustomerTitle:@"账号激活"];
     
     [self setIMageSecurity];
 }
