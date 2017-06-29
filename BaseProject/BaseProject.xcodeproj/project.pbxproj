@@ -90,14 +90,11 @@
 		42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795FD1F024FF100A11A69 /* KeychainUUID.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
-
-		CAF809961F03AE4A0024333C /* NewsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF809951F03AE4A0024333C /* NewsWebViewController.m */; };
-
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
 		C5175F961F03C44C003C45C2 /* DeclarationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */; };
 		C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F931F03C44C003C45C2 /* DeclarationViewController.m */; };
 		C5175F981F03C44C003C45C2 /* DeclarationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5175F941F03C44C003C45C2 /* DeclarationViewController.xib */; };
-
+		CAF809961F03AE4A0024333C /* NewsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF809951F03AE4A0024333C /* NewsWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,17 +277,14 @@
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
-
-		CAF809941F03AE4A0024333C /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWebViewController.h; sourceTree = "<group>"; };
-		CAF809951F03AE4A0024333C /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWebViewController.m; sourceTree = "<group>"; };
-
 		C5175F8F1F03C44C003C45C2 /* DeclarationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationTableViewCell.h; sourceTree = "<group>"; };
 		C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationTableViewCell.m; sourceTree = "<group>"; };
 		C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationTableViewCell.xib; sourceTree = "<group>"; };
 		C5175F921F03C44C003C45C2 /* DeclarationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationViewController.h; sourceTree = "<group>"; };
 		C5175F931F03C44C003C45C2 /* DeclarationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationViewController.m; sourceTree = "<group>"; };
 		C5175F941F03C44C003C45C2 /* DeclarationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationViewController.xib; sourceTree = "<group>"; };
-
+		CAF809941F03AE4A0024333C /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWebViewController.h; sourceTree = "<group>"; };
+		CAF809951F03AE4A0024333C /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWebViewController.m; sourceTree = "<group>"; };
 		F79BCDCE7109E930EA932FB6 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

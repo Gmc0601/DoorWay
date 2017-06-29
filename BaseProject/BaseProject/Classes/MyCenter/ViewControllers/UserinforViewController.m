@@ -26,6 +26,8 @@
     
     [self returnBack];
     
+    [self saveButton];
+    
     [self  setIMageMain];
 }
 
@@ -46,6 +48,20 @@
 -(void)returnBackView{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(UIButton *)saveButton{
+    if (!_saveButton) {
+        _saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _saveButton.frame = CGRectMake((kScreenW-80)*SCALE,(88-60)/2/2*SCALE,60*SCALE,44/2*SCALE);
+        [_saveButton setTitle:@"保存" forState:UIControlStateNormal];
+        [_saveButton addTarget:self action:@selector(saveBtn:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:_saveButton];
+        self.navigationItem.rightBarButtonItem = rightItem;
+    }
+    return _saveButton;
+}
+
+
 
 
 /*
@@ -254,6 +270,17 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     //这是捕获点击右上角cancel按钮所触发的事件，如果我们需要在点击cancel按钮的时候做一些其他逻辑操作。就需要实现该代理方法，如果不做任何逻辑操作，就可以不实现
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+//提交保存方法
+-(void)saveBtn:(UIButton*)sender{
+    
+    NSMutableDictionary *infoDic=[NSMutableDictionary dictionary];
+   
+    [HttpRequest postPath:@"" params:infoDic resultBlock:^(id responseObject, NSError *error){
+        
+    }];
+    
 }
 
 
