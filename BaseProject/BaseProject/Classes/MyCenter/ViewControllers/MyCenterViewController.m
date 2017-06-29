@@ -11,7 +11,7 @@
 #import "MyCenterViewController.h"
 #import "InvitationViewController.h"
 #import "UserinforViewController.h"
-
+#import "DeclarationViewController.h"
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -43,7 +43,7 @@
     
     self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_wdhzbzed",@"icon_zqbzzed",@"icon_jltl",@"icon_hzbd",@"icon_fqxm",@"icon_yqm",@"icon_kfzx"];
     
-    self.setBaseArray=@[@"安全中心",@"资金管理",@"我的互助保障金额",@"社区保障总额度",@"交流讨论",@"互互助报单",@"发起项目",@"我的邀请码",@"客服咨询"];
+    self.setBaseArray=@[@"安全中心",@"资金管理",@"我的互助保障金额",@"社区保障总额度",@"交流讨论",@"互助报单",@"发起项目",@"我的邀请码",@"客服咨询"];
     
     [self setIMagetable];
 }
@@ -167,7 +167,8 @@
         if (indexPath.row==0) {
             
         }else if (indexPath.row==1){
-            
+            DeclarationViewController *declaration=[[DeclarationViewController alloc]init];
+            [self.navigationController pushViewController:declaration animated:YES];
         }else if (indexPath.row==2){
             
         }else if (indexPath.row==3){
