@@ -15,7 +15,14 @@
 @implementation SecurityViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    self.view.backgroundColor = UIColorFromHex(0xf0f0f0);
+    
+    self.navigationController.navigationBar.translucent = NO;
+    
+    [self setCustomerTitle:@"互助报单"];
    
 }
 
