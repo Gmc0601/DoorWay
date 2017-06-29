@@ -7,6 +7,7 @@
 //
 #import "Masonry.h"
 #import "UserinforViewController.h"
+#import "SecurityViewController.h"
 
 @interface UserinforViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -205,7 +206,8 @@
 //激活账号
 
 -(void)imagetwo:(UITapGestureRecognizer*)recognizer{
-    
+    SecurityViewController *Security=[[SecurityViewController alloc]init];
+    [self.navigationController pushViewController:Security animated:YES];
 }
 
 //昵称

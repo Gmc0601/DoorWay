@@ -14,7 +14,7 @@
 #import "UserinforViewController.h"
 #import "DeclarationViewController.h"
 #import "LoginViewController.h"
-#import "SecurityViewController.h"
+
 
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -172,8 +172,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         if (indexPath.row==0) {
-            SecurityViewController *Security=[[SecurityViewController alloc]init];
-            [self.navigationController pushViewController:Security animated:YES];
+         
         }
         
     }else if (indexPath.section==1){
