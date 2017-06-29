@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="UploadTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oy4-jk-48V">
+                        <rect key="frame" x="10" y="0.0" width="38" height="43.5"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="国泰" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-VA-Aaf">
+                        <rect key="frame" x="197" y="0.0" width="145" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="145" id="fft-eU-FWg"/>
+                        </constraints>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oy4-jk-48V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LGD-u8-Kfh"/>
+                    <constraint firstItem="x6s-VA-Aaf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Om4-st-ew2"/>
+                    <constraint firstItem="oy4-jk-48V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Sea-rs-2b2"/>
+                    <constraint firstAttribute="bottom" secondItem="oy4-jk-48V" secondAttribute="bottom" id="UKg-PC-tc4"/>
+                    <constraint firstAttribute="trailing" secondItem="x6s-VA-Aaf" secondAttribute="trailing" id="Xsu-ec-kKB"/>
+                    <constraint firstAttribute="bottom" secondItem="x6s-VA-Aaf" secondAttribute="bottom" id="yNt-cA-AMf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailText" destination="x6s-VA-Aaf" id="7ru-FP-YRY"/>
+                <outlet property="titleLab" destination="oy4-jk-48V" id="k95-9F-2J0"/>
+            </connections>
+            <point key="canvasLocation" x="42.5" y="67"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -8,6 +8,7 @@
 
 #import "DeclarationViewController.h"
 #import "DeclarationTableViewCell.h"
+#import "UploadDeclarationController.h"
 @interface DeclarationViewController ()
 
 @end
@@ -41,11 +42,16 @@
     rect.origin.x =  5;
     self.lineView.frame = rect;
 }
+- (void)uploadDeclaration{
+    UploadDeclarationController * upload = [[UploadDeclarationController alloc]init];
+    [self.navigationController pushViewController:upload animated:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.translucent = NO;
     [self setCustomerTitle:@"互助报单"];
+    [PublicClass setRightTitleOnTargetNav:self action:@selector(uploadDeclaration) Title:@"提交报单"];
     [self setLineViewFrame];
 }
 #pragma mark-UITableviewDelegate && UITableviewDataSource
