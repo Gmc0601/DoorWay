@@ -11,6 +11,7 @@
 #import <Masonry/Masonry.h>
 #import "UIColor+BGHexColor.h"
 
+
 @interface InvestmentInfoView1()
 @property(nonatomic, strong) UITableView *tb;
 @property(atomic,retain) UIFont *font;
@@ -18,6 +19,9 @@
 @property(atomic,retain) UIColor *fontColor;
 @property(atomic,retain) UIColor *highlightFontColor;
 @property(atomic,retain) UIButton *highlightButton;
+@property(nonatomic,assign) CGFloat heighOfWebView;
+@property(nonatomic,assign) BOOL hasload;
+@property(atomic,retain) NSString *cellIdentifier;
 @end
 
 @implementation InvestmentInfoView1
@@ -27,13 +31,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         _tb = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
-        [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
+        [_tb registerClass:[WebViewCellTableViewCell class] forCellReuseIdentifier:@"webViewCell"];
+        [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [_tb registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"header"];
         _tb.dataSource = self;
         _tb.delegate = self;
 
         _tb.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:_tb];
+        _cellIdentifier = @"webViewCell";
 
     }
     return self;
@@ -45,10 +51,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
+    UITableViewCell *cell;
     if (indexPath.section == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         cell.backgroundView = [[UIView alloc] init];
         cell.backgroundView.backgroundColor = [UIColor redColor];
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
+        if ([_cellIdentifier  isEqual: @"webViewCell"]) {
+            [(WebViewCellTableViewCell *)cell setUrl:@"https://www.google.com.hk/intl/zh-CN/policies/privacy/?fg=1"];
+            ((WebViewCellTableViewCell *)cell).delegate = self;
+        }
     }
     
     
@@ -63,7 +76,8 @@
     if (indexPath.section == 0) {
         return 156;
     }else{
-        return 20;
+        CGFloat height = _heighOfWebView == 0 ? self.bounds.size.height - 220:_heighOfWebView;
+        return height;
     }
     
     return 0;
@@ -194,5 +208,16 @@
     [newButton setSelected:YES];
     _highlightButton = newButton;
 }
+
+-(void) WebViewCellTableViewCell:(WebViewCellTableViewCell *) cell heightOfCell:(CGFloat) heightOfCell{
+    if (!_hasload) {
+        _heighOfWebView = heightOfCell;
+        _hasload = YES;
+        [_tb beginUpdates];
+        [_tb endUpdates];
+//        [_tb reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 
 @end

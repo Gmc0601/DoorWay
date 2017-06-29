@@ -92,6 +92,7 @@
 		6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */; };
 		6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */; };
 		6B2E68EE1F04FB51008F7D5C /* InvestmentInfoView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68ED1F04FB51008F7D5C /* InvestmentInfoView1.m */; };
+		6B2E68F11F05586C008F7D5C /* WebViewCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68F01F05586C008F7D5C /* WebViewCellTableViewCell.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
@@ -297,6 +298,8 @@
 		6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentInfoView.m; sourceTree = "<group>"; };
 		6B2E68EC1F04FB51008F7D5C /* InvestmentInfoView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentInfoView1.h; sourceTree = "<group>"; };
 		6B2E68ED1F04FB51008F7D5C /* InvestmentInfoView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentInfoView1.m; sourceTree = "<group>"; };
+		6B2E68EF1F05586C008F7D5C /* WebViewCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewCellTableViewCell.h; sourceTree = "<group>"; };
+		6B2E68F01F05586C008F7D5C /* WebViewCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewCellTableViewCell.m; sourceTree = "<group>"; };
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 				6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */,
 				6B2E68E31F04D2E8008F7D5C /* InvestmentInfoView.h */,
 				6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */,
+				6B2E68EF1F05586C008F7D5C /* WebViewCellTableViewCell.h */,
+				6B2E68F01F05586C008F7D5C /* WebViewCellTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1053,7 +1058,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		133526D14F1C236D4D0AF02F /* [CP] Copy Pods Resources */ = {
@@ -1172,6 +1177,7 @@
 				6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */,
 				42347BFB1F03996400D56D8D /* RegistCodeViewController.m in Sources */,
 				42C84EB01EF2DB060008189D /* AppDelegate.m in Sources */,
+				6B2E68F11F05586C008F7D5C /* WebViewCellTableViewCell.m in Sources */,
 				42C84F1E1EF2EB650008189D /* SBJSON.m in Sources */,
 				42C84EFA1EF2E97D0008189D /* NSArray+Category.m in Sources */,
 				42C84EC71EF2DD1A0008189D /* GTMBase64.m in Sources */,

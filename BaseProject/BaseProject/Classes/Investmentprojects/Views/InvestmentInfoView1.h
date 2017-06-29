@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebViewCellTableViewCell.h"
 
-@interface InvestmentInfoView1 : UIView<UITableViewDataSource,UITableViewDelegate>
+@interface InvestmentInfoView1 : UIView<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,WebViewCellTableViewCellDelegate>
 
 @end

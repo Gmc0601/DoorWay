@@ -46,19 +46,7 @@
     [_scrollView addSubview:headerView];
 
     [self addSubViewsToHeader:headerView];
-    
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 220, self.bounds.size.width, self.bounds.size.height - 220)];
-    _webView.delegate = self;
-    _webView.scrollView.bounces = NO;
-    _webView.scrollView.delegate = self;
-
-
-    [_scrollView addSubview:_webView];
-    
-    NSURL *url = [NSURL URLWithString:@"https://www.google.com.hk/intl/zh-CN/policies/privacy/?fg=1"];
-    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-    
-    [_webView loadRequest:requeset];
+    [self loadWebView:@"https://www.google.com.hk/intl/zh-CN/policies/privacy/?fg=1"];
 }
 
 -(void) addSubViewsToHeader:(UIView *) headerView{
@@ -172,6 +160,21 @@
     _highlightButton = newButton;
 }
 
+-(void) loadWebView:(NSString *) strUrl{
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 220, self.bounds.size.width, self.bounds.size.height - 220)];
+    _webView.delegate = self;
+    _webView.scrollView.bounces = NO;
+    _webView.scrollView.delegate = self;
+    
+    
+    [_scrollView addSubview:_webView];
+    
+    NSURL *url = [NSURL URLWithString:strUrl];
+    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+    
+    [_webView loadRequest:requeset];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     CGFloat offset = webView.scrollView.contentSize.height - webView.bounds.size.height;
     if (offset > 0) {
@@ -185,7 +188,8 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
     if (_lastPoint < scrollView.contentOffset.y) {
-        [_scrollView setContentOffset:CGPointMake(0, 93) animated:NO];
+        CGFloat offset = scrollView.contentOffset.y > 93 ? 93:scrollView.contentOffset.y;
+        [_scrollView setContentOffset:CGPointMake(0, offset) animated:NO];
     }
 }
 
