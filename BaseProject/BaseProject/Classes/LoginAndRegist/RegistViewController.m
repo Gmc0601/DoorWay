@@ -17,20 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    titleLabel.text = @"注册";
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont systemFontOfSize:18];
-    self.navigationItem.titleView = titleLabel;
-    
-    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist1BackBtn)];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+//    titleLabel.text = @"注册";
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.font = [UIFont systemFontOfSize:18];
+//    self.navigationItem.titleView = titleLabel;
+//    
+//    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist1BackBtn)];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)clickRegist1BackBtn{
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
+//- (void)clickRegist1BackBtn{
+//    [self.navigationController popViewControllerAnimated:YES];
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,7 +39,7 @@
 
 
 - (IBAction)backBtn:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self  dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -68,7 +68,7 @@
 
     
     RegistCodeViewController  *registCodeVC = [[RegistCodeViewController alloc] init];
-    [self.navigationController pushViewController: registCodeVC animated:YES];
+    [self presentViewController:registCodeVC animated:YES completion:nil];
     
     
     

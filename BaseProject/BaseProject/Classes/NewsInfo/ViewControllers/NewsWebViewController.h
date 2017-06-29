@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//#import "LoginViewController.h"
 @interface NewsWebViewController : UIViewController
+
+@property (nonatomic, strong) UIViewController *loginViewC;
 
 @end

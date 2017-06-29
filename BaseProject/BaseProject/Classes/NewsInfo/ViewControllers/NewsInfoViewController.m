@@ -166,6 +166,17 @@
 //    LoginViewController *loginVC = [[LoginViewController alloc] init];
 //    
 //    [self.navigationController pushViewController:loginVC animated:YES];
+    
+    [ConfigModel saveBoolObject:NO forKey:IsLogin];
+    if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
+        
+        
+        return;
+    }else{
+        LoginViewController *loginVC = [[LoginViewController alloc ] init];
+        [self.navigationController presentViewController:loginVC animated:YES completion:nil];
+        
+    }
 }
 /*
  #pragma mark - Navigation

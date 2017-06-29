@@ -27,14 +27,18 @@
     [super viewDidLoad];
     self.regist2GetCodeBtn.layer.borderColor = RGBColor(55, 159, 242).CGColor;
     self.regist2GetCodeBtn.layer.cornerRadius = 3;
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    titleLabel.text = @"注册";
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont systemFontOfSize:18];
-    self.navigationItem.titleView = titleLabel;
-    
-    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist2BackBtn)];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+//    titleLabel.text = @"注册";
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.font = [UIFont systemFontOfSize:18];
+//    self.navigationItem.titleView = titleLabel;
+//    
+//    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist2BackBtn)];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (IBAction)codeBtnBack:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -140,7 +144,7 @@
     registNameViewController  *registNameVC = [[registNameViewController alloc] init];
     registNameVC.codeStr = self.codeTF.text;
     registNameVC.mobileStr = self.accountTF.text;
-    [self.navigationController pushViewController:registNameVC animated:YES];
+    [self presentViewController:registNameVC animated:YES completion:nil];
 }
 
 /*

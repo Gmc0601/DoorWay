@@ -28,6 +28,9 @@
                         <constraint firstAttribute="width" constant="18" id="VJ7-H0-orN"/>
                     </constraints>
                     <state key="normal" title="Button" image="icon_dl_gb"/>
+                    <connections>
+                        <action selector="BackBtn:" destination="-1" eventType="touchUpInside" id="sCn-Au-cmH"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpW-QV-Nhn">
                     <rect key="frame" x="328" y="46" width="31" height="18"/>

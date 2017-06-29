@@ -33,11 +33,21 @@
     [super viewWillAppear:animated];
 //      [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar_bg"] forBarMetrics:UIBarMetricsDefault];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
+   
+}
+
+
 
 - (IBAction)registBtn:(UIButton *)sender {
     RegistViewController *registVC = [[RegistViewController alloc] init];
-    [self.navigationController pushViewController:registVC animated:YES];
+    [self presentViewController:registVC animated:YES completion:nil];
     
 }
 
@@ -45,7 +55,7 @@
 
 - (IBAction)findBackPWBtn:(UIButton *)sender {
     ForgetPWViewController *forgetPW = [[ForgetPWViewController alloc ] init];
-    [self.navigationController pushViewController:forgetPW animated:YES];
+    [self presentViewController:forgetPW animated:YES completion:nil];
 }
 
 - (IBAction)loginBtn:(UIButton *)sender {
@@ -68,6 +78,7 @@
 //            [ConfigModel saveBoolObject:YES forKey:IsLogin];
 //            [ConfigModel saveString:usertoken forKey:UserToken];
             [ConfigModel mbProgressHUD:@"登陆成功" andView:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }else {
             NSString *info = datadic[@"info"];
             [ConfigModel mbProgressHUD:info andView:nil];
@@ -79,6 +90,9 @@
     
 }
 
+- (IBAction)BackBtn:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation

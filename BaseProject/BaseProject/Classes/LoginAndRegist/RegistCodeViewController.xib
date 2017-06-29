@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSH-bI-2PM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSH-bI-2PM">
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="mnK-II-oLE"/>
@@ -78,6 +78,9 @@
                         <constraint firstAttribute="height" constant="18" id="qDA-mi-vmA"/>
                     </constraints>
                     <state key="normal" image="btn_fh_b"/>
+                    <connections>
+                        <action selector="codeBtnBack:" destination="-1" eventType="touchUpInside" id="BVy-BN-XqV"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mpH-1q-Qxd">
                     <rect key="frame" x="83" y="64" width="181" height="48"/>
@@ -115,6 +118,13 @@
                         <action selector="registNameBtn:" destination="-1" eventType="touchUpInside" id="XHF-x9-1tn"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpO-Gp-wvI">
+                    <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="jpt-Hw-oeP"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -132,12 +142,14 @@
                 <constraint firstItem="UWJ-zI-wTA" firstAttribute="top" secondItem="8Ih-ws-fDb" secondAttribute="bottom" id="Lpd-lb-MGX"/>
                 <constraint firstAttribute="trailing" secondItem="MSH-bI-2PM" secondAttribute="trailing" id="Oet-Xy-j5Q"/>
                 <constraint firstAttribute="trailing" secondItem="VQg-TM-fPJ" secondAttribute="trailing" constant="10" id="PSb-Lk-vlh"/>
+                <constraint firstItem="TpO-Gp-wvI" firstAttribute="top" secondItem="MSH-bI-2PM" secondAttribute="bottom" constant="-1" id="Shj-EB-7XW"/>
                 <constraint firstItem="VQg-TM-fPJ" firstAttribute="top" secondItem="MSH-bI-2PM" secondAttribute="bottom" constant="8" id="T7p-cB-uXM"/>
                 <constraint firstItem="tp7-bU-tR0" firstAttribute="top" secondItem="8Ih-ws-fDb" secondAttribute="bottom" id="VY1-Cc-a6S"/>
                 <constraint firstItem="1ec-z8-kdY" firstAttribute="top" secondItem="MSH-bI-2PM" secondAttribute="bottom" id="XXG-yd-wQq"/>
                 <constraint firstItem="8Ih-ws-fDb" firstAttribute="top" secondItem="VQg-TM-fPJ" secondAttribute="bottom" constant="8" id="Xlb-cA-Jje"/>
                 <constraint firstAttribute="trailing" secondItem="UWJ-zI-wTA" secondAttribute="trailing" id="bts-MA-9lf"/>
                 <constraint firstItem="x2m-6q-8Tx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="bxy-Jy-bJ2"/>
+                <constraint firstItem="TpO-Gp-wvI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ecm-6X-FWV"/>
                 <constraint firstItem="8Ih-ws-fDb" firstAttribute="centerX" secondItem="MSH-bI-2PM" secondAttribute="centerX" id="fEd-Mk-0vi"/>
                 <constraint firstItem="1ec-z8-kdY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="fkL-F7-rtW"/>
                 <constraint firstItem="mpH-1q-Qxd" firstAttribute="top" secondItem="MSH-bI-2PM" secondAttribute="bottom" id="iKa-Wn-6Bi"/>
@@ -145,8 +157,10 @@
                 <constraint firstItem="mpH-1q-Qxd" firstAttribute="leading" secondItem="1ec-z8-kdY" secondAttribute="trailing" constant="15" id="pYt-mk-YUX"/>
                 <constraint firstItem="tp7-bU-tR0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="pmz-gL-JV5"/>
                 <constraint firstItem="8Ih-ws-fDb" firstAttribute="top" secondItem="MSH-bI-2PM" secondAttribute="bottom" constant="48" id="sVv-jV-bJ4"/>
+                <constraint firstAttribute="trailing" secondItem="TpO-Gp-wvI" secondAttribute="trailing" id="trN-kW-N1x"/>
                 <constraint firstItem="8Ih-ws-fDb" firstAttribute="top" secondItem="mpH-1q-Qxd" secondAttribute="bottom" id="xe0-pP-W6F"/>
             </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
     <resources>

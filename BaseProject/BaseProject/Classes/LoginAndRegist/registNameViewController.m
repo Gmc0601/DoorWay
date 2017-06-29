@@ -102,12 +102,16 @@
 }
 
 
+- (IBAction)registNameBackBtn:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 
 - (IBAction)ProtocolBtn:(UIButton *)sender {
     ProtocolViewController *protocolVC = [[ProtocolViewController alloc] init];
-    [self.navigationController pushViewController:protocolVC animated:YES];
+    UINavigationController *nV = [[UINavigationController alloc] initWithRootViewController:protocolVC];
+    [self presentViewController:nV animated:YES completion:nil];
 }
 
 

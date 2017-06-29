@@ -22,19 +22,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"用户注册协议";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     
+  @{NSFontAttributeName:[UIFont systemFontOfSize:17],
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    titleLabel.text = @"用户注册协议";
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont systemFontOfSize:18];
-    self.navigationItem.titleView = titleLabel;
+    NSForegroundColorAttributeName:RGBColor(0, 0, 0)}];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+//    titleLabel.text = @"用户注册协议";
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.font = [UIFont systemFontOfSize:18];
+//    self.navigationItem.titleView = titleLabel;
     
     
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickProtocolBackBtn)];
     // Do any additional setup after loading the view.
     
     DetailWebView = [[UIWebView alloc] init];
-    DetailWebView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64);
+    DetailWebView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     DetailWebView.delegate = self;
     DetailWebView.scalesPageToFit = YES;
     //    [DetailWebView loadHTMLString:URLStr baseURL:nil];
@@ -47,7 +52,7 @@
 }
 
 - (void)clickProtocolBackBtn{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "NewsWebViewController.h"
+#import "LoginViewController.h"
 @interface NewsWebViewController ()<UIWebViewDelegate>
 
 {
@@ -75,7 +76,21 @@
 
 
 - (void)PraiseBtnClick:(UIButton *)sender{
-    [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+    [ConfigModel saveBoolObject:NO forKey:IsLogin];
+    if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
+        
+        
+        [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+        return;
+    }else{
+        LoginViewController *loginVC = [[LoginViewController alloc ] init];
+//        self.loginViewC = loginVC;
+        [self.navigationController presentViewController:loginVC animated:YES completion:nil];
+        
+    }
+ 
+    
+   
 }
 
 
@@ -86,7 +101,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
+   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
+   
 }
 - (void)clickNewsBackBtn{
     [self.navigationController popViewControllerAnimated:YES];
