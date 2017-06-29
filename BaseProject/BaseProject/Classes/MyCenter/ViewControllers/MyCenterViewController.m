@@ -7,6 +7,7 @@
 //
 
 #import "Masonry.h"
+#import "PublicClass.h"
 #import "setIMagecell.h"
 #import "MyCenterViewController.h"
 #import "InvitationViewController.h"

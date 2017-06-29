@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4F24D31F04EC3B00C2C50D /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F24D21F04EC3B00C2C50D /* SecurityViewController.m */; };
 		0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218A1F034F89007FC9DE /* setIMagecell.m */; };
 		0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A74218D1F0373BD007FC9DE /* NewsTableViewCell.m */; };
 		0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A74218E1F0373BD007FC9DE /* NewsTableViewCell.xib */; };
@@ -123,6 +124,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A4F24D11F04EC3B00C2C50D /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
+		0A4F24D21F04EC3B00C2C50D /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
 		0A7421891F034F89007FC9DE /* setIMagecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIMagecell.h; sourceTree = "<group>"; };
 		0A74218A1F034F89007FC9DE /* setIMagecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIMagecell.m; sourceTree = "<group>"; };
 		0A74218C1F0373BD007FC9DE /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
@@ -336,6 +339,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A4F24D01F04EC2100C2C50D /* SecurityController */ = {
+			isa = PBXGroup;
+			children = (
+				0A4F24D11F04EC3B00C2C50D /* SecurityViewController.h */,
+				0A4F24D21F04EC3B00C2C50D /* SecurityViewController.m */,
+			);
+			path = SecurityController;
+			sourceTree = "<group>";
+		};
 		42A444241EF133E000F90791 = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +681,7 @@
 		42F795A41F00C84600A11A69 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A4F24D01F04EC2100C2C50D /* SecurityController */,
 				C5175F9C1F04ACD3003C45C2 /* PublicClass */,
 				C5175F8D1F03C44C003C45C2 /* DeclarationController */,
 				42F795C71F00C95200A11A69 /* MyCenterViewController.h */,
@@ -1057,6 +1070,7 @@
 				42C84ECA1EF2DD1A0008189D /* NSDictionary+Smart.m in Sources */,
 				0A7421A11F03A197007FC9DE /* UserinforViewController.m in Sources */,
 				42C84EC81EF2DD1A0008189D /* DIc.m in Sources */,
+				0A4F24D31F04EC3B00C2C50D /* SecurityViewController.m in Sources */,
 				42C84F071EF2E97D0008189D /* UIButton+Category.m in Sources */,
 				C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */,
 				C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */,
