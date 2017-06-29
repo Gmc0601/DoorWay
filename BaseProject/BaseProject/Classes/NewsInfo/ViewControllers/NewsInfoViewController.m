@@ -24,6 +24,11 @@
 
 @implementation NewsInfoViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

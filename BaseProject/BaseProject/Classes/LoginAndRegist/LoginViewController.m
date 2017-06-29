@@ -32,12 +32,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 //      [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar_bg"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+      [UIApplication sharedApplication].statusBarStyle =UIStatusBarStyleLightContent;
      [self.navigationController setNavigationBarHidden:NO animated:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
    
