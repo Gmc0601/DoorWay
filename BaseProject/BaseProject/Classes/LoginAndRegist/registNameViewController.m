@@ -92,6 +92,7 @@
 
         if ([datadic[@"error"] intValue] == 0) {
             [ConfigModel mbProgressHUD:@"恭喜注册成功" andView:nil];
+            
         }else {
             NSString *info = datadic[@"info"];
             [ConfigModel mbProgressHUD:info andView:nil];
