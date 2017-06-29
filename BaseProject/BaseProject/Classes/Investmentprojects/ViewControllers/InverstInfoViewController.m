@@ -8,6 +8,7 @@
 
 #import "InverstInfoViewController.h"
 #import "InvestmentInfoView.h"
+#import "InvestmentInfoView.h"
 
 @interface InverstInfoViewController ()
 

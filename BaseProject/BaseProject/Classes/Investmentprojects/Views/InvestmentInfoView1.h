@@ -1,5 +1,5 @@
 //
-//  InvestmentInfoView.h
+//  InvestmentInfoView1.h
 //  BaseProject
 //
 //  Created by LeoGeng on 29/06/2017.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InvestmentInfoView : UIView<UIWebViewDelegate,UIScrollViewDelegate>
+@interface InvestmentInfoView1 : UIView<UITableViewDataSource,UITableViewDelegate>
 
 @end
