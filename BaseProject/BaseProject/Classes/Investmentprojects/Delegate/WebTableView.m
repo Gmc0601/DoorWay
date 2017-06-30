@@ -11,7 +11,6 @@
 
 @interface WebTableView()
 @property(nonatomic,assign) CGFloat heighOfWebView;
-@property(nonatomic,assign) BOOL hasload;
 @end
 
 @implementation WebTableView
@@ -32,7 +31,6 @@
         cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
         ((WebViewTableViewCell *) cell).delegate = self;
         [((WebViewTableViewCell *) cell) setUrl:self.strUrl];
-        
     }
     
     return cell;
@@ -54,11 +52,8 @@
 }
 
 -(void) WebViewTableViewCell:(WebViewTableViewCell *) cell heightOfCell:(CGFloat) heightOfCell{
-    if (!_hasload) {
         _heighOfWebView = heightOfCell;
-        _hasload = YES;
         [self.owner beginUpdates];
         [self.owner endUpdates];
-    }
 }
 @end

@@ -11,6 +11,7 @@
 
 @interface WebViewTableViewCell()
 @property(retain,atomic) UIWebView *webView;
+@property(assign,nonatomic) int loadTime;
 @end
 
 @implementation WebViewTableViewCell
@@ -48,21 +49,29 @@
         }];
     }
     
+    NSURL *URL1 = [NSURL URLWithString:@"about:blank"];
+    NSMutableURLRequest *requeset1 = [[NSMutableURLRequest alloc] initWithURL:URL1 cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+    [_webView loadRequest:requeset1];
+    
     NSURL *URL = [NSURL URLWithString:strUrl];
     NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-    
     [_webView loadRequest:requeset];
 }
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    _loadTime += 1;
+    
+    
     @try {
         if ([self.delegate respondsToSelector:@selector(WebViewTableViewCell:heightOfCell:)]) {
-            [self.delegate WebViewTableViewCell:self heightOfCell: webView.scrollView.contentSize.height];
+            CGFloat height = _loadTime > 1 ? webView.scrollView.contentSize.height : 0;
+            [self.delegate WebViewTableViewCell:self heightOfCell: height];
+            _loadTime = _loadTime > 1?0:_loadTime;
         }
     } @catch (NSException *exception) {
         NSLog(@"%@",exception);
-    } 
+    }
     
 }
 

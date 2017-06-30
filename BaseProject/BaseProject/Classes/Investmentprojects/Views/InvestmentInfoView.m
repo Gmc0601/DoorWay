@@ -32,16 +32,17 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initDateSourceDelegate];
+        _webViewCellIdentifier = @"webViewCell";
+        _commentsCellIdentifier = @"commnetsViewCell";
         
         _tb = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
         [_tb registerClass:[WebViewTableViewCell class] forCellReuseIdentifier:_webViewCellIdentifier];
         [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:_commentsCellIdentifier];
         [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [_tb registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"header"];
-        
+        [self initDateSourceDelegate];
+
         [self didTapCompanyButton];
-        
         _tb.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:_tb];
         
@@ -85,8 +86,6 @@
 }
 
 -(void) initDateSourceDelegate{
-    _webViewCellIdentifier = @"webViewCell";
-    _commentsCellIdentifier = @"commnetsViewCell";
     
     _webTableView = [[WebTableView alloc] initWithOwner:_tb withCellIdentifier:_webViewCellIdentifier];
     _webTableView.delegate = self;
