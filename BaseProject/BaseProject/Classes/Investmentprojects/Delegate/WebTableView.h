@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "InvestmentBaseTableView.h"
 
-@interface WebTableView : InvestmentBaseTableView
+@interface WebTableView : InvestmentBaseTableView<UIWebViewDelegate>
 @property(atomic,strong) NSString *strUrl;
 @end

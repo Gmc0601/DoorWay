@@ -10,5 +10,5 @@
 #import "InvestmentBaseTableView.h"
 
 @interface CommnetsTableView:InvestmentBaseTableView
-
+@property(retain,atomic) NSArray *dataSource;
 @end

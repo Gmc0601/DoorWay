@@ -49,9 +49,17 @@
     }
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"header"];
     
+    if (header.subviews.count > 1) {
+        return header;
+    }
     header.backgroundColor = [UIColor whiteColor];
     
     CGFloat width = tableView.bounds.size.width / 4;
@@ -136,24 +144,28 @@
 -(void) tapCompayButton:(UIButton *) sender{
     if (sender != _highlightButton) {
         [self changeButtonTitleStyle:sender];
+        [self.delegate didTapCompanyButton];
     }
 }
 
 -(void) tapRoleButton:(UIButton *) sender{
     if (sender != _highlightButton) {
         [self changeButtonTitleStyle:sender];
+        [self.delegate didTapRoleButton];
     }
 }
 
 -(void) tapSummryButton:(UIButton *) sender{
     if (sender != _highlightButton) {
         [self changeButtonTitleStyle:sender];
+        [self.delegate didTapSummryButton];
     }
 }
 
 -(void) tapCommentsButton:(UIButton *) sender{
     if (sender != _highlightButton) {
         [self changeButtonTitleStyle:sender];
+        [self.delegate didTapCommentsButton];
     }
 }
 
