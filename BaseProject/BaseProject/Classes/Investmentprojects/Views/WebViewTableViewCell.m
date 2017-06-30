@@ -9,6 +9,10 @@
 #import "WebViewTableViewCell.h"
 #import <Masonry/Masonry.h>
 
+@interface WebViewTableViewCell()
+@property(retain,atomic) UIWebView *webView;
+@end
+
 @implementation WebViewTableViewCell
 -(NSString *) url{
     return self.url;
@@ -29,23 +33,25 @@
 }
 
 -(void) loadWebView:(NSString *) strUrl{
-    UIWebView *_webView = [[UIWebView alloc] init];
-    _webView.delegate = self;
-    _webView.scrollView.bounces = NO;
-    
-    [self addSubview:_webView];
+    if (_webView == nil) {
+        _webView = [[UIWebView alloc] init];
+        _webView.delegate = self;
+        _webView.scrollView.bounces = NO;
+        
+        [self addSubview:_webView];
+        
+        [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mas_left);
+            make.top.equalTo(self.mas_top);
+            make.right.equalTo(self.mas_right);
+            make.bottom.equalTo(self.mas_bottom);
+        }];
+    }
     
     NSURL *URL = [NSURL URLWithString:strUrl];
     NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
     
     [_webView loadRequest:requeset];
-    
-    [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left);
-        make.top.equalTo(self.mas_top);
-        make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(self.mas_bottom);
-    }];
 }
 
 

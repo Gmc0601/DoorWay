@@ -10,5 +10,4 @@
 #import "WebViewTableViewCell.h"
 
 @interface InvestmentInfoView : UIView
-
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InvestmentInfoView.h"
 
 @interface InverstInfoViewController : UIViewController
 
