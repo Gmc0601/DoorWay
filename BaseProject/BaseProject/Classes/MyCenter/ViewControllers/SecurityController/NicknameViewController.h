@@ -10,4 +10,12 @@
 
 @interface NicknameViewController : BaseViewController
 
+@property(nonatomic,strong)UITextField *setIMageFiled;
+
+@property(nonatomic,strong)UIImageView *IMageLine;
+
+@property(nonatomic,strong)UIButton  *saveButton;
+
+@property (nonatomic, copy) void (^selectedinfoString)(NSString *infoString);
+
 @end

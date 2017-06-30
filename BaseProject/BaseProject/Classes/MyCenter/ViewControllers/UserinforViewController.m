@@ -114,7 +114,7 @@
             IMageAllowOne.frame= CGRectMake(kScreenW-20,110*SCALE,13/2,26/2);;
             [self.view addSubview:IMageAllowOne];
             
-            UILabel *setLable=[[UILabel alloc]init];
+            setLable=[[UILabel alloc]init];
             setLable.backgroundColor=[UIColor clearColor];
             setLable.text=@"狗篮子项目啊";
             setLable.textColor = UIColorFromHex(0x333333);
@@ -190,6 +190,9 @@
 -(void)imageOne:(UITapGestureRecognizer*)recognizer{
     
     NicknameViewController *Nickname=[[NicknameViewController alloc]init];
+    Nickname.selectedinfoString=^(NSString *name){
+        setLable.text=name;
+    };
     [self.navigationController pushViewController:Nickname animated:YES];
 
 }
