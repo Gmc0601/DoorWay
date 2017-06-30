@@ -92,10 +92,10 @@
 }
 
 -(void)saveBtn:(UIButton *)sender{
-    //if (self.selectedinfoString) {
+    if (self.selectedinfoString) {
         self.selectedinfoString(self.setIMageFiled.text);
          [self.navigationController popViewControllerAnimated:YES];
-    //}
+    }
 }
 
 
