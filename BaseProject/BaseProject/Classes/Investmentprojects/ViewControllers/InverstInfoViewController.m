@@ -8,7 +8,6 @@
 
 #import "InverstInfoViewController.h"
 #import "InvestmentInfoView.h"
-#import "InvestmentInfoView1.h"
 
 @interface InverstInfoViewController ()
 
@@ -18,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    InvestmentInfoView1 *infoView = [[InvestmentInfoView1 alloc] initWithFrame:self.view.bounds];
+    InvestmentInfoView *infoView = [[InvestmentInfoView alloc] initWithFrame:self.view.bounds];
     self.view = infoView;
 }
 

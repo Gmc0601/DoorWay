@@ -1,5 +1,5 @@
 //
-//  InvestmentInfoView1.h
+//  InvestmentInfoView.h
 //  BaseProject
 //
 //  Created by LeoGeng on 29/06/2017.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebViewTableViewCell.h"
 
-@interface InvestmentInfoView : UIView
+@interface InvestmentInfoView : UIView<UIWebViewDelegate,UIScrollViewDelegate>
 
 @end

@@ -1,5 +1,5 @@
 //
-//  InvestmentInfoView.m
+//  InvestmentInfoView1.m
 //  BaseProject
 //
 //  Created by LeoGeng on 29/06/2017.
@@ -7,18 +7,15 @@
 //
 
 #import "InvestmentInfoView.h"
-#import <Masonry/Masonry.h>
-#import "UIColor+BGHexColor.h"
+#import "WebTableView.h"
+
+//#import <Masonry/Masonry.h>
+//#import "UIColor+BGHexColor.h"
 
 @interface InvestmentInfoView()
-@property(atomic,retain) UIScrollView *scrollView;
-@property(atomic,retain) UIFont *font;
-@property(atomic,retain) UIFont *highlightFont;
-@property(atomic,retain) UIColor *fontColor;
-@property(atomic,retain) UIColor *highlightFontColor;
-@property(atomic,retain) UIButton *highlightButton;
-@property(atomic,retain) UIWebView *webView;
-@property(nonatomic,assign) CGFloat lastPoint;
+@property(nonatomic, strong) UITableView *tb;
+@property(atomic,retain) NSString *cellIdentifier;
+@property(atomic,retain) WebTableView *webTableView;
 @end
 
 @implementation InvestmentInfoView
@@ -27,170 +24,49 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubviews];
+        _cellIdentifier = @"webViewCell";
+        _webTableView = [[WebTableView alloc] initWithOwner:_tb withCellIdentifier:_cellIdentifier];
+        
+        _tb = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
+        [_tb registerClass:[WebViewTableViewCell class] forCellReuseIdentifier:_cellIdentifier];
+        [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+        [_tb registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"header"];
+        
+        [self didTapCompanyButton];
+        
+        _tb.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self addSubview:_tb];
+        
     }
     return self;
 }
 
--(void) addSubviews{
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    _scrollView.backgroundColor = [UIColor colorWithHexString:@"#f0f0f0"];
-    [self addSubview:_scrollView];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 156)];
-    imageView.backgroundColor = [UIColor redColor];
-    [_scrollView addSubview:imageView];
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 156, self.bounds.size.width, 44)];
-    headerView.backgroundColor = [UIColor whiteColor];
-    [_scrollView addSubview:headerView];
-
-    [self addSubViewsToHeader:headerView];
-    [self loadWebView:@"https://www.google.com.hk/intl/zh-CN/policies/privacy/?fg=1"];
+-(void) didTapCompanyButton{
+    [self reloadWeb:@"https://www.google.com.hk/intl/zh-CN/policies/privacy/?fg=1"];
 }
 
--(void) addSubViewsToHeader:(UIView *) headerView{
-    CGFloat width = self.bounds.size.width / 4;
-    _font = [UIFont fontWithName:@"PingFang-SC-Medium" size:14];
-    _highlightFont = [UIFont fontWithName:@"PingFang-SC-Medium" size:16];
-    _fontColor = [UIColor colorWithHexString:@"#666666"];
-    _highlightFontColor = [UIColor colorWithHexString:@"#379ff2"];
-    
-    UIButton *btnCompany = [[UIButton alloc] init];
-    btnCompany.titleLabel.font = _highlightFont;
-    [btnCompany setTitle:@"公司介绍" forState:UIControlStateNormal];
-    [btnCompany setTitleColor:_highlightFontColor
-                     forState:UIControlStateSelected];
-    [btnCompany setTitleColor:_fontColor forState:UIControlStateNormal];
-    [btnCompany setSelected:YES];
-    btnCompany.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [headerView addSubview:btnCompany];
-    [btnCompany addTarget:self action:@selector(tapCompayButton:) forControlEvents:UIControlEventTouchUpInside];
-    _highlightButton = btnCompany;
-    
-    [btnCompany mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(headerView);
-        make.top.equalTo(headerView);
-        make.bottom.equalTo(headerView);
-        make.width.equalTo(@(width));
-    }];
-    
-    UIButton *btnRole = [[UIButton alloc] init];
-    btnRole.titleLabel.font = _font;
-    [btnRole setTitle:@"盈利制度" forState:UIControlStateNormal];
-    [btnRole setTitleColor:_highlightFontColor forState:UIControlStateSelected];
-    [btnRole setTitleColor:_fontColor forState:UIControlStateNormal];
-    btnRole.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [btnRole addTarget:self action:@selector(tapRoleButton:) forControlEvents:UIControlEventTouchUpInside];
-    [headerView addSubview:btnRole];
-    
-    [btnRole mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(btnCompany.mas_trailing);
-        make.top.equalTo(headerView);
-        make.bottom.equalTo(headerView);
-        make.width.equalTo(@(width));
-    }];
-    
-    UIButton *btnSummry = [[UIButton alloc] init];
-    btnSummry.titleLabel.font = _font;
-    [btnSummry setTitle:@"风险说明" forState:UIControlStateNormal];
-    [btnSummry setTitleColor:_highlightFontColor forState:UIControlStateSelected];
-    [btnSummry setTitleColor:_fontColor forState:UIControlStateNormal];
-    btnSummry.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [btnSummry addTarget:self action:@selector(tapSummryButton:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [headerView addSubview:btnSummry];
-    
-    [btnSummry mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(btnRole.mas_trailing);
-        make.top.equalTo(headerView);
-        make.bottom.equalTo(headerView);
-        make.width.equalTo(@(width));
-    }];
-    
-    
-    UIButton *btnComments = [[UIButton alloc] init];
-    btnComments.titleLabel.font = _font;
-    [btnComments setTitle:@"会员评论" forState:UIControlStateNormal];
-    [btnComments setTitleColor:_highlightFontColor forState:UIControlStateSelected];
-    [btnComments addTarget:self action:@selector(tapCommentsButton:) forControlEvents:UIControlEventTouchUpInside];
-    [btnComments setTitleColor:_fontColor forState:UIControlStateNormal];
-    btnComments.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    [headerView addSubview:btnComments];
-    
-    [btnComments mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(btnSummry.mas_trailing);
-        make.top.equalTo(headerView);
-        make.bottom.equalTo(headerView);
-        make.width.equalTo(@(width));
-    }];
+-(void) didTapRoleButton{
+    [self reloadWeb:@"https://www.baidu.com/"];
 }
 
--(void) tapCompayButton:(UIButton *) sender{
-    if (sender != _highlightButton) {
-        [self changeButtonTitleStyle:sender];
+-(void) didTapSummryButton{
+    [self reloadWeb:@"http://www.163.com/"];
+}
+
+-(void) didTapCommentsButton{
+    [self reloadWeb:@""];
+}
+
+
+
+-(void) reloadWeb:(NSString *) strUrl{
+    _webTableView.strUrl = strUrl;
+    if (_tb.dataSource != _webTableView) {
+        _tb.dataSource = _webTableView;
+        _tb.delegate = _webTableView;
     }
-}
-
--(void) tapRoleButton:(UIButton *) sender{
-    if (sender != _highlightButton) {
-        [self changeButtonTitleStyle:sender];
-    }
-}
-
--(void) tapSummryButton:(UIButton *) sender{
-    if (sender != _highlightButton) {
-        [self changeButtonTitleStyle:sender];
-    }
-}
-
--(void) tapCommentsButton:(UIButton *) sender{
-    if (sender != _highlightButton) {
-        [self changeButtonTitleStyle:sender];
-    }
-}
-
--(void) changeButtonTitleStyle:(UIButton *)newButton{
-    _highlightButton.titleLabel.font = _font;
-    [_highlightButton setSelected:NO];
     
-    newButton.titleLabel.font = _highlightFont;
-    [newButton setSelected:YES];
-    _highlightButton = newButton;
-}
-
--(void) loadWebView:(NSString *) strUrl{
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 220, self.bounds.size.width, self.bounds.size.height - 220)];
-    _webView.delegate = self;
-    _webView.scrollView.bounces = NO;
-    _webView.scrollView.delegate = self;
-    
-    
-    [_scrollView addSubview:_webView];
-    
-    NSURL *url = [NSURL URLWithString:strUrl];
-    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-    
-    [_webView loadRequest:requeset];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    CGFloat offset = webView.scrollView.contentSize.height - webView.bounds.size.height;
-    if (offset > 0) {
-        CGFloat addOffset = offset <= 93 ? offset: 93;
-        [_scrollView setContentSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height + addOffset)];
-        
-        webView.frame = CGRectMake(webView.frame.origin.x, webView.frame.origin.y, webView.frame.size.width, webView.frame.size.height + addOffset);
-    }
-
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView; {
-    if (_lastPoint < scrollView.contentOffset.y) {
-        CGFloat offset = scrollView.contentOffset.y > 93 ? 93:scrollView.contentOffset.y;
-        [_scrollView setContentOffset:CGPointMake(0, offset) animated:NO];
-    }
+    [_tb reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

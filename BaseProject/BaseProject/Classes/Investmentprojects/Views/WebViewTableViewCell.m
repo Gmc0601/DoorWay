@@ -1,15 +1,15 @@
 //
-//  WebViewCellTableViewCell.m
+//  WebViewTableViewCell.m
 //  BaseProject
 //
 //  Created by LeoGeng on 29/06/2017.
 //  Copyright © 2017 cc. All rights reserved.
 //
 
-#import "WebViewCellTableViewCell.h"
+#import "WebViewTableViewCell.h"
 #import <Masonry/Masonry.h>
 
-@implementation WebViewCellTableViewCell
+@implementation WebViewTableViewCell
 -(NSString *) url{
     return self.url;
 }
@@ -50,10 +50,14 @@
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    @try {
+        if ([self.delegate respondsToSelector:@selector(WebViewTableViewCell:heightOfCell:)]) {
+            [self.delegate WebViewTableViewCell:self heightOfCell: webView.scrollView.contentSize.height];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    } 
     
-    if ([self.delegate respondsToSelector:@selector(WebViewCellTableViewCell:heightOfCell:)]) {
-        [self.delegate WebViewCellTableViewCell:self heightOfCell: webView.scrollView.contentSize.height];
-    }
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "InvestmentProjectViewController.h"
 #import "InvestmentItemTableViewCell.h"
 #import "InverstInfoViewController.h"
+#import "InvestmentModel.h"
 
 @interface InvestmentProjectViewController ()
 @property(retain,atomic) UITableView *tblInvestments;
@@ -19,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setCustomerTitle: @"投资项目"];
-    
     [self addTableView];
     // Do any additional setup after loading the view.
 }
