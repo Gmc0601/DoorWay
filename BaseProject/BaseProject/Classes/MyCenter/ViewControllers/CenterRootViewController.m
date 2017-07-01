@@ -23,6 +23,10 @@
         [self setNavigationBarBackgroundColor:[UIColor whiteColor]];
         [PublicClass setLeftButtonItemOnTargetNav:self action:@selector(backtoTop) image:[UIImage imageNamed:@"btn_fh_b"]];
     }
+    
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault]; //此处使底部线条颜色为红色
+    [navigationBar setShadowImage:[PublicClass createImageWithColor:RGB(153, 153, 153) size:CGSizeMake(kScreenW , 0.5)]];
 }
 - (void)setNavTitle:(NSString *)str_title{
     [PublicClass seTitleViewOnTargetNav:self UIFont:[UIFont fontWithName:@"PingFang-SC" size:18] title:str_title textColor:UIColorFromHex(666666)];

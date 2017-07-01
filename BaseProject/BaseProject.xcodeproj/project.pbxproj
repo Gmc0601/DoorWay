@@ -112,6 +112,8 @@
 		C5175FBA1F052CEA003C45C2 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175FB51F052CEA003C45C2 /* JHPickView.m */; };
 		C5175FBB1F052CEA003C45C2 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175FB71F052CEA003C45C2 /* MySingleton.m */; };
 		C5175FBC1F052CEA003C45C2 /* province_data.json in Resources */ = {isa = PBXBuildFile; fileRef = C5175FB81F052CEA003C45C2 /* province_data.json */; };
+		C5175FE21F078B9A003C45C2 /* ReleaseProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175FE01F078B9A003C45C2 /* ReleaseProjectController.m */; };
+		C5175FE31F078B9A003C45C2 /* ReleaseProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5175FE11F078B9A003C45C2 /* ReleaseProjectController.xib */; };
 		CAF809961F03AE4A0024333C /* NewsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF809951F03AE4A0024333C /* NewsWebViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -334,6 +336,9 @@
 		C5175FB61F052CEA003C45C2 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
 		C5175FB71F052CEA003C45C2 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
 		C5175FB81F052CEA003C45C2 /* province_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province_data.json; sourceTree = "<group>"; };
+		C5175FDF1F078B9A003C45C2 /* ReleaseProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseProjectController.h; sourceTree = "<group>"; };
+		C5175FE01F078B9A003C45C2 /* ReleaseProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseProjectController.m; sourceTree = "<group>"; };
+		C5175FE11F078B9A003C45C2 /* ReleaseProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseProjectController.xib; sourceTree = "<group>"; };
 		CAF809941F03AE4A0024333C /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWebViewController.h; sourceTree = "<group>"; };
 		CAF809951F03AE4A0024333C /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWebViewController.m; sourceTree = "<group>"; };
 		F79BCDCE7109E930EA932FB6 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -711,6 +716,7 @@
 		42F795A41F00C84600A11A69 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C5175FDE1F078B84003C45C2 /* ReleaseProjectController */,
 				0A4F24D01F04EC2100C2C50D /* SecurityController */,
 				C5175F9C1F04ACD3003C45C2 /* PublicClass */,
 				C5175F8D1F03C44C003C45C2 /* DeclarationController */,
@@ -919,6 +925,16 @@
 			path = JHPickView;
 			sourceTree = "<group>";
 		};
+		C5175FDE1F078B84003C45C2 /* ReleaseProjectController */ = {
+			isa = PBXGroup;
+			children = (
+				C5175FDF1F078B9A003C45C2 /* ReleaseProjectController.h */,
+				C5175FE01F078B9A003C45C2 /* ReleaseProjectController.m */,
+				C5175FE11F078B9A003C45C2 /* ReleaseProjectController.xib */,
+			);
+			path = ReleaseProjectController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1042,6 +1058,7 @@
 				C5175F981F03C44C003C45C2 /* DeclarationViewController.xib in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
+				C5175FE31F078B9A003C45C2 /* ReleaseProjectController.xib in Resources */,
 				42347BFC1F03996400D56D8D /* RegistCodeViewController.xib in Resources */,
 				42347C001F03996400D56D8D /* RegistViewController.xib in Resources */,
 				42347BFE1F03996400D56D8D /* registNameViewController.xib in Resources */,
@@ -1077,7 +1094,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		133526D14F1C236D4D0AF02F /* [CP] Copy Pods Resources */ = {
@@ -1134,6 +1151,7 @@
 				0A7421A11F03A197007FC9DE /* UserinforViewController.m in Sources */,
 				42C84EC81EF2DD1A0008189D /* DIc.m in Sources */,
 				0A4F24D31F04EC3B00C2C50D /* SecurityViewController.m in Sources */,
+				C5175FE21F078B9A003C45C2 /* ReleaseProjectController.m in Sources */,
 				42C84F071EF2E97D0008189D /* UIButton+Category.m in Sources */,
 				C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */,
 				C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */,
