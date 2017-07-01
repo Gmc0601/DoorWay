@@ -53,4 +53,17 @@
     [[controller navigationItem] setTitleView:lab];
     return lab;
 }
++(BOOL)firstColor:(UIColor*)firstColor secondColor:(UIColor*)secondColor
+{
+    if (CGColorEqualToColor(firstColor.CGColor, secondColor.CGColor))
+    {
+        NSLog(@"颜色相同");
+        return YES;
+    }
+    else
+    {
+        NSLog(@"颜色不同");
+        return NO;
+    }
+}
 @end

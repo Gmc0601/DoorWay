@@ -8,17 +8,58 @@
 
 #import "ReleaseProjectController.h"
 
+#define TextViewPlaceHolder  @"请输入项目简介"
+#define PlaceColor RGB(204, 204, 204)
 @interface ReleaseProjectController ()
 
 @end
 
 @implementation ReleaseProjectController
+- (IBAction)uploadProject:(id)sender {
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setNavTitle:@"提交报单"];
+    self.detailTextView.textColor = PlaceColor;//设置提示内容颜色
+    self.detailTextView.text      = TextViewPlaceHolder;//提示语
+    self.detailTextView.selectedRange=NSMakeRange(0,0) ;//光标起始位置
+    
+}
+#pragma mark-UITextViewDelegate
+- (void)textViewDidChangeSelection:(UITextView *)textView{
+    if([PublicClass firstColor:textView.textColor secondColor:PlaceColor]){//如果是提示内容，光标放置开始位置
+        NSRange range;
+        range.location = 0;
+        range.length = 0;
+        textView.selectedRange = range;
+    }
 }
 
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString*)text{
+    if (![text isEqualToString:@""] && [PublicClass firstColor:textView.textColor secondColor:PlaceColor]){//如果不是delete响应,当前是提示信息，修改其属性
+        textView.text=@"";//置空
+        textView.textColor=[UIColor blackColor];
+    }
+    
+    
+    if ([text isEqualToString:@"\n"]){//回车事件
+        if ([textView.text isEqualToString:@""]){//如果直接回车，显示提示内容
+            textView.textColor = PlaceColor;
+            textView.text      = TextViewPlaceHolder;
+        }
+        [textView resignFirstResponder];//隐藏键盘
+        return NO;
+    }
+    return YES;
+}
+- (void)textViewDidChange:(UITextView *)textView{
+    if ([textView.text isEqualToString:@""]){
+        textView.textColor = PlaceColor;
+        textView.text      = TextViewPlaceHolder;
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

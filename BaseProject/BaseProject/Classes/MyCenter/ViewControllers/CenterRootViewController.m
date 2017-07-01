@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.translucent = NO;
     if (![self isRootViewController] ) {
         [self setNavigationBarBackgroundColor:[UIColor whiteColor]];
         [PublicClass setLeftButtonItemOnTargetNav:self action:@selector(backtoTop) image:[UIImage imageNamed:@"btn_fh_b"]];

@@ -17,4 +17,13 @@
 + (UIImage *)createImageWithColor:(UIColor *)color size:(CGSize)size ;
 //中间文字
 + (UILabel *)seTitleViewOnTargetNav:(id)controller UIFont:(UIFont *)font title:(NSString *)title textColor:(UIColor *)color;
+
+/**
+ 判断颜色是够相同
+
+ @param firstColor
+ @param secondColor
+ @return 
+ */
++(BOOL)firstColor:(UIColor*)firstColor secondColor:(UIColor*)secondColor;
 @end

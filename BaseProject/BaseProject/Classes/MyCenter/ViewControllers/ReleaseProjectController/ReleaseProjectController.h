@@ -6,8 +6,12 @@
 //  Copyright © 2017年 cc. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "CenterRootViewController.h"
 
-@interface ReleaseProjectController : BaseViewController
+@interface ReleaseProjectController : CenterRootViewController
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *webSiteField;
+@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
+@property (weak, nonatomic) IBOutlet UITextField *QQField;
 
 @end
