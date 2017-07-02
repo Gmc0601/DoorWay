@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PublicClass : NSObject
-+ (void)setRightTitleOnTargetNav:(id)controller action:(SEL)action Title:(NSString *)title;
++ (UIButton *)setRightTitleOnTargetNav:(id)controller action:(SEL)action Title:(NSString *)title;
 + (UIButton *)setLeftButtonItemOnTargetNav:(id)controller action:(SEL)action image:(UIImage *)image;
 /**
  根据颜色返回图片
@@ -20,10 +20,6 @@
 
 /**
  判断颜色是够相同
-
- @param firstColor
- @param secondColor
- @return 
  */
 +(BOOL)firstColor:(UIColor*)firstColor secondColor:(UIColor*)secondColor;
 @end

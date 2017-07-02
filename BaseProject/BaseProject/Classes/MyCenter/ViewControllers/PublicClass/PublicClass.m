@@ -9,7 +9,7 @@
 #import "PublicClass.h"
 
 @implementation PublicClass
-+ (void)setRightTitleOnTargetNav:(id)controller action:(SEL)action Title:(NSString *)title{
++ (UIButton *)setRightTitleOnTargetNav:(id)controller action:(SEL)action Title:(NSString *)title{
     //设置navbar上的右键按钮
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn addTarget:controller action:action forControlEvents:UIControlEventTouchUpInside];
@@ -19,6 +19,7 @@
     [rightBtn sizeToFit];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [[controller navigationItem] setRightBarButtonItem:backItem];
+    return rightBtn;
 }
 + (UIButton *)setLeftButtonItemOnTargetNav:(id)controller action:(SEL)action image:(UIImage *)image{
     //设置navbar上的左键按钮

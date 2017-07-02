@@ -105,6 +105,12 @@
 		C505AEC51F08D9CB008691C8 /* ReleaseProjetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEC31F08D9CB008691C8 /* ReleaseProjetCell.xib */; };
 		C505AEC91F08ED1F008691C8 /* ProjectDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AEC71F08ED1F008691C8 /* ProjectDetailController.m */; };
 		C505AECA1F08ED1F008691C8 /* ProjectDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEC81F08ED1F008691C8 /* ProjectDetailController.xib */; };
+		C505AECF1F08FF87008691C8 /* LimitAmoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AECD1F08FF87008691C8 /* LimitAmoutController.m */; };
+		C505AED01F08FF87008691C8 /* LimitAmoutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AECE1F08FF87008691C8 /* LimitAmoutController.xib */; };
+		C505AED41F0903DE008691C8 /* AmoutDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AED21F0903DE008691C8 /* AmoutDetailController.m */; };
+		C505AED51F0903DE008691C8 /* AmoutDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AED31F0903DE008691C8 /* AmoutDetailController.xib */; };
+		C505AEDA1F090428008691C8 /* AmoutDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AED81F090428008691C8 /* AmoutDetailCell.m */; };
+		C505AEDB1F090428008691C8 /* AmoutDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AED91F090428008691C8 /* AmoutDetailCell.xib */; };
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
 		C5175F961F03C44C003C45C2 /* DeclarationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */; };
 		C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F931F03C44C003C45C2 /* DeclarationViewController.m */; };
@@ -331,6 +337,15 @@
 		C505AEC61F08ED1F008691C8 /* ProjectDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailController.h; sourceTree = "<group>"; };
 		C505AEC71F08ED1F008691C8 /* ProjectDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailController.m; sourceTree = "<group>"; };
 		C505AEC81F08ED1F008691C8 /* ProjectDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailController.xib; sourceTree = "<group>"; };
+		C505AECC1F08FF87008691C8 /* LimitAmoutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitAmoutController.h; sourceTree = "<group>"; };
+		C505AECD1F08FF87008691C8 /* LimitAmoutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitAmoutController.m; sourceTree = "<group>"; };
+		C505AECE1F08FF87008691C8 /* LimitAmoutController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LimitAmoutController.xib; sourceTree = "<group>"; };
+		C505AED11F0903DE008691C8 /* AmoutDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmoutDetailController.h; sourceTree = "<group>"; };
+		C505AED21F0903DE008691C8 /* AmoutDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmoutDetailController.m; sourceTree = "<group>"; };
+		C505AED31F0903DE008691C8 /* AmoutDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmoutDetailController.xib; sourceTree = "<group>"; };
+		C505AED71F090428008691C8 /* AmoutDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmoutDetailCell.h; sourceTree = "<group>"; };
+		C505AED81F090428008691C8 /* AmoutDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmoutDetailCell.m; sourceTree = "<group>"; };
+		C505AED91F090428008691C8 /* AmoutDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmoutDetailCell.xib; sourceTree = "<group>"; };
 		C5175F8F1F03C44C003C45C2 /* DeclarationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationTableViewCell.h; sourceTree = "<group>"; };
 		C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationTableViewCell.m; sourceTree = "<group>"; };
 		C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationTableViewCell.xib; sourceTree = "<group>"; };
@@ -736,6 +751,7 @@
 		42F795A41F00C84600A11A69 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C505AECB1F08FF76008691C8 /* LimitAmoutController */,
 				C5175FDE1F078B84003C45C2 /* ReleaseProjectController */,
 				0A4F24D01F04EC2100C2C50D /* SecurityController */,
 				C5175F9C1F04ACD3003C45C2 /* PublicClass */,
@@ -903,6 +919,30 @@
 				C505AEC31F08D9CB008691C8 /* ReleaseProjetCell.xib */,
 			);
 			path = ReleaseProjetCell;
+			sourceTree = "<group>";
+		};
+		C505AECB1F08FF76008691C8 /* LimitAmoutController */ = {
+			isa = PBXGroup;
+			children = (
+				C505AED61F090412008691C8 /* AmoutDetailCell */,
+				C505AECC1F08FF87008691C8 /* LimitAmoutController.h */,
+				C505AECD1F08FF87008691C8 /* LimitAmoutController.m */,
+				C505AECE1F08FF87008691C8 /* LimitAmoutController.xib */,
+				C505AED11F0903DE008691C8 /* AmoutDetailController.h */,
+				C505AED21F0903DE008691C8 /* AmoutDetailController.m */,
+				C505AED31F0903DE008691C8 /* AmoutDetailController.xib */,
+			);
+			path = LimitAmoutController;
+			sourceTree = "<group>";
+		};
+		C505AED61F090412008691C8 /* AmoutDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				C505AED71F090428008691C8 /* AmoutDetailCell.h */,
+				C505AED81F090428008691C8 /* AmoutDetailCell.m */,
+				C505AED91F090428008691C8 /* AmoutDetailCell.xib */,
+			);
+			path = AmoutDetailCell;
 			sourceTree = "<group>";
 		};
 		C5175F8D1F03C44C003C45C2 /* DeclarationController */ = {
@@ -1094,11 +1134,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				42347BF91F03996400D56D8D /* LoginViewController.xib in Resources */,
+				C505AED51F0903DE008691C8 /* AmoutDetailController.xib in Resources */,
 				C505AEB91F08D069008691C8 /* AllReleaseProjectController.xib in Resources */,
 				C505AEB41F08B051008691C8 /* DeclarationView.xib in Resources */,
 				42F795D81F00CC3E00A11A69 /* arrowdown@2x.png in Resources */,
+				C505AEDB1F090428008691C8 /* AmoutDetailCell.xib in Resources */,
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
 				C5175FA91F04B345003C45C2 /* UploadTableViewCell.xib in Resources */,
+				C505AED01F08FF87008691C8 /* LimitAmoutController.xib in Resources */,
 				C5175FA41F04B051003C45C2 /* UploadDeclarationController.xib in Resources */,
 				0A7421901F0373BD007FC9DE /* NewsTableViewCell.xib in Resources */,
 				42A444431EF133E000F90791 /* LaunchScreen.storyboard in Resources */,
@@ -1197,6 +1240,7 @@
 				C5175FBB1F052CEA003C45C2 /* MySingleton.m in Sources */,
 				C505AEB81F08D069008691C8 /* AllReleaseProjectController.m in Sources */,
 				42C84F061EF2E97D0008189D /* NSTimer+Category.m in Sources */,
+				C505AEDA1F090428008691C8 /* AmoutDetailCell.m in Sources */,
 				42347BFF1F03996400D56D8D /* RegistViewController.m in Sources */,
 				6BC09F661F0644A1007CF871 /* WebTableView.m in Sources */,
 				42C84F031EF2E97D0008189D /* NSString+DisplayTime.m in Sources */,
@@ -1238,6 +1282,7 @@
 				42C84EFC1EF2E97D0008189D /* NSData+Category.m in Sources */,
 				42C84EFB1EF2E97D0008189D /* NSAttributedString+Category.m in Sources */,
 				CAF809961F03AE4A0024333C /* NewsWebViewController.m in Sources */,
+				C505AECF1F08FF87008691C8 /* LimitAmoutController.m in Sources */,
 				42C84EAF1EF2DB060008189D /* ViewController.m in Sources */,
 				42C84EB91EF2DCD90008189D /* MainApi.m in Sources */,
 				42F795C91F00C95200A11A69 /* MyCenterViewController.m in Sources */,
@@ -1262,6 +1307,7 @@
 				42C84EC91EF2DD1A0008189D /* DicToString.m in Sources */,
 				42AE99321F0268ED003C8FB4 /* Nothing.m in Sources */,
 				42347BFA1F03996400D56D8D /* ProtocolViewController.m in Sources */,
+				C505AED41F0903DE008691C8 /* AmoutDetailController.m in Sources */,
 				42C84EFD1EF2E97D0008189D /* NSData+CommonCryptor.m in Sources */,
 				42C84F0A1EF2E97D0008189D /* UIImage+Category.m in Sources */,
 				6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */,

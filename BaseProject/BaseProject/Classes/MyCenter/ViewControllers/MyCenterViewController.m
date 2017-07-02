@@ -15,7 +15,7 @@
 #import "DeclarationViewController.h"
 #import "LoginViewController.h"
 #import "AllReleaseProjectController.h"
-
+#import "LimitAmoutController.h"
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -173,6 +173,11 @@
     if (indexPath.section==0) {
         if (indexPath.row==0) {
          
+        }else if (indexPath.row==1){
+      
+        }else if (indexPath.row==2){
+            LimitAmoutController *limit=[[LimitAmoutController alloc]init];
+            [self.navigationController pushViewController:limit animated:YES];
         }
         
     }else if (indexPath.section==1){
