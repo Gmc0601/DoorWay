@@ -14,7 +14,7 @@
 #import "UserinforViewController.h"
 #import "DeclarationViewController.h"
 #import "LoginViewController.h"
-#import "ReleaseProjectController.h"
+#import "AllReleaseProjectController.h"
 
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -182,7 +182,7 @@
             DeclarationViewController *declaration=[[DeclarationViewController alloc]init];
             [self.navigationController pushViewController:declaration animated:YES];
         }else if (indexPath.row==2){
-            ReleaseProjectController *release=[[ReleaseProjectController alloc]init];
+            AllReleaseProjectController *release=[[AllReleaseProjectController alloc]init];
             [self.navigationController pushViewController:release animated:YES];
         }else if (indexPath.row==3){
             InvitationViewController *Invitation=[[InvitationViewController alloc]init];

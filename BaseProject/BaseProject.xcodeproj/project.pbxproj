@@ -97,6 +97,14 @@
 		6BC09F651F0644A1007CF871 /* CommnetsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F611F0644A1007CF871 /* CommnetsTableView.m */; };
 		6BC09F661F0644A1007CF871 /* WebTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F631F0644A1007CF871 /* WebTableView.m */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
+		C505AEB21F08B045008691C8 /* DeclarationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AEB11F08B045008691C8 /* DeclarationView.m */; };
+		C505AEB41F08B051008691C8 /* DeclarationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEB31F08B051008691C8 /* DeclarationView.xib */; };
+		C505AEB81F08D069008691C8 /* AllReleaseProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AEB61F08D069008691C8 /* AllReleaseProjectController.m */; };
+		C505AEB91F08D069008691C8 /* AllReleaseProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEB71F08D069008691C8 /* AllReleaseProjectController.xib */; };
+		C505AEC41F08D9CB008691C8 /* ReleaseProjetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AEC21F08D9CB008691C8 /* ReleaseProjetCell.m */; };
+		C505AEC51F08D9CB008691C8 /* ReleaseProjetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEC31F08D9CB008691C8 /* ReleaseProjetCell.xib */; };
+		C505AEC91F08ED1F008691C8 /* ProjectDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AEC71F08ED1F008691C8 /* ProjectDetailController.m */; };
+		C505AECA1F08ED1F008691C8 /* ProjectDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEC81F08ED1F008691C8 /* ProjectDetailController.xib */; };
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
 		C5175F961F03C44C003C45C2 /* DeclarationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */; };
 		C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F931F03C44C003C45C2 /* DeclarationViewController.m */; };
@@ -311,6 +319,18 @@
 		6BC09F621F0644A1007CF871 /* WebTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTableView.h; sourceTree = "<group>"; };
 		6BC09F631F0644A1007CF871 /* WebTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTableView.m; sourceTree = "<group>"; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
+		C505AEB01F08B045008691C8 /* DeclarationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationView.h; sourceTree = "<group>"; };
+		C505AEB11F08B045008691C8 /* DeclarationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationView.m; sourceTree = "<group>"; };
+		C505AEB31F08B051008691C8 /* DeclarationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationView.xib; sourceTree = "<group>"; };
+		C505AEB51F08D069008691C8 /* AllReleaseProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllReleaseProjectController.h; sourceTree = "<group>"; };
+		C505AEB61F08D069008691C8 /* AllReleaseProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllReleaseProjectController.m; sourceTree = "<group>"; };
+		C505AEB71F08D069008691C8 /* AllReleaseProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllReleaseProjectController.xib; sourceTree = "<group>"; };
+		C505AEC11F08D9CB008691C8 /* ReleaseProjetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseProjetCell.h; sourceTree = "<group>"; };
+		C505AEC21F08D9CB008691C8 /* ReleaseProjetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseProjetCell.m; sourceTree = "<group>"; };
+		C505AEC31F08D9CB008691C8 /* ReleaseProjetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseProjetCell.xib; sourceTree = "<group>"; };
+		C505AEC61F08ED1F008691C8 /* ProjectDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailController.h; sourceTree = "<group>"; };
+		C505AEC71F08ED1F008691C8 /* ProjectDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailController.m; sourceTree = "<group>"; };
+		C505AEC81F08ED1F008691C8 /* ProjectDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailController.xib; sourceTree = "<group>"; };
 		C5175F8F1F03C44C003C45C2 /* DeclarationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationTableViewCell.h; sourceTree = "<group>"; };
 		C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationTableViewCell.m; sourceTree = "<group>"; };
 		C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationTableViewCell.xib; sourceTree = "<group>"; };
@@ -865,6 +885,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C505AEAF1F08B037008691C8 /* DeclarationView */ = {
+			isa = PBXGroup;
+			children = (
+				C505AEB01F08B045008691C8 /* DeclarationView.h */,
+				C505AEB11F08B045008691C8 /* DeclarationView.m */,
+				C505AEB31F08B051008691C8 /* DeclarationView.xib */,
+			);
+			path = DeclarationView;
+			sourceTree = "<group>";
+		};
+		C505AEC01F08D9AB008691C8 /* ReleaseProjetCell */ = {
+			isa = PBXGroup;
+			children = (
+				C505AEC11F08D9CB008691C8 /* ReleaseProjetCell.h */,
+				C505AEC21F08D9CB008691C8 /* ReleaseProjetCell.m */,
+				C505AEC31F08D9CB008691C8 /* ReleaseProjetCell.xib */,
+			);
+			path = ReleaseProjetCell;
+			sourceTree = "<group>";
+		};
 		C5175F8D1F03C44C003C45C2 /* DeclarationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,9 +968,17 @@
 		C5175FDE1F078B84003C45C2 /* ReleaseProjectController */ = {
 			isa = PBXGroup;
 			children = (
+				C505AEC01F08D9AB008691C8 /* ReleaseProjetCell */,
+				C505AEAF1F08B037008691C8 /* DeclarationView */,
+				C505AEB51F08D069008691C8 /* AllReleaseProjectController.h */,
+				C505AEB61F08D069008691C8 /* AllReleaseProjectController.m */,
+				C505AEB71F08D069008691C8 /* AllReleaseProjectController.xib */,
 				C5175FDF1F078B9A003C45C2 /* ReleaseProjectController.h */,
 				C5175FE01F078B9A003C45C2 /* ReleaseProjectController.m */,
 				C5175FE11F078B9A003C45C2 /* ReleaseProjectController.xib */,
+				C505AEC61F08ED1F008691C8 /* ProjectDetailController.h */,
+				C505AEC71F08ED1F008691C8 /* ProjectDetailController.m */,
+				C505AEC81F08ED1F008691C8 /* ProjectDetailController.xib */,
 			);
 			path = ReleaseProjectController;
 			sourceTree = "<group>";
@@ -1046,6 +1094,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				42347BF91F03996400D56D8D /* LoginViewController.xib in Resources */,
+				C505AEB91F08D069008691C8 /* AllReleaseProjectController.xib in Resources */,
+				C505AEB41F08B051008691C8 /* DeclarationView.xib in Resources */,
 				42F795D81F00CC3E00A11A69 /* arrowdown@2x.png in Resources */,
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
 				C5175FA91F04B345003C45C2 /* UploadTableViewCell.xib in Resources */,
@@ -1054,11 +1104,13 @@
 				42A444431EF133E000F90791 /* LaunchScreen.storyboard in Resources */,
 				42347BF71F03996400D56D8D /* ForgetPWViewController.xib in Resources */,
 				C5175F961F03C44C003C45C2 /* DeclarationTableViewCell.xib in Resources */,
+				C505AEC51F08D9CB008691C8 /* ReleaseProjetCell.xib in Resources */,
 				C5175FBC1F052CEA003C45C2 /* province_data.json in Resources */,
 				C5175F981F03C44C003C45C2 /* DeclarationViewController.xib in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
 				C5175FE31F078B9A003C45C2 /* ReleaseProjectController.xib in Resources */,
+				C505AECA1F08ED1F008691C8 /* ProjectDetailController.xib in Resources */,
 				42347BFC1F03996400D56D8D /* RegistCodeViewController.xib in Resources */,
 				42347C001F03996400D56D8D /* RegistViewController.xib in Resources */,
 				42347BFE1F03996400D56D8D /* registNameViewController.xib in Resources */,
@@ -1143,6 +1195,7 @@
 				42C84F0C1EF2E97D0008189D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				42347BF61F03996400D56D8D /* ForgetPWViewController.m in Sources */,
 				C5175FBB1F052CEA003C45C2 /* MySingleton.m in Sources */,
+				C505AEB81F08D069008691C8 /* AllReleaseProjectController.m in Sources */,
 				42C84F061EF2E97D0008189D /* NSTimer+Category.m in Sources */,
 				42347BFF1F03996400D56D8D /* RegistViewController.m in Sources */,
 				6BC09F661F0644A1007CF871 /* WebTableView.m in Sources */,
@@ -1159,6 +1212,7 @@
 				42C84EFF1EF2E97D0008189D /* NSMutableArray+Category.m in Sources */,
 				0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */,
 				42F795BD1F00C8B200A11A69 /* TBNavigationController.m in Sources */,
+				C505AEC91F08ED1F008691C8 /* ProjectDetailController.m in Sources */,
 				42C84F0F1EF2E97D0008189D /* UIView+BGFrame.m in Sources */,
 				42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */,
 				42F795CD1F00CBDF00A11A69 /* FactorySet.m in Sources */,
@@ -1188,6 +1242,7 @@
 				42C84EB91EF2DCD90008189D /* MainApi.m in Sources */,
 				42F795C91F00C95200A11A69 /* MyCenterViewController.m in Sources */,
 				42C84F051EF2E97D0008189D /* NSString+Predicate.m in Sources */,
+				C505AEC41F08D9CB008691C8 /* ReleaseProjetCell.m in Sources */,
 				42C84F0E1EF2E97D0008189D /* UIView+Animation.m in Sources */,
 				42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */,
 				42347BF81F03996400D56D8D /* LoginViewController.m in Sources */,
@@ -1202,6 +1257,7 @@
 				42C84F001EF2E97D0008189D /* NSMutableAttributedString+Category.m in Sources */,
 				42C84F0B1EF2E97D0008189D /* UIMenuItem+Category.m in Sources */,
 				42C84EB61EF2DCBC0008189D /* ConfigModel.m in Sources */,
+				C505AEB21F08B045008691C8 /* DeclarationView.m in Sources */,
 				42C84EB11EF2DB060008189D /* main.m in Sources */,
 				42C84EC91EF2DD1A0008189D /* DicToString.m in Sources */,
 				42AE99321F0268ED003C8FB4 /* Nothing.m in Sources */,

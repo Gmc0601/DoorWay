@@ -7,25 +7,54 @@
 //
 
 #import "ReleaseProjectController.h"
+#import "DeclarationView.h"
+#import "Masonry.h"
 
 #define TextViewPlaceHolder  @"请输入项目简介"
 #define PlaceColor RGB(204, 204, 204)
 @interface ReleaseProjectController ()
-
+@property (nonatomic,strong)DeclarationView * declaraView;
 @end
 
 @implementation ReleaseProjectController
+- (void)cancleRelease{
+    [self agreeRelease];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)agreeRelease{
+    [self.declaraView removeFromSuperview];
+    self.declaraView = nil;
+}
+- (DeclarationView *)declaraView{
+    if ((!_declaraView)) {
+        _declaraView = [[[NSBundle mainBundle] loadNibNamed:@"DeclarationView" owner:self options:nil] lastObject];
+        [_declaraView.cancleBtn addTarget:self action:@selector(cancleRelease) forControlEvents:UIControlEventTouchUpInside];
+        [_declaraView.sureBtn addTarget:self action:@selector(agreeRelease) forControlEvents:UIControlEventTouchUpInside];
+
+    }
+    return _declaraView;
+}
 - (IBAction)uploadProject:(id)sender {
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self setNavTitle:@"提交报单"];
+- (void)setReleasePartUI{
+    [self setNavTitle:@"发起项目"];
     self.detailTextView.textColor = PlaceColor;//设置提示内容颜色
     self.detailTextView.text      = TextViewPlaceHolder;//提示语
     self.detailTextView.selectedRange=NSMakeRange(0,0) ;//光标起始位置
-    
+    UIWindow * keyWindow = [UIApplication sharedApplication].keyWindow;
+    [keyWindow addSubview:self.declaraView];
+    [_declaraView  mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+        make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self setReleasePartUI];
+
 }
 #pragma mark-UITextViewDelegate
 - (void)textViewDidChangeSelection:(UITextView *)textView{
