@@ -13,6 +13,7 @@
 
 @interface InvestmentProjectViewController ()
 @property(retain,atomic) UITableView *tblInvestments;
+@property(retain,atomic) NSArray *datasource;
 @end
 
 @implementation InvestmentProjectViewController
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     [self setCustomerTitle: @"投资项目"];
     [self addTableView];
-    // Do any additional setup after loading the view.
+    _datasource = [InvestmentModel loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +46,7 @@
 
 #pragma mark - UITableViewDataSource methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return _datasource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -54,7 +55,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-
     return cell;
 }
 

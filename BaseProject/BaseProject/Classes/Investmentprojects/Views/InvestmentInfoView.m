@@ -22,7 +22,7 @@
 @property(atomic,retain) NSString *commentsCellIdentifier;
 @property(atomic,retain) WebTableView *webTableView;
 @property(atomic,retain) CommnetsTableView *commnetsTableView;
-@property(atomic,retain) KLCPopup *inputPanel;
+@property(atomic,retain) KLCPopup *popover;
 @property(atomic,retain) UITextView *txtView;
 @end
 
@@ -151,32 +151,73 @@
 
 -(void) tapAddCommentsButtpn:(UIButton *) sender{
     
-    if (_inputPanel == nil) {
-        UIView *pop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 145)];
-        pop.backgroundColor = [UIColor whiteColor];
+    if (_popover == nil) {
+        UIView *inputPanel = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 145)];
+        inputPanel.backgroundColor = [UIColor whiteColor];
         
-        _txtView = [[UITextView alloc] init];
-        [pop addSubview:_txtView];
+        UIFont *font = [UIFont fontWithName:@"PingFang-SC-Medium" size:15];
+        UIColor *color = [UIColor colorWithHexString:@"#cccccc"];;
         
-        [_txtView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(pop).offset(10);
-            make.bottom.equalTo(pop);
-            make.left.equalTo(pop);
-            make.right.equalTo(pop);
+        UIButton *btnSender = [[UIButton alloc] init];
+        [btnSender setTitle:@"发送" forState:UIControlStateNormal];
+        btnSender.titleLabel.font = font;
+        btnSender.titleLabel.textAlignment = NSTextAlignmentLeft;
+        [btnSender setTitleColor:color forState:UIControlStateNormal];
+        [btnSender addTarget:self action:@selector(tapSendeButton) forControlEvents:UIControlEventTouchUpInside];
+        
+        [inputPanel addSubview:btnSender];
+        [btnSender mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(inputPanel).offset(16);
+            make.top.equalTo(inputPanel).offset(10);
+            make.height.equalTo(@15);
+            make.width.equalTo(@40);
         }];
         
-        _inputPanel = [KLCPopup popupWithContentView:pop];
-        _inputPanel.showType = KLCPopupShowTypeSlideInFromBottom;
-        _inputPanel.dismissType = KLCPopupDismissTypeSlideOutToBottom;
+        UIButton *btnCancel = [[UIButton alloc] init];
+        [btnCancel setTitle:@"取消" forState:UIControlStateNormal];
+        btnCancel.titleLabel.font = font;
+        btnCancel.titleLabel.textAlignment = NSTextAlignmentRight;
+        [btnCancel setTitleColor:color forState:UIControlStateNormal];
+        [btnCancel addTarget:self action:@selector(tapCancelInputButton) forControlEvents:UIControlEventTouchUpInside];
+        
+        [inputPanel addSubview:btnCancel];
+        [btnCancel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(inputPanel).offset(-16);
+            make.top.equalTo(inputPanel).offset(10);
+            make.height.equalTo(@15);
+            make.width.equalTo(@40);
+        }];
+        
+        _txtView = [[UITextView alloc] init];
+        [inputPanel addSubview:_txtView];
+        
+        [_txtView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(btnCancel.mas_bottom).offset(15);
+            make.bottom.equalTo(inputPanel);
+            make.left.equalTo(inputPanel);
+            make.right.equalTo(inputPanel);
+        }];
+        
+        _popover = [KLCPopup popupWithContentView:inputPanel];
+        _popover.showType = KLCPopupShowTypeSlideInFromBottom;
+        _popover.dismissType = KLCPopupDismissTypeSlideOutToBottom;
         
         InvestmentInfoView *this = self;
-        [_inputPanel setWillStartDismissingCompletion:^(){
+        [_popover setWillStartDismissingCompletion:^(){
             [this.txtView resignFirstResponder];
         }];
     }
     
     [_txtView becomeFirstResponder];
-    [_inputPanel showAtCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2 + 10) inView:self];
+    [_popover showAtCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2 + 10) inView:self];
+}
+
+-(void) tapCancelInputButton{
+    [_popover dismiss:true];
+}
+
+-(void) tapSendeButton{
+    
 }
 
 @end
