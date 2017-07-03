@@ -7,9 +7,9 @@
 //
 
 #import "Masonry.h"
-#import "BaseViewController.h"
+#import "CenterRootViewController.h"
 
-@interface InvitationViewController : UIViewController{
+@interface InvitationViewController : CenterRootViewController{
     UIView *setMainView;
 }
 

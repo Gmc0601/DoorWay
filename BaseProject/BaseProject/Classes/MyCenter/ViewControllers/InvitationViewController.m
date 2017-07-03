@@ -18,9 +18,11 @@
     
     [super viewDidLoad];
     
-    self.title=@"我的邀请码";
+    [self setCustomerTitle:@"我的邀请码"];
+    
     self.view.backgroundColor = UIColorFromHex(0xf0f0f0);
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    self.navigationController.navigationBar.translucent = NO;
     
     [self returnBack];
     
@@ -58,7 +60,7 @@
     setMainView.layer.cornerRadius=5;
     [self.view addSubview:setMainView];
     [setMainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(74*SCALE);
+        make.top.mas_equalTo(10*SCALE);
         make.left.mas_equalTo(10*SCALE);
         make.right.mas_equalTo(-10*SCALE);
         make.height.mas_equalTo((330/2)*SCALE);
