@@ -8,6 +8,7 @@
 
 #import "LimitAmoutController.h"
 #import "AmoutDetailController.h"
+#import "UploadLimitViewController.h"
 @interface LimitAmoutController ()
 
 @end
@@ -15,6 +16,9 @@
 @implementation LimitAmoutController
 #pragma mark-提升额度
 - (IBAction)UpAmoutLimit:(id)sender {
+    UploadLimitViewController * upload = [[UploadLimitViewController alloc]init];
+    [self.navigationController pushViewController:upload animated:YES];
+
 }
 - (void)AmountDetail{
     AmoutDetailController * detail = [[AmoutDetailController alloc]init];

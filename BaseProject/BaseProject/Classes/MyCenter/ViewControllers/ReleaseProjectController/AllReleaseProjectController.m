@@ -10,8 +10,10 @@
 #import "ReleaseProjetCell.h"
 #import "ReleaseProjectController.h"
 #import "ProjectDetailController.h"
+#import "DeclarationAlert.h"
+#import "Masonry.h"
 @interface AllReleaseProjectController ()
-
+@property (nonatomic,strong) DeclarationAlert * declaraAlert;
 @end
 
 @implementation AllReleaseProjectController
@@ -35,6 +37,25 @@
         
     }];
 }
+- (void)dismissAlert{
+    self.declaraAlert.hidden = YES;
+//    [self.declaraAlert removeFromSuperview];
+}
+- (DeclarationAlert *)declaraAlert{
+    if (!_declaraAlert) {
+        _declaraAlert = [[[NSBundle mainBundle] loadNibNamed:@"DeclarationAlert" owner:self options:nil] lastObject];
+        [_declaraAlert.sureBtn addTarget:self action:@selector(dismissAlert) forControlEvents:UIControlEventTouchUpInside];
+        UIWindow * keyWindow = [UIApplication sharedApplication].keyWindow;
+        [keyWindow addSubview:_declaraAlert];
+        [_declaraAlert  mas_makeConstraints:^(MASConstraintMaker *make){
+            make.top.equalTo(@0);
+            make.left.equalTo(@0);
+            make.right.equalTo(@0);
+            make.bottom.equalTo(@0);
+        }];
+    }
+    return _declaraAlert;
+}
 - (void)setLineViewFrame{
     CGFloat width = kScreenW/4;
     CGRect rect = self.lineView.frame;
@@ -43,8 +64,13 @@
     self.lineView.frame = rect;
 }
 - (void)releaseProject{
-    ReleaseProjectController * release = [[ReleaseProjectController alloc]init];
-    [self.navigationController pushViewController:release animated:YES];
+    BOOL isEnough = YES;
+    if (isEnough) {
+        self.declaraAlert.hidden = NO;
+    }else{
+        ReleaseProjectController * release = [[ReleaseProjectController alloc]init];
+        [self.navigationController pushViewController:release animated:YES];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

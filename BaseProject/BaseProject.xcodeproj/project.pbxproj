@@ -111,6 +111,10 @@
 		C505AED51F0903DE008691C8 /* AmoutDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AED31F0903DE008691C8 /* AmoutDetailController.xib */; };
 		C505AEDA1F090428008691C8 /* AmoutDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AED81F090428008691C8 /* AmoutDetailCell.m */; };
 		C505AEDB1F090428008691C8 /* AmoutDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AED91F090428008691C8 /* AmoutDetailCell.xib */; };
+		C505AF0C1F0BB52C008691C8 /* DeclarationAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AF0B1F0BB52C008691C8 /* DeclarationAlert.m */; };
+		C505AF0E1F0BB53E008691C8 /* DeclarationAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AF0D1F0BB53E008691C8 /* DeclarationAlert.xib */; };
+		C505AF121F0D0FC1008691C8 /* UploadLimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AF101F0D0FC1008691C8 /* UploadLimitViewController.m */; };
+		C505AF131F0D0FC1008691C8 /* UploadLimitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AF111F0D0FC1008691C8 /* UploadLimitViewController.xib */; };
 		C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */; };
 		C5175F961F03C44C003C45C2 /* DeclarationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */; };
 		C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5175F931F03C44C003C45C2 /* DeclarationViewController.m */; };
@@ -346,6 +350,12 @@
 		C505AED71F090428008691C8 /* AmoutDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmoutDetailCell.h; sourceTree = "<group>"; };
 		C505AED81F090428008691C8 /* AmoutDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmoutDetailCell.m; sourceTree = "<group>"; };
 		C505AED91F090428008691C8 /* AmoutDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmoutDetailCell.xib; sourceTree = "<group>"; };
+		C505AF0A1F0BB52C008691C8 /* DeclarationAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationAlert.h; sourceTree = "<group>"; };
+		C505AF0B1F0BB52C008691C8 /* DeclarationAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationAlert.m; sourceTree = "<group>"; };
+		C505AF0D1F0BB53E008691C8 /* DeclarationAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationAlert.xib; sourceTree = "<group>"; };
+		C505AF0F1F0D0FC1008691C8 /* UploadLimitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadLimitViewController.h; sourceTree = "<group>"; };
+		C505AF101F0D0FC1008691C8 /* UploadLimitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadLimitViewController.m; sourceTree = "<group>"; };
+		C505AF111F0D0FC1008691C8 /* UploadLimitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadLimitViewController.xib; sourceTree = "<group>"; };
 		C5175F8F1F03C44C003C45C2 /* DeclarationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationTableViewCell.h; sourceTree = "<group>"; };
 		C5175F901F03C44C003C45C2 /* DeclarationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationTableViewCell.m; sourceTree = "<group>"; };
 		C5175F911F03C44C003C45C2 /* DeclarationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeclarationTableViewCell.xib; sourceTree = "<group>"; };
@@ -907,6 +917,9 @@
 				C505AEB01F08B045008691C8 /* DeclarationView.h */,
 				C505AEB11F08B045008691C8 /* DeclarationView.m */,
 				C505AEB31F08B051008691C8 /* DeclarationView.xib */,
+				C505AF0A1F0BB52C008691C8 /* DeclarationAlert.h */,
+				C505AF0B1F0BB52C008691C8 /* DeclarationAlert.m */,
+				C505AF0D1F0BB53E008691C8 /* DeclarationAlert.xib */,
 			);
 			path = DeclarationView;
 			sourceTree = "<group>";
@@ -931,6 +944,9 @@
 				C505AED11F0903DE008691C8 /* AmoutDetailController.h */,
 				C505AED21F0903DE008691C8 /* AmoutDetailController.m */,
 				C505AED31F0903DE008691C8 /* AmoutDetailController.xib */,
+				C505AF0F1F0D0FC1008691C8 /* UploadLimitViewController.h */,
+				C505AF101F0D0FC1008691C8 /* UploadLimitViewController.m */,
+				C505AF111F0D0FC1008691C8 /* UploadLimitViewController.xib */,
 			);
 			path = LimitAmoutController;
 			sourceTree = "<group>";
@@ -1137,6 +1153,7 @@
 				C505AED51F0903DE008691C8 /* AmoutDetailController.xib in Resources */,
 				C505AEB91F08D069008691C8 /* AllReleaseProjectController.xib in Resources */,
 				C505AEB41F08B051008691C8 /* DeclarationView.xib in Resources */,
+				C505AF0E1F0BB53E008691C8 /* DeclarationAlert.xib in Resources */,
 				42F795D81F00CC3E00A11A69 /* arrowdown@2x.png in Resources */,
 				C505AEDB1F090428008691C8 /* AmoutDetailCell.xib in Resources */,
 				42F795D91F00CC3E00A11A69 /* arrowup@2x.png in Resources */,
@@ -1151,6 +1168,7 @@
 				C5175FBC1F052CEA003C45C2 /* province_data.json in Resources */,
 				C5175F981F03C44C003C45C2 /* DeclarationViewController.xib in Resources */,
 				42A444401EF133E000F90791 /* Assets.xcassets in Resources */,
+				C505AF131F0D0FC1008691C8 /* UploadLimitViewController.xib in Resources */,
 				42A4443B1EF133E000F90791 /* Main.storyboard in Resources */,
 				C5175FE31F078B9A003C45C2 /* ReleaseProjectController.xib in Resources */,
 				C505AECA1F08ED1F008691C8 /* ProjectDetailController.xib in Resources */,
@@ -1252,6 +1270,7 @@
 				42C84F071EF2E97D0008189D /* UIButton+Category.m in Sources */,
 				C5175F971F03C44C003C45C2 /* DeclarationViewController.m in Sources */,
 				C5175F951F03C44C003C45C2 /* DeclarationTableViewCell.m in Sources */,
+				C505AF121F0D0FC1008691C8 /* UploadLimitViewController.m in Sources */,
 				0A4F24D61F0507BC00C2C50D /* NicknameViewController.m in Sources */,
 				42C84EFF1EF2E97D0008189D /* NSMutableArray+Category.m in Sources */,
 				0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */,
@@ -1272,6 +1291,7 @@
 				42F795DB1F00CC3E00A11A69 /* TBRefreshHeadView.m in Sources */,
 				42C84F021EF2E97D0008189D /* NSString+Category.m in Sources */,
 				0A74219B1F0380B2007FC9DE /* InvitationViewController.m in Sources */,
+				C505AF0C1F0BB52C008691C8 /* DeclarationAlert.m in Sources */,
 				0A74218B1F034F89007FC9DE /* setIMagecell.m in Sources */,
 				42F795DC1F00CC3E00A11A69 /* UIScrollView+TBRefresh.m in Sources */,
 				42AE993F1F026B72003C8FB4 /* NewView.m in Sources */,
