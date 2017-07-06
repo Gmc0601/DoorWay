@@ -158,6 +158,10 @@
     [self presentViewController:registNameVC animated:YES completion:nil];
 }
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.codeTF resignFirstResponder];
+}
 /*
 #pragma mark - Navigation
 

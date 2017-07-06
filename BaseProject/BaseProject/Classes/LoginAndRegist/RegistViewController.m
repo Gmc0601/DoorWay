@@ -85,7 +85,10 @@
 
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.regist1TF resignFirstResponder];
 
+}
 
 
 /*

@@ -68,7 +68,7 @@
                         <constraint firstAttribute="width" constant="333" id="ide-ik-ah3"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-b7-k29">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-b7-k29">
                     <rect key="frame" x="0.0" y="322" width="375" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="KnA-un-4eG"/>

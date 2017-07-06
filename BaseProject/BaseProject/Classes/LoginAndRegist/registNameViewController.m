@@ -88,12 +88,12 @@
         [ConfigModel mbProgressHUD:@"两次输入的密码不一样" andView:self.view];
 
     }
-    NSString *MD5Str = [self.passwordTF.text md5WithString];
+//    NSString *MD5Str = [self.passwordTF.text md5WithString];
     
     NSMutableDictionary *registMudic = [NSMutableDictionary dictionary];
     [registMudic setObject:self.mobileStr forKey:@"mobile"];
      [registMudic setObject:self.codeStr forKey:@"code"];
-     [registMudic setObject:MD5Str forKey:@"loginPass"];
+     [registMudic setObject:self.passwordTF.text forKey:@"loginPass"];
      [registMudic setObject:self.nickTF.text forKey:@"nickname"];
      [registMudic setObject:self.mailTF.text forKey:@"email"];
      [registMudic setObject:self.zhifubaoTF.text forKey:@"alipay_account"];
@@ -137,7 +137,12 @@
 }
 
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.zhifubaoNameTF resignFirstResponder];
+    [self.zhifubaoTF resignFirstResponder];
+    [self.mailTF resignFirstResponder];
+    [self.nickTF resignFirstResponder];
+}
 
 /*
 #pragma mark - Navigation

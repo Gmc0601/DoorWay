@@ -65,7 +65,7 @@
      NSString *uuidStr = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSMutableDictionary *mudicLogin = [NSMutableDictionary dictionary];
     [mudicLogin setObject:self.accountTF.text forKey:@"username"];
-    [mudicLogin setObject:@"qiao66" forKey:@"loginPass"];
+    [mudicLogin setObject:self.passwordTF.text forKey:@"loginPass"];
     [mudicLogin setObject:uuidStr forKey:@"device_number"];
     [HttpRequest postPath:LoginURL params:mudicLogin resultBlock:^(id responseObject, NSError *error) {
         
@@ -97,6 +97,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.accountTF resignFirstResponder];
+    [self.passwordTF resignFirstResponder];
+}
 /*
 #pragma mark - Navigation
 
