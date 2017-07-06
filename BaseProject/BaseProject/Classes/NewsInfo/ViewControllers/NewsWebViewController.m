@@ -104,11 +104,32 @@
 
 
 - (void)PraiseBtnClick:(UIButton *)sender{
-    [ConfigModel saveBoolObject:NO forKey:IsLogin];
+//    [ConfigModel saveBoolObject:NO forKey:IsLogin];
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
+        NSMutableDictionary *PraiseMudic = [NSMutableDictionary new];
+        [PraiseMudic setObject:self.newsId forKey:@"id"];
+        [PraiseMudic setObject:UserToken forKey:@"userToken"];
+        [HttpRequest postPath:@"_goodnews_001" params:PraiseMudic resultBlock:^(id responseObject, NSError *error) {
+            
+            if([error isEqual:[NSNull null]] || error == nil){
+                NSLog(@"success");
+            }
+            
+            NSLog(@"_newsdetails_001>>>>>>%@", responseObject);
+            NSDictionary *datadic = responseObject;
+            if ([datadic[@"error"] intValue] == 0) {
+                NSDictionary *infoDic = responseObject[@"info"];
+          [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+                
+            }else {
+                NSString *info = datadic[@"info"];
+                [ConfigModel mbProgressHUD:info andView:nil];
+            }
+            NSLog(@"error>>>>%@", error);
+        }];
+
         
-        
-        [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+       
         return;
     }else{
         LoginViewController *loginVC = [[LoginViewController alloc ] init];

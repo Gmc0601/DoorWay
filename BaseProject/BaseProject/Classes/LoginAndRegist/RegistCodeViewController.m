@@ -59,7 +59,7 @@
         return;
     }
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary *codeMudic = [NSMutableDictionary dictionary];
     [codeMudic setObject:self.accountTF.text forKey:@"mobile"];
     [HttpRequest postPath:@"_sms_002" params:codeMudic resultBlock:^(id responseObject, NSError *error) {

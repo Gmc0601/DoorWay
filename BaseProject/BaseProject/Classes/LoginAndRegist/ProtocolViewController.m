@@ -44,11 +44,11 @@
     DetailWebView.scalesPageToFit = YES;
     //    [DetailWebView loadHTMLString:URLStr baseURL:nil];
     
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
-    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+//    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+//    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
     
     [self.view addSubview:DetailWebView];
-    [DetailWebView loadRequest:requeset];
+//    [DetailWebView loadRequest:requeset];
 }
 
 
@@ -63,7 +63,9 @@
         NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
-
+            NSURL *url = [NSURL URLWithString:datadic[@"info"]];
+            NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+            [DetailWebView loadRequest:requeset];
 
         }else {
             NSString *info = datadic[@"info"];

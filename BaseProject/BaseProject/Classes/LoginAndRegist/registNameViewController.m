@@ -10,6 +10,8 @@
 #import "ProtocolViewController.h"
 #import "NSString+MD5.h"
 
+#import "TBTabBarController.h"
+#import "AppDelegate.h"
 @interface registNameViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nickTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
@@ -103,6 +105,9 @@
         if ([datadic[@"error"] intValue] == 0) {
             [ConfigModel mbProgressHUD:@"恭喜注册成功" andView:nil];
             
+            [self performSelector:@selector(backHomePage) withObject:nil afterDelay:2.0];
+
+            
         }else {
             NSString *info = datadic[@"info"];
             [ConfigModel mbProgressHUD:info andView:nil];
@@ -112,6 +117,12 @@
     
 }
 
+- (void)backHomePage{
+    TBTabBarController *TBVC = [[TBTabBarController alloc] init];
+    UIApplication *app = [UIApplication sharedApplication];
+    AppDelegate *app2 = app.delegate;
+    app2.window.rootViewController = TBVC;
+}
 
 - (IBAction)registNameBackBtn:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

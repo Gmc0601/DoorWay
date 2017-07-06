@@ -111,12 +111,12 @@
             NSLog(@"success");
         }
         
-        NSLog(@"login>>>>>>%@", responseObject);
+//        NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
             _NewSArr = [NSArray array];
              _NewSArr = datadic[@"info"];
-            NSLog(@"444%lu", (unsigned long)_NewSArr.count);
+//            NSLog(@"444%lu", (unsigned long)_NewSArr.count);
             [myMTableView reloadData];
             
         }else {
@@ -134,7 +134,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSLog(@"444%lu", (unsigned long)_NewSArr.count);
+//    NSLog(@"444%lu", (unsigned long)_NewSArr.count);
     return _NewSArr.count ;
 }
 

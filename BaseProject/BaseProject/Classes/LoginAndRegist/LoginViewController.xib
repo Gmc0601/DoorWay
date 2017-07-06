@@ -51,7 +51,7 @@
                         <constraint firstAttribute="width" constant="72" id="zAe-Oe-iLx"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="17682318061" placeholder="输入您的手机号/邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-Nc-cks">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="16968170752" placeholder="输入您的手机号/邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-Nc-cks">
                     <rect key="frame" x="0.0" y="275" width="375" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="hLu-R9-OsI"/>
