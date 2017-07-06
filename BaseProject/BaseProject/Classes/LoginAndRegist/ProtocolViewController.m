@@ -34,7 +34,7 @@
 //    titleLabel.font = [UIFont systemFontOfSize:18];
 //    self.navigationItem.titleView = titleLabel;
     
-    
+    [self getProtocolURl];
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickProtocolBackBtn)];
     // Do any additional setup after loading the view.
     
@@ -50,6 +50,32 @@
     [self.view addSubview:DetailWebView];
     [DetailWebView loadRequest:requeset];
 }
+
+
+- (void)getProtocolURl{
+
+    [HttpRequest postPath:@"_useragreement_001" params:nil resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSLog(@"login>>>>>>%@", responseObject);
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] == 0) {
+
+
+        }else {
+            NSString *info = datadic[@"info"];
+            [ConfigModel mbProgressHUD:info andView:nil];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
+
+}
+
+
+
 
 - (void)clickProtocolBackBtn{
     [self dismissViewControllerAnimated:YES completion:nil];

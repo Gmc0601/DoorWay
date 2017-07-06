@@ -12,6 +12,7 @@
 
 {
     UIWebView *NewsWebView;
+    NSString *urlStr;
 }
 
 @end
@@ -29,19 +30,46 @@
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBackBtn)];
     // Do any additional setup after loading the view.
     
+    
+    [self getUrlWebDetail];
     NewsWebView = [[UIWebView alloc] init];
     NewsWebView.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-130);
     NewsWebView.delegate = self;
     NewsWebView.scalesPageToFit = YES;
-
     
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
-    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+//    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+//    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
     
     [self.view addSubview:NewsWebView];
-    [NewsWebView loadRequest:requeset];
+//    [NewsWebView loadRequest:requeset];
 }
 
+
+- (void)getUrlWebDetail{
+    NSMutableDictionary *newsIdMudic = [NSMutableDictionary new];
+    [newsIdMudic setObject:self.newsId forKey:@"id"];
+    [HttpRequest postPath:@"_newsdetails_001" params:newsIdMudic resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSLog(@"_newsdetails_001>>>>>>%@", responseObject);
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] == 0) {
+            NSDictionary *infoDic = responseObject[@"info"];
+            urlStr = infoDic[@"content"];
+            [NewsWebView loadHTMLString:urlStr baseURL:nil];
+            
+        }else {
+            NSString *info = datadic[@"info"];
+            [ConfigModel mbProgressHUD:info andView:nil];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
+
+    
+}
 - (void)creatUI{
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
     titleLabel.text = @"咨询详情";

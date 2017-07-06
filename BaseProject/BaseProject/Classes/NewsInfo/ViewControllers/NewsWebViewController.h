@@ -11,5 +11,5 @@
 @interface NewsWebViewController : UIViewController
 
 @property (nonatomic, strong) UIViewController *loginViewC;
-
+@property (nonatomic, strong) NSString *newsId;
 @end

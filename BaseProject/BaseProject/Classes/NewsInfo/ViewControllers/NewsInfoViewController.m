@@ -26,6 +26,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 
@@ -35,8 +36,8 @@
     [self setCustomerTitle: @"新闻资讯"];
     
 #if UserToeknAndLogin
-    [ConfigModel saveBoolObject:YES forKey:IsLogin];
-    [ConfigModel saveString:@"31604b552d2a64de9d4b36af26e61634" forKey:UserToken];
+//    [ConfigModel saveBoolObject:YES forKey:IsLogin];
+//    [ConfigModel saveString:@"31604b552d2a64de9d4b36af26e61634" forKey:UserToken];
 #else
 #endif
     
@@ -54,7 +55,7 @@
     //    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:myMTableView];
     
-    
+
       __weak NewsInfoViewController *weakself=self;
     [myMTableView addRefreshHeaderWithBlock:^{
         
@@ -67,7 +68,7 @@
         [weakself LoadMoreDatas];
     }];
 
-
+    [myMTableView.header beginRefreshing];
 }
 
 -(void)LoadDatas
@@ -148,7 +149,11 @@
     
     NSDictionary *cellDic = _NewSArr[indexPath.row];
     cell.titleLabel.text = cellDic[@"title"];
-    cell.contentLabel.text = cellDic[@"content"];
+    
+      NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[cellDic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+          NSLog(@"5556675%@",attributedString);
+    cell.contentLabel.attributedText = attributedString;
+    
     [cell.ImgView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:cellDic[@"img"]]]]];
     cell.readCount.text = [NSString stringWithFormat:@"%@阅读    %@赞", cellDic[@"read_num"],cellDic[@"praise_num"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -161,7 +166,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsWebViewController *newsWeb = [[NewsWebViewController alloc] init];
-    
+    newsWeb.newsId =  _NewSArr[indexPath.row][@"id"];
     [self.navigationController pushViewController:newsWeb animated:YES];
           
 }
@@ -172,7 +177,7 @@
 //    
 //    [self.navigationController pushViewController:loginVC animated:YES];
     
-    [ConfigModel saveBoolObject:NO forKey:IsLogin];
+//    [ConfigModel saveBoolObject:NO forKey:IsLogin];
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
         
         

@@ -76,10 +76,10 @@
         NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
-//            NSDictionary *infoDic = datadic[@"info"];
-//            NSString *usertoken = infoDic[@"userToken"];
-//            [ConfigModel saveBoolObject:YES forKey:IsLogin];
-//            [ConfigModel saveString:usertoken forKey:UserToken];
+            NSDictionary *infoDic = datadic[@"info"];
+            NSString *usertoken = infoDic[@"userToken"];
+            [ConfigModel saveBoolObject:YES forKey:IsLogin];
+            [ConfigModel saveString:usertoken forKey:UserToken];
             [ConfigModel mbProgressHUD:@"登陆成功" andView:nil];
             [self dismissViewControllerAnimated:YES completion:nil];
         }else {
