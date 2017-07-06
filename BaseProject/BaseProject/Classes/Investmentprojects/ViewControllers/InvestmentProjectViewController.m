@@ -10,6 +10,7 @@
 #import "InvestmentItemTableViewCell.h"
 #import "InverstInfoViewController.h"
 #import "InvestmentModel.h"
+#import "TBRefresh.h"
 
 @interface InvestmentProjectViewController ()
 @property(retain,atomic) UITableView *tblInvestments;
@@ -22,7 +23,17 @@
     [super viewDidLoad];
     [self setCustomerTitle: @"投资项目"];
     [self addTableView];
-    _datasource = [InvestmentModel loadData];
+    __weak InvestmentProjectViewController *weakself=self;
+    [_tblInvestments addRefreshHeaderWithBlock:^{
+        [InvestmentModel loadData:^(NSArray *data)  {
+            [weakself.tblInvestments.header endHeadRefresh];
+            weakself.datasource = data;
+            [weakself.tblInvestments reloadData];
+        }];
+        
+    }];
+    
+    [_tblInvestments.header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,9 +42,7 @@
 }
 
 -(void) addTableView{
-    
-    CGFloat offset = self.navigationController.navigationBar.frame.size.height + 20;
-    self.tblInvestments = [[UITableView alloc] initWithFrame:CGRectMake(0, offset, self.view.bounds.size.width, self.view.bounds.size.height - offset) style:UITableViewStylePlain];
+    self.tblInvestments = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-44) style:UITableViewStylePlain];
     [self.tblInvestments registerClass:[InvestmentItemTableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tblInvestments.rowHeight = 222;
     self.tblInvestments.dataSource = self;
@@ -50,17 +59,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    InvestmentItemTableViewCell *cell = (InvestmentItemTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[InvestmentItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    
+    InvestmentModel *model = _datasource[indexPath.row];
+    cell.model = model;
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *infoViewController = [[InverstInfoViewController alloc] init];
+    InvestmentModel * model= _datasource[indexPath.row];
+    UIViewController *infoViewController = [[InverstInfoViewController alloc] initWithModel:model];
     [self.navigationController pushViewController:infoViewController animated:YES];
 
 }

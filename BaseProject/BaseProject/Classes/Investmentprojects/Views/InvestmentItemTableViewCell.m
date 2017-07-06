@@ -24,16 +24,39 @@
 @property(nonatomic, strong) UILabel *lblDay;
 @property(nonatomic, strong) UILabel *lblRate;
 @property(nonatomic, strong) UILabel *lblRanking;
+@property(nonatomic, strong) UIFont *font1;
+@property(nonatomic, strong) UIFont *font2;
+@property(nonatomic, strong) UIColor *fontColor;
 @end
 
 @implementation InvestmentItemTableViewCell
+@synthesize model = _model;
+
+-(void) setModel:(InvestmentModel *)model{
+    _model = model;
+    _lblTitle.text = model.name;
+    [self resetConstraintsForTitle];
+    
+    _lblDescription.text = model.content;
+    [self setMoney:model.money];
+    [self setPublishDay:model.pushday];
+    _lblRate.text = model.backmoney;
+    _lblRanking.text = model.ranking;
+    _lblStatus.text = model.type;
+    [self setBackgroundImage:model.img];
+    [self setGrade:model.grade];
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectionStyle =  UITableViewCellSelectionStyleNone;
+        NSString *strFontFamily = @"PingFang-SC-Medium";
+        _font1 = [UIFont fontWithName:strFontFamily size:12];
+        _font2 = [UIFont fontWithName:@"HelveticaNeue" size:18];
+        _fontColor = [UIColor colorWithHexString:@"#666666"];
 
+        self.selectionStyle =  UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor colorWithHexString:@"#f0f0f0"];
         [self addInvestmentImageView];
     }
@@ -48,7 +71,6 @@
 #pragma mark----private method
 -(void) addInvestmentImageView{
     _imgView = [[UIImageView alloc] init];
-    _imgView.backgroundColor = [UIColor redColor];
     [self addSubview:_imgView];
     
     [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,14 +117,12 @@
     [self addTitleLabel];
     [self addNationalImageView];
     [self addStatusLable];
-    [self addStarWithRightOffSet:-13];
     [self addDesciptionLabel];
     [self addInvestmentInfoView];
 }
 
 -(void) addTitleLabel{
     CGFloat fontSize = 15;
-    CGFloat heightOfLblTitle = 15;
     
     _lblTitle = [[UILabel alloc] init];
     _lblTitle.text = @"国泰金龙债务A";
@@ -110,6 +130,14 @@
     _lblTitle.textColor = [UIColor colorWithRed:59/255 green:59/255 blue:59/255 alpha:1];
     _lblTitle.textAlignment = NSTextAlignmentCenter;
     [_descriptionPanel addSubview:_lblTitle];
+    
+    [self resetConstraintsForTitle];
+}
+
+-(void) resetConstraintsForTitle{
+    [_lblTitle removeConstraints:_lblTitle.constraints];
+    CGFloat fontSize = 15;
+    CGFloat heightOfLblTitle = 15;
     
     //TODO:Set it when setting the value of title
     CGFloat widthOffset = self.bounds.size.width - 130;
@@ -129,7 +157,7 @@
 
 -(void) addNationalImageView{
     _nationalImageView = [[UIImageView alloc] init];
-    _nationalImageView.backgroundColor = [UIColor greenColor];
+    _nationalImageView.image = [UIImage imageNamed:@"sign_china"];
     [_descriptionPanel addSubview:_nationalImageView];
     
     [_nationalImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -160,9 +188,27 @@
     }];
 }
 
--(void) addStarWithRightOffSet:(CGFloat)rightOffSet{
+-(void) setGrade:(NSNumber *) grade{
+    int tag = 2001;
+    
+    for (int i=0; i<5; i++) {
+        [[_descriptionPanel viewWithTag:tag] removeFromSuperview];
+        tag += 1;
+    }
+    
+    CGFloat offset = -13;
+    tag = 0;
+    for (int i=0; i<grade.intValue; i++) {
+        UIImageView *img = [self addStarWithRightOffSet:offset];
+        img.tag = tag;
+        tag += 1;
+        offset += -20;
+    }
+}
+
+-(UIImageView *) addStarWithRightOffSet:(CGFloat)rightOffSet{
     UIImageView *starView = [[UIImageView alloc] init];
-    starView.backgroundColor = [UIColor greenColor];
+    starView.image = [UIImage imageNamed:@"icon_pf"];
     [_descriptionPanel addSubview:starView];
     
     [starView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -171,6 +217,8 @@
         make.width.equalTo(@14);
         make.height.equalTo(@13);
     }];
+    
+    return starView;
 }
 
 -(void) addDesciptionLabel{
@@ -202,10 +250,9 @@
     }];
     
     
-    NSString *strFontFamily = @"PingFang-SC-Medium";
     CGFloat fontSize = 12;
     UIColor *titleFontColor = [UIColor colorWithHexString:@"#999999"];
-    UIFont *titleFont = [UIFont fontWithName:strFontFamily size:fontSize];
+    UIFont *titleFont = [UIFont fontWithName:@"PingFang-SC-Medium" size:fontSize];
     CGFloat padding = 45;
     
     UILabel *lblMoneyTitle = [[UILabel alloc] init];
@@ -261,13 +308,9 @@
         make.width.equalTo(@(50));
     }];
     
-    UIFont *font1 = [UIFont fontWithName:strFontFamily size:12];
-    UIFont *font2 = [UIFont fontWithName:@"HelveticaNeue" size:18];
-    UIColor *fontColor = [UIColor colorWithHexString:@"#666666"];
-
     _lblRanking = [[UILabel alloc] init];
     _lblRanking.text = @"50";
-    _lblRanking.font = font2;
+    _lblRanking.font = _font2;
     _lblRanking.textColor = [UIColor colorWithHexString:@"#f8780b"];
     _lblRanking.textAlignment = NSTextAlignmentRight;
     [self addSubview:_lblRanking];
@@ -281,8 +324,8 @@
     
     _lblRate = [[UILabel alloc] init];
     _lblRate.text = @"62%";
-    _lblRate.font = font2;
-    _lblRate.textColor = fontColor;
+    _lblRate.font = _font2;
+    _lblRate.textColor = _fontColor;
     [self addSubview:_lblRate];
     
     [_lblRate mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -293,7 +336,6 @@
     }];
     
     _lblDay = [[UILabel alloc] init];
-    _lblDay.attributedText = [NSMutableAttributedString attributeString:@"70" prefixFont:font2 prefixColor:fontColor suffixString:@"天" suffixFont:font1 suffixColor:fontColor];
     [self addSubview:_lblDay];
     
     [_lblDay mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -304,7 +346,6 @@
     }];
     
     _lblMoney = [[UILabel alloc] init];
-    _lblMoney.attributedText = [NSMutableAttributedString attributeString:@"￥" prefixFont:font1 prefixColor:fontColor suffixString:@"50000" suffixFont:font2 suffixColor:fontColor];
     [self addSubview:_lblMoney];
     
     [_lblMoney mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -316,4 +357,23 @@
     
 }
 
+-(void) setMoney:(NSString *) strMoney{
+    _lblMoney.attributedText = [NSMutableAttributedString attributeString:@"￥" prefixFont:_font1 prefixColor:_fontColor suffixString:strMoney suffixFont:_font2 suffixColor:_fontColor];
+}
+
+-(void) setPublishDay:(NSString *) strMoney{
+    _lblDay.attributedText = [NSMutableAttributedString attributeString:strMoney prefixFont:_font2 prefixColor:_fontColor suffixString:@"天" suffixFont:_font1 suffixColor:_fontColor];
+}
+-(void)setBackgroundImage:(NSString *) url{
+    NSURL *imageURL = [NSURL URLWithString:url];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            _imgView.image = [UIImage imageWithData:imageData];
+        });
+    });
+}
 @end

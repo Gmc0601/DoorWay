@@ -9,14 +9,22 @@
 #import "InverstInfoViewController.h"
 
 @interface InverstInfoViewController ()
-
+@property(retain,atomic) InvestmentModel *model;
 @end
 
 @implementation InverstInfoViewController
 
+- (instancetype)initWithModel:(InvestmentModel *) model
+{
+    self = [super init];
+    if (self) {
+        _model = model;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    InvestmentInfoView *infoView = [[InvestmentInfoView alloc] initWithFrame:self.view.bounds];
+    InvestmentInfoView *infoView = [[InvestmentInfoView alloc] initWithFrame:self.view.bounds withModel:_model];
     self.view = infoView;
 }
 

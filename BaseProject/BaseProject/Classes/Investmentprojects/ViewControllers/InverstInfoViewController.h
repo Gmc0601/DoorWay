@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "InvestmentInfoView.h"
+#import "InvestmentModel.h"
 
 @interface InverstInfoViewController : UIViewController
-
+- (instancetype)initWithModel:(InvestmentModel *) model;
 @end

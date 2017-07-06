@@ -24,14 +24,16 @@
 @property(atomic,retain) CommnetsTableView *commnetsTableView;
 @property(atomic,retain) KLCPopup *popover;
 @property(atomic,retain) UITextView *txtView;
+@property(atomic,retain) InvestmentModel *model;
 @end
 
 @implementation InvestmentInfoView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame withModel:(InvestmentModel *) model
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _model = model;
         _webViewCellIdentifier = @"webViewCell";
         _commentsCellIdentifier = @"commnetsViewCell";
         

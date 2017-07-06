@@ -10,7 +10,7 @@
 
 @implementation InvestmentModel
 
-+(NSArray *) loadData{
++(void) loadData:(void(^)(NSArray *)) callBack{
     NSMutableArray *models = [[NSMutableArray alloc] init];
     
     [HttpRequest postPath:@"_investitem_001" params:nil resultBlock:^(id responseObject, NSError *error) {
@@ -37,7 +37,7 @@
                 model.introduction = dict[@"introduction"];
                 model.money = dict[@"money"];
                 model.name = dict[@"name"];
-                model.pushday = dict[@"pushday"];
+                model.pushday = [dict[@"pushday"] stringValue];
                 model.ranking = dict[@"ranking"];
                 model.real_id = dict[@"real_id"];
                 model.sortnum = dict[@"sortnum"];
@@ -48,8 +48,7 @@
             }
         }
         NSLog(@"error>>>>%@", error);
+        callBack(models);
     }];
-    
-    return models;
 }
 @end

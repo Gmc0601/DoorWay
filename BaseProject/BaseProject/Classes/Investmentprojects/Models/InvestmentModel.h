@@ -14,7 +14,7 @@
 @property(retain,atomic) NSString *country;
 @property(retain,atomic) NSString *country_img;
 @property(retain,atomic) NSDate *create_time;
-@property(retain,atomic) NSString *grade;
+@property(retain,atomic) NSNumber *grade;
 @property(retain,atomic) NSString *_id;
 @property(retain,atomic) NSString *img;
 @property(retain,atomic) NSString *introduction;
@@ -28,5 +28,5 @@
 @property(retain,atomic) NSString *type;
 
 
-+(NSArray *) loadData;
++(void) loadData:(void(^)(NSArray *)) callBack;
 @end

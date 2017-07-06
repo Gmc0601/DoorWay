@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "InvestmentModel.h"
 @interface InvestmentItemTableViewCell : UITableViewCell
-@property(retain,atomic) InvestmentModel *model;
+@property(retain,nonatomic) InvestmentModel *model;
 @end
