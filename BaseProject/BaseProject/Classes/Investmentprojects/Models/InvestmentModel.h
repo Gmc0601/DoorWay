@@ -26,6 +26,7 @@
 @property(retain,atomic) NSString *sortnum;
 @property(retain,atomic) NSString *system;
 @property(retain,atomic) NSString *type;
+@property(retain,atomic) NSString *explain;
 
 
 +(void) loadData:(void(^)(NSArray *)) callBack;

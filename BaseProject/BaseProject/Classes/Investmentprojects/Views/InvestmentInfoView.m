@@ -54,17 +54,17 @@
 
 -(void) didTapCompanyButton{
     [self removeAddCommentView];
-    [self reloadWeb:@"https://www.google.com.hk/intl/zh-CN/policies/privacy/?fg=1"];
+    [self reloadWeb:_model.introduction];
 }
 
 -(void) didTapRoleButton{
     [self removeAddCommentView];
-    [self reloadWeb:@"https://www.baidu.com/"];
+    [self reloadWeb:_model.system];
 }
 
 -(void) didTapSummryButton{
     [self removeAddCommentView];
-    [self reloadWeb:@"http://www.163.com/"];
+    [self reloadWeb:_model.explain];
 }
 
 -(void) didTapCommentsButton{
@@ -79,6 +79,7 @@
 
 -(void) reloadWeb:(NSString *) strUrl{
     _webTableView.strUrl = strUrl;
+    _webTableView.headerImageUrl = _model.img;
     if (_tb.dataSource != _webTableView) {
         _tb.dataSource = _webTableView;
         _tb.delegate = _webTableView;
@@ -93,6 +94,7 @@
     _webTableView.delegate = self;
     
     _commnetsTableView = [[CommnetsTableView alloc] initWithOwner:_tb withCellIdentifier:_commentsCellIdentifier];
+    _commnetsTableView.headerImageUrl = _model.img;
     _commnetsTableView.delegate = self;
 }
 

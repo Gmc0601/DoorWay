@@ -43,6 +43,7 @@
                 model.sortnum = dict[@"sortnum"];
                 model.system = dict[@"system"];
                 model.type = dict[@"type"];
+                model.explain = dict[@"explain"];
                 
                 [models addObject:model];
             }

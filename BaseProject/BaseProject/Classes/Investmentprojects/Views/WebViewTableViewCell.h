@@ -16,6 +16,7 @@
 @end
 
 @interface WebViewTableViewCell : UITableViewCell<UIWebViewDelegate>
-@property (retain,atomic) NSString *url;
+@property (retain,nonatomic) NSString *url;
+@property (retain,nonatomic) NSString *backgroundImageUrl;
 @property (nullable, nonatomic, assign) id <WebViewCellTableViewCellDelegate> delegate;
 @end

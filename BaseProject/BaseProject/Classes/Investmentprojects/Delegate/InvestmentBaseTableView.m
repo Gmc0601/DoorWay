@@ -178,12 +178,24 @@
     _highlightButton = newButton;
 }
 
--(UITableViewCell *) getCellInFirstSectionFromTableView:(UITableView *) tableView{
+-(UITableViewCell *) getCellInFirstSectionFromTableView:(UITableView *) tableView withHeaderImageUrl:(NSString *)url{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
-    cell.backgroundView = [[UIView alloc] init];
-    cell.backgroundView.backgroundColor = [UIColor redColor];
+    
+    NSURL *imageURL = [NSURL URLWithString:url];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            UIImage *image = [UIImage imageWithData:imageData];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:image];
+
+        });
+    });
     
     return cell;
 }
+
 @end

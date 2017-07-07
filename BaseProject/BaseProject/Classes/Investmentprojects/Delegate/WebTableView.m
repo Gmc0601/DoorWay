@@ -26,7 +26,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell;
     if (indexPath.section == 0) {
-        cell = [self getCellInFirstSectionFromTableView:tableView];
+        cell = [self getCellInFirstSectionFromTableView:tableView withHeaderImageUrl:self.headerImageUrl];
     }else{
         cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
         ((WebViewTableViewCell *) cell).delegate = self;
@@ -41,14 +41,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat rowHeight = 0;
     if (indexPath.section == 0) {
-        return 156;
+        rowHeight =  156;
     }else{
-        CGFloat height = _heighOfWebView == 0 ? tableView.bounds.size.height - 220:_heighOfWebView;
-        return height;
+        rowHeight = _heighOfWebView == 0 ? tableView.bounds.size.height - 264:_heighOfWebView;
     }
     
-    return 0;
+    return rowHeight;
 }
 
 -(void) WebViewTableViewCell:(WebViewTableViewCell *) cell heightOfCell:(CGFloat) heightOfCell{

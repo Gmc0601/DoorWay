@@ -19,11 +19,11 @@
 @end
 
 @interface InvestmentBaseTableView : NSObject<UITableViewDataSource,UITableViewDelegate,WebViewCellTableViewCellDelegate>
-
+@property(retain,atomic) NSString *headerImageUrl;
 @property(weak,nonatomic) UITableView *owner;
 @property(atomic,retain) NSString *cellIdentifier;
 @property (weak, atomic) id<InvestmentBaseTableViewDelegate> delegate;
 
 - (instancetype)initWithOwner:(UITableView *) owner withCellIdentifier:(NSString *) cellIdentifier;
--(UITableViewCell *) getCellInFirstSectionFromTableView:(UITableView *) tableView;
+-(UITableViewCell *) getCellInFirstSectionFromTableView:(UITableView *) tableView withHeaderImageUrl:(NSString *) url;
 @end

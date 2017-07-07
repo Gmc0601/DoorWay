@@ -46,6 +46,7 @@
     [self.tblInvestments registerClass:[InvestmentItemTableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tblInvestments.rowHeight = 222;
     self.tblInvestments.dataSource = self;
+    self.tblInvestments.sectionFooterHeight = 64;
     self.tblInvestments.delegate = self;
     self.tblInvestments.backgroundColor = [UIColor clearColor];
     self.tblInvestments.separatorStyle = UITableViewCellSeparatorStyleNone;

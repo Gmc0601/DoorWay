@@ -11,15 +11,14 @@
 
 @interface WebViewTableViewCell()
 @property(retain,atomic) UIWebView *webView;
-@property(assign,nonatomic) int loadTime;
+@property(assign,atomic) int loadTime;
 @end
 
 @implementation WebViewTableViewCell
--(NSString *) url{
-    return self.url;
-}
+@synthesize url = _url;
 
 -(void) setUrl:(NSString *)url{
+    _url = url;
     [self loadWebView:url];
 }
 
@@ -48,29 +47,40 @@
             make.bottom.equalTo(self.mas_bottom);
         }];
     }
-    
-    NSURL *URL1 = [NSURL URLWithString:@"about:blank"];
-    NSMutableURLRequest *requeset1 = [[NSMutableURLRequest alloc] initWithURL:URL1 cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-    [_webView loadRequest:requeset1];
-    
-    NSURL *URL = [NSURL URLWithString:strUrl];
-    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-    [_webView loadRequest:requeset];
+    [_webView loadHTMLString:@"." baseURL:nil];
+
+//    _webView.attributedText = [self getAttributedString:strUrl];
+//    NSURL *URL1 = [NSURL URLWithString:@"about:blank"];
+//    NSMutableURLRequest *requeset1 = [[NSMutableURLRequest alloc] initWithURL:URL1 cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+//
+//    NSURL *URL = [NSURL URLWithString:strUrl];
+//    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
+//    [_webView loadRequest:requeset];
+}
+
+- (NSAttributedString *)getAttributedString:(NSString *)text {
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[text dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    return attributedString;
 }
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    _loadTime += 1;
-    
-    
-    @try {
-        if ([self.delegate respondsToSelector:@selector(WebViewTableViewCell:heightOfCell:)]) {
-            CGFloat height = _loadTime > 1 ? webView.scrollView.contentSize.height : 0;
-            [self.delegate WebViewTableViewCell:self heightOfCell: height];
-            _loadTime = _loadTime > 1?0:_loadTime;
+    @synchronized (self) {
+        _loadTime += 1;
+        @try {
+            if ([self.delegate respondsToSelector:@selector(WebViewTableViewCell:heightOfCell:)]) {
+                CGFloat height = _loadTime == 1? 0:webView.scrollView.contentSize.height ;
+                [self.delegate WebViewTableViewCell:self heightOfCell: height];
+//                _loadTime = _loadTime > 1?0:_loadTime;
+                if (_loadTime < 2) {
+                    [_webView loadHTMLString:_url baseURL:nil];
+                }else{
+                    _loadTime = 0;
+                }
+            }
+        } @catch (NSException *exception) {
+            NSLog(@"%@",exception);
         }
-    } @catch (NSException *exception) {
-        NSLog(@"%@",exception);
     }
     
 }

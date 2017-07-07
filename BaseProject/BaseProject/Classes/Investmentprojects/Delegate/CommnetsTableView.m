@@ -23,9 +23,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell;
     if (indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        cell.backgroundView = [[UIView alloc] init];
-        cell.backgroundView.backgroundColor = [UIColor redColor];
+        cell = [self getCellInFirstSectionFromTableView:tableView withHeaderImageUrl:self.headerImageUrl];
     }else{
         cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
         
