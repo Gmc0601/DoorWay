@@ -86,8 +86,8 @@
 
 -(void) addBackgroundView{
     UIView *backgrounView = [[UIView alloc] init];
-    backgrounView.backgroundColor = [UIColor whiteColor];
-    backgrounView.alpha = 0.5;
+    backgrounView.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
+    backgrounView.alpha = 0.7;
     [_imgView addSubview:backgrounView];
     
     [backgrounView mas_makeConstraints:^(MASConstraintMaker *make) {
