@@ -9,6 +9,7 @@
 #import "InvestmentBaseTableView.h"
 #import "WebViewTableViewCell.h"
 #import "UIColor+BGHexColor.h"
+#import "NSURL+Category.h"
 #import <Masonry/Masonry.h>
 
 @interface InvestmentBaseTableView()
@@ -183,17 +184,9 @@
 
     
     NSURL *imageURL = [NSURL URLWithString:url];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            UIImage *image = [UIImage imageWithData:imageData];
-            cell.backgroundView = [[UIImageView alloc] initWithImage:image];
-
-        });
-    });
+    [imageURL loadImage:^(UIImage *image)  {
+        cell.backgroundView = [[UIImageView alloc] initWithImage:image];
+    }];
     
     return cell;
 }

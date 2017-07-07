@@ -11,6 +11,7 @@
 #import <Masonry/Masonry.h>
 #import "UIColor+BGHexColor.h"
 #import "NSMutableAttributedString+Category.h"
+#import "NSURL+Category.h"
 
 @interface InvestmentItemTableViewCell()
 @property(nonatomic, strong) UILabel *lblTitle;
@@ -45,6 +46,7 @@
     [self setStatus:model.type];
     [self setBackgroundImage:model.img];
     [self setGrade:model.grade];
+    [self setNationalFlag:model.country_img];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -381,14 +383,19 @@
 
 -(void)setBackgroundImage:(NSString *) url{
     NSURL *imageURL = [NSURL URLWithString:url];
+    __weak InvestmentItemTableViewCell *weakself=self;
+
+    [imageURL loadImage:^(UIImage *image)  {
+        weakself.imgView.image = image;
+    }];
+}
+
+-(void) setNationalFlag:(NSString *) url{
+    NSURL *imageURL = [NSURL URLWithString:url];
+    __weak InvestmentItemTableViewCell *weakself=self;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            _imgView.image = [UIImage imageWithData:imageData];
-        });
-    });
+    [imageURL loadImage:^(UIImage *image)  {
+        weakself.nationalImageView.image = image;
+    }];
 }
 @end

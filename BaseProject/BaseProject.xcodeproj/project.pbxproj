@@ -91,6 +91,7 @@
 		42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795FD1F024FF100A11A69 /* KeychainUUID.m */; };
 		6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */; };
 		6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */; };
+		6B97B8871F0F8A3A00E07A09 /* NSURL+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		6BC09F5C1F06445B007CF871 /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5B1F06445B007CF871 /* WebViewTableViewCell.m */; };
 		6BC09F641F0644A1007CF871 /* InvestmentBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5F1F0644A1007CF871 /* InvestmentBaseTableView.m */; };
@@ -333,6 +334,8 @@
 		6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InverstInfoViewController.m; sourceTree = "<group>"; };
 		6B2E68E31F04D2E8008F7D5C /* InvestmentInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentInfoView.h; sourceTree = "<group>"; };
 		6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentInfoView.m; sourceTree = "<group>"; };
+		6B97B8851F0F8A3A00E07A09 /* NSURL+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Category.h"; sourceTree = "<group>"; };
+		6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Category.m"; sourceTree = "<group>"; };
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		6BC09F5A1F06445B007CF871 /* WebViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTableViewCell.h; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 				42C84EF71EF2E97D0008189D /* UIView+BGFrame.m */,
 				42C84EF81EF2E97D0008189D /* UIView+Category.h */,
 				42C84EF91EF2E97D0008189D /* UIView+Category.m */,
+				6B97B8851F0F8A3A00E07A09 /* NSURL+Category.h */,
+				6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1463,6 +1468,7 @@
 				42C84EB61EF2DCBC0008189D /* ConfigModel.m in Sources */,
 				C505AEB21F08B045008691C8 /* DeclarationView.m in Sources */,
 				42C84EB11EF2DB060008189D /* main.m in Sources */,
+				6B97B8871F0F8A3A00E07A09 /* NSURL+Category.m in Sources */,
 				42C84EC91EF2DD1A0008189D /* DicToString.m in Sources */,
 				42AE99321F0268ED003C8FB4 /* Nothing.m in Sources */,
 				42347BFA1F03996400D56D8D /* ProtocolViewController.m in Sources */,
