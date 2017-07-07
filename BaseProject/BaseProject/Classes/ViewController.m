@@ -33,8 +33,8 @@
         if (errorint == 0 ) {
             NSDictionary *info = dic[@"info"];
             NSString *userToken = info[@"userToken"];
-            [ConfigModel saveString:userToken forKey:UserToken];
-            [ConfigModel saveBoolObject:YES forKey:IsLogin];
+//            [ConfigModel saveString:userToken forKey:UserToken];
+//            [ConfigModel saveBoolObject:YES forKey:IsLogin];
             [ConfigModel mbProgressHUD:@"登录成功" andView:nil];
         }else {
             NSString *errorStr = dic[@"info"];

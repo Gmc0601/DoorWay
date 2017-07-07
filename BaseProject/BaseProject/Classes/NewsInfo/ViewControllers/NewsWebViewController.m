@@ -108,14 +108,15 @@
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
         NSMutableDictionary *PraiseMudic = [NSMutableDictionary new];
         [PraiseMudic setObject:self.newsId forKey:@"id"];
-        [PraiseMudic setObject:UserToken forKey:@"userToken"];
+        NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+        [PraiseMudic setObject:userTokenStr forKey:@"userToken"];
         [HttpRequest postPath:@"_goodnews_001" params:PraiseMudic resultBlock:^(id responseObject, NSError *error) {
             
             if([error isEqual:[NSNull null]] || error == nil){
                 NSLog(@"success");
             }
             
-            NSLog(@"_newsdetails_001>>>>>>%@", responseObject);
+            NSLog(@"%@----%@_newsdetails_001>>>>>>%@",self.newsId, userTokenStr, responseObject);
             NSDictionary *datadic = responseObject;
             if ([datadic[@"error"] intValue] == 0) {
                 NSDictionary *infoDic = responseObject[@"info"];
