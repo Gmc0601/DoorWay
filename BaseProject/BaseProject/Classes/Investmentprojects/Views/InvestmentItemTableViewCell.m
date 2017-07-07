@@ -42,7 +42,7 @@
     [self setPublishDay:model.pushday];
     _lblRate.text = model.backmoney;
     _lblRanking.text = model.ranking;
-    _lblStatus.text = model.type;
+    [self setStatus:model.type];
     [self setBackgroundImage:model.img];
     [self setGrade:model.grade];
 }
@@ -140,7 +140,7 @@
     CGFloat heightOfLblTitle = 15;
     
     //TODO:Set it when setting the value of title
-    CGFloat widthOffset = self.bounds.size.width - 130;
+    CGFloat widthOffset = self.bounds.size.width - 200;
     CGFloat widthOfTitle = [_lblTitle.text widthWithFontSize:fontSize height:heightOfLblTitle];
     
     if (widthOfTitle > widthOffset) {
@@ -364,6 +364,21 @@
 -(void) setPublishDay:(NSString *) strMoney{
     _lblDay.attributedText = [NSMutableAttributedString attributeString:strMoney prefixFont:_font2 prefixColor:_fontColor suffixString:@"天" suffixFont:_font1 suffixColor:_fontColor];
 }
+
+-(void) setStatus:(NSString *) strStatus{
+    
+    if ([@"结束" isEqualToString:strStatus]) {
+        _lblStatus.textColor = [UIColor colorWithHexString:@"#e3e3e3 "];
+    }else if([@"预警" isEqualToString:strStatus]) {
+        _lblStatus.textColor = [UIColor colorWithHexString:@"#ff9f00"];
+    }else{
+        _lblStatus.textColor = [UIColor colorWithHexString:@"#2d9bf2"];
+    }
+    
+    _lblStatus.layer.borderColor = _lblStatus.textColor.CGColor;
+    _lblStatus.text = strStatus;
+}
+
 -(void)setBackgroundImage:(NSString *) url{
     NSURL *imageURL = [NSURL URLWithString:url];
     
