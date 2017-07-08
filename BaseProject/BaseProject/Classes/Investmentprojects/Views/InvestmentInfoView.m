@@ -13,6 +13,8 @@
 #import "UIColor+BGHexColor.h"
 #import "KLCPopup.h"
 #import "CommentModel.h"
+#import "TBRefresh.h"
+#import "CommentCell.h"
 
 #define add_comment_tag 1001
 #define input_panel_tag 1002
@@ -26,6 +28,7 @@
 @property(atomic,retain) KLCPopup *popover;
 @property(atomic,retain) UITextView *txtView;
 @property(atomic,retain) InvestmentModel *model;
+@property(atomic,retain) UIButton *btnLike;
 @end
 
 @implementation InvestmentInfoView
@@ -40,10 +43,11 @@
         
         _tb = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
         [_tb registerClass:[WebViewTableViewCell class] forCellReuseIdentifier:_webViewCellIdentifier];
-        [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:_commentsCellIdentifier];
+        [_tb registerClass:[CommentCell class] forCellReuseIdentifier:_commentsCellIdentifier];
         [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [_tb registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"header"];
         _tb.allowsSelection = NO;
+        _tb.separatorStyle = UITableViewCellSelectionStyleNone;
         [self initDateSourceDelegate];
 
         [self didTapCompanyButton];
@@ -75,10 +79,7 @@
         _tb.delegate = _commnetsTableView;
     }
     
-    [CommentModel loadData:_model._id callback:^(NSArray *datasource) {
-        
-    }];
-    [_tb reloadData];
+    [self loadComments];
     [self addCommentsView];
 }
 
@@ -135,13 +136,13 @@
         make.width.equalTo(@300);
     }];
     
-    UIButton  *btnLike = [[UIButton alloc] init];
-    [btnLike setImage:[UIImage imageNamed:@"icon_xq_z"] forState:UIControlStateNormal];
-    [btnLike setImage:[UIImage imageNamed:@"btn_xq"] forState:UIControlStateSelected];
+    _btnLike = [[UIButton alloc] init];
+    [_btnLike setImage:[UIImage imageNamed:@"icon_xq_z"] forState:UIControlStateNormal];
+    [_btnLike setImage:[UIImage imageNamed:@"btn_yz"] forState:UIControlStateSelected];
+    [_btnLike addTarget:self action:@selector(tapLikeButton) forControlEvents:UIControlEventTouchUpInside];
+    [addCommentView addSubview:_btnLike];
     
-    [addCommentView addSubview:btnLike];
-    
-    [btnLike mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_btnLike mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(addCommentView).offset(-20);
         make.centerY.equalTo(addCommentView.mas_centerY);
         make.height.equalTo(@19);
@@ -156,6 +157,9 @@
     if (addCommentView != nil) {
         [addCommentView removeFromSuperview];
     }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    _popover = nil;
 }
 
 -(void) tapAddCommentsButtpn:(UIButton *) sender{
@@ -203,6 +207,8 @@
         }];
         
         _txtView = [[UITextView alloc] init];
+        _txtView.returnKeyType = UIReturnKeySend;
+        _txtView.delegate = self;
         [inputPanel addSubview:_txtView];
         
         [_txtView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -220,8 +226,15 @@
         [_popover setWillStartDismissingCompletion:^(){
             [this.txtView resignFirstResponder];
         }];
+        
+        [_popover setDidFinishDismissingCompletion:^{
+            _popover = nil;
+        }];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+
     }
-    
+    _txtView.text = @"";
     [_txtView becomeFirstResponder];
     [_popover showAtCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2 + 10) inView:self];
 }
@@ -230,13 +243,25 @@
     [_popover dismiss:true];
 }
 
+-(void) tapLikeButton{
+    [_btnLike setSelected:YES];
+}
+
 -(void) tapSendeButton{
+    [self sendComments];
+}
+
+-(void) sendComments{
+    if (_txtView.text.length == 0) {
+        return;
+    }
     NSMutableDictionary *params = [NSMutableDictionary new];
     [params setObject:_model._id forKey:@"id"];
     NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
     [params setObject:userTokenStr forKey:@"userToken"];
     [params setObject:_txtView.text forKey:@"comment"];
-
+    
+    __weak InvestmentInfoView *weakself=self;
     [HttpRequest postPath:@"_pushcomment_001" params:params resultBlock:^(id responseObject, NSError *error) {
         
         if([error isEqual:[NSNull null]] || error == nil){
@@ -246,13 +271,42 @@
         NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] != 0) {
-            
+            NSLog(@"error>>>>%@", datadic[@"info"]);
+            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
             [ConfigModel mbProgressHUD:@"评论成功" andView:nil];
-            [_tb reloadData];
+            [weakself loadComments];
         }
         NSLog(@"error>>>>%@", error);
     }];
+    
+    [_popover dismiss:true];
+}
+
+-(void) loadComments{
+    __weak InvestmentInfoView *weakself=self;
+    [_tb addRefreshHeaderWithBlock:^{
+        [CommentModel loadData:weakself.model._id callback:^(NSArray *data) {
+            [weakself.tb.header endHeadRefresh];
+            weakself.commnetsTableView.dataSource = data;
+            [weakself.tb reloadData];
+        }];
+    }];
+    
+    [_tb.header beginRefreshing];
+}
+
+-(void)onKeyboardHide:(NSNotification *)notification
+{
+    [_popover dismiss:YES];
+}
+
+-(BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if([text  isEqual: @"\n"]) {
+        [self sendComments];;
+        return NO;
+    }
+    return  YES;
 }
 
 @end

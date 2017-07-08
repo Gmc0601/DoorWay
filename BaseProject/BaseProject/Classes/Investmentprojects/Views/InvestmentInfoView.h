@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebViewTableViewCell.h"
+#import "InvestmentBaseTableView.h"
 #import "InvestmentModel.h"
 
 @protocol InvestmentInfoViewDelegate <NSObject>
@@ -15,7 +15,7 @@
 -(void) gotoLoginViewController;
 
 @end
-@interface InvestmentInfoView : UIView
+@interface InvestmentInfoView : UIView<InvestmentBaseTableViewDelegate,UITextViewDelegate>
 @property(weak,atomic) id<InvestmentInfoViewDelegate> delegate;
 - (instancetype)initWithFrame:(CGRect)frame withModel:(InvestmentModel *) model;
 @end

@@ -9,6 +9,8 @@
 #import "CommnetsTableView.h"
 #import "UIColor+BGHexColor.h"
 #import <Masonry/Masonry.h>
+#import "CommentCell.h"
+#import "NSString+Category.h"
 
 @implementation CommnetsTableView
 @synthesize dataSource;
@@ -27,12 +29,20 @@
     if (indexPath.section == 0) {
         cell = [self getCellInFirstSectionFromTableView:tableView withHeaderImageUrl:self.headerImageUrl];
     }else{
-        cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
-        
-        
         if(self.dataSource.count > 0){
-            
+            if (indexPath.row <(self.dataSource.count)) {
+                cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+                ((CommentCell *)cell).model = self.dataSource[indexPath.row];
+            }else{
+                 cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+                
+                for (UIView *v in cell.subviews) {
+                    [v removeFromSuperview];
+                }
+            }
         }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+
             if (indexPath.row == 0) {
                 [self addSubViewToEmptyCell:cell];
             }
@@ -49,28 +59,41 @@
         if (self.dataSource == nil) {
             return 2;
         }else{
-            return self.dataSource.count;
+            return self.dataSource.count + 1;
         }
     }
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat height = 0;
     if (indexPath.section == 0) {
-        return 156;
+        height = 156;
     }else{
-        if (self.dataSource == nil) {
+        if (self.dataSource == nil || self.dataSource.count == 0) {
             if(indexPath.row == 0){
-                return tableView.frame.size.height - 310;
+                height = tableView.frame.size.height - 310;
             }else{
-                return 48;
+                height = 48;
             }
         }else{
-            return self.dataSource.count;
+            
+            if (indexPath.row == (self.dataSource.count)) {
+                height = 48;
+            }else{
+                CommentModel *model = dataSource[indexPath.row];
+                height =  [self heightOfCell:tableView withComment:model.comment];
+                
+            }
         }
     }
     
-    return 0;
+    return height;
+}
+
+-(CGFloat) heightOfCell:(UITableView *) tableView withComment:(NSString *) text{
+    CGFloat height =  65 + [text heightWithFontSize:11 width:tableView.bounds.size.width - 20];
+    return  height;
 }
 
 -(void) addSubViewToEmptyCell:(UITableViewCell *) cell{

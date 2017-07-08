@@ -93,6 +93,7 @@
 		6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */; };
 		6B97B8871F0F8A3A00E07A09 /* NSURL+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */; };
 		6B97B88A1F0F93D400E07A09 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97B8891F0F93D400E07A09 /* CommentModel.m */; };
+		6B97B88D1F10CD8E00E07A09 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97B88C1F10CD8E00E07A09 /* CommentCell.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		6BC09F5C1F06445B007CF871 /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5B1F06445B007CF871 /* WebViewTableViewCell.m */; };
 		6BC09F641F0644A1007CF871 /* InvestmentBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5F1F0644A1007CF871 /* InvestmentBaseTableView.m */; };
@@ -339,6 +340,8 @@
 		6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Category.m"; sourceTree = "<group>"; };
 		6B97B8881F0F93D400E07A09 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		6B97B8891F0F93D400E07A09 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		6B97B88B1F10CD8E00E07A09 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		6B97B88C1F10CD8E00E07A09 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		6BC09F5A1F06445B007CF871 /* WebViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTableViewCell.h; sourceTree = "<group>"; };
@@ -608,6 +611,8 @@
 				6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */,
 				6B2E68E31F04D2E8008F7D5C /* InvestmentInfoView.h */,
 				6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */,
+				6B97B88B1F10CD8E00E07A09 /* CommentCell.h */,
+				6B97B88C1F10CD8E00E07A09 /* CommentCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1392,6 +1397,7 @@
 				C5175F9F1F04ACE1003C45C2 /* PublicClass.m in Sources */,
 				6BC09F641F0644A1007CF871 /* InvestmentBaseTableView.m in Sources */,
 				CA66657A1F0F177E001626DD /* IQUIView+Hierarchy.m in Sources */,
+				6B97B88D1F10CD8E00E07A09 /* CommentCell.m in Sources */,
 				6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */,
 				CA6665811F0F177F001626DD /* IQPreviousNextView.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,

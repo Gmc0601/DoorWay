@@ -13,6 +13,7 @@
     NSMutableArray *models = [[NSMutableArray alloc] init];
     NSDictionary *param = @{@"type" : @4,@"id":projectId};
     
+    
     [HttpRequest postPath:@"_investitemdetails_001" params:param resultBlock:^(id responseObject, NSError *error) {
         
         if([error isEqual:[NSNull null]] || error == nil){
@@ -24,11 +25,27 @@
         if ([datadic[@"error"] intValue] != 0) {
             
         }else {
-            for (NSDictionary *dict in datadic[@"info"]) {
-            }
+//            if(datadic[@"info"].count)
+//            for (NSDictionary *dict in datadic[@"info"]) {
+//            }
+            
         }
         NSLog(@"error>>>>%@", error);
-        callBack(models);
+        callBack([CommentModel fakeData]);
     }];
+}
+
++(NSArray *) fakeData{
+    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:3];
+    
+    CommentModel *c =  [[CommentModel alloc] init];
+    c.avatarUrl = @"";
+    c.nickName = @"test";
+    c.time = [NSDate timeIntervalSinceReferenceDate];
+    c.comment = @"sasfsdfsdf";
+    [arr addObject:c];
+    [arr addObject:c];
+    [arr addObject:c];
+    return  arr;
 }
 @end
