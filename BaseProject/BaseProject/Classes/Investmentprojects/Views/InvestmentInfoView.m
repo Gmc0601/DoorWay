@@ -12,6 +12,7 @@
 #import <Masonry/Masonry.h>
 #import "UIColor+BGHexColor.h"
 #import "KLCPopup.h"
+#import "CommentModel.h"
 
 #define add_comment_tag 1001
 #define input_panel_tag 1002
@@ -42,6 +43,7 @@
         [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:_commentsCellIdentifier];
         [_tb registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [_tb registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"header"];
+        _tb.allowsSelection = NO;
         [self initDateSourceDelegate];
 
         [self didTapCompanyButton];
@@ -73,6 +75,9 @@
         _tb.delegate = _commnetsTableView;
     }
     
+    [CommentModel loadData:_model._id callback:^(NSArray *datasource) {
+        
+    }];
     [_tb reloadData];
     [self addCommentsView];
 }
@@ -154,6 +159,11 @@
 }
 
 -(void) tapAddCommentsButtpn:(UIButton *) sender{
+
+    if (![ConfigModel getBoolObjectforKey:IsLogin] ) {
+        [self.delegate gotoLoginViewController];
+        return;
+    }
     
     if (_popover == nil) {
         UIView *inputPanel = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 145)];
@@ -221,7 +231,28 @@
 }
 
 -(void) tapSendeButton{
-    
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:_model._id forKey:@"id"];
+    NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+    [params setObject:userTokenStr forKey:@"userToken"];
+    [params setObject:_txtView.text forKey:@"comment"];
+
+    [HttpRequest postPath:@"_pushcomment_001" params:params resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSLog(@"login>>>>>>%@", responseObject);
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] != 0) {
+            
+        }else {
+            [ConfigModel mbProgressHUD:@"评论成功" andView:nil];
+            [_tb reloadData];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
 }
 
 @end

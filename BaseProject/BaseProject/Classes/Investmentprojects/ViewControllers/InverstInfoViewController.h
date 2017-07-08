@@ -10,6 +10,6 @@
 #import "InvestmentInfoView.h"
 #import "InvestmentModel.h"
 
-@interface InverstInfoViewController : UIViewController
+@interface InverstInfoViewController : UIViewController<InvestmentInfoViewDelegate>
 - (instancetype)initWithModel:(InvestmentModel *) model;
 @end

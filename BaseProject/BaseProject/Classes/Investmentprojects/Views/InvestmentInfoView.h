@@ -10,6 +10,12 @@
 #import "WebViewTableViewCell.h"
 #import "InvestmentModel.h"
 
+@protocol InvestmentInfoViewDelegate <NSObject>
+
+-(void) gotoLoginViewController;
+
+@end
 @interface InvestmentInfoView : UIView
+@property(weak,atomic) id<InvestmentInfoViewDelegate> delegate;
 - (instancetype)initWithFrame:(CGRect)frame withModel:(InvestmentModel *) model;
 @end

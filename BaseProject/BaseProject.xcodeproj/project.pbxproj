@@ -92,6 +92,7 @@
 		6B2E68E21F04D071008F7D5C /* InverstInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E11F04D071008F7D5C /* InverstInfoViewController.m */; };
 		6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */; };
 		6B97B8871F0F8A3A00E07A09 /* NSURL+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */; };
+		6B97B88A1F0F93D400E07A09 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B97B8891F0F93D400E07A09 /* CommentModel.m */; };
 		6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */; };
 		6BC09F5C1F06445B007CF871 /* WebViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5B1F06445B007CF871 /* WebViewTableViewCell.m */; };
 		6BC09F641F0644A1007CF871 /* InvestmentBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5F1F0644A1007CF871 /* InvestmentBaseTableView.m */; };
@@ -336,6 +337,8 @@
 		6B2E68E41F04D2E8008F7D5C /* InvestmentInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentInfoView.m; sourceTree = "<group>"; };
 		6B97B8851F0F8A3A00E07A09 /* NSURL+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Category.h"; sourceTree = "<group>"; };
 		6B97B8861F0F8A3A00E07A09 /* NSURL+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Category.m"; sourceTree = "<group>"; };
+		6B97B8881F0F93D400E07A09 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		6B97B8891F0F93D400E07A09 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		6BB7A6801F02A5D400F23B5F /* InvestmentItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestmentItemTableViewCell.h; sourceTree = "<group>"; };
 		6BB7A6811F02A5D400F23B5F /* InvestmentItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestmentItemTableViewCell.m; sourceTree = "<group>"; };
 		6BC09F5A1F06445B007CF871 /* WebViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewTableViewCell.h; sourceTree = "<group>"; };
@@ -590,6 +593,8 @@
 			children = (
 				42AE99401F026B8E003C8FB4 /* InvestmentModel.h */,
 				42AE99411F026B8E003C8FB4 /* InvestmentModel.m */,
+				6B97B8881F0F93D400E07A09 /* CommentModel.h */,
+				6B97B8891F0F93D400E07A09 /* CommentModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1391,6 +1396,7 @@
 				CA6665811F0F177F001626DD /* IQPreviousNextView.m in Sources */,
 				42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */,
 				42C84F0C1EF2E97D0008189D /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				6B97B88A1F0F93D400E07A09 /* CommentModel.m in Sources */,
 				42347BF61F03996400D56D8D /* ForgetPWViewController.m in Sources */,
 				C5175FBB1F052CEA003C45C2 /* MySingleton.m in Sources */,
 				C505AEB81F08D069008691C8 /* AllReleaseProjectController.m in Sources */,

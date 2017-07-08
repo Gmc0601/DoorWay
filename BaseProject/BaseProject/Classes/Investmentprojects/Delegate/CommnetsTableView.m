@@ -7,6 +7,8 @@
 //
 
 #import "CommnetsTableView.h"
+#import "UIColor+BGHexColor.h"
+#import <Masonry/Masonry.h>
 
 @implementation CommnetsTableView
 @synthesize dataSource;
@@ -27,10 +29,13 @@
     }else{
         cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
         
-        if(indexPath.row == 1){
-            cell.backgroundColor = [UIColor blueColor];
+        
+        if(self.dataSource.count > 0){
+            
         }else{
-            cell.backgroundColor = [UIColor redColor];
+            if (indexPath.row == 0) {
+                [self addSubViewToEmptyCell:cell];
+            }
         }
     }
     
@@ -66,5 +71,34 @@
     }
     
     return 0;
+}
+
+-(void) addSubViewToEmptyCell:(UITableViewCell *) cell{
+    UIImageView *imgView = [[UIImageView alloc] init];
+    imgView.image = [UIImage imageNamed:@"icon_xq_qs"];
+    
+    [cell addSubview:imgView];
+    
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(cell.mas_centerX).offset(0);
+        make.top.equalTo(cell.mas_top).offset(125);
+        make.width.equalTo(@52);
+        make.height.equalTo(@49.5);
+    }];
+    
+    UILabel *lbl = [[UILabel alloc] init];
+    lbl.text=@"暂时还没有人评论哦";
+    lbl.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:14];
+    lbl.textColor = [UIColor colorWithHexString:@"#cccccc"];
+    lbl.textAlignment = NSTextAlignmentCenter;
+    [cell addSubview:lbl];
+    
+    [lbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(cell.mas_centerX).offset(0);
+        make.top.equalTo(imgView.mas_bottom).offset(15);
+        make.width.equalTo(@200);
+        make.height.equalTo(@15);
+    }];
+    
 }
 @end

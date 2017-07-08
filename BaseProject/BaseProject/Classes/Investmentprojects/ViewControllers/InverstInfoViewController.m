@@ -7,6 +7,7 @@
 //
 
 #import "InverstInfoViewController.h"
+#import "LoginViewController.h"
 
 @interface InverstInfoViewController ()
 @property(retain,atomic) InvestmentModel *model;
@@ -25,12 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     InvestmentInfoView *infoView = [[InvestmentInfoView alloc] initWithFrame:self.view.bounds withModel:_model];
+    infoView.delegate = self;
     self.view = infoView;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) gotoLoginViewController{
+    LoginViewController *loginVC = [[LoginViewController alloc ] init];
+    [self.navigationController presentViewController:loginVC animated:YES completion:nil];
 }
 
 @end
