@@ -69,7 +69,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary *ForgetcodeMudic = [NSMutableDictionary dictionary];
     [ForgetcodeMudic setObject:self.ForgetAccountTF.text forKey:@"mobile"];
-    [HttpRequest postPath:@"_sms_002" params:ForgetcodeMudic resultBlock:^(id responseObject, NSError *error) {
+    [HttpRequest postPath:@"_smsto_001" params:ForgetcodeMudic resultBlock:^(id responseObject, NSError *error) {
         NSLog(@"List>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         hud.hidden = YES;
@@ -117,7 +117,7 @@
     NSMutableDictionary *ForgetFindCodeMudic = [NSMutableDictionary dictionary];
     [ForgetFindCodeMudic setObject:self.ForgetAccountTF.text forKey:@"mobile"];
      [ForgetFindCodeMudic setObject:self.ForgetCodeTF.text forKey:@"code"];
-     [ForgetFindCodeMudic setObject:self.ForgetPWTF.text forKey:@"newPwd"];
+     [ForgetFindCodeMudic setObject:self.ForgetPWTF.text forKey:@"login_pwd"];
     [HttpRequest postPath:@"_set_pwd_003" params:ForgetFindCodeMudic resultBlock:^(id responseObject, NSError *error) {
         NSLog(@"List>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
