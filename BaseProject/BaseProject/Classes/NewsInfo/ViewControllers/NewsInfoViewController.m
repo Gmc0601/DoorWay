@@ -12,6 +12,7 @@
 #import "NewsTableViewCell.h"
 
 #import "TBRefresh.h"
+#import "KeychainUUID.h"
 @interface NewsInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myMTableView;
@@ -25,6 +26,7 @@
 @implementation NewsInfoViewController
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self getTableViewDate];
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
     
 }
@@ -52,7 +54,7 @@
     myMTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-44)];
     myMTableView.dataSource = self;
     myMTableView.delegate = self;
-    //    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = YES;
     [self.view addSubview:myMTableView];
     
 
@@ -179,8 +181,35 @@
     
 //    [ConfigModel saveBoolObject:NO forKey:IsLogin];
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
-        
-        
+        NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+        NSMutableDictionary *mudic = [NSMutableDictionary new];
+//        [mudic setObject:userTokenStr forKey:@"userToken"];
+        KeychainUUID *keychain = [[KeychainUUID alloc] init];
+        id data = [keychain readUDID];
+        NSString *udidStr = data;
+//        [mudic setObject:udidStr forKey:@"device_number"];
+        [HttpRequest postPath:@"_logout_001" params:mudic resultBlock:^(id responseObject, NSError *error) {
+            
+            if([error isEqual:[NSNull null]] || error == nil){
+                NSLog(@"success");
+            }
+            
+            NSLog(@"%@login>>>>>>%@", udidStr,responseObject);
+
+            NSDictionary *datadic = responseObject;
+            if ([datadic[@"error"] intValue] == 0) {
+              
+                NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+                [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+                [ConfigModel mbProgressHUD:@"退出成功" andView:nil];
+         
+            }else {
+                NSString *info = datadic[@"info"];
+                [ConfigModel mbProgressHUD:info andView:nil];
+            }
+            NSLog(@"error>>>>%@", error);
+        }];
+
         return;
     }else{
         LoginViewController *loginVC = [[LoginViewController alloc ] init];

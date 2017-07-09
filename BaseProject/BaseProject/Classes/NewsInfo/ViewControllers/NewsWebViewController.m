@@ -106,31 +106,58 @@
 - (void)PraiseBtnClick:(UIButton *)sender{
 //    [ConfigModel saveBoolObject:NO forKey:IsLogin];
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
-        NSMutableDictionary *PraiseMudic = [NSMutableDictionary new];
-        [PraiseMudic setObject:self.newsId forKey:@"id"];
-        NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
-        [PraiseMudic setObject:userTokenStr forKey:@"userToken"];
-        [HttpRequest postPath:@"_goodnews_001" params:PraiseMudic resultBlock:^(id responseObject, NSError *error) {
-            
-            if([error isEqual:[NSNull null]] || error == nil){
-                NSLog(@"success");
-            }
-            
-            NSLog(@"%@----%@_newsdetails_001>>>>>>%@",self.newsId, userTokenStr, responseObject);
-            NSDictionary *datadic = responseObject;
-            if ([datadic[@"error"] intValue] == 0) {
-                NSDictionary *infoDic = responseObject[@"info"];
-          [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+        if (sender.selected) {
+            NSMutableDictionary *UNPraiseMudic = [NSMutableDictionary new];
+            [UNPraiseMudic setObject:self.newsId forKey:@"id"];
+            NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+//            [UNPraiseMudic setObject:userTokenStr forKey:@"userToken"];
+            [HttpRequest postPath:@"_offgoodnews_001" params:UNPraiseMudic resultBlock:^(id responseObject, NSError *error) {
                 
-            }else {
-                NSString *info = datadic[@"info"];
-                [ConfigModel mbProgressHUD:info andView:nil];
-            }
-            NSLog(@"error>>>>%@", error);
-        }];
-
-        
-       
+                if([error isEqual:[NSNull null]] || error == nil){
+                    NSLog(@"success");
+                }
+                
+                NSLog(@"%@----%@_newsdetails_001>>>>>>%@",self.newsId, userTokenStr, responseObject);
+                NSDictionary *datadic = responseObject;
+                if ([datadic[@"error"] intValue] == 0) {
+                    NSDictionary *infoDic = responseObject[@"info"];
+                    [ConfigModel mbProgressHUD:infoDic[@"info"] andView:self.view];
+                    [sender setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
+                    
+                }else {
+                    NSString *info = datadic[@"info"];
+                    [ConfigModel mbProgressHUD:info andView:nil];
+                }
+                NSLog(@"error>>>>%@", error);
+            }];
+            
+        }else{
+            NSMutableDictionary *PraiseMudic = [NSMutableDictionary new];
+            [PraiseMudic setObject:self.newsId forKey:@"id"];
+            NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+            [PraiseMudic setObject:userTokenStr forKey:@"userToken"];
+            [HttpRequest postPath:@"_goodnews_001" params:PraiseMudic resultBlock:^(id responseObject, NSError *error) {
+                
+                if([error isEqual:[NSNull null]] || error == nil){
+                    NSLog(@"success");
+                }
+                
+                NSLog(@"%@----%@_newsdetails_001>>>>>>%@",self.newsId, userTokenStr, responseObject);
+                NSDictionary *datadic = responseObject;
+                if ([datadic[@"error"] intValue] == 0) {
+                    NSDictionary *infoDic = responseObject[@"info"];
+                    [ConfigModel mbProgressHUD:@"点赞成功" andView:self.view];
+                    [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+                    
+                }else {
+                    NSString *info = datadic[@"info"];
+                    [ConfigModel mbProgressHUD:info andView:nil];
+                }
+                NSLog(@"error>>>>%@", error);
+            }];
+            
+        }
+ 
         return;
     }else{
         LoginViewController *loginVC = [[LoginViewController alloc ] init];
