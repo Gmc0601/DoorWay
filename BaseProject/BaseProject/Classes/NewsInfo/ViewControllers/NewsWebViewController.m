@@ -13,6 +13,8 @@
 {
     UIWebView *NewsWebView;
     NSString *urlStr;
+    NSString *readStr;
+    UIButton *PraiseBtn;
 }
 
 @end
@@ -48,17 +50,25 @@
 - (void)getUrlWebDetail{
     NSMutableDictionary *newsIdMudic = [NSMutableDictionary new];
     [newsIdMudic setObject:self.newsId forKey:@"id"];
+    NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+    [newsIdMudic setObject:userTokenStr forKey:@"userToken"];
     [HttpRequest postPath:@"_newsdetails_001" params:newsIdMudic resultBlock:^(id responseObject, NSError *error) {
         
         if([error isEqual:[NSNull null]] || error == nil){
             NSLog(@"success");
         }
         
-        NSLog(@"_newsdetails_001>>>>>>%@", responseObject);
+        NSLog(@"%@_newsdetails_001>>>>>>%@",responseObject[@"info"][@"userhint"], responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
             NSDictionary *infoDic = responseObject[@"info"];
             urlStr = infoDic[@"content"];
+            readStr = infoDic[@"userhint"];
+            if ([readStr isEqualToString:@"1"]) {
+                  [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+            }else{
+                  [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
+            }
             [NewsWebView loadHTMLString:urlStr baseURL:nil];
             
         }else {
@@ -95,7 +105,7 @@
     labelRa.textColor = RGBColor(153, 153, 153);
     [self.view addSubview:labelRa];
     
-    UIButton *PraiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    PraiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     PraiseBtn.frame = CGRectMake((kScreenW-60)/2, kScreenH-80, 60, 60);
     [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
     [PraiseBtn addTarget:self action:@selector(PraiseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -106,11 +116,11 @@
 - (void)PraiseBtnClick:(UIButton *)sender{
 //    [ConfigModel saveBoolObject:NO forKey:IsLogin];
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
-        if (sender.selected) {
+        if ([readStr isEqualToString:@"1"]) {
             NSMutableDictionary *UNPraiseMudic = [NSMutableDictionary new];
             [UNPraiseMudic setObject:self.newsId forKey:@"id"];
             NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
-//            [UNPraiseMudic setObject:userTokenStr forKey:@"userToken"];
+            [UNPraiseMudic setObject:userTokenStr forKey:@"userToken"];
             [HttpRequest postPath:@"_offgoodnews_001" params:UNPraiseMudic resultBlock:^(id responseObject, NSError *error) {
                 
                 if([error isEqual:[NSNull null]] || error == nil){
@@ -121,7 +131,7 @@
                 NSDictionary *datadic = responseObject;
                 if ([datadic[@"error"] intValue] == 0) {
                     NSDictionary *infoDic = responseObject[@"info"];
-                    [ConfigModel mbProgressHUD:infoDic[@"info"] andView:self.view];
+                    [ConfigModel mbProgressHUD:@"取消点赞成功" andView:self.view];
                     [sender setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
                     
                 }else {

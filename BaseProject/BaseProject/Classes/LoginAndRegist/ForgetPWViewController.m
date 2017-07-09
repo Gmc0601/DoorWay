@@ -123,6 +123,7 @@
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
           [ConfigModel mbProgressHUD:@"您已经修改成功" andView:nil];
+            [self performSelector:@selector(BackLoginPage) withObject:nil afterDelay:2.0];
  
         }else {
             NSString *info = datadic[@"info"];
@@ -132,9 +133,12 @@
     }];
     
     
-    
 }
 
+
+- (void)BackLoginPage{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)reduceTime:(NSTimer *)codeTimer {
     self.timeCount--;
