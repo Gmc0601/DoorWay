@@ -54,6 +54,20 @@
         _tb.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:_tb];
         
+        __weak InvestmentInfoView *weakself=self;
+        [_tb addRefreshHeaderWithBlock:^{
+            if (_tb.dataSource != _commnetsTableView) {
+                [weakself.tb.header endHeadRefresh];
+                return;
+            }
+            
+            [CommentModel loadData:weakself.model._id callback:^(NSArray *data) {
+                [weakself.tb.header endHeadRefresh];
+                weakself.commnetsTableView.dataSource = data;
+                [weakself.tb reloadData];
+            }];
+        }];
+        
     }
     return self;
 }
@@ -156,6 +170,7 @@
     
     if (addCommentView != nil) {
         [addCommentView removeFromSuperview];
+        addCommentView = nil;
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
@@ -284,15 +299,6 @@
 }
 
 -(void) loadComments{
-    __weak InvestmentInfoView *weakself=self;
-    [_tb addRefreshHeaderWithBlock:^{
-        [CommentModel loadData:weakself.model._id callback:^(NSArray *data) {
-            [weakself.tb.header endHeadRefresh];
-            weakself.commnetsTableView.dataSource = data;
-            [weakself.tb reloadData];
-        }];
-    }];
-    
     [_tb.header beginRefreshing];
 }
 
