@@ -69,19 +69,19 @@
             }];
         }];
         
-        [_tb addRefreshFootWithBlock:^{
-            if (_tb.dataSource != _commnetsTableView) {
-                [weakself.tb.footer endFooterRefreshing];
-                return;
-            }
-            
-            [CommentModel loadData:weakself.model._id callback:^(BOOL isLike,NSArray *data) {
-                [weakself.tb.footer endFooterRefreshing];
-                weakself.commnetsTableView.dataSource = data;
-                [weakself.btnLike setSelected:isLike];
-                [weakself.tb reloadData];
-            }];
-        }];
+//        [_tb addRefreshFootWithBlock:^{
+//            if (_tb.dataSource != _commnetsTableView) {
+//                [weakself.tb.footer endFooterRefreshing];
+//                return;
+//            }
+//            
+//            [CommentModel loadData:weakself.model._id callback:^(BOOL isLike,NSArray *data) {
+//                [weakself.tb.footer endFooterRefreshing];
+//                weakself.commnetsTableView.dataSource = data;
+//                [weakself.btnLike setSelected:isLike];
+//                [weakself.tb reloadData];
+//            }];
+//        }];
     }
     return self;
 }

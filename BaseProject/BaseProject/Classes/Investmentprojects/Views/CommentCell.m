@@ -67,6 +67,7 @@
     _lblComment.font = [UIFont fontWithName:@"HelveticaNeue,AdobeHeitiStd-Regular" size:15];
     _lblComment.textColor = [UIColor colorWithHexString:@"#333333"];
     _lblComment.textAlignment = NSTextAlignmentLeft;
+    _lblComment.numberOfLines = 0;
     
     [self addSubview:_lblComment];
     

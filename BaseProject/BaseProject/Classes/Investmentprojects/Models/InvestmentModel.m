@@ -15,14 +15,9 @@
     
     [HttpRequest postPath:@"_investitem_001" params:nil resultBlock:^(id responseObject, NSError *error) {
         
-        if([error isEqual:[NSNull null]] || error == nil){
-            NSLog(@"success");
-        }
-        
-        NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] != 0) {
-            
+            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
             for (NSDictionary *dict in datadic[@"info"]) {
                 InvestmentModel *model = [[InvestmentModel alloc] init];

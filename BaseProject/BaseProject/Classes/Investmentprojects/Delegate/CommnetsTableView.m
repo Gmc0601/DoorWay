@@ -77,7 +77,6 @@
                 height = 48;
             }
         }else{
-            
             if (indexPath.row == (self.dataSource.count)) {
                 height = 48;
             }else{

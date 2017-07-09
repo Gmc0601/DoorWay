@@ -41,7 +41,7 @@
     _lblDescription.text = model.content;
     [self setMoney:model.money];
     [self setPublishDay:model.pushday];
-    _lblRate.text = model.backmoney;
+    _lblRate.text = [NSString stringWithFormat:@"%@%%",model.backmoney];
     _lblRanking.text = model.ranking;
     [self setStatus:model.type];
     [self setBackgroundImage:model.img];

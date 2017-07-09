@@ -48,15 +48,8 @@
             make.bottom.equalTo(self.mas_bottom);
         }];
     }
-    [_webView loadHTMLString:@"." baseURL:nil];
-
-//    _webView.attributedText = [self getAttributedString:strUrl];
-//    NSURL *URL1 = [NSURL URLWithString:@"about:blank"];
-//    NSMutableURLRequest *requeset1 = [[NSMutableURLRequest alloc] initWithURL:URL1 cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-//
-//    NSURL *URL = [NSURL URLWithString:strUrl];
-//    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
-//    [_webView loadRequest:requeset];
+    
+    [_webView loadHTMLString:@"" baseURL:nil];
 }
 
 - (NSAttributedString *)getAttributedString:(NSString *)text {
@@ -70,7 +63,7 @@
         _loadTime += 1;
         @try {
             if ([self.delegate respondsToSelector:@selector(WebViewTableViewCell:heightOfCell:)]) {
-                CGFloat height = _loadTime == 1? 0:webView.scrollView.contentSize.height ;
+                CGFloat height = _loadTime == 1? 0:(webView.scrollView.contentSize.height + 10) ;
                 [self.delegate WebViewTableViewCell:self heightOfCell: height];
 //                _loadTime = _loadTime > 1?0:_loadTime;
                 if (_loadTime < 2) {

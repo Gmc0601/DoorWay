@@ -22,14 +22,10 @@
     [HttpRequest postPath:@"_investitemdetails_001" params:param resultBlock:^(id responseObject, NSError *error) {
         NSMutableArray *models = [[NSMutableArray alloc] init];
         BOOL isLike = NO;
-        if([error isEqual:[NSNull null]] || error == nil){
-            NSLog(@"success");
-        }
-        
-        NSLog(@"login>>>>>>%@", responseObject);
+       
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] != 0) {
-            
+            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
             isLike = datadic[@"info"][@"users_good"];
             
@@ -42,7 +38,6 @@
                 [models addObject:model];
             }
         }
-        NSLog(@"error>>>>%@", error);
         callBack(isLike,models);
     }];
 }
