@@ -77,7 +77,7 @@ static MainApi *request = nil;
     
     if ([method isEqualToString:@"POST"]) {
         
-        NSLog(@"%@==============",jsDic);
+        NSLog(@"22%@==============",jsDic);
         
         [self.manager POST:BaseApi parameters:jsDic progress:^(NSProgress * _Nonnull uploadProgress) {
             
@@ -107,6 +107,7 @@ static MainApi *request = nil;
             }
         }];
     }
+       NSLog(@"33%@==============",URLString);
     
 }
 
