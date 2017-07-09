@@ -76,6 +76,7 @@
                      forState:UIControlStateSelected];
     [btnCompany setTitleColor:_fontColor forState:UIControlStateNormal];
     [btnCompany setSelected:YES];
+    btnCompany.backgroundColor = [UIColor whiteColor];
     btnCompany.titleLabel.textAlignment = NSTextAlignmentCenter;
     [header addSubview:btnCompany];
     [btnCompany addTarget:self action:@selector(tapCompayButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -95,6 +96,7 @@
     [btnRole setTitleColor:_fontColor forState:UIControlStateNormal];
     btnRole.titleLabel.textAlignment = NSTextAlignmentCenter;
     [btnRole addTarget:self action:@selector(tapRoleButton:) forControlEvents:UIControlEventTouchUpInside];
+    btnRole.backgroundColor = [UIColor whiteColor];
     [header addSubview:btnRole];
     
     [btnRole mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,7 +113,7 @@
     [btnSummry setTitleColor:_fontColor forState:UIControlStateNormal];
     btnSummry.titleLabel.textAlignment = NSTextAlignmentCenter;
     [btnSummry addTarget:self action:@selector(tapSummryButton:) forControlEvents:UIControlEventTouchUpInside];
-    
+    btnSummry.backgroundColor = [UIColor whiteColor];
     [header addSubview:btnSummry];
     
     [btnSummry mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -128,7 +130,7 @@
     [btnComments addTarget:self action:@selector(tapCommentsButton:) forControlEvents:UIControlEventTouchUpInside];
     [btnComments setTitleColor:_fontColor forState:UIControlStateNormal];
     btnComments.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
+    btnComments.backgroundColor = [UIColor whiteColor];
     [header addSubview:btnComments];
     
     [btnComments mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,7 +139,6 @@
         make.bottom.equalTo(header);
         make.width.equalTo(@(width));
     }];
-    
     
     return  header;
 }

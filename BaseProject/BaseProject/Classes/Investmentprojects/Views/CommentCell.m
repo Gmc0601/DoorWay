@@ -29,7 +29,7 @@
         _avatar.image = image;
     }];
     
-    _lblDate.text = [NSString getDateStringWithTimestamp:model.time];
+    _lblDate.text = model.time;
     _lblNickName.text = model.nickName;
     _lblComment.text = model.comment;
     

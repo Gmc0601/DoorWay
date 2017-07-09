@@ -61,13 +61,27 @@
                 return;
             }
             
-            [CommentModel loadData:weakself.model._id callback:^(NSArray *data) {
+            [CommentModel loadData:weakself.model._id callback:^(BOOL isLike,NSArray *data) {
                 [weakself.tb.header endHeadRefresh];
                 weakself.commnetsTableView.dataSource = data;
+                [weakself.btnLike setSelected:isLike];
                 [weakself.tb reloadData];
             }];
         }];
         
+        [_tb addRefreshFootWithBlock:^{
+            if (_tb.dataSource != _commnetsTableView) {
+                [weakself.tb.footer endFooterRefreshing];
+                return;
+            }
+            
+            [CommentModel loadData:weakself.model._id callback:^(BOOL isLike,NSArray *data) {
+                [weakself.tb.footer endFooterRefreshing];
+                weakself.commnetsTableView.dataSource = data;
+                [weakself.btnLike setSelected:isLike];
+                [weakself.tb reloadData];
+            }];
+        }];
     }
     return self;
 }
@@ -189,7 +203,7 @@
         inputPanel.backgroundColor = [UIColor whiteColor];
         
         UIFont *font = [UIFont fontWithName:@"PingFang-SC-Medium" size:15];
-        UIColor *color = [UIColor colorWithHexString:@"#cccccc"];;
+        UIColor *color = [UIColor colorWithHexString:@"#333333"];;
         
         UIButton *btnSender = [[UIButton alloc] init];
         [btnSender setTitle:@"发送" forState:UIControlStateNormal];
@@ -200,7 +214,7 @@
         
         [inputPanel addSubview:btnSender];
         [btnSender mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(inputPanel).offset(16);
+            make.right.equalTo(inputPanel).offset(-16);
             make.top.equalTo(inputPanel).offset(10);
             make.height.equalTo(@15);
             make.width.equalTo(@40);
@@ -215,7 +229,8 @@
         
         [inputPanel addSubview:btnCancel];
         [btnCancel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(inputPanel).offset(-16);
+            
+            make.left.equalTo(inputPanel).offset(16);
             make.top.equalTo(inputPanel).offset(10);
             make.height.equalTo(@15);
             make.width.equalTo(@40);
@@ -259,7 +274,33 @@
 }
 
 -(void) tapLikeButton{
-    [_btnLike setSelected:YES];
+    if (![ConfigModel getBoolObjectforKey:IsLogin] ) {
+        [self.delegate gotoLoginViewController];
+        return;
+    }
+    
+    NSString *strUrl = @"_gooditems_001";
+    
+    if (_btnLike.selected) {
+        strUrl = @"_offgooditems_001";
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:_model._id forKey:@"id"];
+    NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+    [params setObject:userTokenStr forKey:@"userToken"];
+    
+    [HttpRequest postPath:strUrl params:params resultBlock:^(id responseObject, NSError *error) {
+        
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] != 0) {
+            [_btnLike setSelected:!_btnLike.selected];
+            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
+        }else {
+            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
+        }
+    }];
+    [_btnLike setSelected:!_btnLike.selected];
 }
 
 -(void) tapSendeButton{
@@ -278,21 +319,13 @@
     
     __weak InvestmentInfoView *weakself=self;
     [HttpRequest postPath:@"_pushcomment_001" params:params resultBlock:^(id responseObject, NSError *error) {
-        
-        if([error isEqual:[NSNull null]] || error == nil){
-            NSLog(@"success");
-        }
-        
-        NSLog(@"login>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] != 0) {
-            NSLog(@"error>>>>%@", datadic[@"info"]);
             [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
-            [ConfigModel mbProgressHUD:@"评论成功" andView:nil];
+            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
             [weakself loadComments];
         }
-        NSLog(@"error>>>>%@", error);
     }];
     
     [_popover dismiss:true];

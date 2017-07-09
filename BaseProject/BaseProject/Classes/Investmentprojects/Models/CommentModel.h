@@ -11,9 +11,8 @@
 @interface CommentModel : NSObject
 @property(retain,atomic) NSString *nickName;
 @property(retain,atomic) NSString *avatarUrl;
-@property(nonatomic) NSTimeInterval time;
+@property(nonatomic) NSString* time;
 @property(retain,atomic) NSString *comment;
 
-+(void) loadData:(NSString *) projectId callback:(void(^)(NSArray *)) callBack;
-+(NSArray *) fakeData;
++(void) loadData:(NSString *) projectId callback:(void(^)(BOOL,NSArray*)) callBack;
 @end

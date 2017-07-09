@@ -8,6 +8,7 @@
 
 #import "WebViewTableViewCell.h"
 #import <Masonry/Masonry.h>
+#import "UIColor+BGHexColor.h"
 
 @interface WebViewTableViewCell()
 @property(retain,atomic) UIWebView *webView;
@@ -26,7 +27,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+        self.backgroundColor = [UIColor colorWithHexString:@"#f0f0f0"];
     }
     
     return self;
@@ -42,7 +43,7 @@
         
         [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.mas_left);
-            make.top.equalTo(self.mas_top);
+            make.top.equalTo(self.mas_top).offset(10);
             make.right.equalTo(self.mas_right);
             make.bottom.equalTo(self.mas_bottom);
         }];

@@ -9,13 +9,19 @@
 #import "CommentModel.h"
 
 @implementation CommentModel
-+(void) loadData:(NSString *) projectId callback:(void(^)(NSArray *)) callBack{
-    NSMutableArray *models = [[NSMutableArray alloc] init];
-    NSDictionary *param = @{@"type" : @4,@"id":projectId};
++(void) loadData:(NSString *) projectId callback:(void(^)(BOOL,NSArray*)) callBack{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:@4 forKey:@"type"];
+    [param setObject:projectId forKey:@"items_id"];
     
+    if (![ConfigModel getBoolObjectforKey:IsLogin] ) {
+        NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+        [param setObject:userTokenStr forKey:@"userToken"];
+    }
     
     [HttpRequest postPath:@"_investitemdetails_001" params:param resultBlock:^(id responseObject, NSError *error) {
-        
+        NSMutableArray *models = [[NSMutableArray alloc] init];
+        BOOL isLike = NO;
         if([error isEqual:[NSNull null]] || error == nil){
             NSLog(@"success");
         }
@@ -25,27 +31,19 @@
         if ([datadic[@"error"] intValue] != 0) {
             
         }else {
-//            if(datadic[@"info"].count)
-//            for (NSDictionary *dict in datadic[@"info"]) {
-//            }
+            isLike = datadic[@"info"][@"users_good"];
             
+            for (NSDictionary *dict in datadic[@"info"][@"usercomment"]) {
+                CommentModel *model = [[CommentModel alloc] init];
+                model.avatarUrl = dict[@"avatar_url"];
+                model.comment = dict[@"comment"];
+                model.time = dict[@"time"];
+                model.nickName = dict[@"nickname"];
+                [models addObject:model];
+            }
         }
         NSLog(@"error>>>>%@", error);
-        callBack([CommentModel fakeData]);
+        callBack(isLike,models);
     }];
-}
-
-+(NSArray *) fakeData{
-    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:3];
-    
-    CommentModel *c =  [[CommentModel alloc] init];
-    c.avatarUrl = @"";
-    c.nickName = @"test";
-    c.time = [NSDate timeIntervalSinceReferenceDate];
-    c.comment = @"sasfsdfsdf";
-    [arr addObject:c];
-    [arr addObject:c];
-    [arr addObject:c];
-    return  arr;
 }
 @end
