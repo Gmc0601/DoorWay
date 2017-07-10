@@ -9,5 +9,5 @@
 #import "CenterRootViewController.h"
 
 @interface AmoutDetailController : CenterRootViewController
-
+@property (nonatomic,strong) NSString * str_title;
 @end

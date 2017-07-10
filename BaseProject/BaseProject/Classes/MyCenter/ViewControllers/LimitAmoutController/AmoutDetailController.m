@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTitle:@"互助额度明细"];
+    [self setNavTitle:self.str_title];
 
     // Do any additional setup after loading the view from its nib.
 }

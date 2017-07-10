@@ -22,6 +22,7 @@
 }
 - (void)AmountDetail{
     AmoutDetailController * detail = [[AmoutDetailController alloc]init];
+    detail.str_title = @"互助额度明细";
     [self.navigationController pushViewController:detail animated:YES];
 }
 - (void)addNavBarInfo{
