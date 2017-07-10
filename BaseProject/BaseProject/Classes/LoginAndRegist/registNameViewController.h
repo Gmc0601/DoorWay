@@ -13,5 +13,5 @@
 @property (nonatomic, strong)NSString *codeStr;
 @property (nonatomic, strong)NSString *mobileStr;
 
-
+@property (nonatomic, strong)NSString *inventedStrCode;
 @end

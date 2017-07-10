@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
 @property (weak, nonatomic) IBOutlet UITextField *codeTF;
 
+@property (nonatomic, strong)NSString *codeddStr;
+
 @end
 
 @implementation RegistCodeViewController
@@ -69,6 +71,7 @@
         [hud removeFromSuperview];
         if ([datadic[@"error"] intValue] == 0) {
             sender.userInteractionEnabled = NO;
+            _codeddStr = datadic[@"info"];
             self.timeCount = 60;
             self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(reduceTime:) userInfo:sender repeats:YES];
 
@@ -151,11 +154,16 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)registNameBtn:(UIButton *)sender {
+    if ([_codeddStr isEqualToString:self.codeTF.text]) {
+        registNameViewController  *registNameVC = [[registNameViewController alloc] init];
+        registNameVC.codeStr = self.codeTF.text;
+        registNameVC.mobileStr = self.accountTF.text;
+        registNameVC.inventedStrCode = self.inventedStr;
+        [self presentViewController:registNameVC animated:YES completion:nil];
+    }else{
+        [ConfigModel mbProgressHUD:@"验证码错误" andView:self.view];
+    }
    
-    registNameViewController  *registNameVC = [[registNameViewController alloc] init];
-    registNameVC.codeStr = self.codeTF.text;
-    registNameVC.mobileStr = self.accountTF.text;
-    [self presentViewController:registNameVC animated:YES completion:nil];
 }
 
 

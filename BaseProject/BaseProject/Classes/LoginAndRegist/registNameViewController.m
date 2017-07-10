@@ -98,15 +98,14 @@
      [registMudic setObject:self.mailTF.text forKey:@"email"];
      [registMudic setObject:self.zhifubaoTF.text forKey:@"alipay_account"];
      [registMudic setObject:self.zhifubaoNameTF.text forKey:@"alipay_name"];
+     [registMudic setObject:self.inventedStrCode forKey:@"invitationcode"];
     [HttpRequest postPath:@"_register_001" params:registMudic resultBlock:^(id responseObject, NSError *error) {
         NSLog(@"List>>>>>>%@", responseObject);
         NSDictionary *datadic = responseObject;
 
         if ([datadic[@"error"] intValue] == 0) {
             [ConfigModel mbProgressHUD:@"恭喜注册成功" andView:nil];
-            
-            [self performSelector:@selector(backHomePage) withObject:nil afterDelay:2.0];
-
+        [self performSelector:@selector(backHomePage) withObject:nil afterDelay:2.0];
             
         }else {
             NSString *info = datadic[@"info"];

@@ -10,4 +10,6 @@
 
 @interface RegistCodeViewController : UIViewController
 
+@property (nonatomic, strong)NSString *inventedStr;
+
 @end

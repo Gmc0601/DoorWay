@@ -68,7 +68,8 @@
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
             RegistCodeViewController  *registCodeVC = [[RegistCodeViewController alloc] init];
-            [self.navigationController pushViewController: registCodeVC animated:YES];
+            registCodeVC.inventedStr = self.regist1TF.text;
+            [self presentViewController:registCodeVC animated:YES completion:nil];
         }else {
             NSString *info = datadic[@"info"];
             [ConfigModel mbProgressHUD:info andView:nil];
@@ -77,8 +78,8 @@
     }];
 
     
-    RegistCodeViewController  *registCodeVC = [[RegistCodeViewController alloc] init];
-    [self presentViewController:registCodeVC animated:YES completion:nil];
+//    RegistCodeViewController  *registCodeVC = [[RegistCodeViewController alloc] init];
+//    [self presentViewController:registCodeVC animated:YES completion:nil];
     
     
     
