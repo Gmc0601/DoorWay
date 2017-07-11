@@ -15,6 +15,10 @@
     NSString *urlStr;
     NSString *readStr;
     UIButton *PraiseBtn;
+    
+    UILabel *titleLabelD;
+    UILabel *timeLabelD;
+    UILabel *readCountLabel;
 }
 
 @end
@@ -35,7 +39,7 @@
     
     [self getUrlWebDetail];
     NewsWebView = [[UIWebView alloc] init];
-    NewsWebView.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-130);
+    NewsWebView.frame = CGRectMake(0, 226-10, self.view.bounds.size.width, self.view.bounds.size.height-216-130);
     NewsWebView.delegate = self;
     NewsWebView.scalesPageToFit = YES;
     
@@ -69,6 +73,9 @@
             }else{
                   [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
             }
+            titleLabelD.text =infoDic[@"title"];
+            timeLabelD.text =infoDic[@"create_time"];
+            readCountLabel.text = [NSString stringWithFormat:@"阅读 %@   赞 %@",infoDic[@"read_num"],infoDic[@"praise_num"]];
             [NewsWebView loadHTMLString:urlStr baseURL:nil];
             
         }else {
@@ -110,6 +117,25 @@
     [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
     [PraiseBtn addTarget:self action:@selector(PraiseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:PraiseBtn];
+    
+    
+    titleLabelD = [[UILabel alloc] initWithFrame:CGRectMake(20, 20+64, kScreenW-40, 60)];
+    titleLabelD.numberOfLines = 0;
+    titleLabelD.font = [UIFont systemFontOfSize:25];
+    titleLabelD.textColor = RGB(59, 59, 59);
+    [self.view addSubview:titleLabelD];
+    
+    timeLabelD = [[UILabel alloc] initWithFrame:CGRectMake(18, 20+64+60+12, 100, 20)];
+    timeLabelD.font = [UIFont systemFontOfSize:10];
+    timeLabelD.textColor = RGB(153, 153, 153);
+    [self.view addSubview:timeLabelD];
+    
+    readCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenW-18-100, 20+64+60+12, 100, 20)];
+    readCountLabel.font = [UIFont systemFontOfSize:10];
+    readCountLabel.textAlignment = NSTextAlignmentRight;
+    readCountLabel.textColor = RGB(153, 153, 153);
+    [self.view addSubview:readCountLabel];
+    
 }
 
 
@@ -200,7 +226,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '340%'"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
