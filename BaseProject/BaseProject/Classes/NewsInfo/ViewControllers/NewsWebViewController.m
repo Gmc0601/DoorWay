@@ -39,7 +39,7 @@
     
     [self getUrlWebDetail];
     NewsWebView = [[UIWebView alloc] init];
-    NewsWebView.frame = CGRectMake(0, 226-10, self.view.bounds.size.width, self.view.bounds.size.height-216-130);
+    NewsWebView.frame = CGRectMake(16, 226-10, self.view.bounds.size.width-32, self.view.bounds.size.height-216-130);
     NewsWebView.delegate = self;
     NewsWebView.scalesPageToFit = YES;
     
@@ -158,6 +158,7 @@
                 if ([datadic[@"error"] intValue] == 0) {
                     NSDictionary *infoDic = responseObject[@"info"];
                     [ConfigModel mbProgressHUD:@"取消点赞成功" andView:self.view];
+                    readStr=@"2";
                     [sender setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
                     
                 }else {
@@ -182,6 +183,7 @@
                 NSDictionary *datadic = responseObject;
                 if ([datadic[@"error"] intValue] == 0) {
                     NSDictionary *infoDic = responseObject[@"info"];
+                    readStr = @"1";
                     [ConfigModel mbProgressHUD:@"点赞成功" andView:self.view];
                     [sender setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
                     

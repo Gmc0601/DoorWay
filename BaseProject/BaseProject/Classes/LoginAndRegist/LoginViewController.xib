@@ -52,9 +52,9 @@
                     </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入您的手机号/邮箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-Nc-cks">
-                    <rect key="frame" x="0.0" y="275" width="375" height="15"/>
+                    <rect key="frame" x="0.0" y="275" width="375" height="27"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="hLu-R9-OsI"/>
+                        <constraint firstAttribute="height" constant="27" id="hLu-R9-OsI"/>
                     </constraints>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -69,9 +69,9 @@
                     </constraints>
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gc-b7-k29">
-                    <rect key="frame" x="0.0" y="322" width="375" height="15"/>
+                    <rect key="frame" x="0.0" y="320" width="375" height="27"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="KnA-un-4eG"/>
+                        <constraint firstAttribute="height" constant="27" id="KnA-un-4eG"/>
                     </constraints>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -140,7 +140,7 @@
                 <constraint firstItem="Gaj-eX-Bpg" firstAttribute="centerX" secondItem="4gc-b7-k29" secondAttribute="centerX" id="5g6-6D-Dbk"/>
                 <constraint firstItem="rdD-27-hhG" firstAttribute="top" secondItem="Gaj-eX-Bpg" secondAttribute="bottom" constant="32" id="7Ee-jY-mnQ"/>
                 <constraint firstItem="4gc-b7-k29" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ASZ-Gm-Y4X"/>
-                <constraint firstItem="Z9I-ci-mMi" firstAttribute="top" secondItem="jr0-Nc-cks" secondAttribute="bottom" constant="16" id="EEH-aK-Wpd"/>
+                <constraint firstItem="Z9I-ci-mMi" firstAttribute="top" secondItem="jr0-Nc-cks" secondAttribute="bottom" constant="4" id="EEH-aK-Wpd"/>
                 <constraint firstItem="0Fy-nF-FVj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FbQ-mU-7b2"/>
                 <constraint firstAttribute="trailing" secondItem="SpW-QV-Nhn" secondAttribute="trailing" constant="16" id="GE5-R4-urC"/>
                 <constraint firstItem="rdD-27-hhG" firstAttribute="centerX" secondItem="Gaj-eX-Bpg" secondAttribute="centerX" id="KNd-gV-d1d"/>
@@ -155,7 +155,7 @@
                 <constraint firstItem="6oi-H3-qgZ" firstAttribute="centerX" secondItem="rdD-27-hhG" secondAttribute="centerX" id="jks-9c-w9H"/>
                 <constraint firstItem="jr0-Nc-cks" firstAttribute="top" secondItem="0Fy-nF-FVj" secondAttribute="bottom" constant="81" id="nPz-X5-L1E"/>
                 <constraint firstItem="0Fy-nF-FVj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="122" id="tbY-Ks-eqQ"/>
-                <constraint firstItem="4gc-b7-k29" firstAttribute="top" secondItem="Z9I-ci-mMi" secondAttribute="bottom" constant="14.5" id="xjN-Zd-mxQ"/>
+                <constraint firstItem="4gc-b7-k29" firstAttribute="top" secondItem="Z9I-ci-mMi" secondAttribute="bottom" constant="13" id="xjN-Zd-mxQ"/>
                 <constraint firstItem="SpW-QV-Nhn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="zEo-jv-mKP"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="51.5"/>
