@@ -199,7 +199,7 @@
     }
     
     CGFloat offset = -13;
-    tag = 0;
+    tag = 2001;
     for (int i=0; i<grade.intValue; i++) {
         UIImageView *img = [self addStarWithRightOffSet:offset];
         img.tag = tag;
