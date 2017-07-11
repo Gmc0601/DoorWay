@@ -21,6 +21,8 @@
     UILabel *readCountLabel;
 }
 
+//@property(nonatomic, strong)UILabel *titleLabel;
+
 @end
 
 @implementation NewsWebViewController
@@ -31,16 +33,25 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
   
-    [self creatUI];
+
     // Do any additional setup after loading the view.
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBackBtn)];
     // Do any additional setup after loading the view.
     
     
-    [self getUrlWebDetail];
+
     NewsWebView = [[UIWebView alloc] init];
-    NewsWebView.frame = CGRectMake(16, 226-10, self.view.bounds.size.width-32, self.view.bounds.size.height-216-130);
+    NewsWebView.frame = CGRectMake(16, 0, self.view.bounds.size.width-32, self.view.bounds.size.height-130);
+    NewsWebView.backgroundColor = [UIColor whiteColor];
     NewsWebView.delegate = self;
+    for (UIView *subView in [NewsWebView subviews])
+    {
+        if ([subView isKindOfClass:[UIScrollView class]])
+        {
+            // 不显示竖直的滚动条
+            [(UIScrollView *)subView setShowsVerticalScrollIndicator:NO];
+        }
+    }
     NewsWebView.scalesPageToFit = YES;
     
 //    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
@@ -48,6 +59,10 @@
     
     [self.view addSubview:NewsWebView];
 //    [NewsWebView loadRequest:requeset];
+    
+    [self creatUI];
+    [self getUrlWebDetail];
+
 }
 
 
@@ -118,23 +133,25 @@
     [PraiseBtn addTarget:self action:@selector(PraiseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:PraiseBtn];
     
-    
-    titleLabelD = [[UILabel alloc] initWithFrame:CGRectMake(20, 20+64, kScreenW-40, 60)];
+    NewsWebView.scrollView.contentInset = UIEdgeInsetsMake(130, 0, 0, 0);
+    NewsWebView.scrollView.contentOffset= CGPointMake(0, -130);
+    titleLabelD = [[UILabel alloc] initWithFrame:CGRectMake(-3, -120, kScreenW-40, 60)];
     titleLabelD.numberOfLines = 0;
     titleLabelD.font = [UIFont systemFontOfSize:25];
     titleLabelD.textColor = RGB(59, 59, 59);
-    [self.view addSubview:titleLabelD];
+    [NewsWebView.scrollView addSubview:titleLabelD];
     
-    timeLabelD = [[UILabel alloc] initWithFrame:CGRectMake(18, 20+64+60+12, 100, 20)];
+    timeLabelD = [[UILabel alloc] initWithFrame:CGRectMake(1, -18-30, 150, 10)];
     timeLabelD.font = [UIFont systemFontOfSize:10];
     timeLabelD.textColor = RGB(153, 153, 153);
-    [self.view addSubview:timeLabelD];
+    [NewsWebView.scrollView addSubview:timeLabelD];
     
-    readCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenW-18-100, 20+64+60+12, 100, 20)];
+    readCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenW-18-150-16, -18-30, 150, 10)];
     readCountLabel.font = [UIFont systemFontOfSize:10];
     readCountLabel.textAlignment = NSTextAlignmentRight;
     readCountLabel.textColor = RGB(153, 153, 153);
-    [self.view addSubview:readCountLabel];
+    [NewsWebView.scrollView addSubview:readCountLabel];
+    
     
 }
 
@@ -230,6 +247,9 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '340%'"];
+    
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
