@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     [self setCustomerTitle: @"投资项目"];
     [self addTableView];
     __weak InvestmentProjectViewController *weakself=self;
@@ -34,6 +36,11 @@
     }];
     
     [_tblInvestments.header beginRefreshing];
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)didReceiveMemoryWarning {
