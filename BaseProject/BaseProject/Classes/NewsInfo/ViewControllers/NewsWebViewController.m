@@ -91,6 +91,19 @@
             titleLabelD.text =infoDic[@"title"];
             timeLabelD.text =infoDic[@"create_time"];
             readCountLabel.text = [NSString stringWithFormat:@"阅读 %@   赞 %@",infoDic[@"read_num"],infoDic[@"praise_num"]];
+            
+            NSString *wideStr = [NSString stringWithFormat:@" <head><style>img{width:%fpx !important;}</style></head>", (kScreenW+100)*2];
+
+            
+//             UIFont *font = [UIFont systemFontOfSize:23];
+//            NSString* fontStr = [NSString stringWithFormat:@"<span style=\"font-family: %@!important; font-size: %i\">%@</span>",
+//                                    font.fontName,
+//                                    (int) font.pointSize,
+//                                    infoDic[@"content"]];
+            
+            
+            urlStr = [wideStr stringByAppendingString:urlStr];
+//            NSLog(@"error>>>>%@", urlStr);
             [NewsWebView loadHTMLString:urlStr baseURL:nil];
             
         }else {
@@ -249,8 +262,26 @@
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '340%'"];
     
     
-    
+//    NSString *js=@"var script = document.createElement('script');"
+//    "script.type = 'text/javascript';"
+//    "script.text = \"function ResizeImages() { "
+//    "var myimg,oldwidth;"
+//    "var maxwidth = %f;"
+//    "for(i=0;i <document.images.length;i++){"
+//    "myimg = document.images[i];"
+//    "if(myimg.width > maxwidth){"
+//    "oldwidth = myimg.width;"
+//    "myimg.width = %f;"
+//    "}"
+//    "}"
+//    "}\";"
+//    "document.getElementsByTagName('head')[0].appendChild(script);";
+//    js=[NSString stringWithFormat:js,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.width-15];
+//    [webView stringByEvaluatingJavaScriptFromString:js];
+//    [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
