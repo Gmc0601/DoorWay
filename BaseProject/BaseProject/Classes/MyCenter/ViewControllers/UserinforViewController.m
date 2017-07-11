@@ -243,6 +243,8 @@
     //     [self.imageArray addObject:resultImage];
     UIImage *resultImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     imageView.image=resultImage;
+    oneImgViewData=UIImageJPEGRepresentation(imageView.image,0.8);
+    oneImgViewData = [oneImgViewData base64EncodedDataWithOptions:0];
     
     //
     //    //如果按钮创建时用的是系统风格UIButtonTypeSystem，需要在设置图片一栏设置渲染模式为"使用原图"
@@ -272,9 +274,15 @@
 //提交保存方法
 -(void)saveBtn:(UIButton*)sender{
     
+    NSString * tmpOneImgViewString = [[NSString alloc] initWithData:oneImgViewData  encoding:NSUTF8StringEncoding];
+    NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
     NSMutableDictionary *infoDic=[NSMutableDictionary dictionary];
-   
-    [HttpRequest postPath:@"" params:infoDic resultBlock:^(id responseObject, NSError *error){
+    [infoDic setObject:setLable.text forKey:@"nickname"];
+    [infoDic setObject:tmpOneImgViewString forKey:@"avatar_url"];
+    [infoDic setObject:userTokenStr forKey:@"userToken"];
+    [HttpRequest postPath:@"_update_userinfo_001" params:infoDic resultBlock:^(id responseObject, NSError *error){
+        
+        NSLog(@" %@",responseObject);
         
     }];
     

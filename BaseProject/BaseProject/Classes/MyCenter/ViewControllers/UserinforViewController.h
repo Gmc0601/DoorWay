@@ -16,6 +16,7 @@
     UITapGestureRecognizer *IMageOne;//个人资料
     UITapGestureRecognizer *IMageRose; //激活账号
     UILabel *setLable;
+    NSData *oneImgViewData;;
 }
 
 //返回按钮
