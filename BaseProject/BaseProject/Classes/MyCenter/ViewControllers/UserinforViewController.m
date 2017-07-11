@@ -10,7 +10,7 @@
 #import "SecurityViewController.h"
 #import "NicknameViewController.h"
 
-@interface UserinforViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface UserinforViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
 
 @end
 
@@ -46,12 +46,14 @@
 
 
 
+
+
 /*
  *个人资料
  */
 -(void)setIMageMain{
     
-    self.setIMageArray=@[@"头像",@"昵称",@"手机号",@"激活账号",@"激活账号"];
+    self.setIMageArray=@[@"头像",@"昵称",@"手机号"];
     
     for (int i=0; i<self.setIMageArray.count; i++){
         
@@ -148,42 +150,7 @@
                 make.width.mas_equalTo(100*SCALE);
             }];
         }
-        
-        if (i==3) {
-            UIImageView   *IMageAllowTwo=[[UIImageView alloc]init];
-            IMageAllowTwo.image=[UIImage imageNamed:@"icon_gd"];
-            IMageAllowTwo.userInteractionEnabled=YES;
-            IMageAllowTwo.frame= CGRectMake(kScreenW-20,210*SCALE,13/2,26/2);
-            [self.view addSubview:IMageAllowTwo];
-            IMageRose=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imagetwo:)];
-            IMageRose.numberOfTapsRequired = 1; // 单击
-            [IMageAllowTwo addGestureRecognizer:IMageRose];
-        }
-        
-        if (i==4) {
-            UILabel *setLablePhone=[[UILabel alloc]init];
-            setLablePhone.backgroundColor=[UIColor clearColor];
-            setLablePhone.text=@"未激活";
-            setLablePhone.textColor = UIColorFromHex(0x333333);
-            setLablePhone.font = HelveticaNeueFont(16*SCALE);
-            setLablePhone.textAlignment = NSTextAlignmentRight;
-            [self.view addSubview:setLablePhone];
-            [setLablePhone mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.right.mas_equalTo(-20*SCALE);
-                make.top.mas_equalTo(250*SCALE);
-                make.height.mas_equalTo(30*SCALE);
-                make.width.mas_equalTo(100*SCALE);
-            }];
-        }
     }
-}
-
-
-//激活账号
-
--(void)imagetwo:(UITapGestureRecognizer*)recognizer{
-    SecurityViewController *Security=[[SecurityViewController alloc]init];
-    [self.navigationController pushViewController:Security animated:YES];
 }
 
 //昵称
@@ -201,20 +168,66 @@
 //头像
 -(void)imageSender:(UITapGestureRecognizer*)recognizer{
     
-    //调用系统相册的类
-    UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
-    //设置选取的照片是否可编辑
-    pickerController.allowsEditing = NO;
-    //设置相册呈现的样式
-    pickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;//图片分组列表样式
-    //照片的选取样式还有以下两种
-    //UIImagePickerControllerSourceTypePhotoLibrary,直接全部呈现系统相册
-    //UIImagePickerControllerSourceTypeCamera//调取摄像头
-    //选择完成图片或者点击取消按钮都是通过代理来操作我们所需要的逻辑过程
-    pickerController.delegate = self;
-    //使用模态呈现相册
-    [self.navigationController presentViewController:pickerController animated:YES completion:^{
-    }];
+    
+    UIActionSheet *pictureSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"用户相册", nil];
+    pictureSheet.tag = 11;
+    pictureSheet.delegate=self;
+    [pictureSheet showInView:self.view];
+    
+//    //调用系统相册的类
+//    UIImagePickerController *pickerController = [[UIImagePickerController alloc]init];
+//    //设置选取的照片是否可编辑
+//    pickerController.allowsEditing = NO;
+//    //设置相册呈现的样式
+//    pickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;//图片分组列表样式
+//    //照片的选取样式还有以下两种
+//    //UIImagePickerControllerSourceTypePhotoLibrary,直接全部呈现系统相册
+//    //UIImagePickerControllerSourceTypeCamera//调取摄像头
+//    //选择完成图片或者点击取消按钮都是通过代理来操作我们所需要的逻辑过程
+//    pickerController.delegate = self;
+//    //使用模态呈现相册
+//    [self.navigationController presentViewController:pickerController animated:YES completion:^{
+//    }];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 11) {
+        NSString *alertTitle = nil;
+        if (buttonIndex == 0)
+            alertTitle = @"拍照";
+        else if(buttonIndex == 1)
+            alertTitle = @"用户相册";
+        
+        if (buttonIndex == 0) {
+            if ([UIImagePickerController  isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ) {
+                
+                UIImagePickerController * imagePickerC = [[UIImagePickerController alloc] init];
+                imagePickerC.sourceType = UIImagePickerControllerSourceTypeCamera;
+                imagePickerC.delegate = self;
+                imagePickerC.allowsEditing = YES;
+               [self.navigationController presentViewController:imagePickerC animated:YES completion:^{}];
+    
+            }
+            else
+            {
+                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该设备没有照相机" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                [alert show];
+            
+            }
+        }else
+        {
+            UIImagePickerController * imagePickerC = [[UIImagePickerController alloc] init];
+            imagePickerC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePickerC.delegate = self;
+            imagePickerC.allowsEditing = NO;
+            imagePickerC.allowsEditing = YES;
+            [self.navigationController presentViewController:imagePickerC animated:YES completion:^{}];
+            
+        }
+        
+    }
 }
 
 //选择照片完成之后的代理方法
@@ -264,6 +277,13 @@
     [HttpRequest postPath:@"" params:infoDic resultBlock:^(id responseObject, NSError *error){
         
     }];
+    
+}
+
+
+//查询方法
+
+-(void)opeationData{
     
 }
 
