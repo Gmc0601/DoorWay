@@ -13,6 +13,8 @@
 
 #import "TBRefresh.h"
 #import "KeychainUUID.h"
+
+#import "UIImageView+WebCache.h"
 @interface NewsInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myMTableView;
@@ -54,7 +56,7 @@
     myMTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-44)];
     myMTableView.dataSource = self;
     myMTableView.delegate = self;
-    self.automaticallyAdjustsScrollViewInsets = YES;
+//    self.automaticallyAdjustsScrollViewInsets = YES;
     [self.view addSubview:myMTableView];
     
 
@@ -153,10 +155,14 @@
     cell.titleLabel.text = cellDic[@"title"];
     
       NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[cellDic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-          NSLog(@"5556675%@",attributedString);
+          NSLog(@"5556675%@",cellDic[@"img"]);
     cell.contentLabel.attributedText = attributedString;
     
-    [cell.ImgView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:cellDic[@"img"]]]]];
+//    [cell.ImgView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:cellDic[@"img"]]]]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [cell.ImgView sd_setImageWithURL:[NSURL URLWithString:cellDic[@"img"]] completed:nil];
+
+    });
     cell.readCount.text = [NSString stringWithFormat:@"%@阅读    %@赞", cellDic[@"read_num"],cellDic[@"praise_num"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     //             cell.selectionStyle = UITableViewCellSelectionStyleNone;
