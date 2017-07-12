@@ -28,8 +28,8 @@
             [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
             isLike = datadic[@"info"][@"users_good"];
-            
-            for (NSDictionary *dict in datadic[@"info"][@"usercomment"]) {
+            NSArray *dataArr = datadic[@"info"][@"usercomment"];
+            for (NSDictionary *dict in dataArr) {
                 CommentModel *model = [[CommentModel alloc] init];
                 model.avatarUrl = dict[@"avatar_url"];
                 model.comment = dict[@"comment"];

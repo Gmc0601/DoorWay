@@ -1251,7 +1251,7 @@
 				TargetAttributes = {
 					42A4442C1EF133E000F90791 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = EZ5TJH55D7;
+						DevelopmentTeam = PA574T6LR3;
 						ProvisioningStyle = Automatic;
 					};
 					42A444481EF133E000F90791 = {
@@ -1656,7 +1656,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = EZ5TJH55D7;
+				DEVELOPMENT_TEAM = PA574T6LR3;
 				GCC_PREFIX_HEADER = BaseProject/Main/Header.pch;
 				INFOPLIST_FILE = BaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1673,7 +1673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = EZ5TJH55D7;
+				DEVELOPMENT_TEAM = PA574T6LR3;
 				GCC_PREFIX_HEADER = BaseProject/Main/Header.pch;
 				INFOPLIST_FILE = BaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
