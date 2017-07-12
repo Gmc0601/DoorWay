@@ -16,6 +16,9 @@
 #import "LoginViewController.h"
 #import "AllReleaseProjectController.h"
 #import "LimitAmoutController.h"
+#import "securityVC.h"
+#import "fundsVC.h"
+
 @interface MyCenterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -172,9 +175,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         if (indexPath.row==0) {
-         
+            
+            securityVC *security = [[securityVC alloc]init];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:security];
+            [self.navigationController presentViewController:nav animated:YES completion:^{
+                
+            }];
+
         }else if (indexPath.row==1){
-      
+            
+            fundsVC *funds = [[fundsVC alloc]init];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:funds];
+            [self.navigationController presentViewController:nav animated:YES completion:^{
+                
+            }];
+
         }else if (indexPath.row==2){
             LimitAmoutController *limit=[[LimitAmoutController alloc]init];
             [self.navigationController pushViewController:limit animated:YES];
