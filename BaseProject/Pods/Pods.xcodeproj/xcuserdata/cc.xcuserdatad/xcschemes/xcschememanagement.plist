@@ -11,12 +11,22 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>KLCPopup.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
@@ -62,7 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5D9384D5A1F40FD51916FAFAC3B38A64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>66707629F53F6332C2C02E20D330E283</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81852804FF7AE3BBC179C27323CA2CFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +97,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AB0E30C649F016F8F4B243B78AD5FF78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B63449624556C505E30266E508CC7666</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B6851044FB5205B18528544493FAD201</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC730AEEC63209209D4BF5D7BF4B8BF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
