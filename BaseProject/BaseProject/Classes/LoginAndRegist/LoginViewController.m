@@ -81,7 +81,15 @@
             [ConfigModel saveBoolObject:YES forKey:IsLogin];
             [ConfigModel saveString:usertoken forKey:UserToken];
             [ConfigModel mbProgressHUD:@"登陆成功" andView:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            if (self.loginType == Login_Navigation) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }else if (self.loginType == Login_Present){
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }else {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }else {
             NSString *info = datadic[@"info"];
             [ConfigModel mbProgressHUD:info andView:nil];

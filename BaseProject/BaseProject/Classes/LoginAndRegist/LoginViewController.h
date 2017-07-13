@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+typedef enum {
+    Login_Navigation,
+    Login_Present,
+}ToLoginType;
 
+@interface LoginViewController : UIViewController
+@property (nonatomic, assign) ToLoginType loginType;
 @end
