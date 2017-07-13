@@ -1,0 +1,16 @@
+//
+//  AllReleaseProjectController.h
+//  BaseProject
+//
+//  Created by lxl on 2017/7/2.
+//  Copyright © 2017年 cc. All rights reserved.
+//
+
+#import "CenterRootViewController.h"
+
+@interface AllReleaseProjectController : CenterRootViewController
+@property (weak, nonatomic) IBOutlet UITableView *releaseTab;
+@property (weak, nonatomic) IBOutlet UIView *typeView;
+
+@property (weak, nonatomic) IBOutlet UIView *lineView;
+@end
