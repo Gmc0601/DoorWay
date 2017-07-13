@@ -245,6 +245,7 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self getUrlWebDetail];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar_bg"] forBarMetrics:UIBarMetricsDefault];
      [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
 }

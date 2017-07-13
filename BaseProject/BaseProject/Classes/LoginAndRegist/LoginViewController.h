@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    Login_Navigation,
     Login_Present,
+    Login_Navigation,
 }ToLoginType;
-
+// 默认取消方式是dissmiss   如过navigation 调入 请设施loginType 属性 
 @interface LoginViewController : UIViewController
 @property (nonatomic, assign) ToLoginType loginType;
 @end
