@@ -12,6 +12,7 @@
 #import "UIColor+BGHexColor.h"
 #import "NSMutableAttributedString+Category.h"
 #import "NSURL+Category.h"
+#import "UIImageView+WebCache.h"
 
 @interface InvestmentItemTableViewCell()
 @property(nonatomic, strong) UILabel *lblTitle;
@@ -384,20 +385,14 @@
 }
 
 -(void)setBackgroundImage:(NSString *) url{
-    NSURL *imageURL = [NSURL URLWithString:url];
-    __weak InvestmentItemTableViewCell *weakself=self;
-
-    [imageURL loadImage:^(UIImage *image)  {
-        weakself.imgView.image = image;
-    }];
+    _imgView.image = nil;
+    
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:url] completed:nil];
 }
 
 -(void) setNationalFlag:(NSString *) url{
-    NSURL *imageURL = [NSURL URLWithString:url];
-    __weak InvestmentItemTableViewCell *weakself=self;
-    
-    [imageURL loadImage:^(UIImage *image)  {
-        weakself.nationalImageView.image = image;
-    }];
+    _nationalImageView.image = nil;
+
+    [_nationalImageView sd_setImageWithURL:[NSURL URLWithString:url] completed:nil];
 }
 @end

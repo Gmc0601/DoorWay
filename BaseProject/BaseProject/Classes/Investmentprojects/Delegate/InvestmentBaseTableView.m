@@ -11,6 +11,7 @@
 #import "UIColor+BGHexColor.h"
 #import "NSURL+Category.h"
 #import <Masonry/Masonry.h>
+#import "UIImageView+WebCache.h"
 
 @interface InvestmentBaseTableView()
 
@@ -31,7 +32,7 @@
     if (self) {
         self.owner = _owner;
         self.cellIdentifier = _cellIdentifier;
-
+        
     }
     return self;
 }
@@ -182,12 +183,10 @@
 
 -(UITableViewCell *) getCellInFirstSectionFromTableView:(UITableView *) tableView withHeaderImageUrl:(NSString *)url{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-
+    UIImageView *imageView = [[UIImageView alloc] init];
     
-    NSURL *imageURL = [NSURL URLWithString:url];
-    [imageURL loadImage:^(UIImage *image)  {
-        cell.backgroundView = [[UIImageView alloc] initWithImage:image];
-    }];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:url] completed:nil];
+    cell.backgroundView = imageView;
     
     return cell;
 }

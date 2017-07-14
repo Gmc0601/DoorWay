@@ -14,7 +14,7 @@
 
 @interface InvestmentProjectViewController ()
 @property(retain,atomic) UITableView *tblInvestments;
-@property(retain,atomic) NSArray *datasource;
+@property(retain,atomic) NSMutableArray *datasource;
 @property(nonatomic) int page;
 @end
 
@@ -22,30 +22,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _datasource = [[NSMutableArray alloc] init];
     self.view.backgroundColor = [UIColor whiteColor];
     [self setCustomerTitle: @"投资项目"];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self addTableView];
     __weak InvestmentProjectViewController *weakself=self;
     [_tblInvestments addRefreshHeaderWithBlock:^{
         weakself.page = 1;
-    
+
         [InvestmentModel loadData: weakself.page callback:^(NSArray *data) {
-                [weakself.tblInvestments.header endHeadRefresh];
-                weakself.datasource = data;
-                [weakself.tblInvestments reloadData];
+            [weakself.tblInvestments.header endHeadRefresh];
+            [weakself.datasource removeAllObjects];
+            [weakself.datasource addObjectsFromArray:data];
+            [weakself.tblInvestments reloadData];
+            [weakself.tblInvestments.footer ResetNomoreData];
         }];
         
     }];
     
     [_tblInvestments addRefreshFootWithBlock:^{
         weakself.page++;
-        
         [InvestmentModel loadData: weakself.page callback:^(NSArray *data) {
-            [weakself.tblInvestments.footer endFooterRefreshing];
-            if(data.count > 0){
-                weakself.datasource = data;
+            
+            if(data.count > 0 && ![weakself.datasource containsObject:data]){
+                [weakself.datasource addObjectsFromArray:data];
                 [weakself.tblInvestments reloadData];
+            }else{
+                [weakself.tblInvestments.footer NoMoreData];
             }
+            [weakself.tblInvestments.footer endFooterRefreshing];
         }];
         
     }];
@@ -98,6 +105,6 @@
     InvestmentModel * model= _datasource[indexPath.row];
     UIViewController *infoViewController = [[InverstInfoViewController alloc] initWithModel:model];
     [self.navigationController pushViewController:infoViewController animated:YES];
-
+    
 }
 @end
