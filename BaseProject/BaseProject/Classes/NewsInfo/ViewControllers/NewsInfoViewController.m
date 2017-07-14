@@ -18,10 +18,14 @@
 @interface NewsInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *myMTableView;
-    
+    BOOL isload;
 }
 
 @property (nonatomic, strong)NSArray *NewSArr;
+
+
+@property (nonatomic, assign)int  refreshCount;
+@property (nonatomic, strong)NSMutableArray *NewSArrCount;
 
 @end
 
@@ -36,6 +40,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _NewSArr = [NSArray array];
+    _NewSArrCount = [[NSMutableArray alloc] init];
+    _refreshCount = 1;
     self.view.backgroundColor = [UIColor whiteColor];
     [self setCustomerTitle: @"新闻资讯"];
     
@@ -44,10 +51,6 @@
 //    [ConfigModel saveString:@"31604b552d2a64de9d4b36af26e61634" forKey:UserToken];
 #else
 #endif
-    
-    
-    
-    [self getTableViewDate];
     
     
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBtn)];
@@ -60,6 +63,9 @@
     [self.view addSubview:myMTableView];
     
 
+     [self getTableViewDate];
+    
+    
       __weak NewsInfoViewController *weakself=self;
     [myMTableView addRefreshHeaderWithBlock:^{
         
@@ -77,8 +83,8 @@
 
 -(void)LoadDatas
 {
-    
-    [myMTableView.footer ResetNomoreData];
+    isload = YES;
+//    [myMTableView.footer ResetNomoreData];
     
     // 模拟延时设置
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -93,12 +99,16 @@
 
 -(void)LoadMoreDatas
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [myMTableView.footer NoMoreData];
-        
-    });
+    isload = NO;
+    _refreshCount++;
+    [self getTableViewDate];
     
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//       [myMTableView.footer endFooterRefreshing];
+//      
+//    });
+//    
 }
 
 
@@ -108,20 +118,47 @@
 }
 
 - (void)getTableViewDate{
-    
-    [HttpRequest postPath:@"_homenews_001" params:nil resultBlock:^(id responseObject, NSError *error) {
+    NSMutableDictionary *homeMudic = [NSMutableDictionary new];
+    NSString *countStr = [NSString stringWithFormat:@"%d", _refreshCount];
+    [homeMudic setObject:countStr forKey:@"page"];
+    [homeMudic setObject:@"10" forKey:@"size"];
+    [HttpRequest postPath:@"_homenews_001" params:homeMudic resultBlock:^(id responseObject, NSError *error) {
         
         if([error isEqual:[NSNull null]] || error == nil){
             NSLog(@"success");
         }
         
-//        NSLog(@"login>>>>>>%@", responseObject);
+        NSLog(@"login>>>>>>%d", _refreshCount);
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] == 0) {
-            _NewSArr = [NSArray array];
+
              _NewSArr = datadic[@"info"];
-//            NSLog(@"444%lu", (unsigned long)_NewSArr.count);
+            if (_NewSArr.count == 0) {
+                 [myMTableView.footer NoMoreData];
+                 [myMTableView.footer endFooterRefreshing];
+             
+                return ;
+
+            }
+//            if (isload) {
+//                [_NewSArrCount removeAllObjects];
+//                [_NewSArrCount addObjectsFromArray:_NewSArr];
+//            }else{
+//                 [_NewSArrCount addObjectsFromArray:_NewSArr];
+//            }
+            
+            for (NSDictionary *dic in _NewSArr) {
+                if ([_NewSArrCount containsObject:dic]) {
+                    return ;
+                }else{
+                    [_NewSArrCount addObject:dic];
+                }
+            }
+            
+             [myMTableView.footer endFooterRefreshing];
             [myMTableView reloadData];
+           
+
             
         }else {
             NSString *info = datadic[@"info"];
@@ -138,8 +175,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-//    NSLog(@"444%lu", (unsigned long)_NewSArr.count);
-    return _NewSArr.count ;
+    NSLog(@"444%lu", (unsigned long)_NewSArrCount.count);
+    return _NewSArrCount.count ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -151,7 +188,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NewsTableViewCell" owner:self options:nil] lastObject];
     }
     
-    NSDictionary *cellDic = _NewSArr[indexPath.row];
+    NSDictionary *cellDic = _NewSArrCount[indexPath.row];
     cell.titleLabel.text = cellDic[@"title"];
     
       NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[cellDic[@"content"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
@@ -174,7 +211,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsWebViewController *newsWeb = [[NewsWebViewController alloc] init];
-    newsWeb.newsId =  _NewSArr[indexPath.row][@"id"];
+    newsWeb.newsId =  _NewSArrCount[indexPath.row][@"id"];
     [self.navigationController pushViewController:newsWeb animated:YES];
           
 }

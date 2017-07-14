@@ -8,7 +8,7 @@
 
 #import "NewsWebViewController.h"
 #import "LoginViewController.h"
-@interface NewsWebViewController ()<UIWebViewDelegate>
+@interface NewsWebViewController ()<UIWebViewDelegate,UIScrollViewDelegate>
 
 {
     UIWebView *NewsWebView;
@@ -19,6 +19,11 @@
     UILabel *titleLabelD;
     UILabel *timeLabelD;
     UILabel *readCountLabel;
+    
+    
+    UIView *separView1;
+    UIView *separView2;
+    UILabel *labelRa;
 }
 
 //@property(nonatomic, strong)UILabel *titleLabel;
@@ -33,7 +38,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
   
-
     // Do any additional setup after loading the view.
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBackBtn)];
     // Do any additional setup after loading the view.
@@ -41,9 +45,11 @@
     
 
     NewsWebView = [[UIWebView alloc] init];
-    NewsWebView.frame = CGRectMake(16, 0, self.view.bounds.size.width-32, self.view.bounds.size.height-130);
+    NewsWebView.scalesPageToFit = YES;
+    NewsWebView.frame = CGRectMake(16, 0, self.view.bounds.size.width-32, self.view.bounds.size.height);
     NewsWebView.backgroundColor = [UIColor whiteColor];
     NewsWebView.delegate = self;
+    NewsWebView.scrollView.delegate = self;
     for (UIView *subView in [NewsWebView subviews])
     {
         if ([subView isKindOfClass:[UIScrollView class]])
@@ -52,15 +58,17 @@
             [(UIScrollView *)subView setShowsVerticalScrollIndicator:NO];
         }
     }
-    NewsWebView.scalesPageToFit = YES;
+    NewsWebView.scrollView.contentInset = UIEdgeInsetsMake(130, 0, 130, 0);
+    NewsWebView.scrollView.contentOffset= CGPointMake(0, -260);
+    
+   
     
 //    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
 //    NSMutableURLRequest *requeset = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:3.0];
     
     [self.view addSubview:NewsWebView];
 //    [NewsWebView loadRequest:requeset];
-    
-    [self creatUI];
+     [self creatUI];
     [self getUrlWebDetail];
 
 }
@@ -122,44 +130,46 @@
     titleLabel.font = [UIFont systemFontOfSize:18];
     self.navigationItem.titleView = titleLabel;
     
-    UIView *separView1 = [[UIView alloc] init];
-    separView1.frame = CGRectMake(10, kScreenH-105, (kScreenW-130-40)/2+10, 1);
+    separView1 = [[UIView alloc] init];
+    separView1.frame = CGRectMake(0, 0, 0, 0);
     separView1.backgroundColor = RGBColor(224, 224, 224);
-    [self.view addSubview:separView1];
+    [NewsWebView.scrollView addSubview:separView1];
+
     
-    UIView *separView2 = [[UIView alloc] init];
-    separView2.frame = CGRectMake(kScreenW-110, kScreenH-105, (kScreenW-130-40)/2+10, 1);
+    separView2 = [[UIView alloc] init];
+    separView2.frame = CGRectMake(0, 0, 0, 0);
     separView2.backgroundColor = RGBColor(224, 224, 224);
-    [self.view addSubview:separView2];
+    [NewsWebView.scrollView addSubview:separView2];
+
     
-    UILabel *labelRa = [[UILabel alloc] init];
+    labelRa = [[UILabel alloc] init];
     labelRa.font = [UIFont systemFontOfSize:11];
     labelRa.textAlignment = NSTextAlignmentCenter;
-    labelRa.frame = CGRectMake((kScreenW-130)/2, kScreenH-111, 130, 11);
+    labelRa.frame = CGRectMake(0, 0, 0, 0);
     labelRa.text = @"感觉文章不错，点个赞吧";
     labelRa.textColor = RGBColor(153, 153, 153);
-    [self.view addSubview:labelRa];
+    [NewsWebView.scrollView addSubview:labelRa];
+
     
     PraiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    PraiseBtn.frame = CGRectMake((kScreenW-60)/2, kScreenH-80, 60, 60);
+    PraiseBtn.frame = CGRectMake(0, 0, 0, 0);
     [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
     [PraiseBtn addTarget:self action:@selector(PraiseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:PraiseBtn];
+     [NewsWebView.scrollView addSubview:PraiseBtn];
     
-    NewsWebView.scrollView.contentInset = UIEdgeInsetsMake(130, 0, 0, 0);
-    NewsWebView.scrollView.contentOffset= CGPointMake(0, -130);
-    titleLabelD = [[UILabel alloc] initWithFrame:CGRectMake(-3, -120, kScreenW-40, 60)];
+
+    titleLabelD = [[UILabel alloc] initWithFrame:CGRectZero];
     titleLabelD.numberOfLines = 0;
     titleLabelD.font = [UIFont systemFontOfSize:25];
     titleLabelD.textColor = RGB(59, 59, 59);
     [NewsWebView.scrollView addSubview:titleLabelD];
     
-    timeLabelD = [[UILabel alloc] initWithFrame:CGRectMake(1, -18-30, 150, 10)];
+    timeLabelD = [[UILabel alloc] initWithFrame:CGRectZero];
     timeLabelD.font = [UIFont systemFontOfSize:10];
     timeLabelD.textColor = RGB(153, 153, 153);
     [NewsWebView.scrollView addSubview:timeLabelD];
     
-    readCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenW-18-150-16, -18-30, 150, 10)];
+    readCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     readCountLabel.font = [UIFont systemFontOfSize:10];
     readCountLabel.textAlignment = NSTextAlignmentRight;
     readCountLabel.textColor = RGB(153, 153, 153);
@@ -252,6 +262,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
 //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
+    
     [UIApplication sharedApplication].statusBarStyle =UIStatusBarStyleLightContent;
    
 }
@@ -260,9 +271,12 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+     timeLabelD.frame = CGRectMake(1, -18-30, 150, 10);
+     titleLabelD.frame = CGRectMake(-3, -120, kScreenW-40, 60);
+     readCountLabel.frame = CGRectMake(kScreenW-18-150-16, -18-30, 150, 10);
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '340%'"];
     
-    
+//     NSLog(@"%f------", webView.scrollView.contentSize.height);
 //    NSString *js=@"var script = document.createElement('script');"
 //    "script.type = 'text/javascript';"
 //    "script.text = \"function ResizeImages() { "
@@ -288,6 +302,68 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%f------%f-----%f", scrollView.contentSize.height,scrollView.contentOffset.y,scrollView.frame.size.height);
+//    667.000000-------260.000000-----667.000000
+//    1776.000000------1239.000000-----667.000000   537
+    
+//    568.000000-------194.000000-----568.000000
+//    1491.000000------1053.000000-----568.000000   438
+    if ((scrollView.contentSize.height - scrollView.contentOffset.y) == scrollView.frame.size.height-130) {
+    
+        NSLog(@"到底了。。。。");
+        
+//        PraiseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        PraiseBtn.hidden = NO;
+        PraiseBtn.frame = CGRectMake((kScreenW-32-60)/2, scrollView.contentSize.height+50, 60, 60);
+//        [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
+//        [PraiseBtn addTarget:self action:@selector(PraiseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//        [NewsWebView.scrollView addSubview:PraiseBtn];
+        
+//        if ([readStr isEqualToString:@"1"]) {
+//            [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+//        }else{
+//            [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
+//        }
+        
+        
+        
+//        separView1 = [[UIView alloc] init];
+        separView1.frame = CGRectMake(0, scrollView.contentSize.height+25, (kScreenW-130-40)/2-16, 1);
+//        separView1.backgroundColor = RGBColor(224, 224, 224);
+//        [NewsWebView.scrollView addSubview:separView1];
+//       
+//        
+//        
+//        separView2 = [[UIView alloc] init];
+        separView2.frame = CGRectMake(kScreenW-32-((kScreenW-130-40)/2-16), scrollView.contentSize.height+25, (kScreenW-130-40)/2-16, 1);
+//        separView2.backgroundColor = RGBColor(224, 224, 224);
+//        [NewsWebView.scrollView addSubview:separView2];
+//      
+//        
+//        labelRa = [[UILabel alloc] init];
+//        labelRa.font = [UIFont systemFontOfSize:11];
+//        labelRa.textAlignment = NSTextAlignmentCenter;
+        labelRa.frame = CGRectMake((kScreenW-130-40)/2-16+20, scrollView.contentSize.height+20, 130, 11);
+//        labelRa.text = @"感觉文章不错，点个赞吧";
+//        labelRa.textColor = RGBColor(153, 153, 153);
+//        [NewsWebView.scrollView addSubview:labelRa];
+//
+        
+        
+        
+//        PraiseBtn.hidden = NO;
+//        separView1.hidden = NO;
+//        separView2.hidden = NO;
+//        labelRa.hidden = NO;
+//    }else{
+//        PraiseBtn.hidden = YES;
+//        separView1.hidden = YES;
+//        separView2.hidden = YES;
+//        labelRa.hidden = YES;
+    }
+}
 /*
 #pragma mark - Navigation
 
