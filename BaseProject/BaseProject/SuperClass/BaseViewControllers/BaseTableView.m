@@ -21,6 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent animated:YES];
     [self.view addSubview:self.CC_table];
+    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(callChatView)];
 }
 
 #pragma mark - Action  ---> NeedReset in son
@@ -30,6 +31,10 @@
 
 - (void)more:(UIButton *)sender {
     NSLog(@"NeedReset in son");
+}
+
+-(void) callChatView{
+    
 }
 
 - (void)CC_reloadDate {

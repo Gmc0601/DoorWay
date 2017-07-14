@@ -48,14 +48,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setCustomerTitle: @"新闻资讯"];
     
-#if UserToeknAndLogin
-//    [ConfigModel saveBoolObject:YES forKey:IsLogin];
-//    [ConfigModel saveString:@"31604b552d2a64de9d4b36af26e61634" forKey:UserToken];
-#else
-#endif
-    
-    
-    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBtn)];
+    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(LoadDatas)];
     // Do any additional setup after loading the view.
     
     myMTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-44) style:UITableViewStylePlain];
@@ -95,9 +88,6 @@
         [myMTableView.header endHeadRefresh];
 
     });
-
-    
-    
 }
 
 -(void)LoadMoreDatas
@@ -229,51 +219,6 @@
     newsWeb.newsId =  _NewSArrCount[indexPath.row][@"id"];
     [self.navigationController pushViewController:newsWeb animated:YES];
           
-}
-
-
-- (void)clickNewsBtn{
-//    LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    
-//    [self.navigationController pushViewController:loginVC animated:YES];
-    
-//    [ConfigModel saveBoolObject:NO forKey:IsLogin];
-    if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
-        NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
-        NSMutableDictionary *mudic = [NSMutableDictionary new];
-//        [mudic setObject:userTokenStr forKey:@"userToken"];
-        KeychainUUID *keychain = [[KeychainUUID alloc] init];
-        id data = [keychain readUDID];
-        NSString *udidStr = data;
-//        [mudic setObject:udidStr forKey:@"device_number"];
-        [HttpRequest postPath:@"_logout_001" params:mudic resultBlock:^(id responseObject, NSError *error) {
-            
-            if([error isEqual:[NSNull null]] || error == nil){
-                NSLog(@"success");
-            }
-            
-            NSLog(@"%@login>>>>>>%@", udidStr,responseObject);
-
-            NSDictionary *datadic = responseObject;
-            if ([datadic[@"error"] intValue] == 0) {
-              
-                NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-                [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-                [ConfigModel mbProgressHUD:@"退出成功" andView:nil];
-         
-            }else {
-                NSString *info = datadic[@"info"];
-                [ConfigModel mbProgressHUD:info andView:nil];
-            }
-            NSLog(@"error>>>>%@", error);
-        }];
-
-        return;
-    }else{
-        LoginViewController *loginVC = [[LoginViewController alloc ] init];
-        [self.navigationController presentViewController:loginVC animated:YES completion:nil];
-        
-    }
 }
 /*
  #pragma mark - Navigation

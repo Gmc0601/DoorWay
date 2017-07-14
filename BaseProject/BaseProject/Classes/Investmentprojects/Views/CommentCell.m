@@ -9,9 +9,9 @@
 #import "CommentCell.h"
 #import "UIColor+BGHexColor.h"
 #import <Masonry/Masonry.h>
-#import "NSURL+Category.h"
 #import "NSString+DisplayTime.h"
 #import "NSString+Category.h"
+#import "UIImageView+WebCache.h"
 
 @interface CommentCell()
 @property(retain,atomic) UIImageView *avatar;
@@ -25,9 +25,7 @@
 
 -(void) setModel:(CommentModel *)model{
     _model = model;
-    [[NSURL URLWithString:model.avatarUrl] loadImage:^(UIImage *image) {
-        _avatar.image = image;
-    }];
+    [_avatar sd_setImageWithURL:[NSURL URLWithString:model.avatarUrl] placeholderImage:[UIImage imageNamed:@"bg_hypl_tx"]];
     
     _lblDate.text = model.time;
     _lblNickName.text = model.nickName;
@@ -50,7 +48,7 @@
     [self addSubview:_avatar];
     
     _lblNickName = [[UILabel alloc] init];
-    _lblNickName.font = [UIFont fontWithName:@"PingFang-SC=Medium" size:11];
+    _lblNickName.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:11];
     _lblNickName.textColor = [UIColor colorWithHexString:@"#4780dd"];
     _lblNickName.textAlignment = NSTextAlignmentLeft;
     

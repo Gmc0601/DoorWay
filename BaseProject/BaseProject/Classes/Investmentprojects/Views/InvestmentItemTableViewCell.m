@@ -139,7 +139,7 @@
 
 -(void) resetConstraintsForTitle{
     [_lblTitle removeConstraints:_lblTitle.constraints];
-    CGFloat fontSize = 15;
+    CGFloat fontSize = 18;
     CGFloat heightOfLblTitle = 15;
     
     //TODO:Set it when setting the value of title
@@ -274,7 +274,7 @@
     }];
     
     UILabel *lblDaysTitle = [[UILabel alloc] init];
-    lblDaysTitle.text = @"检测天数";
+    lblDaysTitle.text = @"监测天数";
     lblDaysTitle.font = titleFont;
     lblDaysTitle.textColor = titleFontColor;
     [self addSubview:lblDaysTitle];

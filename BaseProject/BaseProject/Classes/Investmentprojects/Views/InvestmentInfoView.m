@@ -316,7 +316,11 @@
             [_btnLike setSelected:!_btnLike.selected];
             [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
-            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
+            NSString *msg = @"点赞成功";
+            if (!_btnLike.selected) {
+                msg = @"取消点赞";
+            }
+            [ConfigModel mbProgressHUD:msg andView:nil];
         }
     }];
     [_btnLike setSelected:!_btnLike.selected];
@@ -342,7 +346,7 @@
         if ([datadic[@"error"] intValue] != 0) {
             [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
         }else {
-            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
+            [ConfigModel mbProgressHUD:@"评论成功" andView:nil];
             [weakself loadComments];
         }
     }];
