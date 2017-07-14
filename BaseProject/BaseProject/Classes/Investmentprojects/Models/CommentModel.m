@@ -22,22 +22,29 @@
     [HttpRequest postPath:@"_investitemdetails_001" params:param resultBlock:^(id responseObject, NSError *error) {
         NSMutableArray *models = [[NSMutableArray alloc] init];
         BOOL isLike = NO;
-       
-        NSDictionary *datadic = responseObject;
-        if ([datadic[@"error"] intValue] != 0) {
-            [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
-        }else {
-            isLike = datadic[@"info"][@"users_good"];
-            NSArray *dataArr = datadic[@"info"][@"usercomment"];
-            for (NSDictionary *dict in dataArr) {
-                CommentModel *model = [[CommentModel alloc] init];
-                model.avatarUrl = dict[@"avatar_url"];
-                model.comment = dict[@"comment"];
-                model.time = dict[@"time"];
-                model.nickName = dict[@"nickname"];
-                [models addObject:model];
+        @try {
+            NSDictionary *datadic = responseObject;
+            if ([datadic[@"error"] intValue] != 0) {
+                [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
+            }else {
+                isLike = datadic[@"info"][@"users_good"];
+                NSArray *dataArr = datadic[@"info"][@"usercomment"];
+                if (![dataArr  isEqual: @""]) {
+                    for (NSDictionary *dict in dataArr) {
+                        CommentModel *model = [[CommentModel alloc] init];
+                        model.avatarUrl = dict[@"avatar_url"];
+                        model.comment = dict[@"comment"];
+                        model.time = dict[@"time"];
+                        model.nickName = dict[@"nickname"];
+                        [models addObject:model];
+                    }
+                }
+                
             }
+        } @catch (NSException *exception) {
+            NSLog(@"%@",exception);
         }
+        
         callBack(isLike,models);
     }];
 }
