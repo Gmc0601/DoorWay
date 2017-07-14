@@ -102,6 +102,9 @@
 
 #define UserToken @"userTOken"
 
+//缓存用户昵称
+
+#define UserNickName @"nickname"
 
 
 #endif /* Header_pch */
