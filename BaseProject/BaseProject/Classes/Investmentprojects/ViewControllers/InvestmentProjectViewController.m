@@ -15,6 +15,7 @@
 @interface InvestmentProjectViewController ()
 @property(retain,atomic) UITableView *tblInvestments;
 @property(retain,atomic) NSArray *datasource;
+@property(nonatomic) int page;
 @end
 
 @implementation InvestmentProjectViewController
@@ -22,15 +23,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-
     [self setCustomerTitle: @"投资项目"];
     [self addTableView];
     __weak InvestmentProjectViewController *weakself=self;
     [_tblInvestments addRefreshHeaderWithBlock:^{
-        [InvestmentModel loadData:^(NSArray *data)  {
-            [weakself.tblInvestments.header endHeadRefresh];
-            weakself.datasource = data;
-            [weakself.tblInvestments reloadData];
+        weakself.page = 1;
+    
+        [InvestmentModel loadData: weakself.page callback:^(NSArray *data) {
+                [weakself.tblInvestments.header endHeadRefresh];
+                weakself.datasource = data;
+                [weakself.tblInvestments reloadData];
+        }];
+        
+    }];
+    
+    [_tblInvestments addRefreshFootWithBlock:^{
+        weakself.page++;
+        
+        [InvestmentModel loadData: weakself.page callback:^(NSArray *data) {
+            [weakself.tblInvestments.footer endFooterRefreshing];
+            if(data.count > 0){
+                weakself.datasource = data;
+                [weakself.tblInvestments reloadData];
+            }
         }];
         
     }];

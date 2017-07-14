@@ -29,5 +29,5 @@
 @property(retain,atomic) NSString *explain;
 
 
-+(void) loadData:(void(^)(NSArray *)) callBack;
++(void) loadData:(int) page callback:(void(^)(NSArray *)) callBack;
 @end

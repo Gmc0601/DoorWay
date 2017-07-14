@@ -10,10 +10,11 @@
 
 @implementation InvestmentModel
 
-+(void) loadData:(void(^)(NSArray *)) callBack{
++(void) loadData:(int) page callback:(void(^)(NSArray *)) callBack{
     NSMutableArray *models = [[NSMutableArray alloc] init];
+    NSDictionary *params = @{@"page":[NSNumber numberWithInt:page],@"size":@10};
     
-    [HttpRequest postPath:@"_investitem_001" params:nil resultBlock:^(id responseObject, NSError *error) {
+    [HttpRequest postPath:@"_investitem_001" params:params resultBlock:^(id responseObject, NSError *error) {
         
         NSDictionary *datadic = responseObject;
         if ([datadic[@"error"] intValue] != 0) {

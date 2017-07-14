@@ -65,8 +65,11 @@
             if ([self.delegate respondsToSelector:@selector(WebViewTableViewCell:heightOfCell:)]) {
                 CGFloat height = _loadTime == 1? 0:(webView.scrollView.contentSize.height + 10) ;
                 [self.delegate WebViewTableViewCell:self heightOfCell: height];
-//                _loadTime = _loadTime > 1?0:_loadTime;
+
                 if (_loadTime < 2) {
+                    NSString *wideStr = [NSString stringWithFormat:@" <head><style>img{width:%fpx !important;}</style></head>", (kScreenW+100)*2];
+                    
+                    _url = [wideStr stringByAppendingString:_url];
                     [_webView loadHTMLString:_url baseURL:nil];
                 }else{
                     _loadTime = 0;
@@ -76,7 +79,6 @@
             NSLog(@"%@",exception);
         }
     }
-    
 }
 
 @end

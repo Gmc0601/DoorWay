@@ -49,7 +49,7 @@
         _tb.allowsSelection = NO;
         _tb.separatorStyle = UITableViewCellSelectionStyleNone;
         [self initDateSourceDelegate];
-
+        
         [self didTapCompanyButton];
         _tb.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:_tb];
@@ -69,36 +69,36 @@
             }];
         }];
         
-//        [_tb addRefreshFootWithBlock:^{
-//            if (_tb.dataSource != _commnetsTableView) {
-//                [weakself.tb.footer endFooterRefreshing];
-//                return;
-//            }
-//            
-//            [CommentModel loadData:weakself.model._id callback:^(BOOL isLike,NSArray *data) {
-//                [weakself.tb.footer endFooterRefreshing];
-//                weakself.commnetsTableView.dataSource = data;
-//                [weakself.btnLike setSelected:isLike];
-//                [weakself.tb reloadData];
-//            }];
-//        }];
+        //        [_tb addRefreshFootWithBlock:^{
+        //            if (_tb.dataSource != _commnetsTableView) {
+        //                [weakself.tb.footer endFooterRefreshing];
+        //                return;
+        //            }
+        //
+        //            [CommentModel loadData:weakself.model._id callback:^(BOOL isLike,NSArray *data) {
+        //                [weakself.tb.footer endFooterRefreshing];
+        //                weakself.commnetsTableView.dataSource = data;
+        //                [weakself.btnLike setSelected:isLike];
+        //                [weakself.tb reloadData];
+        //            }];
+        //        }];
     }
     return self;
 }
 
 -(void) didTapCompanyButton{
     [self removeAddCommentView];
-    [self reloadWeb:_model.introduction];
+    [self reloadWeb:1];
 }
 
 -(void) didTapRoleButton{
     [self removeAddCommentView];
-    [self reloadWeb:_model.system];
+    [self reloadWeb:2];
 }
 
 -(void) didTapSummryButton{
     [self removeAddCommentView];
-    [self reloadWeb:_model.explain];
+    [self reloadWeb:3];
 }
 
 -(void) didTapCommentsButton{
@@ -111,15 +111,48 @@
     [self addCommentsView];
 }
 
--(void) reloadWeb:(NSString *) strUrl{
-    _webTableView.strUrl = strUrl;
-    _webTableView.headerImageUrl = _model.img;
-    if (_tb.dataSource != _webTableView) {
-        _tb.dataSource = _webTableView;
-        _tb.delegate = _webTableView;
-    }
+-(void) reloadWeb:(int) type{
     
-    [_tb reloadData];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:[NSNumber numberWithInt:type] forKey:@"type"];
+    [param setObject:_model._id forKey:@"items_id"];
+    
+    [HttpRequest postPath:@"_investitemdetails_001" params:param resultBlock:^(id responseObject, NSError *error) {
+        
+        @try {
+            NSDictionary *datadic = responseObject;
+            if ([datadic[@"error"] intValue] != 0) {
+                [ConfigModel mbProgressHUD:datadic[@"info"] andView:nil];
+            }else {
+                NSDictionary *dataArr = datadic[@"info"];
+                if (![dataArr  isEqual: @""]) {
+                    NSString *content = @"";
+                    
+                    if (type ==1) {
+                        content = dataArr[@"introduction"];
+                    }else if(type ==2){
+                        content = dataArr[@"system"];
+                    }else{
+                        content = dataArr[@"explain"];
+                    }
+                    
+                    
+                    _webTableView.strUrl = content;
+                    _webTableView.headerImageUrl = dataArr[@"img"];
+                    if (_tb.dataSource != _webTableView) {
+                        _tb.dataSource = _webTableView;
+                        _tb.delegate = _webTableView;
+                    }
+                    
+                    [_tb reloadData];
+                }
+                
+            }
+        } @catch (NSException *exception) {
+            NSLog(@"%@",exception);
+        }
+        
+    }];
 }
 
 -(void) initDateSourceDelegate{
@@ -192,7 +225,7 @@
 }
 
 -(void) tapAddCommentsButtpn:(UIButton *) sender{
-
+    
     if (![ConfigModel getBoolObjectforKey:IsLogin] ) {
         [self.delegate gotoLoginViewController];
         return;
@@ -262,7 +295,7 @@
         }];
         
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
-
+        
     }
     _txtView.text = @"";
     [_txtView becomeFirstResponder];
