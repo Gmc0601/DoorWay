@@ -77,6 +77,20 @@
     [defaults setObject:string forKey:key];
     [defaults synchronize];
 }
+
+
++(NSString*)userName{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:UserNickName];
+}
+
+
++(void)saveName:(NSString*)string forKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:string forKey:key];
+    [defaults synchronize];
+}
+
+
 + (NSString *)getStringforKey:(NSString *)key {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString * string = [NSString stringWithFormat:@"%@", [user objectForKey:key]];

@@ -21,6 +21,8 @@
 
 + (void)saveString:(NSString *)string forKey:(NSString *)key;
 
++(void)saveName:(NSString*)string forKey:(NSString *)key ;
+
 + (NSString *)getStringforKey:(NSString *)key;
 
 +(void)mbProgressHUD:(NSString *)message andView:(UIView *)view;
@@ -32,5 +34,7 @@
 + (void)saveIntegerObject:(NSInteger)Object forKey:(NSString *)key;
 
 + (int)getIntObjectforKey:(NSString *)key;
+
++(NSString*)userName;
 
 @end
