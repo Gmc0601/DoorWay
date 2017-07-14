@@ -78,8 +78,11 @@
         if ([datadic[@"error"] intValue] == 0) {
             NSDictionary *infoDic = datadic[@"info"];
             NSString *usertoken = infoDic[@"userToken"];
+            NSString *userName= infoDic[@"nickname"];
             [ConfigModel saveBoolObject:YES forKey:IsLogin];
             [ConfigModel saveString:usertoken forKey:UserToken];
+            [ConfigModel  saveName:userName forKey:UserNickName];
+            
             [ConfigModel mbProgressHUD:@"登陆成功" andView:nil];
             
             if (self.loginType == Login_Navigation) {

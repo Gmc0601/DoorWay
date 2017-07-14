@@ -31,6 +31,8 @@
     [super viewWillAppear:animated];
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    [self lastCenterHome];
 }
 
 /*
@@ -46,20 +48,26 @@
     
     [super viewDidLoad];
     
+}
+
+
+-(void)lastCenterHome{
+    
     self.view.backgroundColor = UIColorFromHex(0xf6f6f6);
     
     self.imageArray=@[@"icon_aqzx",@"icon_zjgl",@"icon_wdhzbzed",@"icon_zqbzzed",@"icon_jltl",@"icon_hzbd",@"icon_fqxm",@"icon_yqm",@"icon_kfzx"];
     
     self.setBaseArray=@[@"安全中心",@"资金管理",@"我的互助保障金额",@"社区保障总额度",@"交流讨论",@"互助报单",@"发起项目",@"我的邀请码",@"客服咨询"];
     
-    [self setIMagetable];
+    [self lastIMagetable];
 }
+
 
 /*
  *初始化
  */
--(UITableView *)setIMagetable{
-    if (!_setIMagetable) {
+
+-(void)lastIMagetable{
         self.setIMagetable=[[UITableView alloc]initWithFrame:CGRectMake(0,-40,kScreenW,kScreenH) style:UITableViewStyleGrouped];
         self.setIMagetable.showsVerticalScrollIndicator=NO;
         self.setIMagetable.separatorInset=UIEdgeInsetsMake(0,0,0,0);
@@ -67,9 +75,8 @@
         self.setIMagetable.delegate=self;
         self.setIMagetable.dataSource=self;
         [self.view addSubview:self.setIMagetable];
-    }
-    return _setIMagetable;
-}
+ }
+
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -106,17 +113,51 @@
         make.height.mas_equalTo(35/2);
     }];
     
-    UIButton *loginBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [loginBtn setImage:[UIImage imageNamed:@"btn_dl"] forState:UIControlStateNormal];
-    [loginBtn addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
-    [setView addSubview:loginBtn];
-    [loginBtn mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.mas_equalTo(100*SCALE);
+    UIImageView *loginIMage=[[UIImageView alloc]init];
+    if ([ConfigModel getBoolObjectforKey:IsLogin]){
+         loginIMage.userInteractionEnabled=YES;
+        loginIMage.image=[UIImage imageNamed:@"默认头像"];
+        loginIMage.contentMode=UIViewContentModeCenter;
+    }else{
+        loginIMage.image=[UIImage imageNamed:@"btn_dl"];
+        loginIMage.userInteractionEnabled=YES;
+    }
+     [setView addSubview:loginIMage];
+    [loginIMage mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.mas_equalTo(80*SCALE);
         make.centerX.mas_equalTo(setView.mas_centerX);
-        make.width.mas_equalTo(206/2);
-        make.height.mas_equalTo(65/2);
+        make.width.mas_equalTo(loginIMage.mas_width);
+        make.height.mas_equalTo(loginIMage.mas_height);
     }];
     
+    if ([ConfigModel getBoolObjectforKey:IsLogin]){
+        
+        UITapGestureRecognizer *loginUser=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(loginBuser:)];
+        loginUser.numberOfTapsRequired = 1; // 单击
+        [loginIMage addGestureRecognizer:loginUser];
+    }else{
+        UITapGestureRecognizer *loginBtn=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(loginButton:)];
+        loginBtn.numberOfTapsRequired = 1; // 单击
+        [loginIMage addGestureRecognizer:loginBtn];
+    }
+    UILabel  *lastName=[[UILabel alloc]init];
+    lastName.backgroundColor=[UIColor clearColor];
+    NSString *name=[ConfigModel userName];
+    if ([ConfigModel getBoolObjectforKey:IsLogin]) {
+         lastName.text=[NSString stringWithFormat:@"用户昵称: %@",name];
+    }else{
+        lastName.text=[NSString stringWithFormat:@"用户昵称: %@",@"游客"];
+    }
+    lastName.textColor=[UIColor blackColor];
+    lastName.font=HelveticaNeueFont(16*SCALE);
+    [setView addSubview:lastName];
+    [lastName mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.mas_equalTo(loginIMage.mas_bottom).offset(10*SCALE);
+        make.centerX.mas_equalTo(setView.mas_centerX);
+        make.width.mas_equalTo(loginIMage.mas_width);
+        make.height.mas_equalTo(loginIMage.mas_height);
+    }];
+
     return setView;
 }
 
@@ -132,14 +173,17 @@
 /*
  *登录方法
  */
--(void)login:(UIButton*)sender{
+-(void)loginButton:(UIButton*)sender{
     
-//    LoginViewController *login=[[LoginViewController alloc]init];
-//    [self.navigationController pushViewController:login animated:YES];
+    LoginViewController *login=[[LoginViewController alloc]init];
+    login.loginType=Login_Navigation;
+    [self.navigationController pushViewController:login animated:YES];
     
-    
-    UserinforViewController *userInfo=[[UserinforViewController alloc]init];
-     [self.navigationController pushViewController:userInfo animated:YES];
+}
+
+-(void)loginBuser:(UIButton*)sender{
+        UserinforViewController *userInfo=[[UserinforViewController alloc]init];
+        [self.navigationController pushViewController:userInfo animated:YES];
 }
 
 
