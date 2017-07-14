@@ -68,7 +68,7 @@
     _lblComment.textColor = [UIColor colorWithHexString:@"#333333"];
     _lblComment.textAlignment = NSTextAlignmentLeft;
     _lblComment.numberOfLines = 0;
-    
+    _lblComment.lineBreakMode = NSLineBreakByWordWrapping;
     [self addSubview:_lblComment];
     
     [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {

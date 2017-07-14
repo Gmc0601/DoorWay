@@ -91,7 +91,7 @@
 }
 
 -(CGFloat) heightOfCell:(UITableView *) tableView withComment:(NSString *) text{
-    CGFloat height =  65 + [text heightWithFontSize:11 width:tableView.bounds.size.width - 20];
+    CGFloat height =  65 + [text heightWithFontSize:18 width:tableView.bounds.size.width - 20];
     return  height;
 }
 
