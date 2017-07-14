@@ -131,7 +131,7 @@
     _lblTitle.text = @"国泰金龙债务A";
     _lblTitle.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:fontSize];
     _lblTitle.textColor = [UIColor colorWithRed:59/255 green:59/255 blue:59/255 alpha:1];
-    _lblTitle.textAlignment = NSTextAlignmentCenter;
+    _lblTitle.textAlignment = NSTextAlignmentLeft;
     [_descriptionPanel addSubview:_lblTitle];
     
     [self resetConstraintsForTitle];
@@ -143,7 +143,7 @@
     CGFloat heightOfLblTitle = 15;
     
     //TODO:Set it when setting the value of title
-    CGFloat widthOffset = self.bounds.size.width - 200;
+    CGFloat widthOffset = self.bounds.size.width - 190;
     CGFloat widthOfTitle = [_lblTitle.text widthWithFontSize:fontSize height:heightOfLblTitle];
     
     if (widthOfTitle > widthOffset) {
