@@ -160,6 +160,8 @@
 -(void) addNationalImageView{
     _nationalImageView = [[UIImageView alloc] init];
     _nationalImageView.image = [UIImage imageNamed:@"sign_china"];
+    _nationalImageView.layer.cornerRadius = 7.5;
+    _nationalImageView.layer.masksToBounds = YES;
     [_descriptionPanel addSubview:_nationalImageView];
     
     [_nationalImageView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -76,6 +76,8 @@
         make.top.equalTo(self).offset(15);
         make.width.equalTo(@25);
         make.height.equalTo(@25);
+        _avatar.layer.cornerRadius = 12.5;
+        _avatar.layer.masksToBounds = YES;
     }];
     
     [_lblNickName mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -110,6 +112,5 @@
         make.height.equalTo(@1);
     }];
 }
-
 
 @end
