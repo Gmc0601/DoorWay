@@ -181,6 +181,7 @@
 
 - (void)PraiseBtnClick:(UIButton *)sender{
 //    [ConfigModel saveBoolObject:NO forKey:IsLogin];
+    NSLog(@"%@888", IsLogin);
     if ([ConfigModel getBoolObjectforKey:IsLogin] ) {
         if ([readStr isEqualToString:@"1"]) {
             NSMutableDictionary *UNPraiseMudic = [NSMutableDictionary new];
@@ -276,7 +277,7 @@
      readCountLabel.frame = CGRectMake(kScreenW-18-150-16, -18-30, 150, 10);
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '340%'"];
     
-//     NSLog(@"%f------", webView.scrollView.contentSize.height);
+     NSLog(@"%f------", webView.scrollView.contentSize.height);
 //    NSString *js=@"var script = document.createElement('script');"
 //    "script.type = 'text/javascript';"
 //    "script.text = \"function ResizeImages() { "
