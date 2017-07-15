@@ -79,7 +79,7 @@
 -(void)LoadDatas
 {
     isload = YES;
-     [self getTableViewDate];
+//     [self getTableViewDate];
 //    [myMTableView.footer ResetNomoreData];
     
 //    // 模拟延时设置
@@ -110,11 +110,11 @@
 }
 
 - (void)getTableViewDate{
-    if (isload) {
-        _refreshCount =1;
-        [_NewSArrCount removeAllObjects];
-        [_NewSArrID removeAllObjects];
-    }
+//    if (isload) {
+//        _refreshCount =1;
+//        [_NewSArrCount removeAllObjects];
+//        [_NewSArrID removeAllObjects];
+//    }
     NSMutableDictionary *homeMudic = [NSMutableDictionary new];
     NSString *countStr = [NSString stringWithFormat:@"%d", _refreshCount];
     [homeMudic setObject:countStr forKey:@"page"];

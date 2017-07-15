@@ -74,6 +74,44 @@
 }
 
 
+- (void)getUrlViewWebDetail{
+    NSMutableDictionary *newsIdMudic = [NSMutableDictionary new];
+    [newsIdMudic setObject:self.newsId forKey:@"id"];
+    NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+    [newsIdMudic setObject:userTokenStr forKey:@"userToken"];
+    [HttpRequest postPath:@"_newsdetails_001" params:newsIdMudic resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSLog(@"%@_newsdetails_001>>>>>>%@",responseObject[@"info"][@"userhint"], responseObject);
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] == 0) {
+            NSDictionary *infoDic = responseObject[@"info"];
+            urlStr = infoDic[@"content"];
+            readStr = infoDic[@"userhint"];
+            if ([readStr isEqualToString:@"1"]) {
+                [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_yz"] forState:UIControlStateNormal];
+            }else{
+                [PraiseBtn setImage:[UIImage imageNamed:@"btn_zxxq_wz"] forState:UIControlStateNormal];
+            }
+
+            
+        }else {
+            NSString *info = datadic[@"info"];
+            [ConfigModel mbProgressHUD:info andView:nil];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
+    
+
+    
+    
+}
+
+
+
 - (void)getUrlWebDetail{
     NSMutableDictionary *newsIdMudic = [NSMutableDictionary new];
     [newsIdMudic setObject:self.newsId forKey:@"id"];
@@ -256,14 +294,14 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self getUrlWebDetail];
+    [self getUrlViewWebDetail];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar_bg"] forBarMetrics:UIBarMetricsDefault];
      [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
 //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
-    
+    [self getUrlViewWebDetail];
     [UIApplication sharedApplication].statusBarStyle =UIStatusBarStyleLightContent;
    
 }
@@ -305,13 +343,13 @@
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"%f------%f-----%f", scrollView.contentSize.height,scrollView.contentOffset.y,scrollView.frame.size.height);
+    NSLog(@"%f------%f-----%f", scrollView.contentSize.height - scrollView.contentOffset.y+130,scrollView.contentOffset.y,scrollView.frame.size.height);
 //    667.000000-------260.000000-----667.000000
 //    1776.000000------1239.000000-----667.000000   537
     
 //    568.000000-------194.000000-----568.000000
 //    1491.000000------1053.000000-----568.000000   438
-    if ((scrollView.contentSize.height - scrollView.contentOffset.y) == scrollView.frame.size.height-130) {
+    if ((scrollView.contentSize.height - scrollView.contentOffset.y +130) <= scrollView.frame.size.height+50) {
     
         NSLog(@"到底了。。。。");
         

@@ -12,7 +12,7 @@
 #import "registNameViewController.h"
 
 
-@interface RegistCodeViewController ()
+@interface RegistCodeViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *regist2GetCodeBtn;
 @property(assign, nonatomic) NSInteger timeCount;
 @property(strong, nonatomic) NSTimer *timer;
@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.accountTF.delegate = self;
     self.regist2GetCodeBtn.layer.borderColor = RGBColor(55, 159, 242).CGColor;
     self.regist2GetCodeBtn.layer.cornerRadius = 3;
 //    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
@@ -169,6 +170,27 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.codeTF resignFirstResponder];
+}
+
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+
+    
+    if (textField == self.accountTF) {
+        //这里的if时候为了获取删除操作,如果没有次if会造成当达到字数限制后删除键也不能使用的后果.
+        if (range.length == 1 && string.length == 0) {
+            return YES;
+        }
+        //so easy
+        else if (self.accountTF.text.length >= 11) {
+            self.accountTF.text = [textField.text substringToIndex:11];
+             [ConfigModel mbProgressHUD:@"您只能输入11位数的手机号" andView:self.view];
+            return NO;
+        }
+    }
+    return YES;
 }
 /*
 #pragma mark - Navigation

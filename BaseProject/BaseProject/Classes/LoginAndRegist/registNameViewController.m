@@ -86,6 +86,7 @@
         
     }else{
         [ConfigModel mbProgressHUD:@"两次输入的密码不一样" andView:self.view];
+        return;
 
     }
 //    NSString *MD5Str = [self.passwordTF.text md5WithString];
