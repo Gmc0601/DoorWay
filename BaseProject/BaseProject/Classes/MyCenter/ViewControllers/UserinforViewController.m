@@ -10,8 +10,15 @@
 #import "SecurityViewController.h"
 #import "NicknameViewController.h"
 
+
+#import "KeychainUUID.h"
+#import "UIImageView+WebCache.h"
+
 @interface UserinforViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
 
+{
+    UILabel *setLableNumber;
+}
 @end
 
 @implementation UserinforViewController
@@ -21,15 +28,48 @@
     [super viewDidLoad];
     
     [self setCustomerTitle:@"个人资料"];
-    
+    [self getUserInfo];
     self.view.backgroundColor = UIColorFromHex(0xf0f0f0);
     
     self.navigationController.navigationBar.translucent = NO;
+    
+    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickPersonBackBtn)];
+
     
     [self saveButton];
     
     [self  setIMageMain];
 }
+
+
+- (void)getUserInfo{
+    
+    [HttpRequest postPath:@"_userprofile_001" params:nil resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSDictionary *datadic = responseObject[@"info"];
+        
+           NSLog(@"login>>>>>>%@", datadic);
+        
+        if ([datadic[@"error"] intValue] == 0) {
+            [imageView sd_setImageWithURL:[NSURL URLWithString:datadic[@"avatar_url"]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+            setLable.text = datadic[@"nickname"];
+            setLableNumber.text = datadic[@"mobile"];
+            
+        }else {
+            NSString *info = datadic[@"info"];
+            [ConfigModel mbProgressHUD:info andView:nil];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
+
+    
+}
+
+
 
 -(UIButton *)saveButton{
     if (!_saveButton) {
@@ -45,7 +85,9 @@
 
 
 
-
+- (void)clickPersonBackBtn{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 /*
@@ -118,7 +160,7 @@
             
             setLable=[[UILabel alloc]init];
             setLable.backgroundColor=[UIColor clearColor];
-            setLable.text=@"狗篮子项目啊";
+//            setLable.text=@"狗篮子项目啊";
             setLable.textColor = UIColorFromHex(0x333333);
             setLable.font = HelveticaNeueFont(16*SCALE);
             setLable.userInteractionEnabled=YES;
@@ -136,9 +178,9 @@
         }
         
         if (i==2){
-            UILabel *setLableNumber=[[UILabel alloc]init];
+            setLableNumber=[[UILabel alloc]init];
             setLableNumber.backgroundColor=[UIColor clearColor];
-            setLableNumber.text=@"1851822539";
+//            setLableNumber.text=@"1851822539";
             setLableNumber.textColor = UIColorFromHex(0x333333);
             setLableNumber.font = HelveticaNeueFont(16*SCALE);
             setLableNumber.textAlignment = NSTextAlignmentRight;
@@ -148,10 +190,56 @@
                 make.top.mas_equalTo(150*SCALE);
                 make.height.mas_equalTo(30*SCALE);
                 make.width.mas_equalTo(100*SCALE);
+                
+                UIButton *outBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                outBtn.frame = CGRectMake(60, 250, kScreenW-120, 40);
+                [outBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+                [outBtn addTarget:self action:@selector(goOutBtn) forControlEvents:UIControlEventTouchUpInside];
+                outBtn.backgroundColor = RGB(57, 116, 238);
+                [self.view addSubview:outBtn];
             }];
         }
     }
 }
+
+
+-(void)goOutBtn{
+    
+    NSString *userTokenStr = [ConfigModel getStringforKey:UserToken];
+    NSMutableDictionary *mudic = [NSMutableDictionary new];
+    //        [mudic setObject:userTokenStr forKey:@"userToken"];
+    KeychainUUID *keychain = [[KeychainUUID alloc] init];
+    id data = [keychain readUDID];
+    NSString *udidStr = data;
+    //        [mudic setObject:udidStr forKey:@"device_number"];
+    [HttpRequest postPath:@"_logout_001" params:mudic resultBlock:^(id responseObject, NSError *error) {
+        
+        if([error isEqual:[NSNull null]] || error == nil){
+            NSLog(@"success");
+        }
+        
+        NSLog(@"%@login>>>>>>",responseObject);
+        
+        NSDictionary *datadic = responseObject;
+        if ([datadic[@"error"] intValue] == 0) {
+            
+            NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+            [ConfigModel mbProgressHUD:@"退出成功" andView:nil];
+            
+        }else {
+            NSString *info = datadic[@"info"];
+            [ConfigModel mbProgressHUD:info andView:nil];
+        }
+        NSLog(@"error>>>>%@", error);
+    }];
+
+
+    
+    
+}
+
+
 
 //昵称
 -(void)imageOne:(UITapGestureRecognizer*)recognizer{

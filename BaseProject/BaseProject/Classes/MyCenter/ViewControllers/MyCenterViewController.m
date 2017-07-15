@@ -176,8 +176,9 @@
 -(void)loginButton:(UIButton*)sender{
     
     LoginViewController *login=[[LoginViewController alloc]init];
-    login.loginType=Login_Navigation;
-    [self.navigationController pushViewController:login animated:YES];
+    login.loginType=Login_Present;
+//    [self.navigationController pushViewController:login animated:YES];
+     [self presentViewController:login animated:YES completion:nil];
     
 }
 
@@ -221,10 +222,7 @@
         if (indexPath.row==0) {
             
             securityVC *security = [[securityVC alloc]init];
-            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:security];
-            [self.navigationController presentViewController:nav animated:YES completion:^{
-                
-            }];
+           [self.navigationController pushViewController:security animated:YES];
 
         }else if (indexPath.row==1){
             
