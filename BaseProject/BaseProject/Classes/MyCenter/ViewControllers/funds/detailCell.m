@@ -29,10 +29,11 @@
 -(UILabel *)titleLabel{
     
     if (!_titleLabel) {
+        
         self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(16, 10, screenWidth - 180, 15)];
         self.titleLabel.textColor = [UIColor colorWithHexString:@"#333333"];
         self.titleLabel.font = [UIFont SYSTEMFontOfSize:15];
-        self.titleLabel.text = @"提现";
+        
     }
     return  _titleLabel;
 }
@@ -43,7 +44,7 @@
         self.timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(16, 33, screenWidth - 180, 15)];
         self.timeLabel.textColor = [UIColor colorWithHexString:@"#999999"];
         self.timeLabel.font = [UIFont SYSTEMFontOfSize:12];
-        self.timeLabel.text = @"2017/7/5";
+        
     }
     return  _timeLabel;
 }
@@ -54,7 +55,6 @@
         self.moneyLabel = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth - 164, 10,148, 15)];
         self.moneyLabel.textColor = [UIColor colorWithHexString:@"#333333"];
         self.moneyLabel.font = [UIFont SYSTEMFontOfSize:15];
-        self.moneyLabel.text = @"-100";
         self.moneyLabel.textAlignment = NSTextAlignmentRight;
     }
     return  _moneyLabel;
@@ -67,10 +67,26 @@
         self.stateLabel.textColor = [UIColor colorWithHexString:@"#999999"];
         self.stateLabel.font = [UIFont SYSTEMFontOfSize:12];
         self.stateLabel.textAlignment = NSTextAlignmentRight;
-        self.stateLabel.text = @"提现审核中";
+
     }
     return  _stateLabel;
 }
+
+-(UIButton *)stateBut{
+    
+    if (!_stateBut) {
+        self.stateBut =[UIButton buttonWithType:UIButtonTypeCustom];
+        self.stateBut.frame = CGRectMake(screenWidth - 164, 33, 148, 15);
+        self.stateBut.backgroundColor = [UIColor clearColor];
+        
+        self.stateBut.userInteractionEnabled = NO;
+    }
+    
+    
+    return _stateBut;
+}
+
+
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -81,7 +97,7 @@
         [self addSubview:self.timeLabel];
         [self addSubview:self.stateLabel];
         [self addSubview:self.moneyLabel];
-        
+        [self addSubview:self.stateBut];
     }
     return self;
 }
@@ -91,13 +107,30 @@
     self.moneyLabel.text = info.amount;
     self.timeLabel.text = info.create_time;
     self.titleLabel.text = info.action_type;
-    if ([info.wirhdrawals_type isEqualToString:@"1"]) {
-        self.stateLabel.text = @"成功";
-    }else  if ([info.wirhdrawals_type isEqualToString:@"2"]){
-        self.stateLabel.text = @"审核中";
-    }else  if ([info.wirhdrawals_type isEqualToString:@"3"]){
-        self.stateLabel.text = @"失败";
+    
+    if ([info.action_type isEqualToString:@"提现"]) {
+    
+        if ([info.wirhdrawals_type isEqualToString:@"提现失败"]) {
+            
+            self.stateBut.userInteractionEnabled = YES;
+            self.stateLabel.text = [NSString stringWithFormat:@"%@ 原因",info.wirhdrawals_type];
+            [self label:self.stateLabel allStr:self.stateLabel.text rangeStr:@"原因"];
+        }else{
+            
+           self.stateLabel.text = info.wirhdrawals_type;
+        }
     }
+}
+
+-(void)label:(UILabel *)label allStr:(NSString *)allStr rangeStr:(NSString *)rangeStr{
+    
+    NSMutableAttributedString *noteStr = [[NSMutableAttributedString alloc] initWithString: allStr];
+    NSRange redRange = NSMakeRange([[noteStr string] rangeOfString:rangeStr].location, [[noteStr string] rangeOfString:rangeStr].length);
+    //需要设置的位置
+    [noteStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#379ff2"] range:redRange];
+    //设置颜色
+    [label setAttributedText:noteStr];
+    
 }
 
 

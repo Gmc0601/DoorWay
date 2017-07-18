@@ -17,7 +17,7 @@
 @property(nonatomic,strong)UILabel *timeLabel;
 @property(nonatomic,strong)UILabel *moneyLabel;
 @property(nonatomic,strong)UILabel *stateLabel;
-
+@property(nonatomic,strong)UIButton *stateBut;
 -(void)showData:(deatilMoneyModel *)info;
 
 

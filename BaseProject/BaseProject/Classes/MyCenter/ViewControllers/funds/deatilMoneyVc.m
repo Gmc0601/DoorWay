@@ -21,6 +21,15 @@
 @property(nonatomic,strong)UITableView *detailMoneyTab;
 @property(nonatomic,strong)UIButton *backBut;
 @property(nonatomic,strong)NSMutableArray *mutableArr;
+@property(nonatomic,strong)UIView *bgView;
+@property(nonatomic,strong)UIView *errorView;
+@property(nonatomic,strong)UILabel *errorTitle;
+@property(nonatomic,strong)UITextView *errorText;
+@property(nonatomic,strong)UIButton *errorBut;
+
+
+
+
 
 @end
 
@@ -39,8 +48,23 @@ static NSString *indentifier = @"cell";
     [self.navigationController.navigationBar addSubview:self.backBut];
     self.mutableArr = [NSMutableArray arrayWithCapacity:1];
     
+    [self.bgView addSubview:self.errorView];
+    [self.errorView addSubview:self.errorTitle];
+    [self.errorView addSubview:self.errorBut];
+    [self.errorView addSubview:self.errorText];
+    
     [self.view addSubview:self.detailMoneyTab];
     [self loadData];
+    
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    tap1.cancelsTouchesInView = NO;
+    [self.bgView addGestureRecognizer:tap1];
+    
+}
+
+-(void)viewTapped:(UITapGestureRecognizer*)tap1
+{
+    [self.bgView removeFromSuperview];
     
 }
 
@@ -53,16 +77,20 @@ static NSString *indentifier = @"cell";
     
     [HttpRequest postPath:@"_mscaccount_001" params:nil resultBlock:^(id responseObject, NSError *error) {
         
-        NSLog(@"快完了，弄好就可以下班了%@",responseObject);
-        //        [ConfigModel mbProgressHUD:responseObject[@"info"] andView:nil];
-        
+    if ([responseObject[@"error"] intValue] == 0) {
         for (NSDictionary *dic  in responseObject[@"info"]) {
             
             deatilMoneyModel *model = [[deatilMoneyModel alloc]initWithShowInfor:dic];
             [self.mutableArr addObject:model];
             
         }
+
         [self.detailMoneyTab reloadData];
+    }else {
+        
+        [ConfigModel mbProgressHUD:responseObject[@"info"] andView:nil];
+    }
+        
     }];
 }
 
@@ -138,7 +166,9 @@ static NSString *indentifier = @"cell";
         cell = [[detailCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:indentifier];
     }
     
+    [cell.stateBut addTarget:self action:@selector(statePress:) forControlEvents:UIControlEventTouchUpInside];
     if (self.mutableArr.count > 0) {
+        
         deatilMoneyModel *model = self.mutableArr[indexPath.row];
         [cell showData:model];
     }
@@ -146,13 +176,85 @@ static NSString *indentifier = @"cell";
     return cell;
 }
 
+-(void)statePress:(UIButton *)but{
+    
+    detailCell *cell = (detailCell *)[but superview];
+    NSIndexPath *index = [self.detailMoneyTab indexPathForCell:cell];
+    deatilMoneyModel *model = self.mutableArr[index.row];
+    self.errorText.text = model.cause;
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self.bgView];
+}
+
 #pragma  make - UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+}
+
+-(UIView *)bgView{
     
-   
+    if (!_bgView) {
+        self.bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+        self.bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.38];
+        
+    }
+    return _bgView;
+}
+
+-(UIView *)errorView{
+    
+    if (!_errorView) {
+        self.errorView = [[UIView alloc]initWithFrame:CGRectMake((screenWidth-300)/2,(screenHeight - 176)/2, 300, 176)];
+        self.errorView.backgroundColor = [UIColor whiteColor];
+        self.errorView.layer.cornerRadius = 5;
+        self.errorView.layer.masksToBounds = YES;
+        self.errorView.alpha = 1;
+    }
+    return _errorView;
+}
+
+-(UILabel *)errorTitle{
+    
+    if (!_errorTitle) {
+        self.errorTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, 300, 20)];
+        self.errorTitle.text = @"失败原因";
+        self.errorTitle.textColor = [UIColor colorWithHexString:@"#333333"];
+        self.errorTitle.textAlignment = NSTextAlignmentCenter;
+    }
+    return _errorTitle;
+}
+
+-(UITextView *)errorText{
+    
+    if (!_errorText) {
+        self.errorText = [[UITextView alloc]initWithFrame:CGRectMake(15, 65, 270, 35)];
+        self.errorText.font = [UIFont SYSTEMFontOfSize:15];
+        self.errorText.textColor = [UIColor colorWithHexString:@"#333333"];
+        self.errorText.editable = NO;
+    }
+    
+    return _errorText;
+}
+
+-(UIButton *)errorBut{
+    
+    if (!_errorBut) {
+        self.errorBut = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.errorBut.frame = CGRectMake(15, 117, 270, 44);
+        [self.errorBut setTitle:@"知道了" forState:UIControlStateNormal];
+        self.errorBut.backgroundColor = [UIColor colorWithHexString:@"#379ff2"];
+         [self.errorBut addTarget:self action:@selector(errorPress) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _errorBut;
+}
+
+-(void)errorPress{
+    
+    [self.bgView removeFromSuperview];
 }
 
 @end

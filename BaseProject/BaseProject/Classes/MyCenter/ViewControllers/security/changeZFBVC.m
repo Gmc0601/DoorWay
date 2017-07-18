@@ -172,8 +172,6 @@ static NSString *indentifier = @"cell";
         
         [ConfigModel mbProgressHUD:@"输入不能为空" andView:nil];
     }
-
-    
 }
 
 -(UITableView *)passwordTab{

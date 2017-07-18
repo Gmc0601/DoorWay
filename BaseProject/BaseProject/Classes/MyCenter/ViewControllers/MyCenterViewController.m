@@ -222,7 +222,10 @@
         if (indexPath.row==0) {
             
             securityVC *security = [[securityVC alloc]init];
-           [self.navigationController pushViewController:security animated:YES];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:security];
+            [self.navigationController presentViewController:nav animated:YES completion:^{
+                
+            }];
 
         }else if (indexPath.row==1){
             
@@ -254,10 +257,4 @@
         }
     }
 }
-
-
-
-
-
-
 @end

@@ -73,20 +73,6 @@
 		42C84F1C1EF2EB650008189D /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84F171EF2EB650008189D /* NSObject+SBJSON.m */; };
 		42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84F191EF2EB650008189D /* NSString+SBJSON.m */; };
 		42C84F1E1EF2EB650008189D /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C84F1B1EF2EB650008189D /* SBJSON.m */; };
-		42D3D1DB1F167C5B006B6DCC /* deatilMoneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1BF1F167C5B006B6DCC /* deatilMoneyModel.m */; };
-		42D3D1DC1F167C5B006B6DCC /* deatilMoneyVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1C11F167C5B006B6DCC /* deatilMoneyVc.m */; };
-		42D3D1DD1F167C5B006B6DCC /* detailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1C31F167C5B006B6DCC /* detailCell.m */; };
-		42D3D1DE1F167C5B006B6DCC /* fundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1C51F167C5B006B6DCC /* fundsVC.m */; };
-		42D3D1DF1F167C5B006B6DCC /* transferVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1C71F167C5B006B6DCC /* transferVC.m */; };
-		42D3D1E01F167C5B006B6DCC /* withdrawalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1C91F167C5B006B6DCC /* withdrawalVC.m */; };
-		42D3D1E11F167C5B006B6DCC /* changeEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1CC1F167C5B006B6DCC /* changeEmailVC.m */; };
-		42D3D1E21F167C5B006B6DCC /* changePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1CE1F167C5B006B6DCC /* changePasswordVC.m */; };
-		42D3D1E31F167C5B006B6DCC /* changeZFBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1D01F167C5B006B6DCC /* changeZFBVC.m */; };
-		42D3D1E41F167C5B006B6DCC /* pulicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1D21F167C5B006B6DCC /* pulicMath.m */; };
-		42D3D1E51F167C5B006B6DCC /* SecurityCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1D41F167C5B006B6DCC /* SecurityCenterVC.m */; };
-		42D3D1E61F167C5B006B6DCC /* securityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1D61F167C5B006B6DCC /* securityVC.m */; };
-		42D3D1E71F167C5B006B6DCC /* UIColor+UIColor_Hex_color.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1D81F167C5B006B6DCC /* UIColor+UIColor_Hex_color.m */; };
-		42D3D1E81F167C5B006B6DCC /* UIFont+UIFont_MyFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D3D1DA1F167C5B006B6DCC /* UIFont+UIFont_MyFont.m */; };
 		42F795BB1F00C8B200A11A69 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795AE1F00C8B200A11A69 /* BaseTableView.m */; };
 		42F795BC1F00C8B200A11A69 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795B01F00C8B200A11A69 /* BaseViewController.m */; };
 		42F795BD1F00C8B200A11A69 /* TBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F795B31F00C8B200A11A69 /* TBNavigationController.m */; };
@@ -113,6 +99,20 @@
 		6BC09F641F0644A1007CF871 /* InvestmentBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F5F1F0644A1007CF871 /* InvestmentBaseTableView.m */; };
 		6BC09F651F0644A1007CF871 /* CommnetsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F611F0644A1007CF871 /* CommnetsTableView.m */; };
 		6BC09F661F0644A1007CF871 /* WebTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC09F631F0644A1007CF871 /* WebTableView.m */; };
+		9BF12CD41F1DBE0100AC4F9C /* deatilMoneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CB81F1DBE0100AC4F9C /* deatilMoneyModel.m */; };
+		9BF12CD51F1DBE0100AC4F9C /* deatilMoneyVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CBA1F1DBE0100AC4F9C /* deatilMoneyVc.m */; };
+		9BF12CD61F1DBE0100AC4F9C /* detailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CBC1F1DBE0100AC4F9C /* detailCell.m */; };
+		9BF12CD71F1DBE0100AC4F9C /* fundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CBE1F1DBE0100AC4F9C /* fundsVC.m */; };
+		9BF12CD81F1DBE0100AC4F9C /* transferVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CC01F1DBE0100AC4F9C /* transferVC.m */; };
+		9BF12CD91F1DBE0100AC4F9C /* withdrawalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CC21F1DBE0100AC4F9C /* withdrawalVC.m */; };
+		9BF12CDA1F1DBE0100AC4F9C /* changeEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CC51F1DBE0100AC4F9C /* changeEmailVC.m */; };
+		9BF12CDB1F1DBE0100AC4F9C /* changePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CC71F1DBE0100AC4F9C /* changePasswordVC.m */; };
+		9BF12CDC1F1DBE0100AC4F9C /* changeZFBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CC91F1DBE0100AC4F9C /* changeZFBVC.m */; };
+		9BF12CDD1F1DBE0100AC4F9C /* pulicMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CCB1F1DBE0100AC4F9C /* pulicMath.m */; };
+		9BF12CDE1F1DBE0100AC4F9C /* SecurityCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CCD1F1DBE0100AC4F9C /* SecurityCenterVC.m */; };
+		9BF12CDF1F1DBE0100AC4F9C /* securityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CCF1F1DBE0100AC4F9C /* securityVC.m */; };
+		9BF12CE01F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CD11F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.m */; };
+		9BF12CE11F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF12CD31F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.m */; };
 		B79A5CFD6299881CB3643ACB /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EBE4FCE8758654A9B05419 /* libPods-BaseProject.a */; };
 		C505AEB21F08B045008691C8 /* DeclarationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C505AEB11F08B045008691C8 /* DeclarationView.m */; };
 		C505AEB41F08B051008691C8 /* DeclarationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C505AEB31F08B051008691C8 /* DeclarationView.xib */; };
@@ -314,34 +314,6 @@
 		42C84F191EF2EB650008189D /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
 		42C84F1A1EF2EB650008189D /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		42C84F1B1EF2EB650008189D /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		42D3D1BE1F167C5B006B6DCC /* deatilMoneyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deatilMoneyModel.h; sourceTree = "<group>"; };
-		42D3D1BF1F167C5B006B6DCC /* deatilMoneyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deatilMoneyModel.m; sourceTree = "<group>"; };
-		42D3D1C01F167C5B006B6DCC /* deatilMoneyVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deatilMoneyVc.h; sourceTree = "<group>"; };
-		42D3D1C11F167C5B006B6DCC /* deatilMoneyVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deatilMoneyVc.m; sourceTree = "<group>"; };
-		42D3D1C21F167C5B006B6DCC /* detailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailCell.h; sourceTree = "<group>"; };
-		42D3D1C31F167C5B006B6DCC /* detailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailCell.m; sourceTree = "<group>"; };
-		42D3D1C41F167C5B006B6DCC /* fundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundsVC.h; sourceTree = "<group>"; };
-		42D3D1C51F167C5B006B6DCC /* fundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundsVC.m; sourceTree = "<group>"; };
-		42D3D1C61F167C5B006B6DCC /* transferVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transferVC.h; sourceTree = "<group>"; };
-		42D3D1C71F167C5B006B6DCC /* transferVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = transferVC.m; sourceTree = "<group>"; };
-		42D3D1C81F167C5B006B6DCC /* withdrawalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = withdrawalVC.h; sourceTree = "<group>"; };
-		42D3D1C91F167C5B006B6DCC /* withdrawalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = withdrawalVC.m; sourceTree = "<group>"; };
-		42D3D1CB1F167C5B006B6DCC /* changeEmailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeEmailVC.h; sourceTree = "<group>"; };
-		42D3D1CC1F167C5B006B6DCC /* changeEmailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeEmailVC.m; sourceTree = "<group>"; };
-		42D3D1CD1F167C5B006B6DCC /* changePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePasswordVC.h; sourceTree = "<group>"; };
-		42D3D1CE1F167C5B006B6DCC /* changePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePasswordVC.m; sourceTree = "<group>"; };
-		42D3D1CF1F167C5B006B6DCC /* changeZFBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeZFBVC.h; sourceTree = "<group>"; };
-		42D3D1D01F167C5B006B6DCC /* changeZFBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeZFBVC.m; sourceTree = "<group>"; };
-		42D3D1D11F167C5B006B6DCC /* pulicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pulicMath.h; sourceTree = "<group>"; };
-		42D3D1D21F167C5B006B6DCC /* pulicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pulicMath.m; sourceTree = "<group>"; };
-		42D3D1D31F167C5B006B6DCC /* SecurityCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityCenterVC.h; sourceTree = "<group>"; };
-		42D3D1D41F167C5B006B6DCC /* SecurityCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityCenterVC.m; sourceTree = "<group>"; };
-		42D3D1D51F167C5B006B6DCC /* securityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = securityVC.h; sourceTree = "<group>"; };
-		42D3D1D61F167C5B006B6DCC /* securityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = securityVC.m; sourceTree = "<group>"; };
-		42D3D1D71F167C5B006B6DCC /* UIColor+UIColor_Hex_color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Hex_color.h"; sourceTree = "<group>"; };
-		42D3D1D81F167C5B006B6DCC /* UIColor+UIColor_Hex_color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Hex_color.m"; sourceTree = "<group>"; };
-		42D3D1D91F167C5B006B6DCC /* UIFont+UIFont_MyFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+UIFont_MyFont.h"; sourceTree = "<group>"; };
-		42D3D1DA1F167C5B006B6DCC /* UIFont+UIFont_MyFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+UIFont_MyFont.m"; sourceTree = "<group>"; };
 		42F795AD1F00C8B200A11A69 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		42F795AE1F00C8B200A11A69 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		42F795AF1F00C8B200A11A69 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -394,6 +366,34 @@
 		6BC09F611F0644A1007CF871 /* CommnetsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommnetsTableView.m; sourceTree = "<group>"; };
 		6BC09F621F0644A1007CF871 /* WebTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTableView.h; sourceTree = "<group>"; };
 		6BC09F631F0644A1007CF871 /* WebTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTableView.m; sourceTree = "<group>"; };
+		9BF12CB71F1DBE0100AC4F9C /* deatilMoneyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deatilMoneyModel.h; sourceTree = "<group>"; };
+		9BF12CB81F1DBE0100AC4F9C /* deatilMoneyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deatilMoneyModel.m; sourceTree = "<group>"; };
+		9BF12CB91F1DBE0100AC4F9C /* deatilMoneyVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deatilMoneyVc.h; sourceTree = "<group>"; };
+		9BF12CBA1F1DBE0100AC4F9C /* deatilMoneyVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deatilMoneyVc.m; sourceTree = "<group>"; };
+		9BF12CBB1F1DBE0100AC4F9C /* detailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailCell.h; sourceTree = "<group>"; };
+		9BF12CBC1F1DBE0100AC4F9C /* detailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailCell.m; sourceTree = "<group>"; };
+		9BF12CBD1F1DBE0100AC4F9C /* fundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundsVC.h; sourceTree = "<group>"; };
+		9BF12CBE1F1DBE0100AC4F9C /* fundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundsVC.m; sourceTree = "<group>"; };
+		9BF12CBF1F1DBE0100AC4F9C /* transferVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transferVC.h; sourceTree = "<group>"; };
+		9BF12CC01F1DBE0100AC4F9C /* transferVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = transferVC.m; sourceTree = "<group>"; };
+		9BF12CC11F1DBE0100AC4F9C /* withdrawalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = withdrawalVC.h; sourceTree = "<group>"; };
+		9BF12CC21F1DBE0100AC4F9C /* withdrawalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = withdrawalVC.m; sourceTree = "<group>"; };
+		9BF12CC41F1DBE0100AC4F9C /* changeEmailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeEmailVC.h; sourceTree = "<group>"; };
+		9BF12CC51F1DBE0100AC4F9C /* changeEmailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeEmailVC.m; sourceTree = "<group>"; };
+		9BF12CC61F1DBE0100AC4F9C /* changePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePasswordVC.h; sourceTree = "<group>"; };
+		9BF12CC71F1DBE0100AC4F9C /* changePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePasswordVC.m; sourceTree = "<group>"; };
+		9BF12CC81F1DBE0100AC4F9C /* changeZFBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeZFBVC.h; sourceTree = "<group>"; };
+		9BF12CC91F1DBE0100AC4F9C /* changeZFBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeZFBVC.m; sourceTree = "<group>"; };
+		9BF12CCA1F1DBE0100AC4F9C /* pulicMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pulicMath.h; sourceTree = "<group>"; };
+		9BF12CCB1F1DBE0100AC4F9C /* pulicMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pulicMath.m; sourceTree = "<group>"; };
+		9BF12CCC1F1DBE0100AC4F9C /* SecurityCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityCenterVC.h; sourceTree = "<group>"; };
+		9BF12CCD1F1DBE0100AC4F9C /* SecurityCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityCenterVC.m; sourceTree = "<group>"; };
+		9BF12CCE1F1DBE0100AC4F9C /* securityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = securityVC.h; sourceTree = "<group>"; };
+		9BF12CCF1F1DBE0100AC4F9C /* securityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = securityVC.m; sourceTree = "<group>"; };
+		9BF12CD01F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Hex_color.h"; sourceTree = "<group>"; };
+		9BF12CD11F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Hex_color.m"; sourceTree = "<group>"; };
+		9BF12CD21F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+UIFont_MyFont.h"; sourceTree = "<group>"; };
+		9BF12CD31F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+UIFont_MyFont.m"; sourceTree = "<group>"; };
 		A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		C505AEB01F08B045008691C8 /* DeclarationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeclarationView.h; sourceTree = "<group>"; };
 		C505AEB11F08B045008691C8 /* DeclarationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeclarationView.m; sourceTree = "<group>"; };
@@ -831,48 +831,6 @@
 			path = Json;
 			sourceTree = "<group>";
 		};
-		42D3D1BD1F167C5B006B6DCC /* funds */ = {
-			isa = PBXGroup;
-			children = (
-				42D3D1BE1F167C5B006B6DCC /* deatilMoneyModel.h */,
-				42D3D1BF1F167C5B006B6DCC /* deatilMoneyModel.m */,
-				42D3D1C01F167C5B006B6DCC /* deatilMoneyVc.h */,
-				42D3D1C11F167C5B006B6DCC /* deatilMoneyVc.m */,
-				42D3D1C21F167C5B006B6DCC /* detailCell.h */,
-				42D3D1C31F167C5B006B6DCC /* detailCell.m */,
-				42D3D1C41F167C5B006B6DCC /* fundsVC.h */,
-				42D3D1C51F167C5B006B6DCC /* fundsVC.m */,
-				42D3D1C61F167C5B006B6DCC /* transferVC.h */,
-				42D3D1C71F167C5B006B6DCC /* transferVC.m */,
-				42D3D1C81F167C5B006B6DCC /* withdrawalVC.h */,
-				42D3D1C91F167C5B006B6DCC /* withdrawalVC.m */,
-			);
-			path = funds;
-			sourceTree = "<group>";
-		};
-		42D3D1CA1F167C5B006B6DCC /* security */ = {
-			isa = PBXGroup;
-			children = (
-				42D3D1CB1F167C5B006B6DCC /* changeEmailVC.h */,
-				42D3D1CC1F167C5B006B6DCC /* changeEmailVC.m */,
-				42D3D1CD1F167C5B006B6DCC /* changePasswordVC.h */,
-				42D3D1CE1F167C5B006B6DCC /* changePasswordVC.m */,
-				42D3D1CF1F167C5B006B6DCC /* changeZFBVC.h */,
-				42D3D1D01F167C5B006B6DCC /* changeZFBVC.m */,
-				42D3D1D11F167C5B006B6DCC /* pulicMath.h */,
-				42D3D1D21F167C5B006B6DCC /* pulicMath.m */,
-				42D3D1D31F167C5B006B6DCC /* SecurityCenterVC.h */,
-				42D3D1D41F167C5B006B6DCC /* SecurityCenterVC.m */,
-				42D3D1D51F167C5B006B6DCC /* securityVC.h */,
-				42D3D1D61F167C5B006B6DCC /* securityVC.m */,
-				42D3D1D71F167C5B006B6DCC /* UIColor+UIColor_Hex_color.h */,
-				42D3D1D81F167C5B006B6DCC /* UIColor+UIColor_Hex_color.m */,
-				42D3D1D91F167C5B006B6DCC /* UIFont+UIFont_MyFont.h */,
-				42D3D1DA1F167C5B006B6DCC /* UIFont+UIFont_MyFont.m */,
-			);
-			path = security;
-			sourceTree = "<group>";
-		};
 		42F7959D1F00C84600A11A69 /* Investmentprojects */ = {
 			isa = PBXGroup;
 			children = (
@@ -908,8 +866,8 @@
 		42F795A41F00C84600A11A69 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				42D3D1BD1F167C5B006B6DCC /* funds */,
-				42D3D1CA1F167C5B006B6DCC /* security */,
+				9BF12CB61F1DBE0100AC4F9C /* funds */,
+				9BF12CC31F1DBE0100AC4F9C /* security */,
 				C505AECB1F08FF76008691C8 /* LimitAmoutController */,
 				C5175FDE1F078B84003C45C2 /* ReleaseProjectController */,
 				0A4F24D01F04EC2100C2C50D /* SecurityController */,
@@ -1058,6 +1016,48 @@
 				A2BC379B4929E517CCEBBD81 /* Pods-BaseProject.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9BF12CB61F1DBE0100AC4F9C /* funds */ = {
+			isa = PBXGroup;
+			children = (
+				9BF12CB71F1DBE0100AC4F9C /* deatilMoneyModel.h */,
+				9BF12CB81F1DBE0100AC4F9C /* deatilMoneyModel.m */,
+				9BF12CB91F1DBE0100AC4F9C /* deatilMoneyVc.h */,
+				9BF12CBA1F1DBE0100AC4F9C /* deatilMoneyVc.m */,
+				9BF12CBB1F1DBE0100AC4F9C /* detailCell.h */,
+				9BF12CBC1F1DBE0100AC4F9C /* detailCell.m */,
+				9BF12CBD1F1DBE0100AC4F9C /* fundsVC.h */,
+				9BF12CBE1F1DBE0100AC4F9C /* fundsVC.m */,
+				9BF12CBF1F1DBE0100AC4F9C /* transferVC.h */,
+				9BF12CC01F1DBE0100AC4F9C /* transferVC.m */,
+				9BF12CC11F1DBE0100AC4F9C /* withdrawalVC.h */,
+				9BF12CC21F1DBE0100AC4F9C /* withdrawalVC.m */,
+			);
+			path = funds;
+			sourceTree = "<group>";
+		};
+		9BF12CC31F1DBE0100AC4F9C /* security */ = {
+			isa = PBXGroup;
+			children = (
+				9BF12CC41F1DBE0100AC4F9C /* changeEmailVC.h */,
+				9BF12CC51F1DBE0100AC4F9C /* changeEmailVC.m */,
+				9BF12CC61F1DBE0100AC4F9C /* changePasswordVC.h */,
+				9BF12CC71F1DBE0100AC4F9C /* changePasswordVC.m */,
+				9BF12CC81F1DBE0100AC4F9C /* changeZFBVC.h */,
+				9BF12CC91F1DBE0100AC4F9C /* changeZFBVC.m */,
+				9BF12CCA1F1DBE0100AC4F9C /* pulicMath.h */,
+				9BF12CCB1F1DBE0100AC4F9C /* pulicMath.m */,
+				9BF12CCC1F1DBE0100AC4F9C /* SecurityCenterVC.h */,
+				9BF12CCD1F1DBE0100AC4F9C /* SecurityCenterVC.m */,
+				9BF12CCE1F1DBE0100AC4F9C /* securityVC.h */,
+				9BF12CCF1F1DBE0100AC4F9C /* securityVC.m */,
+				9BF12CD01F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.h */,
+				9BF12CD11F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.m */,
+				9BF12CD21F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.h */,
+				9BF12CD31F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.m */,
+			);
+			path = security;
 			sourceTree = "<group>";
 		};
 		C505AEAF1F08B037008691C8 /* DeclarationView */ = {
@@ -1478,12 +1478,12 @@
 			files = (
 				42C84F101EF2E97D0008189D /* UIView+Category.m in Sources */,
 				CA6665781F0F177E001626DD /* IQUIScrollView+Additions.m in Sources */,
-				42D3D1E81F167C5B006B6DCC /* UIFont+UIFont_MyFont.m in Sources */,
+				9BF12CE11F1DBE0100AC4F9C /* UIFont+UIFont_MyFont.m in Sources */,
 				C5175FB01F0521C2003C45C2 /* CenterRootViewController.m in Sources */,
 				CA6665801F0F177F001626DD /* IQBarButtonItem.m in Sources */,
 				C5175F9F1F04ACE1003C45C2 /* PublicClass.m in Sources */,
 				6BC09F641F0644A1007CF871 /* InvestmentBaseTableView.m in Sources */,
-				42D3D1E31F167C5B006B6DCC /* changeZFBVC.m in Sources */,
+				9BF12CDC1F1DBE0100AC4F9C /* changeZFBVC.m in Sources */,
 				CA66657A1F0F177E001626DD /* IQUIView+Hierarchy.m in Sources */,
 				6B97B88D1F10CD8E00E07A09 /* CommentCell.m in Sources */,
 				6B2E68E51F04D2E8008F7D5C /* InvestmentInfoView.m in Sources */,
@@ -1496,19 +1496,19 @@
 				C505AEB81F08D069008691C8 /* AllReleaseProjectController.m in Sources */,
 				CA6665771F0F177E001626DD /* IQNSArray+Sort.m in Sources */,
 				42C84F061EF2E97D0008189D /* NSTimer+Category.m in Sources */,
-				42D3D1DF1F167C5B006B6DCC /* transferVC.m in Sources */,
-				42D3D1E61F167C5B006B6DCC /* securityVC.m in Sources */,
+				9BF12CD81F1DBE0100AC4F9C /* transferVC.m in Sources */,
+				9BF12CDF1F1DBE0100AC4F9C /* securityVC.m in Sources */,
 				C505AEDA1F090428008691C8 /* AmoutDetailCell.m in Sources */,
 				42347BFF1F03996400D56D8D /* RegistViewController.m in Sources */,
 				6BC09F661F0644A1007CF871 /* WebTableView.m in Sources */,
-				42D3D1E51F167C5B006B6DCC /* SecurityCenterVC.m in Sources */,
+				9BF12CDE1F1DBE0100AC4F9C /* SecurityCenterVC.m in Sources */,
 				42C84F031EF2E97D0008189D /* NSString+DisplayTime.m in Sources */,
 				42C84ECA1EF2DD1A0008189D /* NSDictionary+Smart.m in Sources */,
 				CA6665821F0F177F001626DD /* IQTitleBarButtonItem.m in Sources */,
 				CA6665841F0F177F001626DD /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				0A7421A11F03A197007FC9DE /* UserinforViewController.m in Sources */,
 				42C84EC81EF2DD1A0008189D /* DIc.m in Sources */,
-				42D3D1E71F167C5B006B6DCC /* UIColor+UIColor_Hex_color.m in Sources */,
+				9BF12CE01F1DBE0100AC4F9C /* UIColor+UIColor_Hex_color.m in Sources */,
 				0A4F24D31F04EC3B00C2C50D /* SecurityViewController.m in Sources */,
 				CA6665831F0F177F001626DD /* IQToolbar.m in Sources */,
 				C5175FE21F078B9A003C45C2 /* ReleaseProjectController.m in Sources */,
@@ -1520,13 +1520,13 @@
 				42C84EFF1EF2E97D0008189D /* NSMutableArray+Category.m in Sources */,
 				0A74218F1F0373BD007FC9DE /* NewsTableViewCell.m in Sources */,
 				42F795BD1F00C8B200A11A69 /* TBNavigationController.m in Sources */,
-				42D3D1DC1F167C5B006B6DCC /* deatilMoneyVc.m in Sources */,
+				9BF12CD51F1DBE0100AC4F9C /* deatilMoneyVc.m in Sources */,
 				C505AEC91F08ED1F008691C8 /* ProjectDetailController.m in Sources */,
 				42C84F0F1EF2E97D0008189D /* UIView+BGFrame.m in Sources */,
 				42F795FE1F024FF100A11A69 /* KeychainUUID.m in Sources */,
 				42F795CD1F00CBDF00A11A69 /* FactorySet.m in Sources */,
 				CA66657F1F0F177F001626DD /* IQTextView.m in Sources */,
-				42D3D1DB1F167C5B006B6DCC /* deatilMoneyModel.m in Sources */,
+				9BF12CD41F1DBE0100AC4F9C /* deatilMoneyModel.m in Sources */,
 				42F795BF1F00C8B200A11A69 /* TBTabBar.m in Sources */,
 				CA66657D1F0F177F001626DD /* IQKeyboardManager.m in Sources */,
 				42F795BB1F00C8B200A11A69 /* BaseTableView.m in Sources */,
@@ -1552,7 +1552,7 @@
 				42C84EFC1EF2E97D0008189D /* NSData+Category.m in Sources */,
 				42C84EFB1EF2E97D0008189D /* NSAttributedString+Category.m in Sources */,
 				CAF809961F03AE4A0024333C /* NewsWebViewController.m in Sources */,
-				42D3D1E11F167C5B006B6DCC /* changeEmailVC.m in Sources */,
+				9BF12CDA1F1DBE0100AC4F9C /* changeEmailVC.m in Sources */,
 				C505AECF1F08FF87008691C8 /* LimitAmoutController.m in Sources */,
 				42C84EAF1EF2DB060008189D /* ViewController.m in Sources */,
 				42C84EB91EF2DCD90008189D /* MainApi.m in Sources */,
@@ -1563,8 +1563,8 @@
 				42C84F1D1EF2EB650008189D /* NSString+SBJSON.m in Sources */,
 				42347BF81F03996400D56D8D /* LoginViewController.m in Sources */,
 				42C84ECB1EF2DD1A0008189D /* NSString+MD5.m in Sources */,
-				42D3D1E01F167C5B006B6DCC /* withdrawalVC.m in Sources */,
-				42D3D1E21F167C5B006B6DCC /* changePasswordVC.m in Sources */,
+				9BF12CD91F1DBE0100AC4F9C /* withdrawalVC.m in Sources */,
+				9BF12CDB1F1DBE0100AC4F9C /* changePasswordVC.m in Sources */,
 				C5175FB91F052CEA003C45C2 /* CityModelData.m in Sources */,
 				42C84F1C1EF2EB650008189D /* NSObject+SBJSON.m in Sources */,
 				42C84F0D1EF2E97D0008189D /* UITableViewCell+CellAnimation.m in Sources */,
@@ -1574,7 +1574,7 @@
 				42347BFD1F03996400D56D8D /* registNameViewController.m in Sources */,
 				42C84F001EF2E97D0008189D /* NSMutableAttributedString+Category.m in Sources */,
 				42C84F0B1EF2E97D0008189D /* UIMenuItem+Category.m in Sources */,
-				42D3D1DE1F167C5B006B6DCC /* fundsVC.m in Sources */,
+				9BF12CD71F1DBE0100AC4F9C /* fundsVC.m in Sources */,
 				42C84EB61EF2DCBC0008189D /* ConfigModel.m in Sources */,
 				C505AEB21F08B045008691C8 /* DeclarationView.m in Sources */,
 				42C84EB11EF2DB060008189D /* main.m in Sources */,
@@ -1585,8 +1585,8 @@
 				CA66657E1F0F177F001626DD /* IQKeyboardReturnKeyHandler.m in Sources */,
 				C505AED41F0903DE008691C8 /* AmoutDetailController.m in Sources */,
 				42C84EFD1EF2E97D0008189D /* NSData+CommonCryptor.m in Sources */,
-				42D3D1E41F167C5B006B6DCC /* pulicMath.m in Sources */,
-				42D3D1DD1F167C5B006B6DCC /* detailCell.m in Sources */,
+				9BF12CDD1F1DBE0100AC4F9C /* pulicMath.m in Sources */,
+				9BF12CD61F1DBE0100AC4F9C /* detailCell.m in Sources */,
 				42C84F0A1EF2E97D0008189D /* UIImage+Category.m in Sources */,
 				6BB7A6821F02A5D400F23B5F /* InvestmentItemTableViewCell.m in Sources */,
 				42F795C31F00C91600A11A69 /* NewsInfoViewController.m in Sources */,

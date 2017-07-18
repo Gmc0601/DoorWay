@@ -66,7 +66,6 @@
             self.remainingMoney.text = self.money;
             self.aliPay = responseObject[@"info"][@"alipay_account"];
 
-            NSLog(@"任他吗的都是自私的：%@",responseObject);
         }else {
             //
             [ConfigModel mbProgressHUD:dataDic[@"info"] andView:nil];
