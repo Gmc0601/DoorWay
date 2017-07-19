@@ -12,7 +12,7 @@
 
 +(void) loadData:(int) page callback:(void(^)(NSArray *)) callBack{
     NSMutableArray *models = [[NSMutableArray alloc] init];
-    NSDictionary *params = @{@"page":[NSNumber numberWithInt:page],@"size":@10};
+    NSDictionary *params = @{@"page":[NSNumber numberWithInt:page],@"size":@3};
     
     [HttpRequest postPath:@"_investitem_001" params:params resultBlock:^(id responseObject, NSError *error) {
         

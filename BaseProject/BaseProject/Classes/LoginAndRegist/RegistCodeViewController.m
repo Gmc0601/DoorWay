@@ -30,13 +30,13 @@
     self.accountTF.delegate = self;
     self.regist2GetCodeBtn.layer.borderColor = RGBColor(55, 159, 242).CGColor;
     self.regist2GetCodeBtn.layer.cornerRadius = 3;
-//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-//    titleLabel.text = @"注册";
-//    titleLabel.textColor = [UIColor whiteColor];
-//    titleLabel.font = [UIFont systemFontOfSize:18];
-//    self.navigationItem.titleView = titleLabel;
-//    
-//    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist2BackBtn)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    titleLabel.text = @"注册";
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    self.navigationItem.titleView = titleLabel;
+    
+    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickRegist2BackBtn)];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -160,7 +160,9 @@
         registNameVC.codeStr = self.codeTF.text;
         registNameVC.mobileStr = self.accountTF.text;
         registNameVC.inventedStrCode = self.inventedStr;
-        [self presentViewController:registNameVC animated:YES completion:nil];
+//        [self presentViewController:registNameVC animated:YES completion:nil];
+        [self.navigationController pushViewController:registNameVC animated:YES];
+
     }else{
         [ConfigModel mbProgressHUD:@"验证码错误" andView:self.view];
     }

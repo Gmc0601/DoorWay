@@ -28,7 +28,7 @@
     [super viewDidLoad];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
     titleLabel.text = @"注册";
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     titleLabel.font = [UIFont systemFontOfSize:18];
     self.navigationItem.titleView = titleLabel;
     
@@ -133,7 +133,8 @@
 - (IBAction)ProtocolBtn:(UIButton *)sender {
     ProtocolViewController *protocolVC = [[ProtocolViewController alloc] init];
     UINavigationController *nV = [[UINavigationController alloc] initWithRootViewController:protocolVC];
-    [self presentViewController:nV animated:YES completion:nil];
+//    [self presentViewController:nV animated:YES completion:nil];
+    [self.navigationController pushViewController:protocolVC animated:YES];
 }
 
 

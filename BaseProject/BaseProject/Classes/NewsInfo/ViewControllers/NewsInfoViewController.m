@@ -48,7 +48,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setCustomerTitle: @"新闻资讯"];
     
-    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(LoadDatas)];
+    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_xx"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(loggint)];
     // Do any additional setup after loading the view.
     
     myMTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-44) style:UITableViewStylePlain];
@@ -58,9 +58,8 @@
     [self.view addSubview:myMTableView];
     
 
-     [self getTableViewDate];
-    
-    
+//     [self getTableViewDate];
+
       __weak NewsInfoViewController *weakself=self;
     [myMTableView addRefreshHeaderWithBlock:^{
         
@@ -76,10 +75,18 @@
     [myMTableView.header beginRefreshing];
 }
 
+- (void)loggint{
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:nv animated:YES completion:nil];
+}
+
+
+
 -(void)LoadDatas
 {
     isload = YES;
-//     [self getTableViewDate];
+     [self getTableViewDate];
 //    [myMTableView.footer ResetNomoreData];
     
 //    // 模拟延时设置
@@ -96,11 +103,11 @@
     _refreshCount++;
     [self getTableViewDate];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-       [myMTableView.footer endFooterRefreshing];
-
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//       [myMTableView.footer endFooterRefreshing];
+//
+//    });
 }
 
 
@@ -110,11 +117,11 @@
 }
 
 - (void)getTableViewDate{
-//    if (isload) {
-//        _refreshCount =1;
-//        [_NewSArrCount removeAllObjects];
-//        [_NewSArrID removeAllObjects];
-//    }
+    if (isload) {
+        _refreshCount =1;
+        [_NewSArrCount removeAllObjects];
+        [_NewSArrID removeAllObjects];
+    }
     NSMutableDictionary *homeMudic = [NSMutableDictionary new];
     NSString *countStr = [NSString stringWithFormat:@"%d", _refreshCount];
     [homeMudic setObject:countStr forKey:@"page"];
@@ -153,10 +160,9 @@
                 }
             }
             
+             [myMTableView reloadData];
              [myMTableView.footer endFooterRefreshing];
                NSLog(@"444%lu", (unsigned long)_NewSArrCount.count);
-            [myMTableView reloadData];
-           
 
             
         }else {

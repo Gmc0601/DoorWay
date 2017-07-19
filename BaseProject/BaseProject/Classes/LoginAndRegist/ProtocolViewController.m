@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view.
     
     DetailWebView = [[UIWebView alloc] init];
-    DetailWebView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    DetailWebView.frame = CGRectMake(10, 0, self.view.bounds.size.width-20, self.view.bounds.size.height);
     DetailWebView.delegate = self;
     DetailWebView.scalesPageToFit = YES;
     //    [DetailWebView loadHTMLString:URLStr baseURL:nil];
@@ -80,7 +80,7 @@
 
 
 - (void)clickProtocolBackBtn{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -97,6 +97,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '340%'"];
+    
+
 }
 
 

@@ -49,8 +49,8 @@
 
 - (IBAction)registBtn:(UIButton *)sender {
     RegistViewController *registVC = [[RegistViewController alloc] init];
-    [self presentViewController:registVC animated:YES completion:nil];
-//    [self.navigationController pushViewController:registVC animated:YES];
+    NSLog(@"*888%@", self.navigationController);
+    [self.navigationController pushViewController:registVC animated:YES];
     
 }
 
@@ -58,7 +58,8 @@
 
 - (IBAction)findBackPWBtn:(UIButton *)sender {
     ForgetPWViewController *forgetPW = [[ForgetPWViewController alloc ] init];
-    [self presentViewController:forgetPW animated:YES completion:nil];
+//    [self presentViewController:forgetPW animated:YES completion:nil];
+    [self.navigationController pushViewController:forgetPW animated:YES];
 }
 
 - (IBAction)loginBtn:(UIButton *)sender {

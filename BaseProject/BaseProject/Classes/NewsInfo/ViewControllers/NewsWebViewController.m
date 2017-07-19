@@ -279,9 +279,9 @@
     }else{
         LoginViewController *loginVC = [[LoginViewController alloc ] init];
 //        self.loginViewC = loginVC;
-//        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:loginVC];
-//        [self presentViewController:navi animated:YES completion:nil];
-        [self presentViewController:loginVC animated:YES completion:nil];
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self presentViewController:navi animated:YES completion:nil];
+//        [self presentViewController:loginVC animated:YES completion:nil];
 
         
     }

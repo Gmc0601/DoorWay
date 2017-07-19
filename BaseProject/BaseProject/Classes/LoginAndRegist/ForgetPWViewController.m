@@ -27,18 +27,34 @@
 
 @implementation ForgetPWViewController
 
+
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar_bg"] forBarMetrics:UIBarMetricsDefault];
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated:YES];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].statusBarStyle =UIStatusBarStyleLightContent;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.getcodeBtn.layer.borderColor = RGBColor(55, 159, 242).CGColor;
-//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-//    titleLabel.text = @"忘记密码";
-//    titleLabel.textColor = [UIColor whiteColor];
-//    titleLabel.font = [UIFont systemFontOfSize:18];
-//    self.navigationItem.titleView = titleLabel;
-//    
-//    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBackBtn)];
-    // Do any additional setup after loading the view from its nib.
-//     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    titleLabel.text = @"忘记密码";
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    self.navigationItem.titleView = titleLabel;
+
+    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_fh_b"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickNewsBackBtn)];
+//     Do any additional setup after loading the view from its nib.
+     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
 
 }
 
