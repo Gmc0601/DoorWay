@@ -33,7 +33,8 @@
 @implementation NewsInfoViewController
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self getTableViewDate];
+//     [myMTableView.header beginRefreshing];
+//    [self getTableViewDate];
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_phb"] forBarMetrics:UIBarMetricsDefault];
     
 }
@@ -58,7 +59,7 @@
     [self.view addSubview:myMTableView];
     
 
-//     [self getTableViewDate];
+     [self getTableViewDate];
 
       __weak NewsInfoViewController *weakself=self;
     [myMTableView addRefreshHeaderWithBlock:^{
@@ -125,7 +126,7 @@
     NSMutableDictionary *homeMudic = [NSMutableDictionary new];
     NSString *countStr = [NSString stringWithFormat:@"%d", _refreshCount];
     [homeMudic setObject:countStr forKey:@"page"];
-    [homeMudic setObject:@"10" forKey:@"size"];
+    [homeMudic setObject:@"2" forKey:@"size"];
     [HttpRequest postPath:@"_homenews_001" params:homeMudic resultBlock:^(id responseObject, NSError *error) {
         
         if([error isEqual:[NSNull null]] || error == nil){
